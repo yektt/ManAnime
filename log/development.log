@@ -67,3 +67,4 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 174ms (Views: 2.6ms)
 
 
+  Rendered /Users/yektaturan/.rvm/gems/ruby-2.6.5/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
