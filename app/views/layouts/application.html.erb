@@ -10,7 +10,12 @@
 
   <body>
     <%= render partial: 'anonymous_users_header' %>
-    <%= yield %>
+    
+    <div class="container mb-5">
+      <%= yield %>
+    </div>
+
+    <div class="mt-5 mb-5"></div>
     <%= render partial: 'footer' %>
   </body>
 </html>
