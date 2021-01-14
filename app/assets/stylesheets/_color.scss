@@ -1,0 +1,23 @@
+header {
+  background-color: #ccd2ce !important;
+  opacity: 0.85;
+}
+
+header a {
+  color: #6b6d6c ;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #3f4f60;
+  }
+}
+
+.active {
+  color: #3f4f60 !important;
+}
+
+header .navbar-brand {
+  color: #3f3445 !important;
+  font-weight: bold;
+}
