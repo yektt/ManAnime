@@ -1,9 +1,9 @@
-header {
+header, footer{
   background-color: #ccd2ce !important;
   opacity: 0.85;
 }
 
-header a {
+header a, footer a {
   color: #6b6d6c ;
 
   &:hover,
@@ -17,7 +17,7 @@ header a {
   color: #3f4f60 !important;
 }
 
-header .navbar-brand {
+.navbar-brand {
   color: #3f3445 !important;
   font-weight: bold;
 }
