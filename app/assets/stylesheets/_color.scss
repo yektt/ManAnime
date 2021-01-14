@@ -3,6 +3,10 @@ header, footer{
   opacity: 0.85;
 }
 
+body {
+  color: #3f3445 !important;
+}
+
 header a, footer a {
   color: #6b6d6c ;
 
@@ -20,4 +24,18 @@ header a, footer a {
 .navbar-brand {
   color: #3f3445 !important;
   font-weight: bold;
+}
+
+.btn-first {
+  color: #3f3445;
+  background-color: #ccd2ce;
+  border-color: #ccd2ce;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    color:  #ccd2ce;
+    background-color: #38424d;
+    border-color: #38424d;
+  }
 }
