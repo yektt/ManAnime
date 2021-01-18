@@ -3,8 +3,12 @@
   
   <%= form_for(@user, url: signup_path) do |form| %>
     <% if(@user.errors.any?) %>
-      <div class="alert alert-danger">
-        <%= @user.errors.full_messages.join('<br />') %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @user.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
       </div>
     <% end %>
 
