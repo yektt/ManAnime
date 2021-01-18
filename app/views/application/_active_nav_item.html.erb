@@ -1,0 +1,6 @@
+<% case
+   when (border == true && current_page?(uri))%>  <li class="nav-item border-right"> <%= link_to title , uri, class:'nav-link active' %> </li>
+<% when (border == false && current_page?(uri))%> <li class="nav-item"> <%= link_to title , uri, class:'nav-link active' %> </li>
+<% when (border == true && !current_page?(uri))%> <li class="nav-item border-right"> <%= link_to title , uri, class:'nav-link' %> </li>
+<% else %> <li class="nav-item"> <%= link_to title , uri, class:'nav-link' %> </li>
+<% end %>
