@@ -1,8 +1,14 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Sign up</h1>
-
+  
   <%= form_for(@user, url: signup_path) do |form| %>
-    <fieldset class="form-group">
+    <% if(@user.errors.any?) %>
+      <div class="alert alert-danger">
+        <%= @user.errors.full_messages.join('<br />') %>
+      </div>
+    <% end %>
+
+    <fieldset class="form-group mt-3">
       <%= form.label :email %>    
       <%= form.email_field :email, class:'form-control' %>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
