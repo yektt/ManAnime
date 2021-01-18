@@ -4,6 +4,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  after_initialize :default_role!
+
   private
 
   def default_role!
