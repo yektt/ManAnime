@@ -21,6 +21,23 @@ header a, footer a {
   color: #3f4f60 !important;
 }
 
+.admin-nav-link {
+  color: #82441c;
+  display: block;
+  padding: 0.5rem 0.5rem;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #3f4f60;
+    text-decoration: none;
+  }
+}
+
+.admin-active {
+  color: #c17544;
+} 
+
 .navbar-brand {
   color: #3f3445 !important;
   font-weight: bold;
