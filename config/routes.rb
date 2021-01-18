@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'contact', to:'home#contact'
   get 'search', to:'home#search'
   get 'add', to:'home#add'
+  get 'reports', to:'home#reports'
 
   get 'login', to:'session#new'  
   post 'login', to:'session#create'
