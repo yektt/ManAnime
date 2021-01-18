@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+#For adding password-hashing function
+gem 'bcrypt'
