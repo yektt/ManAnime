@@ -7,11 +7,11 @@
           <%= render(partial:'active_nav_item', locals:{ border: true, title:'Home', uri: root_path }) %>
           <%= render(partial:'active_nav_item', locals:{ border: true, title:'About', uri: about_path }) %>
           <%= render(partial:'active_nav_item', locals:{ border: true, title:'Help & Rules', uri: help_and_rules_path }) %>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          <%= render(partial:'active_nav_item', locals:{ border: false, title:'Contact', uri: contact_path }) %>
         </ul>
       </div>
       <div class="text-muted d-flex align-items-center justify-content-end">
-        <p class="mb-0">&copy; <%= Time.now.year %> - MangAnime</p>
+        <p class="mb-0">&copy; <%= Time.now.year %> - ManAnime</p>
       </div>
     </div>
   </nav>
