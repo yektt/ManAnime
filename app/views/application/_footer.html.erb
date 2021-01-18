@@ -6,7 +6,11 @@
         <ul class="navbar-nav mr-auto flex-wrap">
           <%= render(partial:'active_nav_item', locals:{ border: true, title:'Home', uri: root_path }) %>
           <%= render(partial:'active_nav_item', locals:{ border: true, title:'About', uri: about_path }) %>
-          <%= render(partial:'active_nav_item', locals:{ border: true, title:'Help & Rules', uri: help_and_rules_path }) %>
+          <% if (is_admin?) %>
+            <%= render(partial:'active_nav_item', locals:{ border: true, title:'Help & Rules - Admin', uri: admin_help_and_rules_path }) %>
+          <% else %>
+            <%= render(partial:'active_nav_item', locals:{ border: true, title:'Help & Rules', uri: help_and_rules_path }) %>
+          <% end %>
           <%= render(partial:'active_nav_item', locals:{ border: false, title:'Contact', uri: contact_path }) %>
         </ul>
       </div>
