@@ -7,7 +7,15 @@
         <%= render(partial:'active_nav_item', locals:{ border: true, title:'Home', uri: root_path }) %>
         <%= render(partial:'active_nav_item', locals:{ border: false, title:'Search', uri: search_path }) %>
       </ul>
-      
+      <% if (logged_in?) %>
+        <% if(is_admin?) %>
+          <%= render partial: 'admins_header' %>
+        <% else %>
+          <%= render partial: 'registered_users_header' %>
+        <%end%>
+      <% else %>
+        <% render partial: 'anonymous_users_header' %>
+      <% end %>
       </div>
     </div>
   </nav>
