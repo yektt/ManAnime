@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get 'about', to:'home#about'
+
   get 'login', to:'session#new'  
 
   get 'signup', to: 'users#new' 
