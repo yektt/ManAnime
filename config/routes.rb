@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'search', to:'home#search'
 
   get 'login', to:'session#new'  
+  post 'login', to:'session#create'
 
   get 'signup', to: 'users#new' 
   post 'signup', to: 'users#create'
