@@ -1,20 +1,20 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Sign up</h1>
 
-  <form>
+  <%= form_for(@user, url: signup_path) do |form| %>
     <fieldset class="form-group">
-      <label for="signup_email">Email address</label>
-      <input type="email" class="form-control" id="signup_email" aria-describedby="emailHelp">
+      <%= form.label :email %>    
+      <%= form.email_field :email, class:'form-control' %>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="signup_pass">Password</label>
-      <input type="password" class="form-control" id="signup_pass">
+      <%= form.label :password %>
+      <%= form.password_field :password, class:'form-control' %>
     </fieldset>
 
-    <fieldset>
-      <button type="submit" class="btn btn-first btn-block">Signup</button>
+    <fieldset class="form-group">
+      <%= form.submit 'Sign up', class:'btn btn-first btn-block' %>
     </fieldset>
-  </form>
+  <% end %>
 </div>
