@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about', to:'home#about'
   get 'help_and_rules', to:'home#help_n_rules'
   get 'contact', to:'home#contact'
+  get 'search', to:'home#search'
 
   get 'login', to:'session#new'  
 
