@@ -1,19 +1,19 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Log in</h1>
 
-  <form>
+  <%= form_tag(login_path) do %>
     <fieldset class="form-group">
-      <label for="login_email">Email address</label>
-      <input type="email" class="form-control" id="login_email" aria-describedby="emailHelp">
+      <%= label('Email', :email, nil) %>
+      <%= text_field_tag(:email, nil, class: 'form-control', placeholder: 'e.g. me@epfl.ch') %>
     </fieldset>
     
     <fieldset class="form-group">
-      <label for="login_pass">Password</label>
-      <input type="password" class="form-control" id="login_pass">
+      <%= label('Password', :password, nil) %>
+      <%= password_field_tag(:password, nil, class: 'form-control') %>
     </fieldset>
     
     <fieldset>
-      <button type="submit" class="btn btn-first btn-block">Login</button>
+      <%= submit_tag('Log in', class: 'btn btn-first btn-block') %>
     </fieldset>
-  </form>
+  <% end %>
 </div>
