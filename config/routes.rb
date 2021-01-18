@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'about', to:'home#about'
+  get 'help&rules', to:'home#help_n_rules'
 
   get 'login', to:'session#new'  
 
