@@ -43,16 +43,3 @@ header a, footer a {
   font-weight: bold;
 }
 
-.btn-first {
-  color: #3f3445;
-  background-color: #ccd2ce;
-  border-color: #ccd2ce;
-  
-  &:hover,
-  &:focus,
-  &:active {
-    color:  #ccd2ce;
-    background-color: #38424d;
-    border-color: #38424d;
-  }
-}
