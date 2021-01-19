@@ -11,3 +11,28 @@
     border-color: #38424d;
   }
 }
+
+.button-danger {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+
+  color:  #810c08;
+  border-color: #810c08;
+  background-color: transparent;
+  
+  &:hover,
+  &:focus,
+  &:active {
+    color:  #ccd2ce;
+    background-color: #810c08;
+    border-color: #810c08;
+  }
+}
