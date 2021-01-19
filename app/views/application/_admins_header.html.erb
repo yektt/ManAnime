@@ -1,5 +1,5 @@
 <ul class="navbar-nav justify-content-end">
-  <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: translate('add'), uri: '' }) %>
-  <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: translate('reports'), uri: '' }) %>
+  <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: translate('add'), uri: add_path }) %>
+  <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: translate('reports'), uri: reports_path }) %>
 </ul>
 <%= render partial:'registered_users_header' %>
