@@ -14,7 +14,16 @@
           <%= render(partial:'active_nav_item', locals:{ border: false, title:'Contact', uri: contact_path }) %>
         </ul>
       </div>
-      <div class="text-muted d-flex align-items-center justify-content-end">
+
+      <div>
+        <ul class="navbar-nav mr-auto flex-wrap">  
+          <% I18n.available_locales.each do |locale| %>
+              <li><%= link_to locale.upcase, url_for(locale: locale), class:'nav-link' %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="text-muted d-flex align-items-center justify-content-end ml-2">
         <p class="mb-0">&copy; <%= Time.now.year %> - ManAnime</p>
       </div>
     </div>
