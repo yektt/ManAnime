@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  after_initialize :default_role!
+  after_initialize :default_role!, :default_status!
 
   private
 
@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def default_role!
     self.role ||= 'registered'
   end
+
+  def default_status!
+    self.is_blocked ||= false
+  end 
 end
