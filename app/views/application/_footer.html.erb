@@ -4,14 +4,14 @@
       <%= render partial: 'logo' %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto flex-wrap">
-          <%= render(partial:'active_nav_item', locals:{ border: true, title:'Home', uri: root_path }) %>
-          <%= render(partial:'active_nav_item', locals:{ border: true, title:'About', uri: about_path }) %>
+          <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('home'), uri: root_path }) %>
+          <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('about'), uri: about_path }) %>
           <% if (is_admin?) %>
-            <%= render(partial:'admin_active_nav_item', locals:{ border: true, title:'Help & Rules - Admin', uri: admin_help_and_rules_path }) %>
+            <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: (translate('help') + ' & '+ translate('rules') +' - ' + translate('admin')), uri: admin_help_and_rules_path }) %>
           <% else %>
-            <%= render(partial:'active_nav_item', locals:{ border: true, title:'Help & Rules', uri: help_and_rules_path }) %>
+            <%= render(partial:'active_nav_item', locals:{ border: true, title: (translate('help') + ' & '+ translate('rules')), uri: help_and_rules_path }) %>
           <% end %>
-          <%= render(partial:'active_nav_item', locals:{ border: false, title:'Contact', uri: contact_path }) %>
+          <%= render(partial:'active_nav_item', locals:{ border: false, title: translate('contact'), uri: contact_path }) %>
         </ul>
       </div>
 
