@@ -1,10 +1,15 @@
 en:
   about: 'About'
   add: 'Add'
+  add_anime: 'Add Anime'
+  add_character: 'Add Character'
+  add_genre: 'Add Genre'
+  add_manga: 'Add Manga'
   admin: 'Admin'
 
   contact: 'Contact'
   
+  hello: 'Hello'
   help: 'Help'
   home: 'Home'
 
@@ -18,3 +23,6 @@ en:
 
   login: 'Login'
   logout: 'Logout'
+  
+  welcoming_add_page: 'What do you want to add?'
+

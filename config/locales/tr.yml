@@ -1,10 +1,15 @@
 tr:
   about: 'Hakkında'
   add: 'Ekle'
+  add_anime: 'Anime Ekle'
+  add_character: 'Karakter Ekle'
+  add_genre: 'Tür Ekle'
+  add_manga: 'Manga Ekle'
   admin: 'Yönetici'
 
   contact: 'İletişim'
   
+  hello: 'Merhaba'
   help: 'Yardım'
   home: 'Anasayfa'
 
@@ -18,4 +23,6 @@ tr:
   
   login: 'Giriş yap'
   logout: 'Oturumu kapat'
+  
+  welcoming_add_page: 'Ne eklemek istersin?'
   
