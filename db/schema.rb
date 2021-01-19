@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210118145706) do
+ActiveRecord::Schema.define(version: 20210119171530) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20210118145706) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "role"
+    t.string "name"
+    t.boolean "is_blocked"
+    t.string "avatar_url"
   end
 
 end
