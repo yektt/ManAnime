@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?, :current_user, :is_admin?
 
+  before_action :set_locale
+
   def logged_in?
     session[:user_id].present?
   end
@@ -17,5 +19,13 @@ class ApplicationController < ActionController::Base
   def is_admin?
     return false unless(logged_in?)
     true if(current_user.role == 'admin')
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_locale
+    { locale: I18n.locale }
   end
 end
