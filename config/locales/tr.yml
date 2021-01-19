@@ -1,1 +1,12 @@
 tr:
+  add: 'Ekle'
+
+  home: 'Anasayfa'
+
+  reports: 'Raporlar'
+
+  search: 'Arama'
+  signup: 'Kaydol'
+  
+  login: 'Giriş yap'
+  logout: 'Oturumu kapat'
