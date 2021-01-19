@@ -1,12 +1,19 @@
 tr:
+  about: 'Hakkında'
   add: 'Ekle'
+  admin: 'Yönetici'
 
+  contact: 'İletişim'
+  
+  help: 'Yardım'
   home: 'Anasayfa'
 
   reports: 'Raporlar'
+  rules: 'Kurallar'
 
   search: 'Arama'
   signup: 'Kaydol'
   
   login: 'Giriş yap'
   logout: 'Oturumu kapat'
+  

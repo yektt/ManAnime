@@ -1,10 +1,16 @@
 en:
+  about: 'About'
   add: 'Add'
+  admin: 'Admin'
 
+  contact: 'Contact'
+  
+  help: 'Help'
   home: 'Home'
 
   reports: 'Reports'
-  
+  rules: 'Rules'
+
   search: 'Search'
   signup: 'Signup'
 
