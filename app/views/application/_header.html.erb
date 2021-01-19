@@ -4,8 +4,8 @@
       <%= render partial: 'logo' %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <%= render(partial:'active_nav_item', locals:{ border: true, title:'Home', uri: root_path }) %>
-        <%= render(partial:'active_nav_item', locals:{ border: false, title:'Search', uri: search_path }) %>
+        <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('home'), uri: root_path }) %>
+        <%= render(partial:'active_nav_item', locals:{ border: false, title: translate('search'), uri: search_path }) %>
       </ul>
       <% if (logged_in?) %>
         <% if(is_admin?) %>
