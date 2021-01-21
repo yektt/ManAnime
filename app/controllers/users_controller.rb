@@ -34,6 +34,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def block
+    user = User.find(session[:user_id])
+    user.is_blocked = !user.is_blocked
+    user.save!
+
+    redirect_to profile_path
+  end
+  
   private
 
   def new_user_params
