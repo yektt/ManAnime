@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     post 'signup', to: 'users#create'
     get 'profile', to: 'users#show'
     get 'edit', to: 'users#edit'
+    patch 'update', to: 'users#update'
 
   end
 end
