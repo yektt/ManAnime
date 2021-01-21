@@ -18,7 +18,13 @@
           <p class="mt-auto"><%= @user.name %> has watched 9 anime.s and has read 3 manga.s until now. </p>
           <p class="card-text"><%= @user.name %> has made a comment on @manga-anime.</p>
           <p class="card-text">
-            <small class="text-muted"><%= @user.name %> has been a member since 3 mins ago - a dear user/admin of this application OR banned from application</small>
+            <small class="text-muted">
+              <% if (@user.is_blocked == false ) %>
+                <%= @user.name %> has been a member for <%= time_ago_in_words(@user.created_at) %> - <%= @user.role %>
+              <% else %>
+                banned from application
+              <% end %>
+            </small>
           </p>
         </div>
       </div>
