@@ -11,7 +11,11 @@
             <div class="d-flex flex-row-reverse">
               <%= link_to 'Edit', edit_path, class: 'btn btn-outline-secondary mr-3 text-right' %>
               <% if(is_admin?) %>
-                <button type="submit" class="btn btn-outline-danger mr-3">Block</button>
+                <% if(@user.is_blocked == true) %>
+                  <%= button_to "Block", block_path, class:'btn btn-outline-danger mr-3' %>
+                <% else %>
+                  <%= button_to "Unblock", block_path, class:'btn btn-outline-danger mr-3' %>
+                <% end %>
               <% end %>
             </div>
           </div>
