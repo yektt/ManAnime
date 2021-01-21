@@ -23,5 +23,6 @@ Rails.application.routes.draw do
     get 'edit', to: 'users#edit'
     patch 'update', to: 'users#update'
 
+    post 'block', to: 'users#block'
   end
 end
