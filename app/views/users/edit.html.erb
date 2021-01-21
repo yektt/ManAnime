@@ -1,19 +1,19 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Edit User</h1>
 
-  <form>
+ <%= form_for @user, url: update_path do |form| %>
     <fieldset class="form-group">
-      <label for="name">New name</label>
-      <input type="text" class="form-control" id="name">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="avatar">New Avatar URL</label>
-      <input type="text" class="form-control" id="avatar">
+      <%= form.label :avatar_url %>
+      <%= form.text_field :avatar_url, class: 'form-control' %>
     </fieldset>
 
     <fieldset class="mt-4">
-      <button type="submit" class="btn btn-first btn-block">Update</button>
+      <%= form.submit class: 'btn btn-first btn-block' %>
     </fieldset>
-  </form>
+  <% end %>
 </div>
