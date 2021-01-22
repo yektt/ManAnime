@@ -24,5 +24,8 @@ Rails.application.routes.draw do
     patch 'update', to: 'users#update'
 
     post 'block', to: 'users#block'
+
+    get 'add_genre', to: 'genres#new'
+    post 'add_genre', to: 'genres#create'
   end
 end
