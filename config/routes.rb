@@ -27,5 +27,8 @@ Rails.application.routes.draw do
 
     get 'add_genre', to: 'genres#new'
     post 'add_genre', to: 'genres#create'
+
+    get 'add_character', to: 'characters#new'
+    post 'add_character', to: 'characters#create'
   end
 end
