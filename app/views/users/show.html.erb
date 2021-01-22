@@ -2,7 +2,7 @@
   <div class="mt-5 mb-3 border-0 p-0">
     <div class="row">
       <div class="col-md-3">
-        <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img" alt="...">
+        <%= image_tag @user.avatar_url, class: 'card-img', alt: "Avatar for #{@user.name}" %>
       </div>
       <div class="col-md-9 d-flex">
         <div class="card-body d-flex flex-column pt-0 pb-0 pr-0">
