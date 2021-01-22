@@ -1,18 +1,18 @@
 <div class="d-flex flex-column">
   <div class="mt-5 mb-3 border-0 p-0">
     <div class="row">
-      <div class="col-md-3">
-        <img src="" class="card-img" alt="...">
+      <div class="col-md-5 pr-0">
+        <%= image_tag @character.avatar_url, class: 'card-img', alt: "Avatar for #{@character.name}" %>
       </div>
-      <div class="col-md-9 d-flex">
+      <div class="col-md-7 d-flex">
         <div class="card-body d-flex flex-column pt-0 pb-0 pr-0">
           <div class="d-flex justify-content-between align-items-center">
-            <h3 class="d-flex card-title m-0">Char name here</h3>
+            <h3 class="d-flex card-title m-0"><%= @character.name %> <%= @character.surname %></h3>
             <div class="d-flex flex-row-reverse">
               <%= link_to 'Edit', '', class: 'btn btn-outline-secondary mr-3 text-right' %>
             </div>
           </div>
-          <p class="mt-auto">Char info here</p>
+          <p class="mt-auto"><%= @character.information %></p>
         </div>
       </div>
     </div>
