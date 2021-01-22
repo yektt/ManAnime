@@ -1,30 +1,30 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Add Character</h1>
 
-  <form>
+  <%= form_for @character, url: add_character_path do |form| %>
     <fieldset class="form-group">
-      <label for="name">Character name</label>
-      <input type="text" class="form-control" id="name">
-    </fieldset>
-    
-    <fieldset class="form-group">
-      <label for="surname">Character surname</label>
-      <input type="text" class="form-control" id="surname">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="avatar">Character avatar</label>
-      <input type="text" class="form-control" id="avatar">
+      <%= form.label :surname %>
+      <%= form.text_field :surname, class: 'form-control' %>
     </fieldset>
 
     <fieldset class="form-group">
-      <label for="info">Character information</label>
-      <input type="text" class="form-control" id="info">
+      <%= form.label :avatar_url %>
+      <%= form.text_field :avatar_url, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :information %>
+      <%= form.text_area :information, class: 'form-control' %>
     </fieldset>
 
     <fieldset class="mt-4 d-flex flex-row align-items-center">
-      <a href="#" >Cancel </a>
-      <button type="submit" class="btn btn-first btn-block ml-3">Add Character</button>
+      <%= link_to translate('cancel'), add_path %>
+      <%= form.submit class: 'btn btn-first btn-block ml-3' %>
     </fieldset>
-  </form>
+  <% end %>
 </div>
