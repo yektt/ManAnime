@@ -30,5 +30,6 @@ Rails.application.routes.draw do
 
     get 'add_character', to: 'characters#new'
     post 'add_character', to: 'characters#create'
+    get ':id/show_character', to:'characters#show'
   end
 end
