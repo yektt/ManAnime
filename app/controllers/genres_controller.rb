@@ -11,4 +11,10 @@ class GenresController < ApplicationController
       render 'new'
     end
   end
+
+  private
+
+  def new_genre_params
+    params.require(:genre).permit(:name)
+  end
 end
