@@ -59,3 +59,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'sass-rails', '~> 5.0'
 #For adding password-hashing function
 gem 'bcrypt'
+#For uploading images from local
+gem 'carrierwave', '~> 1.1.0'
