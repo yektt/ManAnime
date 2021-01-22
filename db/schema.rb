@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210122140942) do
+ActiveRecord::Schema.define(version: 20210122153434) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20210122140942) do
     t.string "role"
     t.string "name"
     t.boolean "is_blocked"
-    t.string "avatar_url"
     t.string "avatar"
   end
 
