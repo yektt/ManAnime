@@ -14,4 +14,10 @@
   justify-content: space-between;
 }
 
+.flex-basis-45 {
+  flex: 0 0 45%;
+} 
 
+.flex-basis-auto {
+  flex: 1 1 auto;
+}
