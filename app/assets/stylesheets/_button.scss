@@ -1,3 +1,16 @@
+.button {
+  display: inline-block;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.25rem;
+} 
+
 .btn-first {
   color: #3f3445;
   background-color: #ccd2ce;
@@ -12,18 +25,23 @@
   }
 }
 
-.button-danger {
-  display: inline-block;
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  border: 1px solid transparent;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  border-radius: 0.25rem;
+.btn-white {
+  color: #6c757d;
+  background-color: transparent;
+  background-image: none;
+  border-color: #6c757d;
 
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    text-decoration: none;
+  }
+}
+
+.button-danger {
   color:  #810c08;
   border-color: #810c08;
   background-color: transparent;
@@ -31,8 +49,9 @@
   &:hover,
   &:focus,
   &:active {
-    color:  #ccd2ce;
+    color:  #fff;
     background-color: #810c08;
     border-color: #810c08;
+    text-decoration: none;
   }
 }
