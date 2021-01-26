@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
 
   scope '/:locale' do
     root to: 'home#index'
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
 
     get 'add_character', to: 'characters#new'
     post 'add_character', to: 'characters#create'
-    get ':id/show_character', to:'characters#show'
+    get '/:id/show_character', to:'characters#show', as:'show_character'
+    get '/:id/edit_character', to:'characters#edit', as:'edit_character'
+    patch '/:id/update_character', to:'characters#update', as:'update_character'
   end
 end
