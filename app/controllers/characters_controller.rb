@@ -4,11 +4,11 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new(new_character_params)
+    @character = Character.new(character_params)
 
     if (@character.save)
       flash[:notice] = "Successfully created!"
-      redirect_to add_path
+      redirect_to show_character_path(params[:locale], @character)
     else
       flash[:alert] = "All areas should be filled!"
       render 'new'
@@ -19,9 +19,26 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
   end
 
+  def edit
+    @character = Character.find(params[:id])
+    logger.info('in edit')
+    logger.info(@character.id)
+  end
+
+  def update
+    @character = Character.find(params[:id])
+    logger.info('in update')
+
+    if @character.update(character_params)
+      redirect_to show_character_path(params[:locale], @character)
+    else
+      format.html { render :edit }
+    end
+  end
+
   private
 
-  def new_character_params
+  def character_params
     params.require(:character).permit(:name, :surname, :avatar_url, :information)
   end
 end
