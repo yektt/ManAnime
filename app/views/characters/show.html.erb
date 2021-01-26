@@ -1,5 +1,5 @@
-<div class="flex d-flex-row margin-top-1">
-  <div class="margin-top-1 flex flex-d-row">
+<div class="flex d-flex-row margin-top-1" id="character_info">
+  <div class="margin-top-1 flex flex-d-row flex-basis-auto">
     <div class="flex flex-basis-45 margin-right-1 profile-image">
       <%= image_tag @character.avatar_url, class: 'border-curve', alt: "Avatar for #{@character.name}" %>
     </div>
@@ -7,10 +7,14 @@
       <div class="flex d-flex-column flex-basis-auto">
         <div class="flex content-between align-center margin-bottom-1">
           <h3 class="margin-0"><%= @character.name %> <%= @character.surname %></h3>
-          <%= link_to 'Edit', '', class: 'button btn-white margin-right-05' %>
+          <%= link_to 'Edit', edit_character_path(params[:locale],@character.id), class: 'button btn-white margin-right-05' %>
         </div>
-        <p class="margin-top-auto"><%= @character.information%></p>
+        <div class="margin-top-auto" id="character_special">
+          <p><%= @character.information%></p>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div id="character_general">
 </div>
