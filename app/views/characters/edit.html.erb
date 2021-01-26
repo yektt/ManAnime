@@ -1,0 +1,31 @@
+<div class="col-md-6 offset-md-3">
+  <h1 class="text-left display-4 mt-5 mb-5">Edit User</h1>
+
+ <%= form_for @character, url: update_character_path(params[:locale], @character.id) do |form| %>
+    <fieldset class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :surname %>
+      <%= form.text_field :surname, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :avatar_url %>
+      <%= form.text_field :avatar_url, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :information %>
+      <%= form.text_area :information, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="mt-4 d-flex flex-row align-items-center">
+      <%= link_to translate('cancel'), show_character_path(params[:locale], @character.id) %>
+      <%= form.submit class: 'btn btn-first btn-block ml-3' %>
+    </fieldset>
+    
+  <% end %>
+</div>
