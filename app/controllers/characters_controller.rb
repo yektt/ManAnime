@@ -7,7 +7,6 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
 
     if (@character.save)
-      flash[:notice] = "Successfully created!"
       redirect_to show_character_path(params[:locale], @character)
     else
       flash[:alert] = "All areas should be filled!"
