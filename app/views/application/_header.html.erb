@@ -4,17 +4,25 @@
       <%= render partial: 'logo' %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('home'), uri: root_path }) %>
-        <%= render(partial:'active_nav_item', locals:{ border: false, title: translate('search'), uri: search_path }) %>
+        <li class="nav-item border-right"> <%= link_to translate('home') , root_path, class:'active' %> </li>
+        <li class="nav-item"> <%= link_to translate('search') , search_path %> </li>
       </ul>
       <% if (logged_in?) %>
         <% if(is_admin?) %>
-          <%= render partial: 'admins_header' %>
-        <% else %>
-          <%= render partial: 'registered_users_header' %>
+          <ul class="navbar-nav justify-content-end">
+            <li class="nav_item border-right"> <%= link_to translate('add') , add_path, class:'admin-nav-link' %> </li>
+            <li class="nav_item border-right"> <%= link_to translate('reports') , reports_path, class:'admin-nav-link' %> </li>
+          </ul>
         <%end%>
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav_item border-right"> <%= link_to translate('profile') , profile_path %> </li>
+            <li> <%= link_to translate('logout'), logout_path, method: :delete %> </li>
+          </ul>
       <% else %>
-        <%= render partial: 'anonymous_users_header' %>
+        <ul class="navbar-nav justify-content-end">
+          <li class="nav_item border-right"> <%= link_to translate('login') , login_path %> </li>
+          <li class="nav_item"> <%= link_to translate('signup') , signup_path %> </li>
+        </ul>
       <% end %>
       </div>
     </div>

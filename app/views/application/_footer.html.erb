@@ -4,14 +4,14 @@
       <%= render partial: 'logo' %>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto flex-wrap">
-          <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('home'), uri: root_path }) %>
-          <%= render(partial:'active_nav_item', locals:{ border: true, title: translate('about'), uri: about_path }) %>
+          <li class="nav_item border-right p-2"> <%= link_to translate('home') , root_path %> </li>
+          <li class="nav_item border-right p-2"> <%= link_to translate('about') , about_path %> </li>
           <% if (is_admin?) %>
-            <%= render(partial:'admin_active_nav_item', locals:{ border: true, title: (translate('help') + ' & '+ translate('rules') +' - ' + translate('admin')), uri: admin_help_and_rules_path }) %>
+            <li class="nav_item border-right"> <%= link_to (translate('help') + ' & '+ translate('rules') +' - ' + translate('admin')) , admin_help_and_rules_path, class:'admin-nav-link' %> </li>
           <% else %>
-            <%= render(partial:'active_nav_item', locals:{ border: true, title: (translate('help') + ' & '+ translate('rules')), uri: help_and_rules_path }) %>
+            <li class="nav_item border-right"> <%= link_to (translate('help') + ' & '+ translate('rules')) , help_and_rules_path, class:'nav-link' %> </li>
           <% end %>
-          <%= render(partial:'active_nav_item', locals:{ border: false, title: translate('contact'), uri: contact_path }) %>
+          <li class="nav_item"> <%= link_to translate('contact') , contact_path, class:'nav-link' %> </li>
         </ul>
       </div>
 
