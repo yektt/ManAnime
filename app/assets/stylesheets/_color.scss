@@ -9,34 +9,32 @@ body {
 
 a {
   color: #6b6d6c ;
+  padding: 0.5rem;
 
   &:hover,
   &:focus,
   &:active {
-    color: #3f4f60;
-  }
-}
-
-.active {
-  color: #3f4f60 !important;
-}
-
-.admin-nav-link {
-  color: #82441c;
-  display: block;
-  padding: 0.5rem 0.5rem;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: #3f4f60;
+    color: #56162e;
     text-decoration: none;
   }
 }
 
-.admin-active {
-  color: #c17544;
-} 
+header .active, footer .active {
+  color: #56162e !important;
+  text-decoration: underline;
+}
+
+.admin-nav-link {
+  color:  #634545;
+  display: block;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #56162e;
+    text-decoration: none;
+  }
+}
 
 .navbar-brand {
   color: #3f3445 !important;
