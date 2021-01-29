@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
     @character = Character.new(character_params)
 
     if (@character.save)
-      redirect_to show_character_path(params[:locale], @character)
+      redirect_to show_character_path(@character)
     else
       flash[:alert] = "All areas should be filled!"
       render 'new'
@@ -29,7 +29,7 @@ class CharactersController < ApplicationController
     logger.info('in update')
 
     if @character.update(character_params)
-      redirect_to show_character_path(params[:locale], @character)
+      redirect_to show_character_path(@character)
     else
       format.html { render :edit }
     end
