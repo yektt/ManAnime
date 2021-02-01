@@ -13,9 +13,8 @@ Rails.application.routes.draw do
     get 'reports', to:'home#reports'
 
     resources :sessions, only: [:new, :create, :destroy]
-    get 'login', to:'session#new'  
-    post 'login', to:'session#create'
-    delete 'logout', to: 'session#destroy'
+    get 'logout', to: 'sessions#destroy', as: 'logout'
+    get 'login', to: 'sessions#new', as: 'login'
 
     resources :users
     get 'signup', to: 'users#new' 
