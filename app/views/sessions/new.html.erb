@@ -8,7 +8,7 @@
     </div>
   <% end %>
   
-  <%= form_tag(login_path) do %>
+  <%= form_tag(sessions_path) do %>
     <fieldset class="form-group">
       <%= label('Email', :email, nil) %>
       <%= text_field_tag(:email, nil, class: 'form-control', placeholder: 'e.g. me@epfl.ch') %>
