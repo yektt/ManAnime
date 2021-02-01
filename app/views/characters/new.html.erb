@@ -8,7 +8,7 @@
     </div>
   <% end %>
   
-  <%= form_for @character, url: add_character_path do |form| %>
+  <%= form_for @character do |form| %>
     <fieldset class="form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control' %>
@@ -28,7 +28,7 @@
       <%= form.label :information %>
       <%= form.text_area :information, class: 'form-control' %>
       <small>* Please do not forget to add the information up to given rules! 
-      <br>Example: <br>+gender_one_break+male_one_break+eye color_one_break+blue_one_break+general information about the character...
+      <br>Example: <br>+gender_space_in_between_+male_space_in_between_+eye color_space_in_between_+blue_space_in_between_+general information about the character...
       </small>
     </fieldset>
 

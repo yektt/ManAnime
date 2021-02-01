@@ -1,7 +1,7 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Sign up</h1>
   
-  <%= form_for(@user, url: signup_path) do |form| %>
+  <%= form_for(@user) do |form| %>
     <% if(@user.errors.any?) %>
       <div class="alert alert-danger pb-0 pt-0">
         <ul class="list-unstyled mb-2">

@@ -1,7 +1,7 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Edit User</h1>
 
- <%= form_for @character, url: update_character_path(@character.id) do |form| %>
+ <%= form_for @character do |form| %>
     <fieldset class="form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control' %>
@@ -23,7 +23,7 @@
     </fieldset>
 
     <fieldset class="mt-4 d-flex flex-row align-items-center">
-      <%= link_to translate('cancel'), show_character_path(@character.id) %>
+      <%= link_to translate('cancel'), character_path(@character) %>
       <%= form.submit class: 'btn btn-first btn-block ml-3' %>
     </fieldset>
     

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if(@user.save)
       UserMailer.with(user: @user).welcoming.deliver_now
       session[:user_id] = @user.id
-      redirect_to edit_path
+      redirect_to edit_path(@user.id)
     else
       render 'new'
     end
