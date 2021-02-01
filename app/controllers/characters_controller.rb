@@ -9,7 +9,6 @@ class CharactersController < ApplicationController
     if (@character.save)
       redirect_to character_path(@character)
     else
-      flash[:alert] = "All areas should be filled!"
       render 'new'
     end
   end
@@ -20,14 +19,10 @@ class CharactersController < ApplicationController
 
   def edit
     @character = Character.find(params[:id])
-    logger.info('in edit')
-    logger.info(@character.id)
   end
 
   def update
     @character = Character.find(params[:id])
-    logger.info('in update')
-
     if @character.update(character_params)
       redirect_to character_path(@character)
     else
