@@ -1,14 +1,17 @@
 <div class="col-md-6 offset-md-3">
   <h1 class="text-left display-4 mt-5 mb-5">Add Character</h1>
-  <% if(flash.any?) %>
-    <div class="form-group row alert alert-danger ml-0 mr-0 pl-3">
-      <% flash.each do |name, message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
-  <% end %>
   
   <%= form_for @character do |form| %>
+    <% if(@character.errors.any?) %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @character.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <fieldset class="form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control' %>
