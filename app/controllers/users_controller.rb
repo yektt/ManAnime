@@ -20,13 +20,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(session[:user_id])
-    logger.info('in edit')
-    logger.info(@user.id)
   end
 
   def update
     @user = User.find(session[:user_id])
-    logger.info('in update')
 
     if @user.update(edit_user_params)
       redirect_to profile_path
