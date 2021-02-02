@@ -1,0 +1,47 @@
+<div class="col-md-6 offset-md-3">
+  <h2 class="text-left mt-5 mb-5">
+    Tell us dear 
+    <% if (logged_in?) %> 
+      <%= current_user.name %>
+    <% else %>
+    visitor
+    <% end %>, what do you want to talk about?
+  </h2>
+
+  <%= form_for @contact do |form| %>
+    
+    <% if(@contact.errors.any?) %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @contact.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset class="form-group">
+      <%= form.label :email, 'Your email' %>
+      <%= form.text_field :email, class:'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :topic %>
+      <%= form.text_field :topic, class:'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :message %>
+      <%= form.text_area :message, class:'form-control' %>
+    </fieldset>
+    
+    <fieldset class="mt-4 d-flex flex-row align-items-center">
+      <%= link_to translate('cancel'), root_path %>
+      <%= form.submit 'Send',id:'contact_button', class: 'btn btn-first btn-block ml-3' %>
+    </fieldset>
+  <% end %>
