@@ -59,3 +59,5 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'bcrypt'
 #For uploading images from local
 gem 'carrierwave', '~> 1.1.0'
+#For contact form
+gem 'mail_form'
