@@ -17,10 +17,8 @@ Rails.application.routes.draw do
 
     resources :users
     get 'signup', to: 'users#new', as: 'signup'
-    get 'profile', to: 'users#show'
     get 'edit/:id', to: 'users#edit', as: 'edit'
-
-    post 'block', to: 'users#block'
+    post 'block/:id', to: 'users#block', as:'block'
 
     resources :genres, only: [:new, :create]
 
