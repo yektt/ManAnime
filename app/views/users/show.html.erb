@@ -9,12 +9,14 @@
           <div class="d-flex justify-content-between align-items-center">
             <h3 class="d-flex card-title m-0"><%= @user.name %></h3>
             <div class="d-flex flex-row-reverse">
-              <%= link_to 'Edit', edit_path(@user), class: 'btn btn-outline-secondary mr-3 text-right' %>
-              <% if(is_admin?) %>
+              <% if (current_user == @user) %>
+                <%= link_to 'Edit', edit_path(@user), class: 'btn btn-outline-secondary mr-3 text-right' %>
+              <% end %>
+              <% if(is_admin? && current_user != @user) %>
                 <% if(@user.is_blocked == false) %>
-                  <%= button_to "Block", block_path, class:'btn btn-outline-danger mr-3' %>
+                  <%= button_to "Block", block_path(@user), class:'btn btn-outline-danger mr-3' %>
                 <% else %>
-                  <%= button_to "Unblock", block_path, class:'btn btn-outline-danger mr-3' %>
+                  <%= button_to "Unblock", block_path(@user), class:'btn btn-outline-danger mr-3' %>
                 <% end %>
               <% end %>
             </div>
