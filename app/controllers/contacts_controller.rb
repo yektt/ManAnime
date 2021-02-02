@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     @contact.request = request
     if @contact.deliver
-      flash[:notice] = 'Thank you for your message. We will contact you soon!'
+      UserMailer.with(contact: @contact).receive_contact.deliver_now
       redirect_to root_path
     else
       flash[:error] = 'Cannot send the message. Please try again!'
