@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -33,11 +33,11 @@ class UsersController < ApplicationController
   end
 
   def block
-    user = User.find(session[:user_id])
-    user.is_blocked = !user.is_blocked
-    user.save!
+    @user = User.find(params[:id])
+    @user.is_blocked = !@user.is_blocked
+    @user.save!
 
-    redirect_to profile_path
+    redirect_to @user
   end
   
   private
