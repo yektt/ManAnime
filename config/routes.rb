@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     post 'block/:id', to: 'users#block', as:'block'
 
     resources :genres, only: [:new, :create]
-
     resources :characters, only: [:new, :create, :show, :edit, :update]
+    resources :animes, only: [:new, :create, :show, :edit, :update]
     
     resources "contacts", only: [:new, :create]
     get 'contact', to:'contacts#new'
