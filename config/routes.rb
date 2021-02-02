@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     get 'about', to:'home#about'
     get 'help_and_rules', to:'home#help_and_rules'
     get 'admin_help_and_rules', to:'home#admin_help_and_rules'
-    get 'contact', to:'home#contact'
     get 'search', to:'home#search'
     get 'add', to:'home#add'
     get 'reports', to:'home#reports'
