@@ -1,0 +1,19 @@
+<div class="col-md-6 offset-md-3">
+  <h1 class="text-left display-4 mt-5 mb-5">Edit User</h1>
+
+ <%= form_for @user do |form| %>
+    <fieldset class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar, class: 'form-control' %>
+    </fieldset>
+
+    <fieldset class="mt-4">
+      <%= form.submit class: 'btn btn-first btn-block' %>
+    </fieldset>
+  <% end %>
+</div>
