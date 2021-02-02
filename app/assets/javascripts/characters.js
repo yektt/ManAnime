@@ -1,4 +1,4 @@
-if( window.location.href.includes('show_character')) {
+if( window.location.href.includes('characters')) {
   document.addEventListener('DOMContentLoaded', function(){
     var special_info = document.getElementById('character_special');
     var text = special_info.textContent;
