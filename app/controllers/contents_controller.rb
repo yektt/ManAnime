@@ -1,11 +1,24 @@
 class ContentsController < ApplicationController
-  def anime
+  def show
   end
 
   def new
   end
 
-  def show
+  def create
   end
-  
+
+  def edit
+  end
+
+  def update
+  end
+
+  def anime
+    @content = Content.new
+  end
+
+  def manga
+    @content = Content.new
+  end
 end
