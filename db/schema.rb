@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210202212356) do
-
-  create_table "animes", force: :cascade do |t|
-    t.string "name"
-    t.datetime "start_date"
-    t.string "link_to_watch"
-    t.text "description"
-    t.integer "season_number"
-    t.integer "episode_number"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20210203104944) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -33,10 +21,8 @@ ActiveRecord::Schema.define(version: 20210202212356) do
     t.string "avatar_url"
   end
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contents", force: :cascade do |t|
     t.string "name"
-    t.string "email"
-    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
