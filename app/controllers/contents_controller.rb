@@ -6,6 +6,8 @@ class ContentsController < ApplicationController
   end
 
   def create
+    @content = Content.new (new_content_params)
+    @content.save!
   end
 
   def edit
@@ -21,4 +23,10 @@ class ContentsController < ApplicationController
   def manga
     @content = Content.new
   end
+
+  private
+
+  def new_content_params
+    params.require(:content).permit(:name)
+  end  
 end
