@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :characters, only: [:new, :create, :show, :edit, :update]
     resources :contents
     get 'add_anime', to:'contents#anime'
+    get 'add_manga', to:'contents#manga'
     
     resources "contacts", only: [:new, :create]
     get 'contact', to:'contacts#new'
