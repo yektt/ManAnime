@@ -1,0 +1,86 @@
+<div class="col-md-10 offset-md-1">
+  <h1 class="text-left display-4 mt-5 mb-5">Add Manga</h1>
+
+  <%= form_for @content do |form| %>
+    <% if(@content.errors.any?) %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @content.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <fieldset class="form-group row d-none">
+      <%= form.label :category, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :category, value: "manga" %>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :name, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :name, class: 'form-control', placeholder:'Naruto' %>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :start_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.date_field :start_date, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :end_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.date_field :end_date, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :tags, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :tags, class: 'form-control'%>
+        <small class="form-text text-muted">Please put a comma , in between each tags.</small>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :description, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_area :description, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :image, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :image, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label 'Volume Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :volume_or_season_number, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label 'Chapter Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :episode_or_chapter_number, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row mt-5">
+      <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= form.submit 'Create Manga', class:'btn btn-first btn-block col-md-12' %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
