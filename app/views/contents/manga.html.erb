@@ -49,6 +49,13 @@
     </fieldset>
 
     <fieldset class="form-group row">
+      <%= form.label 'Link to read', class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :link_to_watch_or_read, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
       <%= form.label :description, class:'col-md-3 col-form-label'%>
       <div class="col-md-9">
         <%= form.text_area :description, class: 'form-control'%>
