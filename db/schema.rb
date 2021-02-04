@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210204143514) do
+ActiveRecord::Schema.define(version: 20210204143929) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20210204143514) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.datetime "start_date"
+    t.datetime "end_date"
   end
 
   create_table "genres", force: :cascade do |t|
