@@ -26,6 +26,13 @@
       </div>
     </fieldset>
 
+    <fieldset class="form-group row">
+      <%= form.label :start_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.date_field :start_date, class: 'form-control'%>
+      </div>
+    </fieldset>
+
     <fieldset class="form-group row mt-5">
       <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
       <div class="col-md-9">
