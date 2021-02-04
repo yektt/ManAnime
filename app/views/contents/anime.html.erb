@@ -18,5 +18,12 @@
         <%= form.text_field :category, value: "anime" %>
       </div>
     </fieldset>
+
+    <fieldset class="form-group row mt-5">
+      <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
+      <div class="col-md-9">
+        <%= form.submit 'Create Anime', class:'btn btn-first btn-block col-md-12' %>
+      </div>
+    </fieldset>
   <% end %>
 </div>
