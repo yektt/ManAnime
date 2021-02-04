@@ -27,6 +27,6 @@ class ContentsController < ApplicationController
   private
 
   def new_content_params
-    params.require(:content).permit(:name, :category, :start_date, :end_date, :tags, :link_to_watch, :description, :image, :volume_or_season_number, :episode_or_chapter_number)
+    params.require(:content).permit(:name, :category, :start_date, :end_date, :tags, :link_to_watch_or_read, :description, :image, :volume_or_season_number, :episode_or_chapter_number)
   end  
 end
