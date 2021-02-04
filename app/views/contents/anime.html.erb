@@ -40,6 +40,49 @@
       </div>
     </fieldset>
 
+    <fieldset class="form-group row">
+      <%= form.label :tags, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :tags, class: 'form-control'%>
+        <small class="form-text text-muted">Please put a comma , in between each tags.</small>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :link_to_watch, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :link_to_watch, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :description, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_area :description, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label :image, class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :image, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label 'Season Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :volume_or_season_number, class: 'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row">
+      <%= form.label 'Episodes Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-9">
+        <%= form.text_field :episode_or_chapter_number, class: 'form-control'%>
+      </div>
+    </fieldset>
+
     <fieldset class="form-group row mt-5">
       <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
       <div class="col-md-9">
