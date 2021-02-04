@@ -2,6 +2,14 @@
   <h1 class="text-left display-4 mt-5 mb-5">Add Anime</h1>
 
   <%= form_for @content do |form| %>
-    
+    <% if(@content.errors.any?) %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @content.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   <% end %>
 </div>
