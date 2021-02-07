@@ -1,0 +1,5 @@
+<% if (@content.category == 'anime') %>
+  <%= render partial: 'show_content', locals: {  type: 'anime' } %>
+<% else %>
+  <%= render partial: 'show_content', locals: {  type: 'manga' } %>
+<% end %>
