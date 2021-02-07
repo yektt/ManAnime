@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
   def show
+    @content = Content.find(params[:id])
   end
 
   def new
@@ -7,7 +8,11 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new (new_content_params)
-    @content.save!
+    if (@content.save)
+      redirect_to @content
+    else
+      render 'create'
+    end
   end
 
   def edit
