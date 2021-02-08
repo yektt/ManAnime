@@ -1,0 +1,11 @@
+<% if (@content.category == 'anime') %>
+  <%= render partial: 'edit_content', locals: { category:'anime', 
+                                                watch_or_read: 'watch',
+                                                volume_or_season:'Season',
+                                                chapter_or_episode: 'Episode'} %>
+<% else %>
+  <%= render partial: 'edit_content', locals: { category:'manga', 
+                                                watch_or_read: 'read',
+                                                volume_or_season:'Volume',
+                                                chapter_or_episode: 'Chapter'} %>
+<% end %>
