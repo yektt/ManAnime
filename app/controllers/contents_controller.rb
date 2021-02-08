@@ -4,6 +4,7 @@ class ContentsController < ApplicationController
   end
 
   def new
+    @content = Content.new
   end
 
   def create
