@@ -8,7 +8,7 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @content = Content.new (new_content_params)
+    @content = Content.new (content_params)
     if (@content.save)
       redirect_to @content
     else
