@@ -1,7 +1,11 @@
-<div class="col-md-6 offset-md-3 mt-5">
-  <h2 class="text-left mt-5 mb-5"> Which content do you want to add? </h2>
-  <ul class="mt-3 mb-5 list-unstyled">
-    <li><%= link_to translate('add_anime'), add_anime_path, class:'btn btn-first w-100 p-3' %></li>
-    <li class="mt-5"><%= link_to translate('add_manga'), add_manga_path, class:'btn btn-first w-100 p-3' %></li>
-  </ul>
-</div>
+<% if (params[:title] == 'anime') %>
+  <%= render partial: 'new_content', locals: {  type: 'anime',
+                                                watching_or_reading: 'watch',
+                                                episode_or_chapter: 'Episode',
+                                                season_or_volume: 'Season' } %>
+<% else %>
+  <%= render partial: 'new_content', locals: {  type: 'manga',
+                                                watching_or_reading: 'read',
+                                                episode_or_chapter: 'Chapter',
+                                                season_or_volume: 'Volume'} %>
+<% end %>
