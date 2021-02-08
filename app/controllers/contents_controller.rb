@@ -21,14 +21,6 @@ class ContentsController < ApplicationController
   def update
   end
 
-  def anime
-    @content = Content.new
-  end
-
-  def manga
-    @content = Content.new
-  end
-
   private
 
   def new_content_params
