@@ -23,7 +23,7 @@
           <% end %>
         </div>
         <% if(!@content.link_to_watch_or_read.blank?) %>
-          <p>For watching click <%= link_to 'here.', @content.link_to_watch_or_read, target: :_blank, class:'pl-0' %></p>
+          <p>For <%= watching_or_reading %> click <%= link_to 'here.', @content.link_to_watch_or_read, target: :_blank, class:'pl-0' %></p>
         <% end %>
         <p class="mt-auto mb-0" id="description_content"><%= @content.description%></p>
       </div>
@@ -33,19 +33,19 @@
   <div class="row">
     <div class="col-md-4 p-0">
       <div  class="d-flex flex-row">
-        <strong class="col-md-6">Episode Number</strong> <%= @content.episode_or_chapter_number %>
+        <strong class="col-md-7"><%= episode_or_chapter %> Number</strong> <%= @content.episode_or_chapter_number %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-6">Season Number</strong> <%= @content.volume_or_season_number %>
+        <strong class="col-md-7"><%= season_or_volume %> Number</strong> <%= @content.volume_or_season_number %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-6">Season</strong> 
+        <strong class="col-md-7">Season</strong> 
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-6">Status</strong>
+        <strong class="col-md-7">Status</strong>
           <% if(@content.start_date) %> 
             <% if(@content.end_date) %>
-              Finsihed
+              Finished
             <% else %>
               Airing
             <% end %>
@@ -54,10 +54,10 @@
           <% end %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-6">Tags</strong> <%= @content.tags %>
+        <strong class="col-md-7">Tags</strong> <%= @content.tags %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-6">Genres</strong> Genres will be displayed here.
+        <strong class="col-md-7">Genres</strong> Genres will be displayed here.
       </div>
     </div>
 
