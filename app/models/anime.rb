@@ -1,2 +1,0 @@
-class Anime < ApplicationRecord
-end
