@@ -20,7 +20,7 @@
                                                 watching_or_reading: 'watch',
                                                 episode_or_chapter: 'Episode',
                                                 season_or_volume: 'Season' } %>
-<% else %>
+<% elsif (params[:title] == 'manga') %>
   <%= render partial: 'new_content', locals: {  type: 'manga',
                                                 watching_or_reading: 'read',
                                                 episode_or_chapter: 'Chapter',
