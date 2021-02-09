@@ -19,10 +19,12 @@
   <%= render partial: 'new_content', locals: {  type: 'anime',
                                                 watching_or_reading: 'watch',
                                                 episode_or_chapter: 'Episode',
-                                                season_or_volume: 'Season' } %>
+                                                season_or_volume: 'Season',
+                                                placeholder: 'Naruto Shippuden' } %>
 <% elsif (params[:title] == 'manga') %>
   <%= render partial: 'new_content', locals: {  type: 'manga',
                                                 watching_or_reading: 'read',
                                                 episode_or_chapter: 'Chapter',
-                                                season_or_volume: 'Volume'} %>
+                                                season_or_volume: 'Volume',
+                                                placeholder: 'Naruto'} %>
 <% end %>
