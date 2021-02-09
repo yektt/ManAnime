@@ -1,27 +1,13 @@
-<div class="col-md-6 offset-md-3 mt-5">
-  <% if(@content.errors.any?) %>
-    <div class="alert alert-danger pb-0 pt-0">
-      <ul class="list-unstyled mb-2">
-      <% @content.errors.full_messages.each do |message| %>
-        <li class="mt-2"><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-    Please choose again what you would like to add:
-    <ul class="mt-3 mb-5 list-unstyled">
-      <li><%= link_to translate('add_anime'), new_content_path(title: 'anime'), class:'btn btn-first w-100 p-3' %></li>
-      <li class="mt-5"><%= link_to translate('add_manga'), new_content_path(title: 'manga'), class:'btn btn-first w-100 p-3' %></li>
-    </ul>
-  <% end %>
-</div>
 
-<% if (params[:title] == 'anime') %>
+
+
+<% if (params[:title] == 'anime' || @content.category == 'anime') %>
   <%= render partial: 'new_content', locals: {  type: 'anime',
                                                 watching_or_reading: 'watch',
                                                 episode_or_chapter: 'Episode',
                                                 season_or_volume: 'Season',
                                                 placeholder: 'Naruto Shippuden' } %>
-<% elsif (params[:title] == 'manga') %>
+<% elsif (params[:title] == 'manga'|| @content.category == 'manga') %>
   <%= render partial: 'new_content', locals: {  type: 'manga',
                                                 watching_or_reading: 'read',
                                                 episode_or_chapter: 'Chapter',
