@@ -13,28 +13,36 @@
     <% end %>
 
     <fieldset class="form-group row">
-      <%= form.label :name, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :name, class:' col-form-label'%>
+      </div>
       <div class="col-md-9">
-        <%= form.text_field :name, class: 'form-control', placeholder:'Naruto' %>
+        <%= form.text_field :name, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :start_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :start_date, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.date_field :start_date, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :end_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :end_date, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.date_field :end_date, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :tags, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :tags, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :tags, class: 'form-control'%>
         <small class="form-text text-muted">Please put a comma , in between each tags.</small>
@@ -42,35 +50,45 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label 'Link to ' + watch_or_read, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label 'Link to ' + watch_or_read, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :link_to_watch_or_read, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :description, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :description, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_area :description, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :image, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :image, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :image, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label volume_or_season + ' Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label volume_or_season + ' Number', class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :volume_or_season_number, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label chapter_or_episode + ' Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label chapter_or_episode + ' Number', class:' col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :episode_or_chapter_number, class: 'form-control'%>
       </div>
