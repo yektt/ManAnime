@@ -1,7 +1,15 @@
 <div class="col-md-10 offset-md-1">
   <h1 class="text-left display-4 mt-5 mb-5">Add <%= type.upcase_first %></h1>
-
   <%= form_for @content do |form| %>
+    <% if(@content.errors.any?) %>
+      <div class="alert alert-danger pb-0 pt-0">
+        <ul class="list-unstyled mb-2">
+        <% @content.errors.full_messages.each do |message| %>
+          <li class="mt-2"><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
     <fieldset class="form-group row d-none">
       <%= form.label :category, class:'col-md-3 col-form-label'%>
       <div class="col-md-9">
@@ -10,28 +18,36 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :name, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :name, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :name, class: 'form-control', placeholder: placeholder %>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :start_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :start_date, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.date_field :start_date, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :end_date, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :end_date, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.date_field :end_date, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :tags, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :tags, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :tags, class: 'form-control'%>
         <small class="form-text text-muted">Please put a comma , in between each tags.</small>
@@ -39,35 +55,45 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label 'Link to ' + watching_or_reading, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label 'Link to ' + watching_or_reading, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :link_to_watch_or_read, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :description, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :description, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_area :description, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label :image, class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label :image, class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :image, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label season_or_volume + ' Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label season_or_volume + ' Number', class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :volume_or_season_number, class: 'form-control'%>
       </div>
     </fieldset>
 
     <fieldset class="form-group row">
-      <%= form.label episode_or_chapter + ' Number', class:'col-md-3 col-form-label'%>
+      <div class="col-md-3">
+        <%= form.label episode_or_chapter + ' Number', class:'col-form-label'%>
+      </div>
       <div class="col-md-9">
         <%= form.text_field :episode_or_chapter_number, class: 'form-control'%>
       </div>
