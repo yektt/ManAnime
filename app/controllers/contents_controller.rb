@@ -12,7 +12,7 @@ class ContentsController < ApplicationController
     if (@content.save)
       redirect_to @content
     else
-      render 'create'
+      render :new
     end
   end
 
@@ -26,7 +26,7 @@ class ContentsController < ApplicationController
     if @content.update(content_params)
       redirect_to @content
     else
-      format.html { render :edit }
+      render :edit
     end
   end
 
