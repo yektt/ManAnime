@@ -7,4 +7,6 @@ class Content < ApplicationRecord
   validates :start_date, presence: true
   validates :volume_or_season_number, presence: true
   validates :episode_or_chapter_number, presence: true
+
+  has_and_belongs_to_many :categories, class_name: 'Genre'
 end
