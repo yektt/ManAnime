@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
     @genre = Genre.find(params[:genre_id])
 
     if (@content.categories.exists?(@genre.id))
-      @content.categories.destroy(@genre)
+      if (@content.categories.length == 1)
+        flash[:alert] = 'There should be at least one genres!'
+      else
+        @content.categories.destroy(@genre)
+      end
     else
       @content.categories << @genre
     end
