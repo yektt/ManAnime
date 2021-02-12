@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :contents do
       resources :categories
     end
+    get 'editing_genres/:id', to: 'contents#editing_genres', as:'editing_genres'
     
     resources "contacts", only: [:new, :create]
     get 'contact', to:'contacts#new'
