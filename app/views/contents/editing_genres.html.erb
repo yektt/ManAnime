@@ -1,0 +1,54 @@
+<div class="col-md-10 offset-md-1">
+  <h1 class="text-left display-4 mt-5 mb-5">Adding genres to the <%= @content.name.upcase_first %></h1>
+
+  <% if(flash.any?) %>
+    <div class="form-group row alert alert-danger ml-0 mr-0 pl-3">
+      <% flash.each do |name, message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <fieldset class="form-group row">
+    <div class="col-md-3">
+      <h3 class='col-form-label'>Genres</h3>
+    </div>
+    <div class="col-md-3">
+      <h3 class='col-form-label'>Status</h3>
+    </div>
+  </fieldset>
+    
+  <% Genre.all.order(name: :asc).each do |element| %>
+    <fieldset class="form-group row">
+      <div class="col-md-3">
+        <label class='col-form-label pl-3'><%= element.name%></label>
+      </div>
+      <div class="col-md-4">
+        <label class='col-form-label'>
+        <% if(@content.categories.exists?(element.id)) %>
+          In the genre list of this <%= @content.category%>
+        <% else %>
+          Not in the list
+        <% end %>
+        </label>
+      </div>
+      <div class="col-md-5">
+        <%= form_tag content_categories_path(@content) do %>
+          <%= hidden_field_tag('genre_id', element.id)%>
+          <% if(@content.categories.exists?(element.id)) %>
+            <%= button_tag( 'Remove from the list' , class:'btn btn-first btn-block col-md-12', type:'submit') %>
+          <% else %>
+            <%= button_tag( 'Add to the list' , class:'btn btn-first btn-block col-md-12', type:'submit') %>
+          <% end %>
+        <% end %>
+      </div>
+    </fieldset>
+  <% end %>
+  
+  <fieldset class="form-group row mt-4">
+    <%= link_to translate('cancel'), new_content_path(title: @content.category), class:'col-md-3 col-form-label' %>
+    <div class="col-md-9">
+    <%= link_to 'Finish editing genres', @content, class:'btn btn-first btn-block col-md-12' %>
+    </div>
+  </fieldset>  
+</div>
