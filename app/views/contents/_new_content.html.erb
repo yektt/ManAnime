@@ -99,10 +99,10 @@
       </div>
     </fieldset>
 
-    <fieldset class="form-group row mt-5">
-      <%= link_to translate('cancel'), @content, class:'col-md-3 col-form-label' %>
+    <fieldset class="form-group row mt-3">
+      <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
       <div class="col-md-9">
-        <%= form.submit 'Create ' + type.upcase_first, class:'btn btn-first btn-block col-md-12' %>
+        <%= form.submit 'Create ' + type.upcase_first, class:'btn btn-first btn-block col-md-12'%>
       </div>
     </fieldset>
   <% end %>
