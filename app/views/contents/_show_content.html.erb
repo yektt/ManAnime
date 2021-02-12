@@ -57,7 +57,14 @@
         <strong class="col-md-7">Tags</strong> <%= @content.tags %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-7">Genres</strong> Genres will be displayed here.
+        <strong class="col-md-7">Genres</strong> 
+        <% @content.categories.all.order(name: :asc).each do |genre| %>
+          <% if (@content.categories.all.order(name: :asc).last == genre) %>
+            <%= genre.name %> 
+          <% else %>
+            <%= genre.name + ',' %> 
+          <% end %>
+        <% end %>
       </div>
     </div>
 
