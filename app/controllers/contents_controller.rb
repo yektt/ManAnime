@@ -9,10 +9,13 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new (content_params)
-    if (@content.save)
+    if (@content.save && params[:genres_id])
       @content.categories << Genre.find(params[:genres_id])
       redirect_to @content
     else
+      if (!params[:genres_id])
+        @content.errors.add(:'genres', "can't be blank!")
+      end
       render :new
     end
   end
