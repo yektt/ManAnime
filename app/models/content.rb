@@ -9,4 +9,5 @@ class Content < ApplicationRecord
   validates :episode_or_chapter_number, presence: true
 
   has_and_belongs_to_many :categories, class_name: 'Genre'
+  has_and_belongs_to_many :characters, class_name: 'Character'
 end
