@@ -38,9 +38,21 @@
       <div class="d-flex flex-row mt-3">
         <strong class="col-md-7"><%= season_or_volume %> Number</strong> <%= @content.volume_or_season_number %>
       </div>
-      <div class="d-flex flex-row mt-3">
-        <strong class="col-md-7">Season</strong> 
-      </div>
+      <% if(@content.category == 'anime') %>
+        <div class="d-flex flex-row mt-3">
+          <strong class="col-md-7">Season</strong>
+          <% if( 2 < @content.start_date.month && @content.start_date.month < 6) %>
+            Spring 
+          <% elsif(@content.start_date.month < 9) %>
+            Summer
+          <% elsif(@content.start_date.month < 12) %>
+            Fall
+          <% else %>
+            Winter
+          <% end %>
+          <%= @content.start_date.year %>
+        </div>
+      <% end %>
       <div class="d-flex flex-row mt-3">
         <strong class="col-md-7">Status</strong>
           <% if(@content.start_date) %> 
