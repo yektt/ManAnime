@@ -1,5 +1,5 @@
 class Content < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :category, presence: true, inclusion: {in: %w(anime manga)}
   validates :tags, presence: true
   validates :description, presence: true
