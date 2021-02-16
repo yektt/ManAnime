@@ -10,7 +10,8 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new (content_params)
     if (@content.save)
-      redirect_to editing_genres_path(@content)
+      @content.categories << Genre.find(params[:genres_id])
+      redirect_to @content
     else
       render :new
     end
