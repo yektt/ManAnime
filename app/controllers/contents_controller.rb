@@ -30,6 +30,14 @@ class ContentsController < ApplicationController
         end
       end
   
+      if ((@content.categories - Genre.find(params[:genres_id])))
+        removed_genre_array = (@content.categories - Genre.find(params[:genres_id]))
+        removed_genre_array.each do |removed_genre|
+          if (@content.categories.length != 1)
+            @content.categories.destroy(removed_genre)
+          end
+        end
+      end
       redirect_to @content
     else
       render :edit
