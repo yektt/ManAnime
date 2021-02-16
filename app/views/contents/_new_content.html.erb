@@ -99,6 +99,20 @@
       </div>
     </fieldset>
 
+    <fieldset class="form-group row">
+      <div class="col-md-3">
+        <%= form.label 'Genres', class:' col-form-label'%>
+      </div>
+      <div class="col-md-9 row m-0">
+        <% for genre in Genre.all.order(name: :asc) %>
+          <div class="col-md-3 p-0 mt-2">
+            <%= check_box_tag "genres_id[]", genre.id, false %> 
+            <%= genre.name %> 
+          </div>
+        <% end %>
+      </div>
+    </fieldset>
+
     <fieldset class="form-group row mt-3">
       <%= link_to translate('cancel'), add_path, class:'col-md-3 col-form-label' %>
       <div class="col-md-9">
