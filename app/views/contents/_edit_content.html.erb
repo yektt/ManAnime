@@ -98,15 +98,17 @@
       <div class="col-md-3">
         <%= form.label 'Genres', class:' col-form-label'%>
       </div>
-      <div class="col-md-9">
-        <% @content.categories.all.order(name: :asc).each do |genre| %>
-          <% if (@content.categories.all.order(name: :asc).last == genre) %>
+      <div class="col-md-9 row m-0">
+        <% for genre in Genre.all.order(name: :asc) %>
+          <div class="col-md-3 p-0 mt-2">
+            <% if( @content.categories.exists?(genre.id) ) %>
+              <%= check_box_tag "genres_id[]", genre.id, true %> 
+            <% else %>
+              <%= check_box_tag "genres_id[]", genre.id, false %> 
+            <% end %>
             <%= genre.name %> 
-          <% else %>
-            <%= genre.name + ',' %> 
-          <% end %>
+          </div>
         <% end %>
-        <small class="form-text text-muted">For editing genres, please <%= link_to 'click here', editing_genres_path(@content), class:'p-0' %>.</small>
       </div>
     </fieldset>
 
