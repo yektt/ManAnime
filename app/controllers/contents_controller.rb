@@ -40,6 +40,9 @@ class ContentsController < ApplicationController
       end
       redirect_to @content
     else
+      if (!params[:genres_id])
+        @content.errors.add(:'genres', "can't be blank!")
+      end
       render :edit
     end
   end
