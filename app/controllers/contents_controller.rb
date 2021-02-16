@@ -23,7 +23,13 @@ class ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
 
-    if @content.update(content_params)
+    if (@content.update(content_params) && params[:genres_id])
+      params[:genres_id].each do |params_genre|
+        if (!@content.categories.exists?(Genre.find(params_genre).id))
+          @content.categories << Genre.find(params_genre)
+        end
+      end
+  
       redirect_to @content
     else
       render :edit
