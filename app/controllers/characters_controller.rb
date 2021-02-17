@@ -15,6 +15,15 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @anime = []
+    @manga = []
+    Content.find(@character.appearances.ids).each do |content|
+      if(content.category == 'anime')
+        @anime << content
+      else
+        @manga << content
+      end
+    end 
   end
 
   def edit
