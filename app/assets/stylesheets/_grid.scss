@@ -1,0 +1,21 @@
+.grid-container-for-5 {
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+}
+
+.grid-container-for-4 {
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(24%, 1fr));
+}
+
+.grid-container-for-3 {
+  display: grid;
+  grid-row-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+}
+
+.grid-item {
+  align-items: center;
+}
