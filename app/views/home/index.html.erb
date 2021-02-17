@@ -1,2 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="grid-container-for-5 margin-top-1">
+  <% Content.all.each do |content| %>
+    <div class="grid-item-for-5">
+      <div class="flex content-center">
+        <%= link_to image_tag(content.image, alt: "Avatar for #{content.name}"), content_path(content) %>
+      </div>
+      <div class="text-align-center margin-top-auto">
+        <%= content.name %>
+      </div>
+    </div>
+  <% end %>
+</div>
