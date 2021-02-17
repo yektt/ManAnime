@@ -18,3 +18,14 @@
 </div>
 <div id="character_general">
 </div>
+
+<div>
+  <% if (!@anime.empty?)%>
+    <%= render partial: 'display_5content', locals: {category: 'Anime', content: @anime} %>
+  <% end %>
+</div>
+<div class="mt-3">
+  <% if (!@manga.empty?)%>
+    <%= render partial: 'display_5content', locals: {category: 'Manga', content: @manga} %>
+  <% end %>
+</div>
