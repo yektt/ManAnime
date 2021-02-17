@@ -82,32 +82,20 @@
 
     <div class="col-md-8 pb-3">
       <label class="col-md-3 pt-0 pl-0 col-form-label">Characters</label>
-      <div class="d-flex flex-row flex-wrap">
-          <div class="card col-md-4 mt-2">
-            <img class="card-img-top card-img mt-2" src="https://comicvine1.cbsistatic.com/uploads/original/11117/111179559/4247222-uzumaki_naruto_kyuubi_mode_by_megalow-d75kw96.png" alt="...">
-            <div class="card-body d-flex pl-0 flex-column">
-              <small class="card-title mb-0">character name here</small>
+      <% if (!@content.characters.empty?)%>
+        <div class="grid-container-for-4 margin-top-1">
+          <% @content.characters.each do |character| %>
+            <div class="grid-item border mr-2">
+              <div class="flex content-center">
+                <%= link_to image_tag(character.avatar_url, alt: "Avatar for #{character.name}"), character_path(Character.find(character.id)) %>
+              </div>
+              <div class="text-align-center margin-top-auto">
+                <%= character.name %>
+              </div>
             </div>
-          </div>
-          <div class="card col-md-4 mt-2">
-            <img class="card-img-top card-img mt-2" src="https://comicvine1.cbsistatic.com/uploads/original/11117/111179559/4247222-uzumaki_naruto_kyuubi_mode_by_megalow-d75kw96.png" alt="...">
-            <div class="card-body d-flex pl-0 flex-column">
-              <small class="card-title mb-0">character name here</small>
-            </div>
-          </div>
-          <div class="card col-md-4 mt-2">
-            <img class="card-img-top card-img mt-2" src="https://comicvine1.cbsistatic.com/uploads/original/11117/111179559/4247222-uzumaki_naruto_kyuubi_mode_by_megalow-d75kw96.png" alt="...">
-            <div class="card-body d-flex pl-0 flex-column">
-              <small class="card-title mb-0">character name here</small>
-            </div>
-          </div>
-          <div class="card col-md-4 mt-2">
-            <img class="card-img-top card-img mt-2" src="https://comicvine1.cbsistatic.com/uploads/original/11117/111179559/4247222-uzumaki_naruto_kyuubi_mode_by_megalow-d75kw96.png" alt="...">
-            <div class="card-body d-flex pl-0 flex-column">
-              <small class="card-title mb-0">character name here</small>
-            </div>
-          </div>
+          <% end %>
         </div>
+      <% end %>
     </div>
   </div>
 </div>
