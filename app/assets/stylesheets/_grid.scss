@@ -19,3 +19,10 @@
 .grid-item {
   align-items: center;
 }
+
+.grid-item-for-5 img {
+  object-fit: cover;
+  width:  auto;
+  height: 15rem;
+  margin-bottom: 0.5rem;
+}
