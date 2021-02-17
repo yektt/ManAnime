@@ -10,4 +10,8 @@ class Content < ApplicationRecord
 
   has_and_belongs_to_many :categories, class_name: 'Genre'
   has_and_belongs_to_many :characters, class_name: 'Character'
+
+  scope :most_recent_anime, -> { order(created_at: :asc).where(category: 'anime').limit(5) }
+  scope :most_recent_manga, -> { order(created_at: :asc).where(category: 'manga').limit(5) }
+
 end
