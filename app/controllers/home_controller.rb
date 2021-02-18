@@ -6,4 +6,7 @@ class HomeController < ApplicationController
 
   def anime_list
   end
+  
+  def manga_list
+  end
 end
