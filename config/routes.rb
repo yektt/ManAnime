@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'search', to:'home#search'
     get 'add', to:'home#add'
     get 'reports', to:'home#reports'
+    get 'anime_list', to:'home#anime_list'
 
     resources :sessions, only: [:new, :create, :destroy]
     get 'logout', to: 'sessions#destroy', as: 'logout'
