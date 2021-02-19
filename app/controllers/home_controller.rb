@@ -12,5 +12,9 @@ class HomeController < ApplicationController
   end
   
   def manga_list
+    @all = Content.manga_list.alphabetical_order.page(params[:page])
+    @popular = Content.manga_list.most_popular
+    @recent = Content.manga_list.most_recent
+    @unfinished_popular = Content.manga_list.unfinished.most_popular
   end
 end
