@@ -17,4 +17,7 @@ class HomeController < ApplicationController
     @recent = Content.manga_list.most_recent
     @unfinished_popular = Content.manga_list.unfinished.most_popular
   end
+
+  def search
+  end
 end
