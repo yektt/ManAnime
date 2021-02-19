@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210216101820) do
+ActiveRecord::Schema.define(version: 20210218154355) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20210216101820) do
     t.integer "volume_or_season_number"
     t.integer "episode_or_chapter_number"
     t.string "link_to_watch_or_read"
+    t.integer "rating_number"
+    t.decimal "rating", precision: 2, scale: 1
   end
 
   create_table "contents_genres", id: false, force: :cascade do |t|
