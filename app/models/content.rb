@@ -23,6 +23,8 @@ class Content < ApplicationRecord
 
   paginates_per 6
 
+  after_initialize :default_rating!
+
   def default_rating!
     self.rating ||= 0
     self.rating_number ||= 0
