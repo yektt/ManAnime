@@ -17,4 +17,9 @@ class Content < ApplicationRecord
   scope :most_recent_manga, -> { mangas.order(created_at: :asc).limit(5) }
 
   paginates_per 6
+
+  def default_rating!
+    self.rating ||= 0
+    self.rating_number ||= 0
+  end
 end
