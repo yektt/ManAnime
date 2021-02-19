@@ -61,3 +61,5 @@ gem 'bcrypt'
 gem 'carrierwave', '~> 1.1.0'
 #For contact form
 gem 'mail_form'
+#For paging
+gem 'kaminari'
