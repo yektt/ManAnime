@@ -16,4 +16,5 @@ class Content < ApplicationRecord
   scope :most_recent_anime, -> { animes.order(created_at: :asc).limit(5) }
   scope :most_recent_manga, -> { mangas.order(created_at: :asc).limit(5) }
 
+  paginates_per 6
 end
