@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @anime = Content.most_recent_anime
-    @manga = Content.most_recent_manga
+    @anime = Content.anime_list.most_popular
+    @manga = Content.manga_list.most_popular
   end
 
   def anime_list
