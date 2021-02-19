@@ -13,10 +13,13 @@ class Content < ApplicationRecord
   has_and_belongs_to_many :categories, class_name: 'Genre'
   has_and_belongs_to_many :characters, class_name: 'Character'
 
-  scope :animes, -> { where(category: 'anime') }
-  scope :mangas, -> { where(category: 'manga') }
-  scope :most_recent_anime, -> { animes.order(created_at: :asc).limit(5) }
-  scope :most_recent_manga, -> { mangas.order(created_at: :asc).limit(5) }
+  scope :anime_list, -> { where(category: 'anime') }
+  scope :manga_list, -> { where(category: 'manga') }
+
+  scope :alphabetical_order, -> { order(name: :asc) }
+  scope :most_popular, -> { order(rating: :desc).limit(5) }
+  scope :unfinished, -> { where(end_date: nil) }
+  scope :most_recent, -> { order(created_at: :desc).limit(5) }
 
   paginates_per 6
 
