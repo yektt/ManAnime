@@ -3,7 +3,18 @@
     <input class="form-control" type="text" placeholder="Search with name, relase date or genre">
     <div class="d-flex flex-row ml-2">
       <div class="has-dropdown mr-2 align-self-center">
-        <button class="btn ml-1" type="submit">Seasons</button>
+        <button class="btn ml-1" type="submit">Seasons
+          <svg class="icon-downArrow ml-2" role="presentation">
+            <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#down_arrow" ) %>"></use>
+          </svg>
+        </button>
+        <ul class="dropdown ml-2 pl-1 pr-1">
+          <li class="mt-1"><a href="#">Winter</a></li>
+          <li><a href="#">Spring</a></li>
+          <li><a href="#">Summer</a></li>
+          <li class="mb-1"><a href="#">Autumn</a></li>
+        </ul>
+      </div>
       </div>
 
       <button class="btn" type="submit">Advanced Search</button>
