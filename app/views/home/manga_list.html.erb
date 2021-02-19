@@ -1,1 +1,5 @@
+<%= render partial: 'display_5content', locals: {category: 'Most popular ' + @popular.length.to_s + ' ' + @popular.first.category, content: @popular} %>
+<%= render partial: 'display_5content', locals: {category: 'Most recent ' + @recent.length.to_s + ' ' + @recent.first.category, content: @recent} %>
+<%= render partial: 'display_5content', locals: {category: 'Most popular unfinished ' + @unfinished_popular.length.to_s + ' ' + @unfinished_popular.first.category, content: @unfinished_popular} %>
+
 <%= render partial: 'display_all', locals: { episode_or_chapter: 'Episodes', content: @all} %>
