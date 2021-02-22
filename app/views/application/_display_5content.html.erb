@@ -1,9 +1,11 @@
 <% if (category.include?('Most')) %>
   <h4 class="margin-top-2"><%= category %></h4>
+<% elsif (category == 'Result') %>
+  <h3 class="margin-top-2 margin-left-1"> Results for '<%= search_term %>' in <%= content.first.category %></h3>
 <% else %>
   <h5><%= category %> Appearence</h5>
 <% end %>
-<div class="grid-container-for-5 margin-top-1">
+<div class="grid-container-for-5 margin-top-1 margin-left-1">
   <% content.each do |content| %>
     <div class="grid-item">
       <div class="flex content-center">
