@@ -21,6 +21,8 @@ class Content < ApplicationRecord
   scope :unfinished, -> { where(end_date: nil) }
   scope :most_recent, -> { order(created_at: :desc).limit(5) }
 
+  scope :year, -> { order(start_date: :asc) }
+
   paginates_per 6
 
   after_initialize :default_rating!
