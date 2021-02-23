@@ -9,7 +9,7 @@
   <% content.each do |content| %>
     <div class="grid-item">
       <div class="flex content-center">
-        <%= link_to image_tag(content.image, alt: "Image for #{content.name}"), content_path(content) %>
+        <%= link_to image_tag(content.image, alt: "Image for #{content.name}",class:'round-edge'), content_path(content) %>
       </div>
       <div class="text-align-center margin-top-auto">
         <%= content.name %>
