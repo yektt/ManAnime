@@ -32,10 +32,16 @@ class ContentsController < ApplicationController
   def update
     @content = Content.find(params[:id])
 
-    if (@content.update(content_params) && params[:genres_id])
+    if (@content.update(content_params) && params[:genres_id] && params[:character_id])
       params[:genres_id].each do |params_genre|
         if (!@content.categories.exists?(Genre.find(params_genre).id))
           @content.categories << Genre.find(params_genre)
+        end
+      end
+
+      params[:character_id].each do |params_character|
+        if (!@content.characters.exists?(Character.find(params_character).id))
+          @content.characters << Character.find(params_character)
         end
       end
   
@@ -47,6 +53,16 @@ class ContentsController < ApplicationController
           end
         end
       end
+
+      if ((@content.characters - Character.find(params[:character_id])))
+        removed_character_array = (@content.characters - Character.find(params[:character_id]))
+        removed_character_array.each do |removed_character|
+          if (@content.characters.length != 1)
+            @content.characters.destroy(removed_character)
+          end
+        end
+      end
+
       redirect_to @content
     else
       if (!params[:genres_id])
