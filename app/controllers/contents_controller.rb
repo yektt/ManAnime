@@ -68,6 +68,9 @@ class ContentsController < ApplicationController
       if (!params[:genres_id])
         @content.errors.add(:'genres', "can't be blank!")
       end
+      if (!params[:charachter_id])
+        @content.errors.add(:'characters', "can't be blank!")
+      end
       render :edit
     end
   end
