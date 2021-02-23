@@ -131,6 +131,26 @@
     </fieldset>
 
     <fieldset class="form-group row mt-5">
+      <div class="col-md-3">
+        <%= form.label 'Other characters', class:' col-form-label'%>
+      </div>
+      <div class="col-md-9 row grid-container-for-5 m-0">
+        <% for character in Character.all.order(name: :asc) %>
+          <% unless(@content.characters.include?(character)) %>
+            <div class="p-0 mt-3 grid-item">
+              <%= image_tag(character.avatar_url, alt: "Image for #{character.name}", class:'w-75 h-75 round-edge') %>
+              <div>
+                <%= check_box_tag "character_id[]", character.id, false %> 
+                <%= character.name %> <br>
+                <div class="ml-3"><%= character.surname %> </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group row mt-5">
       <%= link_to translate('cancel'), @content, class:'col-md-3 col-form-label' %>
       <div class="col-md-9">
         <%= form.submit 'Update ' + @content.category.upcase_first, class:'btn btn-first btn-block col-md-12' %>
