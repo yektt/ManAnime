@@ -9,8 +9,10 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new (content_params)
-    if (@content.save && params[:genres_id])
+
+    if (@content.save && params[:genres_id] && params[:character_id])
       @content.categories << Genre.find(params[:genres_id])
+      @content.characters << Character.find(params[:character_id])
       redirect_to @content
     else
       if (!params[:genres_id])
