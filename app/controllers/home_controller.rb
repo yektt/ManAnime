@@ -20,8 +20,10 @@ class HomeController < ApplicationController
 
   def search
     @search_term = params[:q]
-    @animes = Content.anime_list.where('name LIKE ?', "%#{@search_term}%").alphabetical_order
-    @mangas = Content.manga_list.where('name LIKE ?', "%#{@search_term}%").alphabetical_order
+    if(@search_term)
+      @animes = Content.anime_list.search(@search_term)
+      @mangas = Content.manga_list.search(@search_term)
+    end
     @years = []
     for content in Content.year
       year = content.start_date.year.to_i - (content.start_date.year.to_i % 5)
