@@ -62,7 +62,15 @@ class HomeController < ApplicationController
         @mangas = genreSearch(genre, @mangas)
       end
     elsif (params[:year] && params[:genres_id])
-      
+      @mangas = yearCalculator(params[:year].to_i, Content.manga_list)
+      for genre in Genre.find(params[:genres_id])
+        @mangas = genreSearch(genre, @mangas)
+      end
+
+      @animes = yearCalculator(params[:year].to_i, Content.anime_list)
+      for genre in Genre.find(params[:genres_id])
+        @animes = genreSearch(genre, @animes)
+      end
     end
   end
 
