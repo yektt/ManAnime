@@ -102,4 +102,14 @@ class HomeController < ApplicationController
     end
     return @result_genre 
   end
+
+  def yearCalculator (start_year ,records)
+    @result_year = []
+    for content in records
+      if (content.start_date.year >= start_year)
+        @result_year << content
+      end
+    end
+    return @result_year 
+  end
 end
