@@ -52,25 +52,13 @@ class HomeController < ApplicationController
     if(params[:year] && params[:genres_id].nil?)
 
     elsif(params[:genres_id] && params[:year].nil?)
-      @animes = []
-      @mangas = []   
+      @animes = Content.anime_list
+      @mangas = Content.manga_list
       for genre in Genre.find(params[:genres_id])
-        for content in Content.anime_list
-          if content.categories.include?(genre)
-            if !@animes.include?(content)
-              @animes << content
-            end
-          end
-        end
+        @animes = genreSearch(genre, @animes)
       end
       for genre in Genre.find(params[:genres_id])
-        for content in Content.manga_list
-          if content.categories.include?(genre)
-            if !@mangas.include?(content)
-              @mangas << content
-            end
-          end
-        end
+        @mangas = genreSearch(genre, @mangas)
       end
     elsif (params[:year] && params[:genres_id])
       
