@@ -6,11 +6,11 @@
     everything
   <% else %>
   '<%= search_term %>' 
-  <% end %> in <%= content.first.category %></h3>
+  <% end %> in <%= content.first.category %>s</h3>
 <% elsif (category == 'Season') %>
-  <h3 class="margin-top-2 margin-left-1"> <%= search_term.upcase_first %> season <%= content.first.category %>s</h3>
+  <h3 class="margin-top-2 margin-left-1"> <%= search_term.upcase_first %> season <%= pluralize_contents(content) %></h3>
 <% elsif (category == 'Genre') %>
-  <h3 class="margin-top-2 margin-left-1"> Here is the result for
+  <h3 class="margin-top-2 margin-left-1"> Here <%= is_or_are(content) %> the result for
     <% for genre in Genre.find(params[:genres_id]) %>
       <% if (params[:genres_id].length == 1) %>
         <%= Genre.find(params[:genres_id]).first.name %>
@@ -24,12 +24,12 @@
         <% end %>
       <% end %>
     <% end %>
-    in <%= content.first.category %>s
+    in <%= content.first.category.upcase_first %>s!
    </h3>
 <% elsif (category == 'Year') %>
-  <h3 class="margin-top-2 margin-left-1"> <%= content.first.category.upcase_first %>s from <%= search_term %> </h3>
+  <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(content).upcase_first %> that started after <%= search_term %> </h3>
 <% elsif (category == 'Genre&Year') %>
-  <h3 class="margin-top-2 margin-left-1"> <%= content.first.category.upcase_first %>s from <%= search_term[1] %> for 
+  <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(content).upcase_first %> from <%= search_term[1] %> for 
     <% for genre in Genre.find(params[:genres_id]) %>
       <% if (params[:genres_id].length == 1) %>
         <%= Genre.find(params[:genres_id]).first.name %>
@@ -45,7 +45,7 @@
     <% end %>
   </h3>
 <% else %>
-  <h5><%= category %> Appearence</h5>
+  <h5><%= pluralize_contents(content).upcase_first %> Appearences</h5>
 <% end %>
 <div class="grid-container-for-5 margin-top-1 margin-left-1">
   <% content.each do |content| %>
