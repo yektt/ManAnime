@@ -3,6 +3,7 @@
 }
 
 .dropdown{
+  background-color: inherit;
   display: none;
   position: absolute;
   padding-left: 0;
@@ -29,9 +30,14 @@
   border: none;
 }
 
-.dropdown a {
-  display: block;
+.dropdown input {
+  background-color: white;
   padding: 0.6em 1.6em;
+  font-size: 1rem;
+  display: inline-block;
+  border: none;
+  text-align: center;
+  min-width: 7.2rem;
 
   &:hover,
   &:focus {
