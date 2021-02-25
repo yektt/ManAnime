@@ -29,5 +29,20 @@ class HomeController < ApplicationController
         @years << year
       end
     end
+
+    if(params[:season])
+      @animes = []
+      @mangas = []
+      case params[:season]
+      when 'autumn'
+        
+      when 'spring'
+
+      when 'summer'
+
+      else
+
+      end
+    end
   end
 end
