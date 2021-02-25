@@ -50,19 +50,8 @@ class HomeController < ApplicationController
     end
 
     if(params[:year] && params[:genres_id].nil?)
-      @animes = [] 
-      @mangas = [] 
-      for content in Content.anime_list
-        if (content.start_date.year >= params[:year].to_i)
-          @animes << content
-        end
-      end
-      for content in Content.manga_list
-        if (content.start_date.year >= params[:year].to_i)
-          @mangas << content
-        end
-      end
-
+      @mangas = yearCalculator(params[:year].to_i, Content.manga_list)
+      @animes = yearCalculator(params[:year].to_i, Content.anime_list)
     elsif(params[:genres_id] && params[:year].nil?)
       @animes = Content.anime_list
       @mangas = Content.manga_list
