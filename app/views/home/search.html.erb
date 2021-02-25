@@ -10,7 +10,12 @@
 
     <div class="d-flex flex-row ml-2">
       <div class="has-dropdown mr-2 align-self-center">
-        <button class="btn btn-white ml-1" type="submit">Seasons
+        <button class="btn btn-white ml-1" type="submit">
+          <% if(params[:season])%>
+            <%= params[:season].upcase_first %>
+          <% else %>
+            Seasons
+          <% end %>
           <svg class="icon-downArrow ml-2" role="presentation">
             <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#down_arrow" ) %>"></use>
           </svg>
