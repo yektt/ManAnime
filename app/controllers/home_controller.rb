@@ -62,4 +62,21 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  private 
+
+  def seasonCalculator (start_month, start_day, end_month, end_day, records)
+    @result = []  
+    for content in records
+      if(content.start_date.month == start_month && content.start_date.day >= start_day)
+        @result << content 
+      elsif(content.start_date.month > start_month && content.start_date.month <  end_month)
+        @result << content
+      elsif(content.start_date.month == end_month && content.start_date.day <= end_day)
+        @result << content
+      end
+    end
+    return @result
+  end
+
 end
