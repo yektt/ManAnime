@@ -93,4 +93,13 @@ class HomeController < ApplicationController
     return @result
   end
 
+  def genreSearch(genre, records)
+    @result_genre = []
+    for content in records
+      if content.categories.include?(genre)
+        @result_genre << content
+      end
+    end
+    return @result_genre 
+  end
 end
