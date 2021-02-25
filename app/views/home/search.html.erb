@@ -95,3 +95,20 @@
     <h3 class="mt-4 container"> I couldn't find '<%= params[:q] %>' in anywhere! </h3>
   <% end %>
 <% end %>
+
+<% unless (params[:season].nil?) %>
+  <% unless( @animes.empty? && @mangas.empty?) %>
+    <% unless(@animes.empty? || @animes.nil?) %>
+      <%= render partial: 'display_5content', locals: { category: 'Season', content: @animes, search_term: params[:season] } %>
+    <% else %>
+      <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season animes! </h3>
+    <% end %>
+    <% unless(@mangas.empty? || @mangas.nil?) %>
+      <%= render partial: 'display_5content', locals: { category: 'Season', content: @mangas, search_term: params[:season] } %>
+    <% else %>
+      <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season mangas! </h3>
+    <% end %>
+  <% else %>
+    <h3 class="mt-4 container"> I couldn't find anything for <%= params[:season] %> season! </h3>
+  <% end %>
+<% end %>
