@@ -28,6 +28,22 @@
    </h3>
 <% elsif (category == 'Year') %>
   <h3 class="margin-top-2 margin-left-1"> <%= content.first.category.upcase_first %>s from <%= search_term %> </h3>
+<% elsif (category == 'Genre&Year') %>
+  <h3 class="margin-top-2 margin-left-1"> <%= content.first.category.upcase_first %>s from <%= search_term[1] %> for 
+    <% for genre in Genre.find(params[:genres_id]) %>
+      <% if (params[:genres_id].length == 1) %>
+        <%= Genre.find(params[:genres_id]).first.name %>
+      <% else %>
+        <% if(genre == Genre.find(params[:genres_id]).last) %>
+          and <%= genre.name %>
+        <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+          <%= genre.name %>
+        <% else %>
+          <%= genre.name%>,
+        <% end %>
+      <% end %>
+    <% end %>
+  </h3>
 <% else %>
   <h5><%= category %> Appearence</h5>
 <% end %>
