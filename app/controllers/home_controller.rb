@@ -48,6 +48,33 @@ class HomeController < ApplicationController
         @mangas = seasonCalculator(12, 21, 12, 31, Content.manga_list) + seasonCalculator(1, 1, 3, 20, Content.manga_list)
       end
     end
+
+    if(params[:year] && params[:genres_id].nil?)
+
+    elsif(params[:genres_id] && params[:year].nil?)
+      @animes = []
+      @mangas = []   
+      for genre in Genre.find(params[:genres_id])
+        for content in Content.anime_list
+          if content.categories.include?(genre)
+            if !@animes.include?(content)
+              @animes << content
+            end
+          end
+        end
+      end
+      for genre in Genre.find(params[:genres_id])
+        for content in Content.manga_list
+          if content.categories.include?(genre)
+            if !@mangas.include?(content)
+              @mangas << content
+            end
+          end
+        end
+      end
+    elsif (params[:year] && params[:genres_id])
+      
+    end
   end
 
   private 
