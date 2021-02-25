@@ -21,6 +21,9 @@ class Content < ApplicationRecord
   scope :unfinished, -> { where(end_date: nil) }
   scope :most_recent, -> { order(created_at: :desc).limit(5) }
 
+  scope :name_contains, -> (term) { where('name LIKE ?', "%#{term}%") }
+  scope :tag_contains, -> (term) { where('tags LIKE ?', "%#{term}%") }
+  scope :search, ->(search_term) { name_contains(search_term).or(tag_contains(search_term)).alphabetical_order }
   scope :year, -> { order(start_date: :asc) }
 
   paginates_per 6
