@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-lg container mt-2" id="search_bar">
+<nav class="navbar navbar-expand-lg container mt-2">
   <div class="collapse navbar-collapse  flex-nowrap">
     <div class="flex-grow-1">
       <%= form_tag search_path, method: :get do %>
         <%= label_tag(:q, 'Search term', class: 'sr-only') %>
-        <%= text_field_tag(:q, params[:q], class: 'form-control', placeholder:'Search with name, relase date or genre') %>
-        <%= submit_tag('Search', class: 'btn btn-primary sr-only') %>
+        <%= text_field_tag(:q, params[:q], class: 'form-control', placeholder:'Search with name, tag or genre', id:'search_bar') %>
+         <%= submit_tag('Search', class: 'btn btn-white ml-2 sr-only', id:'submit_search_button') %>
       <% end %>
     </div>
 
     <div class="d-flex flex-row ml-2">
       <div class="has-dropdown mr-2 align-self-center">
-        <button class="btn btn-white ml-1" type="submit">
+        <button class="btn btn-white ml-1" type="submit" id="dropdown">
           <% if(params[:season])%>
             <%= params[:season].upcase_first %>
           <% else %>
