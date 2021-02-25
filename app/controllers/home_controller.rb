@@ -35,30 +35,17 @@ class HomeController < ApplicationController
       @mangas = []
       case params[:season]
       when 'autumn'
-        for content in Content.anime_list
-          if(content.start_date.month == 9 && content.start_date.day >= 23)
-            @animes << content 
-          elsif(content.start_date.month > 9 && content.start_date.month <  12)
-            @animes << content
-          elsif(content.start_date.month == 12 && content.start_date.day <= 20)
-            @animes << content
-          end
-        end
-        for content in Content.manga_list
-          if(content.start_date.month == 9 && content.start_date.day >= 23)
-            @mangas << content 
-          elsif(content.start_date.month > 9 && content.start_date.month <  12)
-            @mangas << content
-          elsif(content.start_date.month == 12 && content.start_date.day <= 20)
-            @mangas << content
-          end
-        end
+        @animes = seasonCalculator(9, 23, 12, 20, Content.anime_list)
+        @mangas = seasonCalculator(9, 23, 12, 20, Content.manga_list)
       when 'spring'
-
+        @animes = seasonCalculator(3, 21, 6, 20, Content.anime_list)
+        @mangas = seasonCalculator(3, 21, 6, 20, Content.manga_list)
       when 'summer'
-
+        @animes = seasonCalculator(6, 21, 9, 22, Content.anime_list)
+        @mangas = seasonCalculator(6, 21, 9, 22, Content.manga_list)
       else
-
+        @animes = seasonCalculator(12, 21, 12, 31, Content.anime_list) + seasonCalculator(1, 1, 3, 20, Content.anime_list)
+        @mangas = seasonCalculator(12, 21, 12, 31, Content.manga_list) + seasonCalculator(1, 1, 3, 20, Content.manga_list)
       end
     end
   end
