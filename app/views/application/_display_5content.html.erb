@@ -26,6 +26,8 @@
     <% end %>
     in <%= content.first.category %>s
    </h3>
+<% elsif (category == 'Year') %>
+  <h3 class="margin-top-2 margin-left-1"> <%= content.first.category.upcase_first %>s from <%= search_term %> </h3>
 <% else %>
   <h5><%= category %> Appearence</h5>
 <% end %>
