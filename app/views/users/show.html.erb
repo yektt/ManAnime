@@ -12,7 +12,7 @@
               <% if (current_user == @user) %>
                 <%= link_to 'Edit', edit_path(@user), class: 'btn btn-outline-secondary mr-3 text-right' %>
               <% end %>
-              <% if(is_admin? && current_user != @user) %>
+              <% if(is_admin? && current_user != @user && @user.role != 'admin') %>
                 <% if(@user.is_blocked == false) %>
                   <%= button_to "Block", block_path(@user), class:'btn btn-outline-danger mr-3' %>
                 <% else %>

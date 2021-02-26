@@ -121,7 +121,7 @@
           <div class=" p-0 mt-3 grid-item">
             <%= image_tag(character.avatar_url, alt: "Image for #{character.name}", class:'w-75 h-75 round-edge') %>
             <div>
-              <%= check_box_tag "character_id[]", character.id, true %> 
+            <%= check_box_tag "character_id[]", character.id, true %> 
             <%= character.name %> <br>
             <div class="ml-3"><%= character.surname %> </div>
             </div>
