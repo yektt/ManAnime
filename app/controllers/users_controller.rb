@@ -49,4 +49,13 @@ class UsersController < ApplicationController
   def edit_user_params
     params.require(:user).permit(:name, :avatar)
   end
+
+  def default_name(user)
+    case 
+    when ( user.email[0].downcase < 'h') then "Naruto Uzumaki"
+    when ( user.email[0].downcase < 'n') then "Kaori Miyazono"
+    when ( user.email[0].downcase < 'u') then "Tanjirou Kamado"
+    else "Violet Evergarden"
+    end
+  end
 end
