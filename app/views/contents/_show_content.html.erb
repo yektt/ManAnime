@@ -87,7 +87,7 @@
           <% @content.characters.each do |character| %>
             <div class="grid-item border mr-2">
               <div class="flex content-center">
-                <%= link_to image_tag(character.avatar_url, alt: "Avatar for #{character.name}"), character_path(Character.find(character.id)) %>
+                <%= link_to image_tag(character.avatar_url, alt: "Avatar for #{character.name}", class:'w-100'), character_path(Character.find(character.id)) %>
               </div>
               <div class="text-align-center margin-top-auto">
                 <%= character.name %>
