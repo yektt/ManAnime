@@ -22,16 +22,19 @@ if( window.location.href.includes('characters')) {
       special_info.appendChild(br);
       i++;
     }
-    
-    var general_array = special_array[special_array.length-1].toString().replace(/\n/g,"0101010101");
-    var general_array = general_array.split('0101010101');
-    var general_info = document.getElementById('character_general');
-    general_info.classList.add('margin-top-1');
 
-    for (i = 0; i<general_array.length; i++){
-      paragraph = document.createElement('p');
-      paragraph.appendChild(document.createTextNode(general_array[i]));
-      general_info.appendChild(paragraph);
+    if (special_array.length % 2 == 0){
+      var general_array = special_array[special_array.length-1].toString().replace(/\n/g,"0101010101");
+      var general_array = general_array.split('0101010101');
+      var general_info = document.getElementById('character_general');
+      general_info.classList.add('margin-top-1');
+      for (i = 0; i<general_array.length; i++){
+        paragraph = document.createElement('p');
+        paragraph.appendChild(document.createTextNode(general_array[i]));
+        general_info.appendChild(paragraph);
+      }
+    } else {
+      special_info.parentNode.parentNode.parentNode.classList.add('margin-bottom-1')
     }
   }, false);
 }
