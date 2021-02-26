@@ -1,4 +1,4 @@
-if( window.location.href.includes('profile')) {
+if( window.location.href.includes('users')) {
   document.addEventListener('DOMContentLoaded', function(){ 
     document.getElementById('tab_anime').addEventListener("click", animeFunction);
     document.getElementById('tab_manga').addEventListener("click", mangaFunction);
