@@ -106,7 +106,15 @@
       <div class="col-md-9 row m-0">
         <% for genre in Genre.all.order(name: :asc) %>
           <div class="col-md-3 p-0 mt-2">
-            <%= check_box_tag "genres_id[]", genre.id, false %> 
+            <% if(params[:genres_id].nil?) %>
+              <%= check_box_tag "genres_id[]", genre.id, false %> 
+            <% else %>
+              <% if(Genre.find(params[:genres_id]).include?(genre)) %>
+                <%= check_box_tag "genres_id[]", genre.id, true %> 
+              <% else %>
+                <%= check_box_tag "genres_id[]", genre.id, false %> 
+              <% end %>
+            <% end %>
             <%= genre.name %> 
           </div>
         <% end %>
@@ -122,7 +130,15 @@
           <div class=" p-0 mt-3 grid-item">
             <%= image_tag(character.avatar_url, alt: "Image for #{character.name}", class:'w-75 h-75 round-edge') %>
             <div>
-            <%= check_box_tag "character_id[]", character.id, false %> 
+              <% if(params[:character_id].nil?) %>
+                <%= check_box_tag "character_id[]", character.id, false %> 
+              <% else %>
+                <% if(Character.find(params[:character_id]).include?(character)) %>
+                  <%= check_box_tag "character_id[]", character.id, true %> 
+                <% else %>
+                  <%= check_box_tag "character_id[]", character.id, false %> 
+                <% end %>
+              <% end %>
             <%= character.name %> <br>
             <div class="ml-3"><%= character.surname %> </div>
             </div>
