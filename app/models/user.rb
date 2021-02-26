@@ -5,6 +5,7 @@ class User < ApplicationRecord
   before_validation :downcase_email
   
   validates :email, presence: true, uniqueness: true, format: { with: /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i } 
+  validates :name, presence: true, length: { minimum: 3 }
   validates :role, inclusion: {in: %w(registered admin blocked)}
 
   has_secure_password
