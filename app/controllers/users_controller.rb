@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(new_user_params)
+    @user.name = default_name(@user)
     if(@user.save)
       UserMailer.with(user: @user).welcoming.deliver_now
       session[:user_id] = @user.id
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
     if @user.update(edit_user_params)
       redirect_to @user
     else
-      format.html { render :edit }
+      render 'edit'
     end
   end
 
