@@ -49,9 +49,12 @@
 <% end %>
 <div class="grid-container-for-5 margin-top-1 margin-left-1">
   <% content.each do |content| %>
-    <div class="grid-item">
-      <div class="flex content-center">
-        <%= link_to image_tag(content.image, alt: "Image for #{content.name}",class:'round-edge w-100'), content_path(content) %>
+    <div class="grid-item" >
+      <div class="flex content-center position-rel" >
+        <%= link_to image_tag(content.image, alt: "Image for #{content.name}",class:'round-edge w-100 position-relative'), content_path(content) %>
+        <% if(content.rating_number > 3) %>
+          <div class="rating"> <%= content.rating %> </div>
+        <% end %>
       </div>
       <div class="text-align-center margin-top-auto">
         <%= content.name %>
