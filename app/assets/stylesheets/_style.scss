@@ -42,3 +42,16 @@
 .round-edge {
   border-radius: 0.25rem;
 }
+
+.position-rel {
+  position: relative;
+} 
+
+.rating {
+  position: absolute;
+  background-color: #000;
+  right: 0;
+  color: #fff;
+  margin: 1rem;
+  padding: 0.3rem;
+}
