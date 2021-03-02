@@ -311,7 +311,7 @@
               <p class="mr-3 mb-0">Rating: </p>
               <% for x in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
                 <div class="col-md-1 p-0">
-                  <%= form.radio_button "rating", false %> 
+                  <%= form.radio_button "rating", x %> 
                   <%= x %>
                 </div>
               <% end %>
