@@ -32,7 +32,14 @@
   
   <div class="row">
     <div class="col-md-4 p-0">
-      <div  class="d-flex flex-row">
+      <div class="d-flex flex-row">
+        <% if (@content.rating_number > 3)%>
+          <strong class="col-md-7"> Rating </strong> <%= @content.rating %>
+        <% else %>
+          <strong class="col-md-12"> Not enough rating </strong> 
+        <% end %>
+      </div>
+      <div  class="d-flex flex-row mt-3">
         <strong class="col-md-7"><%= episode_or_chapter %> Number</strong> <%= @content.episode_or_chapter_number %>
       </div>
       <div class="d-flex flex-row mt-3">
@@ -81,7 +88,7 @@
     </div>
 
     <div class="col-md-8 pb-3">
-      <label class="col-md-3 pt-0 pl-0 col-form-label">Characters</label>
+      <label class="col-md-3 pt-0 pl-0 col-form-label font-weight-bold">Characters</label>
       <% if (!@content.characters.empty?)%>
         <div class="grid-container-for-4 margin-top-1">
           <% @content.characters.each do |character| %>
