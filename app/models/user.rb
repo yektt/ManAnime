@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  has_many :comments
+
   after_initialize :default_role!, :default_status!
 
   private
