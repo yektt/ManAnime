@@ -13,6 +13,8 @@ class Content < ApplicationRecord
   has_and_belongs_to_many :categories, class_name: 'Genre'
   has_and_belongs_to_many :characters, class_name: 'Character'
 
+  has_many :comments
+
   scope :anime_list, -> { where(category: 'anime') }
   scope :manga_list, -> { where(category: 'manga') }
 
