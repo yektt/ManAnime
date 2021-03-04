@@ -1,4 +1,5 @@
 <div class="d-flex flex-column pl-2">
+  <!-- first part of information about the content -->
   <div class="mt-4 mb-4 row">
     <div class="col-md-5 pr-0">
       <%= image_tag @content.image, class: 'card-img', alt: "Image for #{@content.name}" %>
@@ -29,7 +30,8 @@
       </div>
     </div>
   </div>
-  
+
+  <!-- second part of information about the content -->
   <div class="row">
     <div class="col-md-4 p-0">
       <div class="d-flex flex-row">
@@ -86,7 +88,7 @@
         <% end %>
       </div>
     </div>
-
+    <!-- displaying characters of the content -->
     <div class="col-md-8 pb-3">
       <label class="col-md-3 pt-0 pl-0 col-form-label font-weight-bold">Characters</label>
       <% if (!@content.characters.empty?)%>
@@ -107,225 +109,208 @@
   </div>
 </div>
 
+<!-- comment and review & rating tab -->
+<ul class="nav nav-tabs mt-5" role="tablist">
+  <li class="nav-item show active" role="presentation">
+    <a class="nav-link" id="tab_comment" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true" >Comment</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="tab_review" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Review & Rating</a>
+  </li>
+</ul>
 
-  <ul class="nav nav-tabs mt-5" role="tablist">
-    <li class="nav-item show active" role="presentation">
-      <a class="nav-link" id="tab_comment" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true" >Comment</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="tab_review" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Review & Rating</a>
-    </li>
-  </ul>
-
-  <div class="tab-content p-3">
-
-    <div id="comment" class="tab-pane show active" role="tabpanel">
-      <div class="d-flex flex-row mt-3">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-left">
-          <div class="d-flex row justify-content-between mb-2">
-            <p class="ml-3 mb-0 align-self-center">User name here</p>
-            <div>
-              <small class="mr-3">when comment created</small>
-              <button class="btn btn-white mr-3">X</button>
-            </div>
-          </div>
-          <p>Comment body here. This comment has reply</p>
-          <div class="d-flex justify-content-end">
-            report-icon
-            reply-icon
-            downvote-icon
-            upvote-icon
-            edit-icon
-          </div>
-          <div class="border-bottom mt-4"></div>
-          <!-- if the comment has reply -->
-          <div class="col-md-12 d-flex justify-content-end mt-3 p-0">
-            <div class="col-md-1 p-0 mr-3">
-              <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-            </div>
-            <div class="flex-fill pl-3 border-left">
-              <div class="d-flex row justify-content-between mb-2">
-                <p class="ml-3 mb-0 align-self-center">User name here</p>
-                <div>
-                  <small class="mr-3">when reply created</small>
-                  <button class="btn btn-white mr-3">X</button>
-                </div>
-              </div>
-              <p>I am reply</p>
-            </div>
-          </div>
-
-          <div class="border-bottom mt-3"></div>
-
-          <div class="col-md-12 d-flex justify-content-end mt-3 p-0">
-            <div class="col-md-1 p-0 mr-3">
-              <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-            </div>
-            <div class="flex-fill pl-3 border-left">
-              <div class="d-flex row justify-content-between mb-2">
-                <p class="ml-3 mb-0 align-self-center">User name here</p>
-                <div>
-                  <small class="mr-3">when reply created</small>
-                  <button class="btn btn-white mr-3">X</button>
-                </div>
-              </div>
-              <p>I am reply2</p>
-            </div>
-          </div>
-
-        </div>
+<div class="tab-content p-3">
+  <!-- comment tab -->
+  <div id="comment" class="tab-pane show active" role="tabpanel">
+    <div class="d-flex flex-row mt-3">
+      <div class="col-md-1 p-0 mr-3">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
       </div>
-      <div class="border-bottom mt-3"></div>
+      <div class="flex-fill pl-3 border-left">
+        <div class="d-flex row justify-content-between mb-2">
+          <p class="ml-3 mb-0 align-self-center">User name here</p>
+          <div>
+            <small class="mr-3">when comment created</small>
 
-      <div class="d-flex flex-row mt-3">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+            <!-- deleting the comment -->
+            <button class="btn btn-white mr-3">X</button>
+          </div>
         </div>
-        <div class="flex-fill pl-3 border-left">
-          <div class="d-flex row justify-content-between mb-2">
-            <p class="ml-3 mb-0 align-self-center">User name here</p>
-            <div>
-              <small class="mr-3">when comment created</small>
-              <button class="btn btn-white mr-3">X</button>
+        <p>Comment body here. This comment has reply</p>
+
+        <!-- icons of the comment -->
+        <div class="d-flex justify-content-end">
+          report-icon
+          reply-icon
+          downvote-icon
+          upvote-icon
+          edit-icon
+        </div>
+        <div class="border-bottom mt-4"></div>
+
+         <!-- displaying replies if the comment has any -->
+        <div class="col-md-12 d-flex justify-content-end mt-3 p-0">
+          <div class="col-md-1 p-0 mr-3">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+          </div>
+          <div class="flex-fill pl-3 border-left">
+            <div class="d-flex row justify-content-between mb-2">
+              <p class="ml-3 mb-0 align-self-center">User name here</p>
+              <div>
+                <small class="mr-3">when reply created</small>
+                <button class="btn btn-white mr-3">X</button>
+              </div>
             </div>
-          </div>
-          <p>Comment body here Comment body here  Comment body here  Comment body here  Comment body here Comment body here  Comment body here  Comment body here  Comment body here  Comment body here  Comment body here  Comment body here  Comment body here  Comment body here  Comment body hereComment body here</p>
-          <div class="d-flex justify-content-end">
-            report-icon
-            reply-icon
-            downvote-icon
-            upvote-icon
-            edit-icon
+            <p>I am reply</p>
           </div>
         </div>
-      </div>
 
-      <div class="d-flex flex-row mt-3 justify-content-end">
-        <div class="flex-fill col-md-11 pr-0">
-          <p class="text-muted">Add your own comment</p>
-          <%= form_for('', remote: true) do |form| %>
-            <fieldset>
-              <%= form.text_area(:body, class: 'form-control mb-2', rows: 3) %>
-            </fieldset>
-            <fieldset class="d-flex justify-content-end">
-              <%= form.submit 'Add Comment', class: 'btn btn-white' %>
-            </fieldset>
-          <% end %>
+        <div class="border-bottom mt-3"></div>
+
+        <div class="col-md-12 d-flex justify-content-end mt-3 p-0">
+          <div class="col-md-1 p-0 mr-3">
+            <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+          </div>
+          <div class="flex-fill pl-3 border-left">
+            <div class="d-flex row justify-content-between mb-2">
+              <p class="ml-3 mb-0 align-self-center">User name here</p>
+              <div>
+                <small class="mr-3">when reply created</small>
+                <button class="btn btn-white mr-3">X</button>
+              </div>
+            </div>
+            <p>I am reply2</p>
+          </div>
         </div>
+         <!-- adding a reply to comment -->
+
       </div>
     </div>
+    <div class="border-bottom mt-3"></div>
 
-
-    
-    <div class="tab-pane fade" id="review" role="tabpanel">
-      <div class="d-flex flex-row mt-3">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-left">
-          <div class="d-flex row justify-content-between mb-2">
-            <p class="ml-3 mb-0 align-self-center">User name here</p>
-            <div>
-              <button class="btn btn-white mr-3">X</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 flex-fill pl-3 m-0 border-right">
-              <p>Review here </p>
-              <div class="row justify-content-between">
-                <small class="ml-3">categories will be display here</small>
-                <small class="mr-3">when review created</small>
-              </div>
-            </div>
-            <div class="col-md-2 pl-3 align-self-center">
-              <p>Rate will display here</p>
-            </div>
-          </div>
-        </div>
+    <!-- adding new comment -->
+    <div class="d-flex flex-row mt-3 justify-content-end">
+      <div class="flex-fill col-md-11 pr-0">
+        <p class="text-muted">Add your own comment</p>
+        <%= form_for('', remote: true) do |form| %>
+          <fieldset>
+            <%= form.text_area(:body, class: 'form-control mb-2', rows: 3) %>
+          </fieldset>
+          <fieldset class="d-flex justify-content-end">
+            <%= form.submit 'Add Comment', class: 'btn btn-white' %>
+          </fieldset>
+        <% end %>
       </div>
-
-      <div class="border-bottom mt-3"></div>
-
-      <div class="d-flex flex-row mt-3">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-left">
-          <div class="d-flex row justify-content-between mb-2">
-            <p class="ml-3 mb-0 align-self-center">User name here</p>
-            <div>
-              <button class="btn btn-white mr-3">X</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 flex-fill pl-3 m-0 border-right">
-              <p>Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here</p>
-              <div class="row justify-content-between">
-                <small class="ml-3">categories will be display here</small>
-                <small class="mr-3">when review created</small>
-              </div>
-            </div>
-            <div class="col-md-2 pl-3 align-self-center">
-              <p>Rate will display here</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="border-bottom mt-3"></div>
-
-      <div class="d-flex flex-row mt-3">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-left">
-          <div class="d-flex row justify-content-between mb-2">
-            <p class="ml-3 mb-0 align-self-center">User name here</p>
-            <div>
-              <button class="btn btn-white mr-3">X</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-10 flex-fill pl-3 m-0 border-right">
-              <p>Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here</p>
-              <div class="row justify-content-between">
-                <small class="ml-3">categories will be display here</small>
-                <small class="mr-3">when review created</small>
-              </div>
-            </div>
-            <div class="col-md-2 pl-3 align-self-center">
-              <p>Rate will display here</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex flex-row mt-5 justify-content-end">
-        <div class="flex-fill col-md-11 pr-0">
-          <p class="text-muted mb-2">Share your thoughts with the community about the anime/manga</p>
-          <%= form_for('', remote: true) do |form| %>
-            <fieldset class="d-flex row ml-1 mb-3 align-item-center">
-              <p class="mr-3 mb-0">Rating: </p>
-              <% for x in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
-                <div class="col-md-1 p-0">
-                  <%= form.radio_button "rating", x %> 
-                  <%= x %>
-                </div>
-              <% end %>
-            </fieldset>
-            <fieldset>
-              <%= form.text_area(:body, class: 'form-control mb-2', rows: 3) %>
-            </fieldset>
-            <fieldset class="d-flex justify-content-end">
-              <%= form.submit 'Add Review & Rating', class: 'btn btn-white' %>
-            </fieldset>
-          <% end %>
-        </div>
-      </div>
-
     </div>
   </div>
+
+  <!-- review & rating tab -->
+  <div class="tab-pane fade" id="review" role="tabpanel">
+    <div class="d-flex flex-row mt-3">
+      <div class="col-md-1 p-0 mr-3">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+      </div>
+      <div class="flex-fill pl-3 border-left">
+        <div class="d-flex row justify-content-between mb-2">
+          <p class="ml-3 mb-0 align-self-center">User name here</p>
+          <div>
+            <button class="btn btn-white mr-3">X</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 flex-fill pl-3 m-0 border-right">
+            <p>Review here </p>
+            <div class="row justify-content-between">
+              <small class="ml-3">categories will be display here</small>
+              <small class="mr-3">when review created</small>
+            </div>
+          </div>
+          <div class="col-md-2 pl-3 align-self-center">
+            <p>Rate will display here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom mt-3"></div>
+
+    <div class="d-flex flex-row mt-3">
+      <div class="col-md-1 p-0 mr-3">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+      </div>
+      <div class="flex-fill pl-3 border-left">
+        <div class="d-flex row justify-content-between mb-2">
+          <p class="ml-3 mb-0 align-self-center">User name here</p>
+          <div>
+            <button class="btn btn-white mr-3">X</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 flex-fill pl-3 m-0 border-right">
+            <p>Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here</p>
+            <div class="row justify-content-between">
+              <small class="ml-3">categories will be display here</small>
+              <small class="mr-3">when review created</small>
+            </div>
+          </div>
+          <div class="col-md-2 pl-3 align-self-center">
+            <p>Rate will display here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-bottom mt-3"></div>
+
+    <div class="d-flex flex-row mt-3">
+      <div class="col-md-1 p-0 mr-3">
+        <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+      </div>
+      <div class="flex-fill pl-3 border-left">
+        <div class="d-flex row justify-content-between mb-2">
+          <p class="ml-3 mb-0 align-self-center">User name here</p>
+          <div>
+            <button class="btn btn-white mr-3">X</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 flex-fill pl-3 m-0 border-right">
+            <p>Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here Review here</p>
+            <div class="row justify-content-between">
+              <small class="ml-3">categories will be display here</small>
+              <small class="mr-3">when review created</small>
+            </div>
+          </div>
+          <div class="col-md-2 pl-3 align-self-center">
+            <p>Rate will display here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row mt-5 justify-content-end">
+      <div class="flex-fill col-md-11 pr-0">
+        <p class="text-muted mb-2">Share your thoughts with the community about the anime/manga</p>
+        <%= form_for('', remote: true) do |form| %>
+          <fieldset class="d-flex row ml-1 mb-3 align-item-center">
+            <p class="mr-3 mb-0">Rating: </p>
+            <% for x in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
+              <div class="col-md-1 p-0">
+                <%= form.radio_button "rating", x %> 
+                <%= x %>
+              </div>
+            <% end %>
+          </fieldset>
+          <fieldset>
+            <%= form.text_area(:body, class: 'form-control mb-2', rows: 3) %>
+          </fieldset>
+          <fieldset class="d-flex justify-content-end">
+            <%= form.submit 'Add Review & Rating', class: 'btn btn-white' %>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
 </div>
