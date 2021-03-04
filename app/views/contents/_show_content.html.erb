@@ -143,6 +143,20 @@
             </div>
             <p id="comment<%= comment.id %>"><%= comment.comment_body %></p>
 
+            <!-- updating current comment -->
+            <div id="update_comment<%= comment.id %>" class="d-none">
+              <%= form_for([@content, comment]) do |form| %>
+                <fieldset class="row">
+                  <div class="flex-fill border-left pl-3 mr-3">
+                    <%= form.text_area :comment_body, class: 'form-control', value: comment.comment_body, rows: 4 %>
+                  </div>
+                </fieldset>
+                <fieldset class="d-flex justify-content-end">
+                  <%= form.submit 'Update Comment', class: 'btn btn-white mt-2' %>
+                </fieldset>
+              <% end %>
+            </div>
+            
             <!-- icons of the comment -->
             <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
               <svg id="report" class="icon ml-2" role="presentation">
@@ -200,7 +214,7 @@
                 <p>I am reply2</p>
               </div>
             </div>
-            
+
             <!-- adding a reply to comment -->
             <div id="write_reply<%= comment.id %>" class="d-none mt-3">
               <%= form_for('') do |form| %>
@@ -214,8 +228,7 @@
             </div>
           </div>
         </div>
-      <div class="border-bottom mt-4"></div>
-
+        <div class="border-bottom mt-4"></div>
       <% end %>
     <% else %>
       <h4 class="mt-3">No comments has been added to <%=@content.name %> so far!</h4>
