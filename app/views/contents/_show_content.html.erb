@@ -131,9 +131,9 @@
           </div>
           <div class="flex-fill pl-3 border-left">
             <div class="d-flex row justify-content-between mb-2">
-              <p class="ml-3 mb-0 align-self-center">User name here</p>
+              <p class="ml-3 mb-0 align-self-center text-monospace"><%= comment.user.name %></p>
               <div>
-                <small class="mr-3">when comment created</small>
+                <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
 
                 <!-- deleting the comment -->
                 <svg class="icon mr-3" role="presentation">
