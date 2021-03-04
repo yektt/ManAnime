@@ -142,14 +142,24 @@
             <p>Comment body here. This comment has reply</p>
 
             <!-- icons of the comment -->
-            <div class="d-flex justify-content-end">
-              report-icon
-              reply-icon
-              downvote-icon
-              upvote-icon
-              edit-icon
+            <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
+              <svg id="report" class="icon ml-2" role="presentation">
+                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
+              </svg>
+              <svg id="reply<%= comment.id %>" class="icon ml-2" role="presentation">
+                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply" ) %>"></use>
+              </svg>
+              <svg id="downvote" class="icon ml-2" role="presentation">
+                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
+              </svg>
+              <svg id="upvote" class="icon ml-2" role="presentation">
+                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
+              </svg>
+              <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
+                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
+              </svg>
             </div>
-            <div class="border-bottom mt-4"></div>
+            <div class="border-bottom mt-3"></div>
 
             <!-- displaying replies if the comment has any -->
             <div class="col-md-12 d-flex justify-content-end mt-3 p-0">
