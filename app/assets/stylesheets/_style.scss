@@ -32,18 +32,12 @@
 }
 
 .icon-downArrow {
-  fill: #72797E;
+  fill: #72797e;
   width: 1.25rem;
   height: 1.25rem;
   margin-right: 0.5rem;
   margin-top: -3px;
 }
-
-.icon-small {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.25rem;
-} 
 
 .round-edge {
   border-radius: 0.25rem;
@@ -56,8 +50,8 @@
 .rating {
   position: absolute;
   background-color: #000;
-  right: 0;
+  right: 1.5rem;
+  top: 0.3rem;
   color: #fff;
-  margin: 1rem;
   padding: 0.3rem;
 }
