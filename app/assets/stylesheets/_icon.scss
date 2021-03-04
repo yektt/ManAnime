@@ -1,0 +1,19 @@
+.icon {
+  margin-right: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  fill: #6b6d6c; 
+
+  &:hover,
+  &:focus,
+  &:active {
+    fill: #000;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.icon-small {
+  width: 0.75em;
+  height: 0.75rem;  
+}
