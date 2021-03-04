@@ -136,7 +136,9 @@
                 <small class="mr-3">when comment created</small>
 
                 <!-- deleting the comment -->
-                <button class="btn btn-white mr-3">X</button>
+                <svg class="icon mr-3" role="presentation">
+                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                </svg>
               </div>
             </div>
             <p>Comment body here. This comment has reply</p>
