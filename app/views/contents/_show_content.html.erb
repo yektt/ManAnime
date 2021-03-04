@@ -136,9 +136,11 @@
                 <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
 
                 <!-- deleting the comment -->
-                <svg class="icon mr-3" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                </svg>
+                <% if(current_user == comment.user || current_user == is_admin?) %>
+                  <svg class="icon mr-3" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                  </svg>
+                <% end %>
               </div>
             </div>
             <p id="comment<%= comment.id %>"><%= comment.comment_body %></p>
@@ -171,9 +173,11 @@
               <svg id="upvote" class="icon ml-2" role="presentation">
                 <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
               </svg>
-              <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
-                <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
-              </svg>
+              <% if(current_user == comment.user) %>
+                <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
+                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
+                </svg>
+              <% end %>
             </div>
             <div class="border-bottom mt-3"></div>
 
