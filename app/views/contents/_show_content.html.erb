@@ -211,15 +211,23 @@
     <% end %>
 
     <!-- adding new comment -->
-    <div class="d-flex flex-row mt-3 justify-content-end">
-      <div class="flex-fill col-md-11 pr-0">
-        <p class="text-muted">Add your own comment</p>
-        <%= form_for('', remote: true) do |form| %>
-          <fieldset>
-            <%= form.text_area(:body, class: 'form-control mb-2', rows: 3) %>
+    <div class="d-flex flex-row mt-3">
+      <div class="flex-fill col-md-12 pr-0">
+        <div class="row no-gutters">
+          <div class="col-6 col-md-1"></div>
+          <p class="text-muted mt-2 ml-3">Add your own comment</p>
+        </div>
+        <%= form_for([@content, @content.comments.build]) do |form| %>
+          <fieldset class="row">
+            <div class="col-md-1 p-0 mr-3 mt-1">
+              <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
+            </div>
+            <div class="flex-fill border-left pl-3 mr-3">
+              <%= form.text_area(:comment_body, class: 'form-control', rows: 4) %>
+            </div>
           </fieldset>
           <fieldset class="d-flex justify-content-end">
-            <%= form.submit 'Add Comment', class: 'btn btn-white' %>
+            <%= form.submit class: 'btn btn-white mt-2' %>
           </fieldset>
         <% end %>
       </div>
