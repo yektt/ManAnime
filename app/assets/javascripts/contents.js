@@ -14,6 +14,17 @@ if( window.location.href.includes('contents')) {
             else
               write_reply.classList.add('d-none');  
             break;
+          case(item_name.includes('edit')):
+            var will_be_edited_comment = 'update_comment' + item.id.substring(4,item_name.length);
+            var edit_comment = document.getElementById(will_be_edited_comment);
+            var icons = document.getElementById('icons' + item.id.substring(4,item_name.length));
+            var comment = document.getElementById('comment' + item.id.substring(4,item_name.length));
+
+            edit_comment.classList.remove('d-none');
+            icons.classList.remove('d-flex');
+            icons.classList.add('d-none');
+            comment.classList.add('d-none');
+            break;
         }
       })
     })
