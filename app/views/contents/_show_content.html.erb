@@ -136,10 +136,12 @@
                 <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
 
                 <!-- deleting the comment -->
-                <% if(current_user == comment.user || current_user == is_admin?) %>
-                  <svg class="icon mr-3" role="presentation">
-                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                  </svg>
+                <% if (logged_in?) %>
+                  <% if(current_user == comment.user || current_user == is_admin?) %>
+                    <svg class="icon mr-3" role="presentation">
+                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                    </svg>
+                  <% end %>
                 <% end %>
               </div>
             </div>
@@ -173,10 +175,12 @@
               <svg id="upvote" class="icon ml-2" role="presentation">
                 <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
               </svg>
-              <% if(current_user == comment.user) %>
-                <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
-                </svg>
+              <% if (logged_in?) %>
+                <% if(current_user == comment.user) %>
+                  <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
+                  </svg>
+                <% end %>
               <% end %>
             </div>
             <div class="border-bottom mt-3"></div>
@@ -239,27 +243,29 @@
     <% end %>
 
     <!-- adding new comment -->
-    <div class="d-flex flex-row mt-3">
-      <div class="flex-fill col-md-12 pr-0">
-        <div class="row no-gutters">
-          <div class="col-6 col-md-1"></div>
-          <p class="text-muted mt-2 ml-3">Add your own comment</p>
+    <% if (logged_in?) %>
+      <div class="d-flex flex-row mt-3">
+        <div class="flex-fill col-md-12 pr-0">
+          <div class="row no-gutters">
+            <div class="col-6 col-md-1"></div>
+            <p class="text-muted mt-2 ml-3">Add your own comment</p>
+          </div>
+          <%= form_for([@content, @content.comments.build]) do |form| %>
+            <fieldset class="row">
+              <div class="col-md-1 p-0 mr-3 mt-1">
+                <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
+              </div>
+              <div class="flex-fill border-left pl-3 mr-3">
+                <%= form.text_area(:comment_body, class: 'form-control', rows: 4) %>
+              </div>
+            </fieldset>
+            <fieldset class="d-flex justify-content-end">
+              <%= form.submit class: 'btn btn-white mt-2' %>
+            </fieldset>
+          <% end %>
         </div>
-        <%= form_for([@content, @content.comments.build]) do |form| %>
-          <fieldset class="row">
-            <div class="col-md-1 p-0 mr-3 mt-1">
-              <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
-            </div>
-            <div class="flex-fill border-left pl-3 mr-3">
-              <%= form.text_area(:comment_body, class: 'form-control', rows: 4) %>
-            </div>
-          </fieldset>
-          <fieldset class="d-flex justify-content-end">
-            <%= form.submit class: 'btn btn-white mt-2' %>
-          </fieldset>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <!-- review & rating tab -->
