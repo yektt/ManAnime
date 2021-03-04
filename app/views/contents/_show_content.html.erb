@@ -200,10 +200,21 @@
                 <p>I am reply2</p>
               </div>
             </div>
+            
             <!-- adding a reply to comment -->
+            <div id="write_reply<%= comment.id %>" class="d-none mt-3">
+              <%= form_for('') do |form| %>
+                <fieldset>
+                  <%= form.text_area(:comment_body, class: 'form-control mb-2', rows: 3) %>
+                </fieldset>
+                <fieldset class="d-flex justify-content-end">
+                  <%= form.submit 'Add Reply', class: 'btn btn-white' %>
+                </fieldset>
+              <% end %>
+            </div>
           </div>
         </div>
-        <div class="border-bottom mt-3"></div>
+      <div class="border-bottom mt-4"></div>
 
       <% end %>
     <% else %>
