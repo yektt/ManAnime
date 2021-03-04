@@ -10,6 +10,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.update(comment_params)
+    @comment.save!
+
+    redirect_to @comment.content
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:comment_body)
