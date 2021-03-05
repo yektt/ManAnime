@@ -126,12 +126,12 @@
     <% if ( !@content.comments.empty?) %>
       <% @content.comments.order(created_at: :asc).each do |comment| %>
         <div class="d-flex flex-row mt-4">
-              <div class="col-md-1 p-0 mr-3">
-                <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user) %>
+          <div class="col-md-1 p-0 mr-3">
+            <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user) %>
           </div>
           <div class="flex-fill pl-3 border-left">
             <div class="d-flex row justify-content-between mb-2">
-              <p class="ml-3 mb-0 align-self-center text-monospace"><%= comment.user.name %></p>
+              <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to comment.user.name, user_path(comment.user), class:'p-0 text-monospace' %></p>
               <div>
                 <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
 
@@ -191,11 +191,11 @@
               <% comment.replies.order(created_at: :asc).each do |reply| %>
                 <div class="flex-fill d-flex justify-content-end mt-3 p-0">
                   <div class="col-md-1 p-0 mr-3 ml-2">
-                    <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+                    <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
                   </div>
                   <div class="flex-fill pl-3 border-left">
                     <div class="d-flex row justify-content-between mb-2">
-                      <p class="ml-3 mb-0 align-self-center">User name here</p>
+                      <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
                       <div>
                         <small class="mr-2 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
                         <svg class="icon icon-small mr-3" role="presentation">
@@ -211,7 +211,6 @@
                 <% end %>
               <% end %>
             <% end %>
-            
 
             <!-- adding a reply to comment -->
             <div id="write_reply<%= comment.id %>" class="d-none mt-3">
