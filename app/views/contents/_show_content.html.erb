@@ -183,10 +183,11 @@
                 <% end %>
               <% end %>
             </div>
-            <div class="border-bottom mt-3"></div>
+            
 
             <!-- displaying replies if the comment has any -->
             <% if ( !comment.replies.empty?) %>
+              <div class="border-bottom mt-3"></div>
               <% comment.replies.order(created_at: :asc).each do |reply| %>
                 <div class="flex-fill d-flex justify-content-end mt-3 p-0">
                   <div class="col-md-1 p-0 mr-3 ml-2">
@@ -196,7 +197,7 @@
                     <div class="d-flex row justify-content-between mb-2">
                       <p class="ml-3 mb-0 align-self-center">User name here</p>
                       <div>
-                        <small class="mr-2 text-muted">when reply created</small>
+                        <small class="mr-2 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
                         <svg class="icon icon-small mr-3" role="presentation">
                           <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
                         </svg>
@@ -205,9 +206,12 @@
                     <p>I am reply</p>
                   </div>
                 </div>
-                <div class="border-bottom mt-3"></div>
+                <% if(reply != comment.replies.last) %>
+                  <div class="border-bottom mt-3"></div>
+                <% end %>
               <% end %>
             <% end %>
+            
 
             <!-- adding a reply to comment -->
             <div id="write_reply<%= comment.id %>" class="d-none mt-3">
