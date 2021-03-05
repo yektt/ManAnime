@@ -218,9 +218,9 @@
             <!-- adding a reply to comment -->
             <% if (logged_in?) %>
               <div id="write_reply<%= comment.id %>" class="d-none mt-3">
-                <%= form_for('') do |form| %>
-                  <fieldset>
-                    <%= form.text_area(:comment_body, class: 'form-control mb-2', rows: 3) %>
+                <%= form_for([@content, comment, comment.replies.build]) do |form| %>
+                  <fieldset class="ml-2">
+                    <%= form.text_area(:reply_body, class: 'form-control mb-2', rows: 3) %>
                   </fieldset>
                   <fieldset class="d-flex justify-content-end">
                     <%= form.submit 'Add Reply', class: 'btn btn-white' %>
