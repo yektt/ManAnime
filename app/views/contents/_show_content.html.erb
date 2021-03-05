@@ -186,24 +186,29 @@
             <div class="border-bottom mt-3"></div>
 
             <!-- displaying replies if the comment has any -->
-            <div class="flex-fill d-flex justify-content-end mt-3 p-0">
-              <div class="col-md-1 p-0 mr-3 ml-2">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
-              </div>
-              <div class="flex-fill pl-3 border-left">
-                <div class="d-flex row justify-content-between mb-2">
-                  <p class="ml-3 mb-0 align-self-center">User name here</p>
-                  <div>
-                    <small class="mr-2 text-muted">when reply created</small>
-                    <svg class="icon icon-small mr-3" role="presentation">
-                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                    </svg>
+            <% if ( !comment.replies.empty?) %>
+              <% comment.replies.order(created_at: :asc).each do |reply| %>
+                <div class="flex-fill d-flex justify-content-end mt-3 p-0">
+                  <div class="col-md-1 p-0 mr-3 ml-2">
+                    <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
+                  </div>
+                  <div class="flex-fill pl-3 border-left">
+                    <div class="d-flex row justify-content-between mb-2">
+                      <p class="ml-3 mb-0 align-self-center">User name here</p>
+                      <div>
+                        <small class="mr-2 text-muted">when reply created</small>
+                        <svg class="icon icon-small mr-3" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                        </svg>
+                      </div>
+                    </div>
+                    <p>I am reply</p>
                   </div>
                 </div>
-                <p>I am reply</p>
-              </div>
-            </div>
-            <div class="border-bottom mt-3"></div>
+                <div class="border-bottom mt-3"></div>
+              <% end %>
+            <% end %>
+            
 
             <div class="flex-fill d-flex justify-content-end mt-3 p-0">
               <div class="col-md-1 p-0 mr-3 ml-2">
