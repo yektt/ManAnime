@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     resources :genres, only: [:new, :create]
     resources :characters, only: [:new, :create, :show, :edit, :update]
     resources :contents do
-      resources :comments, only: [:create, :update]
+      resources :comments, only: [:create, :update] do
+        resources :replies, only: [:create, :destroy]
+      end
     end
     
     resources "contacts", only: [:new, :create]
