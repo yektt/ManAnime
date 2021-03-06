@@ -125,112 +125,118 @@
     <!-- displaying comments if the content has any -->
     <% if ( !@content.comments.empty?) %>
       <% @content.comments.order(created_at: :asc).each do |comment| %>
-        <div class="d-flex flex-row mt-4">
-          <div class="col-md-1 p-0 mr-3">
-            <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user), class:'p-0' %>
-          </div>
-          <div class="flex-fill pl-3 border-left">
-            <div class="d-flex row justify-content-between mb-2">
-              <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to comment.user.name, user_path(comment.user), class:'p-0 text-monospace' %></p>
-              <div>
-                <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
+        <div id="comment-<%= comment.id %>">
+          <div class="d-flex flex-row mt-4">
+            <div class="col-md-1 p-0 mr-3">
+              <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user), class:'p-0' %>
+            </div>
+            <div class="flex-fill pl-3 border-left">
+              <div class="d-flex row justify-content-between mb-2">
+                <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to comment.user.name, user_path(comment.user), class:'p-0 text-monospace' %></p>
+                <div>
+                  <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
 
-                <!-- deleting the comment -->
-                <% if (logged_in?) %>
-                  <% if(current_user == comment.user || current_user == is_admin?) %>
-                    <svg class="icon mr-3" role="presentation">
-                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                    </svg>
+                  <!-- deleting the comment -->
+                  <% if (logged_in?) %>
+                    <% if(current_user == comment.user || current_user == is_admin?) %>
+                      <%= link_to delete_comment_path(comment), remote: true do %>
+                        <svg class="icon mr-3" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                        </svg>
+                      <% end %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
-            </div>
-            <p id="comment<%= comment.id %>"><%= comment.comment_body %></p>
-
-            <!-- updating current comment -->
-            <div id="update_comment<%= comment.id %>" class="d-none">
-              <%= form_for([@content, comment]) do |form| %>
-                <fieldset class="row">
-                  <div class="flex-fill border-left pl-3 mr-3">
-                    <%= form.text_area :comment_body, class: 'form-control', value: comment.comment_body, rows: 4 %>
-                  </div>
-                </fieldset>
-                <fieldset class="d-flex justify-content-end">
-                  <%= form.submit 'Update Comment', class: 'btn btn-white mt-2' %>
-                </fieldset>
-              <% end %>
-            </div>
-            
-            <!-- icons of the comment -->
-            <% if (logged_in?) %>
-              <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
-                <svg id="report" class="icon ml-2" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
-                </svg>
-                <svg id="reply<%= comment.id %>" class="icon ml-2" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
-                </svg>
-                <svg id="downvote" class="icon ml-2" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
-                </svg>
-                <svg id="upvote" class="icon ml-2" role="presentation">
-                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
-                </svg>
-                <% if(current_user == comment.user) %>
-                  <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
-                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
-                  </svg>
-                <% end %>
-              </div>
-            <% end %>
-            
-            <!-- displaying replies if the comment has any -->
-            <% if ( !comment.replies.empty?) %>
-              <div class="border-bottom mt-3"></div>
-              <% comment.replies.order(created_at: :asc).each do |reply| %>
-                <div class="flex-fill d-flex justify-content-end mt-3 p-0">
-                  <div class="col-md-1 p-0 mr-4">
-                    <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
-                  </div>
-                  <div class="flex-fill pl-3 border-left">
-                    <div class="d-flex row justify-content-between mb-2">
-                      <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
-                      <div>
-                        <small class="mr-3 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
-                        <% if(logged_in?) %>
-                          <% if(current_user == reply.user || is_admin?) %>
-                            <svg class="icon icon-small mr-3" role="presentation">
-                              <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                            </svg>
-                          <% end %>
-                        <% end %>
-                      </div>
-                    </div>
-                    <p id="comment<%= reply.id %>"><%= reply.reply_body %></p>
-                  </div>
                 </div>
-                <% if(reply != comment.replies.last) %>
-                  <div class="border-bottom mt-3"></div>
-                <% end %>
-              <% end %>
-            <% end %>
+              </div>
+              <p id="comment<%= comment.id %>"><%= comment.comment_body %></p>
 
-            <!-- adding a reply to comment -->
-            <% if (logged_in?) %>
-              <div id="write_reply<%= comment.id %>" class="d-none mt-3">
-                <%= form_for([@content, comment, comment.replies.build]) do |form| %>
-                  <fieldset class="ml-2">
-                    <%= form.text_area(:reply_body, class: 'form-control mb-2', rows: 3) %>
+              <!-- updating current comment -->
+              <div id="update_comment<%= comment.id %>" class="d-none">
+                <%= form_for([@content, comment]) do |form| %>
+                  <fieldset class="row">
+                    <div class="flex-fill border-left pl-3 mr-3">
+                      <%= form.text_area :comment_body, class: 'form-control', value: comment.comment_body, rows: 4 %>
+                    </div>
                   </fieldset>
                   <fieldset class="d-flex justify-content-end">
-                    <%= form.submit 'Add Reply', class: 'btn btn-white' %>
+                    <%= form.submit 'Update Comment', class: 'btn btn-white mt-2' %>
                   </fieldset>
                 <% end %>
               </div>
-            <% end %>
+              
+              <!-- icons of the comment -->
+              <% if (logged_in?) %>
+                <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
+                  <svg id="report" class="icon ml-2" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
+                  </svg>
+                  <svg id="reply<%= comment.id %>" class="icon ml-2" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
+                  </svg>
+                  <svg id="downvote" class="icon ml-2" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
+                  </svg>
+                  <svg id="upvote" class="icon ml-2" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
+                  </svg>
+                  <% if(current_user == comment.user) %>
+                    <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
+                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
+                    </svg>
+                  <% end %>
+                </div>
+              <% end %>
+              
+              <!-- displaying replies if the comment has any -->
+              <% if ( !comment.replies.empty?) %>
+                <div class="border-bottom mt-3"></div>
+                <% comment.replies.order(created_at: :asc).each do |reply| %>
+                  <div class="flex-fill d-flex justify-content-end mt-3 p-0">
+                    <div class="col-md-1 p-0 mr-4">
+                      <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
+                    </div>
+                    <div class="flex-fill pl-3 border-left">
+                      <div class="d-flex row justify-content-between mb-2">
+                        <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
+                        <div>
+                          <small class="mr-3 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
+                          <% if(logged_in?) %>
+                            <% if(current_user == reply.user || is_admin?) %>
+                              <%= link_to delete_reply_path(reply) do %>
+                                <svg class="icon icon-small mr-3" role="presentation">
+                                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                                </svg>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </div>
+                      <p id="reply<%= reply.id %>"><%= reply.reply_body %></p>
+                    </div>
+                  </div>
+                  <% if(reply != comment.replies.last) %>
+                    <div class="border-bottom mt-3"></div>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+              <!-- adding a reply to comment -->
+              <% if (logged_in?) %>
+                <div id="write_reply<%= comment.id %>" class="d-none mt-3">
+                  <%= form_for([@content, comment, comment.replies.build]) do |form| %>
+                    <fieldset class="ml-2">
+                      <%= form.text_area(:reply_body, class: 'form-control mb-2', rows: 3) %>
+                    </fieldset>
+                    <fieldset class="d-flex justify-content-end">
+                      <%= form.submit 'Add Reply', class: 'btn btn-white' %>
+                    </fieldset>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
+          <div class="border-bottom mt-4"></div>
         </div>
-        <div class="border-bottom mt-4"></div>
       <% end %>
     <% else %>
       <h4 class="mt-3">No comments has been added to <%=@content.name %> so far!</h4>
@@ -244,7 +250,8 @@
             <div class="col-6 col-md-1"></div>
             <p class="text-muted mt-2 ml-3">Add your own comment</p>
           </div>
-          <%= form_for([@content, @content.comments.build]) do |form| %>
+          <%= form_for([@content, @content.comments.build], remote: true) do |form| %>
+          
             <fieldset class="row">
               <div class="col-md-1 p-0 mr-3 mt-1">
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
