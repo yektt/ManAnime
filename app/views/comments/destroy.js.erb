@@ -1,5 +1,9 @@
 comment = document.getElementById("comment-" + <%= @comment.id %>);
-if(comment.nextElementSibling == null && comment.previousElementSibling == null)
-  location.reload();
+if(<%= @comment.content.comments.length == 0 %>) {
+  var no_comments_added = document.createElement('h4');
+  no_comments_added.className = "mt-3";
+  no_comments_added.appendChild(document.createTextNode('No comments has been added to <%=@content.name %> so far!'));
+  comment.parentElement.insertBefore(no_comments_added, comment.parentElement.firstChild);
+}
 
 comment.remove();
