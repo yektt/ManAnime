@@ -25,10 +25,12 @@ Rails.application.routes.draw do
     resources :genres, only: [:new, :create]
     resources :characters, only: [:new, :create, :show, :edit, :update]
     resources :contents do
-      resources :comments, only: [:create, :update] do
+      resources :comments, only: [:create, :update, :destroy] do
         resources :replies, only: [:create, :destroy]
       end
     end
+    get 'delete_reply/:id', to: 'replies#destroy', as:'delete_reply'
+    get 'delete_comment/:id', to: 'comments#destroy', as:'delete_comment'
     
     resources "contacts", only: [:new, :create]
     get 'contact', to:'contacts#new'
