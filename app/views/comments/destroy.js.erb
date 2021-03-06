@@ -1,0 +1,5 @@
+comment = document.getElementById("comment-" + <%= @comment.id %>);
+if(comment.nextElementSibling == null && comment.previousElementSibling == null)
+  location.reload();
+
+comment.remove();
