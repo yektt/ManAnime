@@ -12,6 +12,17 @@ class RepliesController < ApplicationController
     end
   end
 
+  def destroy
+    @reply = Reply.find(params[:id])
+    @content = @reply.comment.content
+
+    @reply.destroy!
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def reply_params
