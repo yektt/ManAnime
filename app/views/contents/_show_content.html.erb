@@ -189,34 +189,36 @@
               
               <!-- displaying replies if the comment has any -->
               <% if ( !comment.replies.empty?) %>
-                <div class="border-bottom mt-3"></div>
+                <div id="border-between-comment-reply" class="border-bottom mt-3"></div>
                 <% comment.replies.order(created_at: :asc).each do |reply| %>
-                  <div class="flex-fill d-flex justify-content-end mt-3 p-0">
-                    <div class="col-md-1 p-0 mr-4">
-                      <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
-                    </div>
-                    <div class="flex-fill pl-3 border-left">
-                      <div class="d-flex row justify-content-between mb-2">
-                        <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
-                        <div>
-                          <small class="mr-3 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
-                          <% if(logged_in?) %>
-                            <% if(current_user == reply.user || is_admin?) %>
-                              <%= link_to delete_reply_path(reply) do %>
-                                <svg class="icon icon-small mr-3" role="presentation">
-                                  <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                                </svg>
+                  <div id="reply-<%= reply.id %>">
+                    <div class="flex-fill d-flex justify-content-end mt-3 p-0">
+                      <div class="col-md-1 p-0 mr-4">
+                        <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
+                      </div>
+                      <div class="flex-fill pl-3 border-left">
+                        <div class="d-flex row justify-content-between mb-2">
+                          <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
+                          <div>
+                            <small class="mr-3 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
+                            <% if(logged_in?) %>
+                              <% if(current_user == reply.user || is_admin?) %>
+                                <%= link_to delete_reply_path(reply), remote: true do %>
+                                  <svg class="icon icon-small mr-3" role="presentation">
+                                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                                  </svg>
+                                <% end %>
                               <% end %>
                             <% end %>
-                          <% end %>
+                          </div>
                         </div>
+                        <p><%= reply.reply_body %></p>
                       </div>
-                      <p id="reply<%= reply.id %>"><%= reply.reply_body %></p>
                     </div>
+                    <% if(reply != comment.replies.last) %>
+                      <div class="border-bottom mt-3"></div>
+                    <% end %>
                   </div>
-                  <% if(reply != comment.replies.last) %>
-                    <div class="border-bottom mt-3"></div>
-                  <% end %>
                 <% end %>
               <% end %>
 
