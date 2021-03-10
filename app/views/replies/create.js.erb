@@ -1,0 +1,13 @@
+var reply = {
+  'replyId' : '<%= @reply.id %>',
+  'commentId' : '<%=@comment.id%>',
+  'replyBody' : '<%= @reply.reply_body %>',
+  'replyCreateTime' : '<%= @comment.created_at.strftime("%e %B %Y at %k:%M") %>',
+  'deleteReplyPath' : '<%= delete_reply_path(@reply) %>',
+  'deleteIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#delete" )%>',
+  'userName' : '<%= current_user.name %>',
+  'userProfilePath' : '<%= user_path(current_user) %>',
+  'userAvatarPath' : '<%= current_user.avatar_url %>'
+};
+
+Replies.createReply(reply);
