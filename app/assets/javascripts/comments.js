@@ -93,3 +93,17 @@ Comments.createComment = function( comment ) {
   // removing all asynchronously adding areas on the page 
   block_new_entry();
 }
+
+Comments.destroyComment = function(commentId, contentName, length) {
+  comment = document.getElementById("comment-" + commentId);
+  if( length == 0) {
+    var no_comments_added = document.createElement('h4');
+    no_comments_added.className = "mt-3";
+    no_comments_added.appendChild(document.createTextNode('No comments has been added to' + contentName +  'so far!'));
+    comment.parentElement.insertBefore(no_comments_added, comment.parentElement.firstChild);
+  }
+  comment.remove();
+
+  let adding_comment_area = document.getElementById('adding_comment');
+  adding_comment_area.value = "";
+}
