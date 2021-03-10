@@ -5,8 +5,13 @@ class CommentsController < ApplicationController
     @comment.content = @content
     @comment.user = current_user
 
-    if @comment.save
-      redirect_to @content
+    respond_to do |format|
+      if @comment.save
+        #format.html { redirect_to @content }
+        format.js 
+      else 
+        format.html { redirect_to @content }
+      end
     end
   end
 
