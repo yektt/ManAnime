@@ -65,7 +65,7 @@ function block_new_entry() {
   let adding_comment_form = document.getElementById('new_comment');
   adding_comment_form.classList.add('d-none');
 
-  var information = document.querySelector(".no-gutters", 'p').lastElementChild;
+  var information = document.getElementById('add_your_comment_text');
   information.textContent = 'Please refresh the page to add a reply or another comment!';
 
   let icons = document.getElementsByTagName('svg');
