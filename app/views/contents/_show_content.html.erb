@@ -275,6 +275,11 @@
 
   <!-- review & rating tab -->
   <div class="tab-pane fade" id="review" role="tabpanel">
+    <!-- displaying reviews & ratings if the content has any -->
+    <% if ( !@content.reviews.empty? ) %>
+    <% else %>
+      <h4 class="mt-3">No review has been made to <%=@content.name %> so far!</h4>
+    <% end %>
     <div class="d-flex flex-row mt-3">
       <div class="col-md-1 p-0 mr-3">
         <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img width-100" alt="...">
