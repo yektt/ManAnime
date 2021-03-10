@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :comments
+  has_many :reviews
   has_many :replies
 
   after_initialize :default_role!, :default_status!
