@@ -7,8 +7,13 @@ class RepliesController < ApplicationController
     @reply.user = current_user
     @reply.comment = @comment
 
-    if @reply.save
-      redirect_to @content 
+    respond_to do |format|
+      if @reply.save
+        #format.html { redirect_to @content }
+        format.js 
+      else 
+        format.html { redirect_to @content }
+      end
     end
   end
 
