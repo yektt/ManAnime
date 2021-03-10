@@ -1,8 +1,1 @@
-reply = document.getElementById("reply-" + <%= @reply.id %>);
-
-if(<%= @reply.comment.replies.length == 0 %>) {
-  document.getElementById("border-between-comment-reply").remove();
-}
-
-reply.remove();
-
+Replies.destroyReply( '<%= @reply.id %>', '<%= @reply.comment.replies.length %>');
