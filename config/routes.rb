@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :update, :destroy] do
         resources :replies, only: [:create, :destroy]
       end
+      resources :reviews, only: [:create, :destroy]
     end
     get 'delete_reply/:id', to: 'replies#destroy', as:'delete_reply'
     get 'delete_comment/:id', to: 'comments#destroy', as:'delete_comment'
