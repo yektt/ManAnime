@@ -85,11 +85,13 @@ Comments.createComment = function( comment ) {
   div_outside.appendChild(div);
   div_outside.appendChild(div_border);
   
+  let write_comment_area = document.getElementById('new_comment').querySelector('textarea');
+  write_comment_area.value = "";
+
   // adding comments before textarea
   let adding_comment_area = document.getElementById('adding_comment');
   adding_comment_area.parentElement.insertBefore(div_outside, adding_comment_area);
-  adding_comment_area.value = "";
-  
+
   // removing all asynchronously adding areas on the page 
   block_new_entry();
 }
