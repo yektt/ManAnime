@@ -138,7 +138,7 @@
 
                   <!-- deleting the comment -->
                   <% if (logged_in?) %>
-                    <% if(current_user == comment.user || current_user == is_admin?) %>
+                    <% if(current_user == comment.user || is_admin?) %>
                       <%= link_to delete_comment_path(comment), remote: true do %>
                         <svg class="icon mr-3" role="presentation">
                           <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
@@ -167,18 +167,20 @@
               <!-- icons of the comment -->
               <% if (logged_in?) %>
                 <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
-                  <svg id="report" class="icon ml-2" role="presentation">
-                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
-                  </svg>
                   <svg id="reply<%= comment.id %>" class="icon ml-2" role="presentation">
                     <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
                   </svg>
-                  <svg id="downvote" class="icon ml-2" role="presentation">
-                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
-                  </svg>
-                  <svg id="upvote" class="icon ml-2" role="presentation">
-                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
-                  </svg>
+                  <% if( current_user != comment.user) %>
+                    <svg id="report" class="icon ml-2" role="presentation">
+                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
+                    </svg>
+                    <svg id="downvote" class="icon ml-2" role="presentation">
+                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
+                    </svg>
+                    <svg id="upvote" class="icon ml-2" role="presentation">
+                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
+                    </svg>
+                  <% end %>
                   <% if(current_user == comment.user) %>
                     <svg id="edit<%= comment.id %>" class="icon ml-2" role="presentation">
                       <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit" ) %>"></use>
@@ -225,7 +227,7 @@
               <!-- adding a reply to comment -->
               <% if (logged_in?) %>
                 <div id="write_reply<%= comment.id %>" class="d-none mt-3">
-                  <%= form_for([@content, comment, comment.replies.build]) do |form| %>
+                  <%= form_for([@content, comment, comment.replies.build], remote: true) do |form| %>
                     <fieldset class="ml-2">
                       <%= form.text_area(:reply_body, class: 'form-control mb-2', rows: 3) %>
                     </fieldset>
@@ -246,7 +248,7 @@
 
     <!-- adding new comment -->
     <% if (logged_in?) %>
-      <div class="d-flex flex-row mt-3">
+      <div id="adding_comment" class="d-flex flex-row mt-3">
         <div class="flex-fill col-md-12 pr-0">
           <div class="row no-gutters">
             <div class="col-6 col-md-1"></div>
