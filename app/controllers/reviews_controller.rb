@@ -12,6 +12,13 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    logger.info('in reviews destroy')
+    @review = Review.find(params[:id])
+    @content = @review.content
+
+    @review.destroy!
+
+    redirect_to @content 
   end
 
   private
