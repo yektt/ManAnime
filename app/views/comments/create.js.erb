@@ -1,0 +1,13 @@
+var comment = {
+  'contentsCommentsLength' : '<%= @content.comments.length %>',
+  'commentId' : '<%= @comment.id %>',
+  'commentCreatedTime' : '<%= @comment.created_at.strftime("%e %B %Y at %k:%M") %>',
+  'commentBody' : '<%= @comment.comment_body %>',
+  'userProfilePath' : '<%= user_path(current_user) %>',
+  'userAvatarPath' : '<%= current_user.avatar_url %>',
+  'userName' : '<%= current_user.name %>',
+  'deleteCommentPath' : '<%= delete_comment_path(@comment) %>',
+  'deleteIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#delete" )%>'
+};
+
+Comments.createComment(comment);
