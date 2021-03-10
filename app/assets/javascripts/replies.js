@@ -88,3 +88,12 @@ Replies.createReply = function( reply ) {
 
   block_new_entry();
 }
+
+Replies.destroyReply = function( replyId, replies_length ) {
+  reply = document.getElementById("reply-" + replyId);
+  if( replies_length == 0 ) {
+    document.getElementById("border-between-comment-reply").remove();
+  }
+
+  reply.remove();
+}
