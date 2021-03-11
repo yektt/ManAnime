@@ -1,4 +1,4 @@
-if( window.location.href.includes('contents')) {
+if( window.location.href.includes('contents') && !window.location.href.includes('new')) {
   document.addEventListener('DOMContentLoaded', function(){ 
     document.getElementById('tab_comment').addEventListener("click", activateCommentTab);
     document.getElementById('tab_review').addEventListener("click", activateReviewTab);
