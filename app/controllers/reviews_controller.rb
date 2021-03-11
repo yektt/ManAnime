@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   def create
-    logger.info('in reviews create')
     @content = Content.find(params[:content_id])
     @review = Review.new(review_params)
     @review.content = @content
@@ -23,6 +22,6 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:review_body, :rating)
+    params.require(:review).permit(:review_body, :rating, :categories)
   end
 end
