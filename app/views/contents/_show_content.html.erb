@@ -332,19 +332,21 @@
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
-                <div class="row ml-1 mb-2 align-item-center">
-                  <p class="mb-0 col-md-1 p-0">Rating: </p>
-                  <div class="col-md-11 grid-container-for-5">
-                    <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
-                      <div class="col-md-1 p-0 d-flex  text-align-center">
-                        <%= form.radio_button "rating", x %>  
-                        <div class="ml-2 mt-n1">
-                          <%= x %>
+                <% if ((@content.reviews.select { |review| review.user_id == current_user.id }).length == 0 ) %>
+                  <div class="row ml-1 mb-2 align-item-center">
+                    <p class="mb-0 col-md-1 p-0">Rating: </p>
+                    <div class="col-md-11 grid-container-for-5">
+                      <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
+                        <div class="col-md-1 p-0 d-flex  text-align-center">
+                          <%= form.radio_button "rating", x %>  
+                          <div class="ml-2 mt-n1">
+                            <%= x %>
+                          </div>
                         </div>
-                      </div>
-                    <% end %>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
                 
                 <div class="p-0 ml-1 row mt-3 mb-3">
                   <p class="mb-0 col-md-1 p-0">Category: </p>
