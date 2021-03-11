@@ -18,6 +18,12 @@ class ReviewsController < ApplicationController
     end
     
     if @review.save
+      if (review_params[:rating])
+        @content.rating = ((@content.rating_number * @content.rating + @review.rating) / (@content.rating_number + 1)).to_d
+        @content.rating_number += 1
+        @content.save!
+      end
+      
       redirect_to @content 
     end
   end
