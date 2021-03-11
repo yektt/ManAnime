@@ -297,11 +297,12 @@
                 <% end %>
               <% end %>
             </div>
+
             <div class="row">
               <div class="col-md-10 flex-fill pl-3 m-0 border-right">
                 <p id="review<%= review.id %>"><%= review.review_body %></p>
                 <div class="row justify-content-between">
-                  <small class="ml-3">categories will be display here</small>
+                  <small class="ml-3"><%= review.categories %></small>
                   <small class="mr-3 text-muted"><%= review.created_at.strftime("%e %B %Y at %k:%M") %></small>
                 </div>
               </div>
@@ -327,22 +328,41 @@
           </div>
           <%= form_for([@content, @content.reviews.build]) do |form| %>
             <fieldset class="row">
-              <div class="col-md-1 p-0 mr-3 mt-1 align-self-center">
+              <div class="col-md-1 p-0 mr-3 mb-auto align-self-center">
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
-                <div class="d-flex row ml-1 mb-2 align-item-center">
-                  <p class="mr-3 mb-0">Rating: </p>
-                  <% for x in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
-                    <div class="col-md-1 p-0 text-align-center">
-                      <%= form.radio_button "rating", x %>  <%= x %>
-                    </div>
-                  <% end %>
+                <div class="row ml-1 mb-2 align-item-center">
+                  <p class="mb-0 col-md-1 p-0">Rating: </p>
+                  <div class="col-md-11 grid-container-for-5">
+                    <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
+                      <div class="col-md-1 p-0 d-flex  text-align-center">
+                        <%= form.radio_button "rating", x %>  
+                        <div class="ml-2 mt-n1">
+                          <%= x %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+                
+                <div class="p-0 ml-1 row mt-3 mb-3">
+                  <p class="mb-0 col-md-1 p-0">Category: </p>
+                  <div class="col-md-11 grid-container-for-5">
+                    <% for category in ['General', 'News', 'Visual', 'Anime', 'Manga', 'Music', 'Release Discussion'] %>
+                      <div class="mt-n1 d-flex align-items-center">
+                        <%= check_box_tag "categories[]", category, false, class:'mt-n1' %> 
+                        <div class="ml-2 mt-n1">
+                          <%= category %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
                 <%= form.text_area(:review_body, class: 'form-control', rows: 3) %>
               </div>
             </fieldset>
-            <fieldset class="d-flex justify-content-end">
+            <fieldset class="d-flex justify-content-end mt-2">
               <%= form.submit class: 'btn btn-white mt-2' %>
             </fieldset>
           <% end %>
