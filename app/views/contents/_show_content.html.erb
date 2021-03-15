@@ -152,7 +152,7 @@
 
               <!-- updating current comment -->
               <div id="update_comment<%= comment.id %>" class="d-none">
-                <%= form_for([@content, comment]) do |form| %>
+                <%= form_for([@content, comment], remote: true) do |form| %>
                   <fieldset class="row flex-fill pl-3 mr-3">
                       <%= form.text_area :comment_body, class: 'form-control', value: comment.comment_body, rows: 4 %>
                   </fieldset>

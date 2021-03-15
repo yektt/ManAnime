@@ -49,7 +49,7 @@ function changeTab(will_be_active_tab_id,will_be_passive_tab_id, will_be_active_
   for (i = 0; i < children.length; i++) {
     children[i].style.display = "inline";
   }
-  console.log(will_be_active_tab);
+  
   var tab_passive = document.getElementById(will_be_passive_tab);
   tab_passive.parentElement.classList.remove('show');
   tab_passive.parentElement.classList.remove('active');
