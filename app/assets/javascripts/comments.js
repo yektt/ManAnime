@@ -279,7 +279,7 @@ Comments.destroyComment = function(commentId, contentName, length) {
   if( length == 0) {
     var no_comments_added = document.createElement('h4');
     no_comments_added.className = "mt-3";
-    no_comments_added.appendChild(document.createTextNode('No comments has been added to' + contentName +  'so far!'));
+    no_comments_added.appendChild(document.createTextNode('No comments has been added to ' + contentName +  ' so far!'));
     comment.parentElement.insertBefore(no_comments_added, comment.parentElement.firstChild);
   }
   comment.nextElementSibling.remove();
