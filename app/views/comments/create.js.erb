@@ -3,11 +3,16 @@ var comment = {
   'commentId' : '<%= @comment.id %>',
   'commentCreatedTime' : '<%= @comment.created_at.strftime("%e %B %Y at %k:%M") %>',
   'commentBody' : '<%= @comment.comment_body %>',
+  'commentUpdatePath' : '<%= content_comment_path(@content, @comment) %>',
   'userProfilePath' : '<%= user_path(current_user) %>',
   'userAvatarPath' : '<%= current_user.avatar_url %>',
   'userName' : '<%= current_user.name %>',
   'deleteCommentPath' : '<%= delete_comment_path(@comment) %>',
-  'deleteIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#delete" )%>'
+  'replyCommentPath' : '<%= content_comment_replies_path(@content, @comment) %>',
+  'editCommentPath' : '',
+  'replyIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#reply" )%>',
+  'deleteIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#delete" )%>',
+  'editIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#edit" )%>'
 };
 
 Comments.createComment(comment);
