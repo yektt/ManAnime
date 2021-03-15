@@ -60,19 +60,3 @@ function changeTab(will_be_active_tab_id,will_be_passive_tab_id, will_be_active_
   tab_active.parentElement.classList.add('active');
   tab_active.getAttribute("aria-selected") ==  true;
 }
-
-function block_new_entry() {
-  let adding_comment_form = document.getElementById('new_comment');
-  adding_comment_form.classList.add('d-none');
-
-  var information = document.getElementById('add_your_comment_text');
-  information.textContent = 'Please refresh the page to add a reply or another comment!';
-
-  let icons = document.getElementsByTagName('svg');
-
-  for (i=0; i < icons.length; i++) {
-    if(icons[i].id.includes('reply') || icons[i].id.includes('edit') ) {
-      icons[i].classList.add('d-none');
-    }
-  }
-}
