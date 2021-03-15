@@ -110,7 +110,7 @@
 </div>
 
 <!-- comment and review & rating tab -->
-<ul class="nav nav-tabs mt-5" role="tablist">
+<ul class="nav nav-tabs" role="tablist">
   <li class="nav-item " role="presentation">
     <a class="nav-link" id="tab_comment" data-toggle="tab" href="#comment" role="tab" aria-controls="comment" aria-selected="true" >Comment</a>
   </li>
@@ -153,10 +153,8 @@
               <!-- updating current comment -->
               <div id="update_comment<%= comment.id %>" class="d-none">
                 <%= form_for([@content, comment]) do |form| %>
-                  <fieldset class="row">
-                    <div class="flex-fill border-left pl-3 mr-3">
+                  <fieldset class="row flex-fill pl-3 mr-3">
                       <%= form.text_area :comment_body, class: 'form-control', value: comment.comment_body, rows: 4 %>
-                    </div>
                   </fieldset>
                   <fieldset class="d-flex justify-content-end">
                     <%= form.submit 'Update Comment', class: 'btn btn-white mt-2' %>
@@ -255,13 +253,13 @@
             <p id='add_your_comment_text' class="text-muted mt-2 ml-3">Add your own comment</p>
           </div>
           <%= form_for([@content, @content.comments.build], remote: true) do |form| %>
-          
+
             <fieldset class="row">
               <div class="col-md-1 p-0 mr-3 mt-1">
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
-                <%= form.text_area(:comment_body, class: 'form-control', rows: 4) %>
+                <%= form.text_area(:comment_body, class: 'form-control', rows: 4, autocomplete: 'off') %>
               </div>
             </fieldset>
             <fieldset class="d-flex justify-content-end">
@@ -299,16 +297,22 @@
             </div>
 
             <div class="row">
-              <div class="col-md-10 flex-fill pl-3 m-0 border-right">
+              <% unless ( review.rating.nil? ) %>
+                <div class="col-md-10 flex-fill pl-3 m-0 border-right">
+              <% else %>
+                <div class="mr-4 flex-fill pl-3 m-0">
+              <% end %>
                 <p id="review<%= review.id %>"><%= review.review_body %></p>
                 <div class="row justify-content-between">
                   <small class="ml-3"><%= review.categories %></small>
                   <small class="mr-3 text-muted"><%= review.created_at.strftime("%e %B %Y at %k:%M") %></small>
                 </div>
               </div>
-              <div class="col-md-2 pl-3 align-self-center">
-                <p class="text-align-center mr-3"><%= review.rating %></p>
-              </div>
+              <% unless ( review.rating.nil? ) %>
+                <div class="col-md-2 pl-3 align-self-center">
+                  <p class="text-align-center mr-3"><%= review.rating %></p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -370,7 +374,8 @@
           <% end %>
         </div>
       </div>
-    <% end %>
 
+      
+    <% end %>   
   </div>
 </div>
