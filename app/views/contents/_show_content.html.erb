@@ -276,7 +276,7 @@
     <!-- displaying reviews & ratings if the content has any -->
     <% if ( !@content.reviews.empty? ) %>
       <% @content.reviews.order(created_at: :asc).each do |review| %>
-        <div class="d-flex flex-row mt-3">
+        <div id="review<%= review.id %>" class="d-flex flex-row mt-3">
           <div class="col-md-1 p-0 mr-3">
             <%= link_to image_tag(review.user.avatar, alt: "Avatar for #{review.user.name}", class: 'card-img'), user_path(review.user), class:'p-0' %>
           </div>
@@ -284,10 +284,10 @@
             <div class="d-flex row justify-content-between mb-2">
               <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to review.user.name, user_path(review.user), class:'p-0 text-monospace' %></p>
 
-              <!-- deleting the reply -->
+              <!-- deleting the review -->
               <% if (logged_in?) %>
                 <% if(current_user == review.user || is_admin?) %>
-                  <%= link_to content_review_path(@content, review), method: :delete do %>
+                  <%= link_to content_review_path(@content, review), remote:true, method: :delete do %>
                     <svg class="icon mr-3" role="presentation">
                       <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
                     </svg>
@@ -337,7 +337,10 @@
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
                 <% if ((@content.reviews.select { |review| review.user_id == current_user.id }).length == 0 ) %>
-                  <div class="row ml-1 mb-2 align-item-center">
+                  <div class="row ml-1 mb-2 align-item-center d-none">
+                <% else %>
+                  <div class="row ml-1 mb-2 align-item-center d-none">
+                <% end %>
                     <p class="mb-0 col-md-1 p-0">Rating: </p>
                     <div class="col-md-11 grid-container-for-5">
                       <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
@@ -350,7 +353,7 @@
                       <% end %>
                     </div>
                   </div>
-                <% end %>
+
                 
                 <div class="p-0 ml-1 row mt-3 mb-3">
                   <p class="mb-0 col-md-1 p-0">Category: </p>
