@@ -336,8 +336,8 @@
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
-                <% if ((@content.reviews.select { |review| review.user_id == current_user.id }).length == 0 ) %>
-                  <div class="row ml-1 mb-2 align-item-center d-none">
+                <% if ((@content.reviews.select { |review| (review.user_id == current_user.id) && !review.rating.nil? }).length == 0 ) %>
+                  <div class="row ml-1 mb-2 align-item-center">
                 <% else %>
                   <div class="row ml-1 mb-2 align-item-center d-none">
                 <% end %>
@@ -353,7 +353,6 @@
                       <% end %>
                     </div>
                   </div>
-
                 
                 <div class="p-0 ml-1 row mt-3 mb-3">
                   <p class="mb-0 col-md-1 p-0">Category: </p>
