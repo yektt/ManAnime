@@ -30,25 +30,23 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    logger.info('in reviews destroy')
     @review = Review.find(params[:id])
     @content = @review.content
-    logger.info(@content.rating_number)
-    logger.info(@content.rating)
-    logger.info(@review.rating)
 
     if !@review.rating.nil?
       @content.rating = ((@content.rating*@content.rating_number - @review.rating) / (@content.rating_number - 1)).to_d
       @content.rating_number = @content.rating_number - 1
       @content.save!
-      logger.info(@content.rating_number)
-      logger.info(@content.rating)
-      logger.info(@review.rating)
     end
 
-    @review.destroy!
-
-    redirect_to @content 
+    respond_to do |format|
+      if @review.destroy
+        #format.html { redirect_to @comment.content }
+        format.js 
+      else 
+        format.html { redirect_to @content }
+      end
+    end
   end
 
   private
