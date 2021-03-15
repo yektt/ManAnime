@@ -264,6 +264,13 @@ Comments.createComment = function( comment ) {
   let adding_comment_area = document.getElementById('adding_comment');
   adding_comment_area.parentElement.insertBefore(newComment, adding_comment_area);
   adding_comment_area.parentElement.insertBefore(div_border_bottom, adding_comment_area);
+
+  Comments.clearTextarea( 'adding_comment' );
+}
+
+Comments.clearTextarea = function( textarea_id ) {
+  let adding_comment_area = document.getElementById(textarea_id).querySelector('textarea');
+  adding_comment_area.value = '';
 }
 
 Comments.destroyComment = function(commentId, contentName, length) {
