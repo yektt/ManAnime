@@ -21,14 +21,12 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        #format.html { redirect_to @content }
+        #format.html { redirect_to @comment.content }
         format.js 
       else 
-        format.html { redirect_to @content }
+        format.html { redirect_to @comment.content }
       end
     end
-
-    redirect_to @comment.content
   end
 
   def destroy
