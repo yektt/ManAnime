@@ -18,7 +18,15 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-    @comment.save!
+
+    respond_to do |format|
+      if @comment.save
+        #format.html { redirect_to @content }
+        format.js 
+      else 
+        format.html { redirect_to @content }
+      end
+    end
 
     redirect_to @comment.content
   end
