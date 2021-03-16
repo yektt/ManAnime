@@ -18,15 +18,20 @@ class ReviewsController < ApplicationController
         @review.categories = review_categories
       end
     end
-    
-    if @review.save
-      if (review_params[:rating])
-        @content.rating = ((@content.rating_number * @content.rating + @review.rating) / (@content.rating_number + 1)).to_d
-        @content.rating_number += 1
-        @content.save!
+
+    respond_to do |format|
+      if @review.save
+        if (review_params[:rating])
+          @content.rating = ((@content.rating_number * @content.rating + @review.rating) / (@content.rating_number + 1)).to_d
+          @content.rating_number += 1
+          @content.save!
+        end
+        format.js 
+      else 
+        format.html { redirect_to @content }
       end
-      redirect_to @content
     end
+    
   end
 
   def destroy
