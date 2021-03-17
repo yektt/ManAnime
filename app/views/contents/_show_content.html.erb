@@ -13,7 +13,7 @@
             <div>
               <%= form_tag(user_favorites_path(current_user)) do %>
                 <%= hidden_field_tag('content_id', @content.id)%>
-                  <%= button_tag('Add My List', class: 'btn btn-outline-secondary text-right', type:'submit') %>                
+                  <%= button_tag('Add My List', class: 'btn btn-outline-secondary text-right', type:'submit', disabled: @disable_add_favorite) %>                
               <% end %>
             </div>
             <% if(is_admin?) %>

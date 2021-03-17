@@ -1,6 +1,10 @@
 class ContentsController < ApplicationController
   def show
     @content = Content.find(params[:id])
+
+    if(session[:user_id].present?)
+      @disable_add_favorite = current_user.favorites.exists?(@content.id)
+    end 
   end
 
   def new
