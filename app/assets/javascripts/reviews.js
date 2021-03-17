@@ -175,6 +175,8 @@ Reviews.createReview = function(review) {
   } else if ( review.contentRatingNumber > 4 ){
     div_content_rating.lastChild.textContent = review.contentRating;
   }
+
+  clearTextareaAndCheckboxes();
 }
 
 function clearTextareaAndCheckboxes() {
@@ -196,6 +198,26 @@ Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNu
     no_reviews_added.appendChild(document.createTextNode('No review has been added to ' + contentName +  ' so far!'));
     review.parentElement.insertBefore(no_reviews_added, review.parentElement.firstChild);
   }
+
+  // if the deleted review has rating, updating the content rating
+  if (rating) {
+    let categories = document.getElementById('review_categories');
+    categories.parentElement.insertBefore(createRadioButtons(), categories);
+
+    // updating rating of content
+    let div_content_rating = document.getElementById('content_rating');
+    if(ratingNumber == 3) {
+      let rating_name = div_content_rating.querySelector('strong');
+      rating_name.textContent = 'Not enough rating';
+      rating_name.className = 'col-md-12';
+  
+      div_content_rating.lastChild.remove();
+    } else if ( ratingNumber > 3 ){
+      div_content_rating.lastChild.textContent = rating;
+    }
+  }
+
+  // removing bottom border and the review itself
   review.nextElementSibling.remove();
   review.remove();
 }
