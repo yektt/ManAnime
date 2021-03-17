@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @anime = @user.favorites.anime_list.alphabetical_order
+    @manga = @user.favorites.manga_list.alphabetical_order
   end
 
   def edit
