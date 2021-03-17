@@ -1,0 +1,17 @@
+var review = {
+  'reviewLength' : '<%= @content.reviews.length %>',
+  'reviewId' : '<%= @review.id %>',
+  'reviewCreatedTime' : '<%= @review.created_at.strftime("%e %B %Y at %k:%M") %>',
+  'reviewBody' : '<%= @review.review_body %>',
+  'reviewRating' : '<%= @review.rating %>',
+  'reviewCategories' : '<%= @review.categories  %>',
+  'userProfilePath' : '<%= user_path(current_user) %>',
+  'userAvatarPath' : '<%= current_user.avatar_url %>',
+  'userName' : '<%= current_user.name %>',
+  'deleteReviewPath' : '<%= content_review_path(@content, @review) %>',
+  'deleteIconPath' : '<%= asset_url("icons/icons-defs.svg" + "#delete" )%>',
+  'contentRatingNumber' : '<%= @content.rating_number %>',
+  'contentRating' : '<%= @content.rating %>'
+};
+
+Reviews.createReview(review);
