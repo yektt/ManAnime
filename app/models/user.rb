@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reviews
   has_many :replies
+  has_and_belongs_to_many :favorites, class_name: 'Content'
 
   after_initialize :default_role!, :default_status!
 

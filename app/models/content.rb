@@ -15,6 +15,7 @@ class Content < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_and_belongs_to_many :users
 
   scope :anime_list, -> { where(category: 'anime') }
   scope :manga_list, -> { where(category: 'manga') }
