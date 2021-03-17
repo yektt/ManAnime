@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     get 'logout', to: 'sessions#destroy', as: 'logout'
     get 'login', to: 'sessions#new', as: 'login'
 
-    resources :users
+    resources :users do
+      resources :favorites
+    end
     get 'signup', to: 'users#new', as: 'signup'
     get 'edit/:id', to: 'users#edit', as: 'edit'
     post 'block/:id', to: 'users#block', as:'block'
