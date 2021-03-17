@@ -221,3 +221,48 @@ Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNu
   review.nextElementSibling.remove();
   review.remove();
 }
+
+function createRadioButtons() {
+  // creating radio buttons div
+  let div_radio_buttons = document.createElement('div');
+  div_radio_buttons.className = 'row ml-1 mb-2 align-item-center';
+  div_radio_buttons.id = 'rating_radio_buttons';
+
+    // creating first section
+    let radio_name = document.createElement('p');
+    radio_name.className = 'mb-0 col-md-1 p-0';
+    radio_name.appendChild(document.createTextNode('Rating:'));
+
+    // creating radio buttons with their values
+    let radio_range = document.createElement('div');
+    radio_range.className = 'col-md-11 grid-container-for-5';
+
+      for (i = 1; i < 11; i++) {
+         // creating one radio button
+        let div_radio = document.createElement('div');
+        div_radio.className = 'col-md-1 p-0 d-flex text-align-center';
+
+          // creating button
+          let radio_button = document.createElement('input');
+          radio_button.id = 'review_rating_' + i;
+          radio_button.type = 'radio';
+          radio_button.value = i;
+          radio_button.name = 'review[rating]';
+
+          // creating radio value
+          let radio_value = document.createElement('div');
+          radio_value.className = 'ml-2 mt-n1';
+          radio_value.appendChild(document.createTextNode(i));
+
+        // combining radio button and its value and inserting to radio_range
+        div_radio.appendChild(radio_button);
+        div_radio.appendChild(radio_value);
+        radio_range.appendChild(div_radio);
+      }
+  
+  // inserting radio buttons to the page
+  div_radio_buttons.appendChild(radio_name);
+  div_radio_buttons.appendChild(radio_range);
+
+  return div_radio_buttons;
+}
