@@ -10,8 +10,11 @@
           <h3 class="d-flex card-title m-0"><%= @content.name %></h3>
           <% if (logged_in?) %>
             <div class="d-flex flex-row-reverse">
-            <div >
-              <%= link_to 'Add My List', '', class: 'btn btn-outline-secondary text-right' %>
+            <div>
+              <%= form_tag(user_favorites_path(current_user)) do %>
+                <%= hidden_field_tag('content_id', @content.id)%>
+                  <%= button_tag('Add My List', class: 'btn btn-outline-secondary text-right', type:'submit') %>                
+              <% end %>
             </div>
             <% if(is_admin?) %>
             <div >
