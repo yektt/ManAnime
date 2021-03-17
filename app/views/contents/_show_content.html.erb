@@ -34,7 +34,7 @@
   <!-- second part of information about the content -->
   <div class="row">
     <div class="col-md-4 p-0 mb-4">
-      <div class="d-flex flex-row">
+      <div id="content_rating" class="d-flex flex-row">
         <% if (@content.rating_number > 3)%>
           <strong class="col-md-7"> Rating </strong> <%= @content.rating %>
         <% else %>
@@ -276,43 +276,45 @@
     <!-- displaying reviews & ratings if the content has any -->
     <% if ( !@content.reviews.empty? ) %>
       <% @content.reviews.order(created_at: :asc).each do |review| %>
-        <div id="review<%= review.id %>" class="d-flex flex-row mt-3">
+        <div id="review-<%= review.id %>" class="d-flex flex-row mt-3">
           <div class="col-md-1 p-0 mr-3">
             <%= link_to image_tag(review.user.avatar, alt: "Avatar for #{review.user.name}", class: 'card-img'), user_path(review.user), class:'p-0' %>
           </div>
           <div class="flex-fill pl-3 border-left">
             <div class="d-flex row justify-content-between mb-2">
-              <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to review.user.name, user_path(review.user), class:'p-0 text-monospace' %></p>
+              <p class="ml-3 mb-0 align-self-center"><%= link_to review.user.name, user_path(review.user), class:'p-0 text-monospace' %></p>
 
-              <!-- deleting the review -->
-              <% if (logged_in?) %>
-                <% if(current_user == review.user || is_admin?) %>
-                  <%= link_to content_review_path(@content, review), remote:true, method: :delete do %>
-                    <svg class="icon mr-3" role="presentation">
-                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
-                    </svg>
+              <div>
+                <small class="mr-3 text-muted"><%= review.created_at.strftime("%e %B %Y at %k:%M") %></small>
+                <!-- deleting the review -->
+                <% if (logged_in?) %>
+                  <% if(current_user == review.user || is_admin?) %>
+                    <%= link_to content_review_path(@content, review), remote:true, method: :delete do %>
+                      <svg class="icon mr-3" role="presentation">
+                        <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete" ) %>"></use>
+                      </svg>
+                    <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
 
-            <div class="row">
+            <div class="row mt-3">
               <% unless ( review.rating.nil? ) %>
                 <div class="col-md-10 flex-fill pl-3 m-0 border-right">
               <% else %>
                 <div class="mr-4 flex-fill pl-3 m-0">
               <% end %>
                 <p id="review<%= review.id %>"><%= review.review_body %></p>
-                <div class="row justify-content-between">
-                  <small class="ml-3"><%= review.categories %></small>
-                  <small class="mr-3 text-muted"><%= review.created_at.strftime("%e %B %Y at %k:%M") %></small>
-                </div>
               </div>
               <% unless ( review.rating.nil? ) %>
                 <div class="col-md-2 pl-3 align-self-center">
                   <p class="text-align-center mr-3"><%= review.rating %></p>
                 </div>
               <% end %>
+            </div>
+            <div class="row justify-content-start">
+              <small class="ml-3"><%= review.categories %></small>
             </div>
           </div>
         </div>
@@ -330,33 +332,31 @@
             <div class="col-6 col-md-1"></div>
             <p id='add_your_review_text' class="text-muted mt-2 ml-3">Share your thoughts with the community about the <%= @content.category %></p>
           </div>
-          <%= form_for([@content, @content.reviews.build]) do |form| %>
+          <%= form_for([@content, @content.reviews.build], remote: true) do |form| %>
             <fieldset class="row">
               <div class="col-md-1 p-0 mr-3 mb-auto align-self-center">
                 <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
                 <% if ((@content.reviews.select { |review| (review.user_id == current_user.id) && !review.rating.nil? }).length == 0 ) %>
-                  <div class="row ml-1 mb-2 align-item-center">
-                <% else %>
-                  <div class="row ml-1 mb-2 align-item-center d-none">
-                <% end %>
+                  <div id="rating_radio_buttons" class="row ml-1 mb-2 align-item-center">
                     <p class="mb-0 col-md-1 p-0">Rating: </p>
-                    <div class="col-md-11 grid-container-for-5">
-                      <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
-                        <div class="col-md-1 p-0 d-flex  text-align-center">
-                          <%= form.radio_button "rating", x %>  
-                          <div class="ml-2 mt-n1">
-                            <%= x %>
+                      <div class="col-md-11 grid-container-for-5">
+                        <% for x in [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10] %>
+                          <div class="col-md-1 p-0 d-flex  text-align-center">
+                            <%= form.radio_button "rating", x %>  
+                            <div class="ml-2 mt-n1">
+                              <%= x %>
+                            </div>
                           </div>
-                        </div>
-                      <% end %>
+                        <% end %>
+                      </div>
                     </div>
-                  </div>
+                <% end %>
                 
-                <div class="p-0 ml-1 row mt-3 mb-3">
+                <div id="review_categories" class="p-0 ml-1 row mt-3 mb-3">
                   <p class="mb-0 col-md-1 p-0">Category: </p>
-                  <div class="col-md-11 grid-container-for-5">
+                  <div id='category_checkboxes' class="col-md-11 grid-container-for-5">
                     <% for category in ['General', 'News', 'Visual', 'Anime', 'Manga', 'Music', 'Release Discussion'] %>
                       <div class="mt-n1 d-flex align-items-center">
                         <%= check_box_tag "categories[]", category, false, class:'mt-n1' %> 
