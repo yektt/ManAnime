@@ -39,13 +39,3 @@ function activateReviewTab() {
   changeTab('review', 'comment', 'tab_review', 'tab_comment');
 }
 
-document.querySelectorAll('svg').forEach(item => {
-  item.addEventListener('click', event => {
-    var a = 'write_reply' + item.id.substring(6,8);
-    var write = document.getElementById(a);
-    if(write.classList.contains('d-none'))
-       write.classList.remove('d-none');
-    else
-      write.classList.add('d-none');
-  })
-})
