@@ -20,6 +20,15 @@ class UsersController < ApplicationController
 
     @anime = @user.favorites.anime_list.alphabetical_order
     @manga = @user.favorites.manga_list.alphabetical_order
+
+    for comment in Comment.all.order(created_at: :desc)
+      if(comment.user.id == @user.id)
+        @comment = comment
+        break;
+      else
+        @comment = nil
+      end
+    end
   end
 
   def edit
