@@ -23,8 +23,13 @@
               <% end %>
             </div>
           </div>
-          <p class="mt-auto"><%= @user.name %> has watched 9 anime.s and has read 3 manga.s until now. </p>
-          <p class="card-text"><%= @user.name %> has made a comment on @manga-anime.</p>
+          <p class="mt-auto"><%= @user.name %> has added <%= @anime.length %> <%= pluralize_contents(@anime) %> and <%= @manga.length %> <%= pluralize_contents(@anime) %> in the favorite list. </p>
+          <% if(@comment.nil?) %>
+            <%= @user.name %> did not add any comments so far!
+          <% else %>
+            <p class="card-text">Last comment: <%= @user.name %> has made a comment on <%= @comment.content.name %></p>
+          <% end %>
+
           <p class="card-text">
             <small class="text-muted">
               <% if (@user.is_blocked == false ) %>
@@ -50,84 +55,51 @@
 
   <div class="tab-content p-3" >
     <div id="anime" class="tab-pane show active" role="tabpanel">
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img height-100 width-100" alt="...">
+      <% @anime.each do |anime| %>
+        <div class="d-flex flex-row mt-3">
+          <div class="col-md-1 p-0 mr-3">
+            <%= link_to image_tag(anime.image, alt: "Image for #{anime.name}", class:'w-75'), content_path(anime) %>
+          </div>
+          <div class="col-md-5 pl-3 border-right border-left align-self-center">
+            <p><%= link_to anime.name, content_path(anime), class:'p-0' %> </p>
+            <p><%= anime.created_at.strftime("%e %B %Y at %k:%M")%> </p>
+          </div>
+          <div class="flex-fill pl-3 align-self-center">
+            <% if(anime.rating_number > 3)%>
+              <p class="text-align-center">This anime has been took <%= anime.rating %> points on avarage.</p>
+            <% else %>
+              <p class="text-align-center">This anime does not have enough rating to show.</p>
+            <% end %>
+          </div>
         </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Anime name here</p>
-          <p>When user has added this anime to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This anime has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
-      <div class="border-bottom mt-2"></div>
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img height-100 width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Anime name here</p>
-          <p>When user has added this anime to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This anime has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
-      <div class="border-bottom mt-2"></div>
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://cdnb.artstation.com/p/assets/images/images/013/162/715/large/muzu-violet-evergarden-by-muzuart.jpg?1564079658" class="card-img height-100 width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Anime name here</p>
-          <p>When user has added this anime to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This anime has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
+        <% unless (anime == @anime.last) %>
+          <div class="border-bottom mt-3"></div>
+        <% end %>
+      <% end %>
     </div>
+
     <div class="tab-pane fade" id="manga" role="tabpanel">
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1240/MTc0NDc2MjM1Mzg3MTg0Nzc0/violet-evergarden-a-story-about-how-to-love.webp" class="card-img height-100 width-100" alt="...">
+      <% @manga.each do |manga| %>
+        <div class="d-flex flex-row mt-2">
+          <div class="col-md-1 p-0 mr-3">
+            <%= link_to image_tag(manga.image, alt: "Image for #{manga.name}", class:'w-75'), content_path(manga) %>
+          </div>
+          <div class="col-md-5 pl-3 border-right border-left align-self-center">
+            <p><%= link_to manga.name, content_path(manga), class:'p-0' %> </p>
+            <p><%= manga.created_at.strftime("%e %B %Y at %k:%M")%> </p>
+          </div>
+          <div class="flex-fill pl-3 align-self-center">
+            <% if(manga.rating_number > 3)%>
+              <p class="text-align-center">This manga has been took <%= manga.rating %> points on avarage.</p>
+            <% else %>
+              <p class="text-align-center">This manga does not have enough rating to show.</p>
+            <% end %>
+          </div>
         </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Manga name here</p>
-          <p>When user has added this manga to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This manga has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
-      <div class="border-bottom mt-2"></div>
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1240/MTc0NDc2MjM1Mzg3MTg0Nzc0/violet-evergarden-a-story-about-how-to-love.webp" class="card-img height-100 width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Manga name here</p>
-          <p>When user has added this manga to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This manga has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
-      <div class="border-bottom mt-2"></div>
-      <div class="d-flex flex-row mt-2">
-        <div class="col-md-1 p-0 mr-3">
-          <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1240/MTc0NDc2MjM1Mzg3MTg0Nzc0/violet-evergarden-a-story-about-how-to-love.webp" class="card-img height-100 width-100" alt="...">
-        </div>
-        <div class="flex-fill pl-3 border-right border-left">
-          <p>Manga name here</p>
-          <p>When user has added this manga to his/her list</p>
-        </div>
-        <div class="flex-fill pl-3">
-          <p>This manga has been took 9.8 points on avarage.</p>
-        </div>
-      </div>
+        <% unless (manga == @manga.last) %>
+          <div class="border-bottom mt-3"></div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
