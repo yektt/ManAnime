@@ -173,7 +173,7 @@
               </div>
               
               <!-- icons of the comment -->
-              <% if (logged_in?) %>
+              <% if (logged_in? && !comment.user.is_blocked) %>
                 <div id="icons<%= comment.id %>" class="d-flex justify-content-end">
                   <svg id="reply<%= comment.id %>" class="icon ml-2" role="presentation">
                     <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
