@@ -52,6 +52,12 @@ class UsersController < ApplicationController
 
     redirect_to @user
   end
+
+  def admin
+    @user = User.find(params[:id])
+    @user.role = "admin"
+    @user.save!
+  end
   
   private
 
