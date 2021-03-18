@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     resources :users do
       resources :favorites
     end
+    resources :users do 
+      resources :reports
+    end 
+
     get 'signup', to: 'users#new', as: 'signup'
     get 'edit/:id', to: 'users#edit', as: 'edit'
     post 'block/:id', to: 'users#block', as:'block'
