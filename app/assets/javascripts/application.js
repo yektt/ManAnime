@@ -38,16 +38,19 @@ function changeTab(will_be_active_tab_id,will_be_passive_tab_id, will_be_active_
   items_passive.classList.remove('active');
   items_passive.classList.add('fade');
   
-  var children = items_passive.firstElementChild.children;
-  var i;
-  for (i = 0; i < children.length; i++) {
-    children[i].style.display = "none";
+  if (items_passive.firstElementChild) {
+    var children = items_passive.firstElementChild.children;
+    var i;
+    for (i = 0; i < children.length; i++) {
+      children[i].style.display = "none";
+    }
   }
-
-  var children = items_active.firstElementChild.children;
-  var i;
-  for (i = 0; i < children.length; i++) {
-    children[i].style.display = "inline";
+  if (items_active.firstElementChild) {
+    var children = items_active.firstElementChild.children;
+    var i;
+    for (i = 0; i < children.length; i++) {
+      children[i].style.display = "inline";
+    }
   }
   
   var tab_passive = document.getElementById(will_be_passive_tab);
