@@ -1,4 +1,4 @@
-if( window.location.href.includes('contents') && !window.location.href.includes('new')) {
+if( window.location.href.includes('contents') && !window.location.href.includes('new') && !window.location.href.includes('edit')) {
   document.addEventListener('DOMContentLoaded', function(){ 
     document.getElementById('tab_comment').addEventListener("click", activateCommentTab);
     document.getElementById('tab_review').addEventListener("click", activateReviewTab);
@@ -24,6 +24,9 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
             icons.classList.remove('d-flex');
             icons.classList.add('d-none');
             comment.classList.add('d-none');
+            break;
+          case(item_name.includes('report')):
+            document.getElementById('submit_report').click();
             break;
         }
       })
