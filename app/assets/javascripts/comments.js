@@ -89,7 +89,16 @@ Comments.buildComment = function( comment ) {
 
         let comment_body = document.createElement('p');
         comment_body.id = 'comment' + comment.commentId;
-        comment_body.appendChild(document.createTextNode(comment.commentBody));
+        comment_body.className = 'pre-wrap';
+
+        let body_array = comment.commentBody.split(" /11223344\ ");
+        for (i = 0; i<body_array.length; i++) {
+          if (i == body_array.length-1)
+            comment_body.appendChild(document.createTextNode(body_array[i]));
+          else
+            comment_body.appendChild(document.createTextNode(body_array[i]));
+            comment_body.appendChild(document.createTextNode("\n"));
+        }
 
         let div_update = document.createElement('div');
         div_update.className = 'd-none';
