@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'signup', to: 'users#new', as: 'signup'
     get 'edit/:id', to: 'users#edit', as: 'edit'
     post 'block/:id', to: 'users#block', as:'block'
+    post 'admin/:id', to: 'users#admin', as:'admin'
 
     resources :genres, only: [:new, :create]
     resources :characters, only: [:new, :create, :show, :edit, :update]
