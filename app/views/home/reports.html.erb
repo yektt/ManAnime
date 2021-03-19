@@ -1,34 +1,24 @@
 <h1 class="margin-top-1">Reports</h1>
 
-<div class="flex d-flex-column">
-  <div class="flex d-flex-row content-between align-center border-all border-curve">
-    <div class="margin-1">
-      <p class="margin-0">This user has reported a comment about this anime.</p>
-    </div>
-    <div class="left-border">
-      <button type="submit" class="button button-danger margin-1">Delete</button>
-    </div>
-  </div>
-</div>
-
-<div class="flex d-flex-column">
-  <div class="flex d-flex-row content-between align-center border-all border-curve">
-    <div class="margin-1">
-      <p class="margin-0">This user has reported a comment about this anime.</p>
-    </div>
-    <div class="left-border">
-      <button type="submit" class="button button-danger margin-1">Delete</button>
-    </div>
-  </div>
-</div>
-
-<div class="flex d-flex-column">
-  <div class="flex d-flex-row content-between align-center border-all border-curve">
-    <div class="margin-1">
-      <p class="margin-0">This user has reported a comment about this anime.</p>
-    </div>
-    <div class="left-border">
-      <button type="submit" class="button button-danger margin-1">Delete</button>
-    </div>
-  </div>
-</div>
+<% unless all_reports.empty? %>
+  <% User.all.each do |user| %>
+    <% if (user.reports.exists?) %>
+      <p class="mt-4 mb-2"><%= link_to user.name, user_path(user), class:'padding-0' %> has made <%= user.reports.length %> report in total: </p>
+      <% user.reports.all.each do |report| %>
+        <div class="flex d-flex-column">
+          <div class="flex d-flex-row content-between align-center border-all border-curve">
+            <div class="margin-1">
+              <p class="margin-0">
+                <%= link_to user.name, user_path(user), class:'padding-0' %> has reported a comment about <%= link_to report.content.name, content_path(report.content), class:'padding-0' %></p>
+            </div>
+            <div class="left-border">
+              <%= link_to 'Delete', user_report_path(user, report), method: :delete , class:'button button-danger margin-1'%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <h4 class="mt-3">No comments has been reported so far !</h4>
+<% end %>
