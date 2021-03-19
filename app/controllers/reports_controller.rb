@@ -7,5 +7,10 @@ class ReportsController < ApplicationController
   end
   
   def destroy
+    user = User.find(params[:user_id])
+    comment = Comment.find(params[:id])
+
+    user.reports.delete(comment)
+    redirect_to(reports_path)
   end
 end
