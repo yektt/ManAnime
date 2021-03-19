@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :favorites
     end
     resources :users do 
-      resources :reports
+      resources :reports, only: [:create, :destroy]
     end 
 
     get 'signup', to: 'users#new', as: 'signup'
