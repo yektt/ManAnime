@@ -26,7 +26,9 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
             comment.classList.add('d-none');
             break;
           case(item_name.includes('report')):
-            document.getElementById('submit_report').click();
+            var will_be_reported_comment_id = item.id.substring(6,item_name.length);
+            console.log(will_be_reported_comment_id);
+            document.getElementById('submit_report' + will_be_reported_comment_id).click();
             break;
         }
       })
