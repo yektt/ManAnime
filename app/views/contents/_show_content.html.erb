@@ -179,12 +179,20 @@
                       <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
                     </svg>
                   <% if( current_user != comment.user) %>
-                    <%= form_tag(user_reports_path(comment.user)) do %>
-                      <%= hidden_field_tag('comment_id', comment.id)%>
-                        <svg id="report" class="icon ml-2" role="presentation">
-                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
-                        </svg>
-                      <%= button_tag id:'submit_report', class:'d-none'%>
+                    <% unless(current_user.reports.ids.include?(comment.id) && !is_admin?) %>
+                      <%= form_tag(user_reports_path(comment.id)) do %>
+                        <%= hidden_field_tag('comment_id', comment.id)%>
+                          <% if all_reports.include?(comment) %>
+                            <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
+                              <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reportDanger" ) %>"></use>
+                            </svg>
+                          <% else %>
+                            <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
+                              <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
+                            </svg>
+                          <% end %>
+                        <%= button_tag id:'submit_report' + comment.id.to_s, class:'d-none'%>
+                      <% end %>
                     <% end %>
                     <%= link_to root_path, class:'p-0 ml-2' do%>
                       <svg id="downvote" class="icon" role="presentation">
