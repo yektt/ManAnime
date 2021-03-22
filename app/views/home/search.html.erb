@@ -68,19 +68,20 @@
             <%= genre.name %> 
           </div>
       <% end %>
+    </div>
 
-      <h4 class="mt-3">Search starting from:</h4>
-      <div class="col-md-12 row">
-        <% @years.each do |year| %>
-          <div class="col-md-2 p-0 mt-2">
-            <%= radio_button_tag "year", year%>  
-            <%= year %>
-          </div>
-        <% end %>
-      </div>
-      <%= submit_tag('Search', type:'submit', class:'flex-grow-1 btn btn-white mt-3') %>
+    <h4 class="mt-3">Search starting from:</h4>
+    <div class="col-md-12 row">
+      <% @years.each do |year| %>
+        <div class="col-md-2 p-0 mt-2">
+          <%= radio_button_tag "year", year%>  
+          <%= year %>
+        </div>
+      <% end %>
+    </div>
+
+      <%= submit_tag('Search', type:'submit', class:'col-md-12 btn btn-white mt-3') %>
     <% end %>
-  </div>
 </div>
 
 <% unless (params[:q].nil?) %>
