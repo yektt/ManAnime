@@ -29,9 +29,19 @@
 
     <fieldset class="form-group">
       <%= form.label :information %>
-      <%= form.text_area :information, class: 'form-control' %>
-      <small>* Please do not forget to add the information up to given rules! 
-      <br>Example: <br>+gender_space_in_between_+male_space_in_between_+eye color_space_in_between_+blue_space_in_between_+general information about the character...
+      <%= form.text_area :information, class: 'form-control', placeholder: '+gender +male +eye color +blue +before attending the s...' %>
+      <small class="text-danger">* Please do not forget to add the information up to given rules! </small> <br>
+      <small>Example: <br>+gender_space_in_between_+male_space_in_between_+eye color_space_in_between_+blue_space_in_between_+general information about the character...</small> <br>
+      <small> It will looks like this:<br>+gender +male +eye color +blue +before attending the sorcerer school, he was strolling around..... </small> <br>
+      <small> Output will looks like this: <br>
+        <div class="row m-0">
+          <div class="font-weight-bold mr-1">Gender: </div> Male
+        </div>
+        <div class="row m-0">
+          <div class="font-weight-bold mr-1">Eye Color:</div>Blue <br>
+        </div>
+        
+        Before attending the sorcerer school, he was strolling around.....
       </small>
     </fieldset>
 
