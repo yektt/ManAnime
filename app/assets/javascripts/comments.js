@@ -109,7 +109,7 @@ Comments.buildComment = function( comment ) {
           form_update.id = 'edit_comment_' + comment.commentId;
           form_update.className = 'edit_comment';
           form_update.action = comment.commentUpdatePath;
-          form_update.method = 'post';
+          form_update.method = 'patch';
           form_update.setAttribute('data-remote', true);
 
             //creating textarea of the form-update
@@ -306,7 +306,7 @@ Comments.updateComment = function (comment) {
   comment_body.textContent = comment.commentBody;
   comment_body.classList.remove('d-none');
 
-  let comment_icons = document.getElementById('icons' + comment.commentId);
+  let comment_icons = document.getElementById('icon' + comment.commentId);
   comment_icons.classList.remove('d-none');
   comment_icons.classList.add('d-flex');
-} 
+}
