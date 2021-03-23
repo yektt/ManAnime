@@ -2,14 +2,23 @@ if( window.location.href.includes('users')) {
   document.addEventListener('DOMContentLoaded', function(){ 
     document.getElementById('tab_anime').addEventListener("click", activateAnimeTab);
     document.getElementById('tab_manga').addEventListener("click", activateMangaTab);
-    if( window.location.href.includes('users')) {
-      let modal_button = document.getElementById('reason_modal');
-      console.log(modal_button);
-      document.getElementById('block_reason').addEventListener("click", function() {
-        modal_button.classList.add('show');
-        modal_button.style.display = 'inline';
+    
+    let modal_button = document.getElementById('block_reason');
+    let modal = document.getElementById('reason_modal');
+    
+    if (modal_button) {
+      modal_button.addEventListener("click", function() {
+        modal.classList.add('show');
+        modal.style.display = 'inline';
       })
     }
+
+    let close_modal = document.getElementById('close_modal');
+      close_modal.addEventListener("click", function() {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+      })
+
   }, false);
 }
 
