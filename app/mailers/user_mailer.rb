@@ -6,10 +6,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Welcome')
   end
 
-  def block_mail(user, reason)
+  def block_mail(user, reason, admin)
     @reason = reason
     @user = user
-    logger.info(@user.name)
+    @admin = admin
     mail(to: @user.email, subject: 'You have been blocked')
   end
 
