@@ -4,6 +4,7 @@ if( window.location.href.includes('contact')) {
   }, false);
 }
 
+// function for clearing all inputs after sending contact form
 function clearEverything() { 
   var inputs = document.getElementsByTagName('input');
   for(var i = 2; i<5; i++) {

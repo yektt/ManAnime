@@ -10,6 +10,7 @@ if( window.location.href.includes('search')) {
   }, false);
 }
 
+// function for moving cursor to the end of the input line
 function moveCursorToEnd(el) {
   if (typeof el.selectionStart == "number") {
       el.selectionStart = el.selectionEnd = el.value.length;
@@ -21,6 +22,7 @@ function moveCursorToEnd(el) {
   }
 }
 
+// giving a break after user's first entry to the search bar
 function debounce(func, wait, immediate) {
   var timeout;
 
@@ -40,6 +42,7 @@ function debounce(func, wait, immediate) {
     };
 };
 
+// function for displaying-non displaying the advanced search part
 function changeDisplay() {
   var advanced_search_field = document.getElementById('advanced_search');
   var advanced_search_button = document.getElementById('advanced_search_button');
@@ -51,6 +54,7 @@ function changeDisplay() {
     displayNone();
 }
 
+// function for hiding the advanced search part
 function displayNone() {
   var advanced_search_field = document.getElementById('advanced_search');
   var advanced_search_button = document.getElementById('advanced_search_button');

@@ -7,6 +7,7 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
         var item_name = item.id.toString();
         switch(true) {
           case(item_name.includes('reply')):
+            // displaying reply textarea to write a reply
             var reply_input = 'write_reply' + item.id.substring(5,item_name.length);
             var write_reply = document.getElementById(reply_input);
             if(write_reply.classList.contains('d-none'))
@@ -15,6 +16,7 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
               write_reply.classList.add('d-none');  
             break;
           case(item_name.includes('edit')):
+            // displaying edit textarea for updating a reply
             var will_be_edited_comment = 'update_comment' + item.id.substring(4,item_name.length);
             var edit_comment = document.getElementById(will_be_edited_comment);
             var icons = document.getElementById('icons' + item.id.substring(4,item_name.length));
@@ -26,6 +28,7 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
             comment.classList.add('d-none');
             break;
           case(item_name.includes('report')):
+            // for submitting a report of a comment
             var will_be_reported_comment_id = item.id.substring(6,item_name.length);
             document.getElementById('submit_report' + will_be_reported_comment_id).click();
             break;
@@ -35,11 +38,12 @@ if( window.location.href.includes('contents') && !window.location.href.includes(
   }, false);
 }
 
+// function for activating comment tab
 function activateCommentTab() {
   changeTab('comment', 'review', 'tab_comment', 'tab_review');
 }
 
+// function for activating review tab
 function activateReviewTab() {
   changeTab('review', 'comment', 'tab_review', 'tab_comment');
 }
-

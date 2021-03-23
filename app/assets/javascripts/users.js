@@ -3,6 +3,8 @@ if( window.location.href.includes('users')) {
     document.getElementById('tab_anime').addEventListener("click", activateAnimeTab);
     document.getElementById('tab_manga').addEventListener("click", activateMangaTab);
     
+    // displaying or hiding modal
+    // modal is used for giving a reason to the user why they have been blocked
     let modal_button = document.getElementById('block_reason');
     let modal = document.getElementById('reason_modal');
     
@@ -22,6 +24,7 @@ if( window.location.href.includes('users')) {
   }, false);
 }
 
+// calling changeTab function for changing tab's activeness
 function activateMangaTab() {
   changeTab('manga', 'anime', 'tab_manga', 'tab_anime');
 }

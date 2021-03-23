@@ -1,5 +1,6 @@
 Comments = {};
 
+// function for building comment asynchronously
 Comments.buildComment = function( comment ) {
   if( comment.contentsCommentsLength == 1) {
     let comment_area = document.getElementById('comment');
@@ -263,6 +264,7 @@ Comments.buildComment = function( comment ) {
   return div_outside;
 }
 
+// function for creating comment asynchronously
 Comments.createComment = function( comment ) {
   var newComment = Comments.buildComment(comment);
 
@@ -278,11 +280,13 @@ Comments.createComment = function( comment ) {
   Comments.clearTextarea( 'adding_comment' );
 }
 
+// function for clearing the textarea for comment
 Comments.clearTextarea = function( textarea_id ) {
   let adding_comment_area = document.getElementById(textarea_id).querySelector('textarea');
   adding_comment_area.value = '';
 }
 
+// function for deleting comment asynchronously
 Comments.destroyComment = function(commentId, contentName, length) {
   comment = document.getElementById("comment-" + commentId);
   if( length == 0) {
@@ -298,6 +302,7 @@ Comments.destroyComment = function(commentId, contentName, length) {
   adding_comment_area.value = "";
 }
 
+// function for updating comment asynchronously
 Comments.updateComment = function (comment) {
   let update_comment_form = document.getElementById('update_comment' + comment.commentId);
   update_comment_form.classList.add('d-none');

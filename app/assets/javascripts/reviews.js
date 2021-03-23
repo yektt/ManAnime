@@ -1,5 +1,6 @@
 Reviews = {};
 
+// function for building review asynchronously
 Reviews.buildReview = function(review) {
   // creating a check for removing 'no review added' information
   if( review.reviewLength == 1) {
@@ -151,6 +152,7 @@ Reviews.buildReview = function(review) {
   return div_outside;
 }
 
+// function for creating review asynchronously
 Reviews.createReview = function(review) {
   var newReview = Reviews.buildReview(review);
 
@@ -179,6 +181,7 @@ Reviews.createReview = function(review) {
   clearTextareaAndCheckboxes();
 }
 
+// function for clearing the textarea after submitting review
 function clearTextareaAndCheckboxes() {
   let adding_review_textarea = document.getElementById('review_review_body');
   adding_review_textarea.value = '';
@@ -190,6 +193,7 @@ function clearTextareaAndCheckboxes() {
   }
 }
 
+// function for destroying review asynchronously
 Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNumber) {
   review = document.getElementById("review-" + reviewId);
   if( length == 0) {
@@ -222,6 +226,7 @@ Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNu
   review.remove();
 }
 
+// function for creating radio buttons after deleted a review with rating asynchronously
 function createRadioButtons() {
   // creating radio buttons div
   let div_radio_buttons = document.createElement('div');

@@ -1,5 +1,6 @@
 Replies = {};
 
+// function for creating reply asynchronously
 Replies.createReply = function( reply ) {
   const div_outside = document.createElement('div');
   div_outside.id = 'reply-' + reply.replyId;
@@ -88,6 +89,7 @@ Replies.createReply = function( reply ) {
 
 }
 
+// function for deleting reply asynchronously
 Replies.destroyReply = function( replyId, replies_length ) {
   reply = document.getElementById("reply-" + replyId);
   reply.remove();

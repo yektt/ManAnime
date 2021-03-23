@@ -2,12 +2,16 @@ document.addEventListener('DOMContentLoaded', function(){
   var header = document.querySelectorAll('header a');
   var footer = document.querySelectorAll('footer a');
 
+  // calling functions for displaying chosen 
+  // header or footer component in different color 
+  // than others
   remove_active_class(header);
   remove_active_class(footer);
   add_active_class(header);
   add_active_class(footer);
 }, false);
 
+// removing active class from previous component
 function remove_active_class(component) {
   for (i = 0; i<component.length; i++) {
     if(component[i].classList.contains('active')) {
@@ -16,6 +20,7 @@ function remove_active_class(component) {
   }
 }
 
+// adding active class to current component
 function add_active_class(component){
   for (i = 1; i<component.length; i++) {
     if(component[i].href == location.href && component[i]) {
@@ -24,6 +29,7 @@ function add_active_class(component){
   }
 }
 
+// function for changing tabs
 function changeTab(will_be_active_tab_id,will_be_passive_tab_id, will_be_active_tab,  will_be_passive_tab ) {
   var items_active = document.getElementById(will_be_active_tab_id);
   items_active.classList.add("active");
