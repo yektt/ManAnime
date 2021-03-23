@@ -90,7 +90,7 @@
           <% if(@comment.nil?) %>
             <%= @user.name %> did not add any comments so far!
           <% else %>
-            <p class="card-text">Last comment: <%= @user.name %> has made a comment on <%= @comment.content.name %></p>
+            <p class="card-text">Last comment: <%= @user.name %> has made a comment on <%= link_to  @comment.content.name, content_path(@comment.content), class:'p-0 text-dark' %></p>
           <% end %>
 
           <p class="card-text">
