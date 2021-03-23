@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear <%= @user.name %>, because of the reason.s bellow, <%= @admin.name%> decided to ban you from the application.</p>
+    <ul>
+      <% for reason in @reason %>        
+          <li><%= reason.upcase_first %></li>
+      <% end %>
+    </ul>
+      
+    <p>If you're thinking there is a misunderstanding, feel free to contact with us.</p>
+    <p>Have a great day!</p>
+  </body>
+</html>
