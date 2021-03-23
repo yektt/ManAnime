@@ -3,14 +3,19 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Dear <%= @user.name %>, because of the reason.s bellow, <%= @admin.name%> decided to ban you from the application.</p>
+    <p>Dear <%= @user.name %>,</p>
+    <p>I am sorry to inform you that you have been banned from application because of the reason that has written bellow;</p>
     <ul>
       <% for reason in @reason %>        
           <li><%= reason.upcase_first %></li>
       <% end %>
     </ul>
       
-    <p>If you're thinking there is a misunderstanding, feel free to contact with us.</p>
+    <p>If you would like to talk about it, feel free to contact with us.</p>
     <p>Have a great day!</p>
   </body>
+  ------------------------<br>
+  <%= @admin.name %>,<br>
+  ManAnime Team<br>
+  ------------------------
 </html>
