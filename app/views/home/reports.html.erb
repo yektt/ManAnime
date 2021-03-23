@@ -9,7 +9,7 @@
           <div class="flex d-flex-row content-between align-center border-all border-curve">
             <div class="margin-1">
               <p class="margin-0">
-                <%= link_to user.name, user_path(user), class:'padding-0' %> has reported a comment about <%= link_to report.content.name, content_path(report.content), class:'padding-0' %></p>
+                <%= link_to user.name, user_path(user), class:'padding-0' %> has reported a comment created by <%= link_to report.user.name, user_path(report.user), class:'padding-0' %> about <%= link_to report.content.name, content_path(report.content), class:'padding-0' %>.</p>
             </div>
             <div class="left-border">
               <%= link_to 'Delete', user_report_path(user, report), method: :delete , class:'button button-danger margin-1'%>
