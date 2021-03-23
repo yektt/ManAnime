@@ -47,9 +47,21 @@ class UsersController < ApplicationController
 
   def block
     @user = User.find(params[:id])
-    @user.is_blocked = !@user.is_blocked
-    @user.save!
-
+    if(@user.is_blocked)
+      # means user is being unblocked now
+      # in the future, unblocking mail will be added to this part
+      @user.is_blocked = !@user.is_blocked
+      @user.save!
+    else
+      # means user is being blocked now
+      if ((params[:reason].reject &:blank?).empty?)
+        flash[:error] = 'You cannot block a user without saying the reason!'
+      else 
+        @user.is_blocked = !@user.is_blocked
+        @user.save!
+        UserMailer.block_mail(@user, (params[:reason].reject &:blank?), current_user).deliver_now
+      end
+    end
     redirect_to @user
   end
 
