@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210324145858) do
+ActiveRecord::Schema.define(version: 20210324162323) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -102,6 +102,11 @@ ActiveRecord::Schema.define(version: 20210324145858) do
     t.string "name"
     t.boolean "is_blocked"
     t.string "avatar"
+  end
+
+  create_table "users_votes", id: false, force: :cascade do |t|
+    t.integer "vote_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "votes", force: :cascade do |t|
