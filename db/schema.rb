@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210310155729) do
+ActiveRecord::Schema.define(version: 20210324145858) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20210310155729) do
     t.integer "content_id"
   end
 
+  create_table "comments_users", id: false, force: :cascade do |t|
+    t.integer "comment_id", null: false
+    t.integer "user_id", null: false
+  end
+
   create_table "contents", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -56,6 +61,11 @@ ActiveRecord::Schema.define(version: 20210310155729) do
   create_table "contents_genres", id: false, force: :cascade do |t|
     t.integer "genre_id", null: false
     t.integer "content_id", null: false
+  end
+
+  create_table "contents_users", id: false, force: :cascade do |t|
+    t.integer "content_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "genres", force: :cascade do |t|
@@ -92,6 +102,13 @@ ActiveRecord::Schema.define(version: 20210310155729) do
     t.string "name"
     t.boolean "is_blocked"
     t.string "avatar"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "vote_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "comment_id"
   end
 
 end
