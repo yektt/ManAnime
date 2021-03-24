@@ -1,6 +1,11 @@
+if (<%= @comment.comment_body.include?("\n")%>)
+  var comment_body = '<%= @comment.comment_body.gsub!(/\n/, ' /11223344\ ') %>';
+else 
+  var comment_body = '<%= @comment.comment_body%>';
+
 var comment = {
   'commentId' : '<%= @comment.id %>',
-  'commentBody' : '<%= @comment.comment_body %>'
+  'commentBody' : comment_body
 };
 
 Comments.updateComment(comment);
