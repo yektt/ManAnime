@@ -194,7 +194,7 @@
                         <%= button_tag id:'submit_report' + comment.id.to_s, class:'d-none'%>
                       <% end %>
                     <% end %>
-                    <%= link_to root_path, class:'p-0 ml-2' do%>
+                    <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'down'),method: :post, class:'p-0 ml-2' do%>
                       <svg id="downvote" class="icon" role="presentation">
                         <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
                       </svg>
