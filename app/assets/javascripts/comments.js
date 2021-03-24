@@ -308,10 +308,22 @@ Comments.updateComment = function (comment) {
   update_comment_form.classList.add('d-none');
 
   let comment_body = document.getElementById('comment' + comment.commentId);
-  comment_body.textContent = comment.commentBody;
+  comment_body.classList = 'pre-wrap';
   comment_body.classList.remove('d-none');
 
-  let comment_icons = document.getElementById('icon' + comment.commentId);
+    let body_array = comment.commentBody.split(" /11223344\ ");
+    let final_comment;
+    for (i = 0; i<body_array.length; i++) {
+      if (i == body_array.length-1)
+        comment_body.textContent = body_array[i];
+      else {
+        final_comment = body_array.join('\n');
+        comment_body.textContent = final_comment;
+        break;
+      }
+    }
+
+  let comment_icons = document.getElementById('icons' + comment.commentId);
   comment_icons.classList.remove('d-none');
   comment_icons.classList.add('d-flex');
 }
