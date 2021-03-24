@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reviews
   has_many :replies
+  has_and_belongs_to_many :votes, class_name: 'Vote'
   has_and_belongs_to_many :favorites, class_name: 'Content'
   has_and_belongs_to_many :reports, class_name: 'Comment'
 
