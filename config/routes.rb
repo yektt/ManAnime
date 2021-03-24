@@ -34,11 +34,13 @@ Rails.application.routes.draw do
     resources :contents do
       resources :comments, only: [:create, :update, :destroy] do
         resources :replies, only: [:create, :destroy]
+        resources :votes, only: [:create, :destroy]
       end
-      resources :reviews, only: [:create, :destroy]
+      resources :reviews, only: [:create]
     end
     get 'delete_reply/:id', to: 'replies#destroy', as:'delete_reply'
     get 'delete_comment/:id', to: 'comments#destroy', as:'delete_comment'
+    get 'contents/:content_id/comments/:id', to: 'comments#update'
     
     resources "contacts", only: [:new, :create]
     get 'contact', to:'contacts#new'
