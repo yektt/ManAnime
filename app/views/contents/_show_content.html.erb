@@ -199,7 +199,7 @@
                         <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
                       </svg>
                     <% end %>
-                    <%= link_to root_path, class:'p-0 ml-2' do%>
+                    <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'up'),method: :post, class:'p-0 ml-2' do%>
                       <svg id="upvote" class="icon" role="presentation">
                         <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
                       </svg>
