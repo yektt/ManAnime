@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
     else
       if(user.is_blocked == true)
         alert1 = ['You have been banned from the application!', '<br/>', 
-                  'Please check our rules from', "<a href=\"/help_and_rules\">Help & Rules Page.</a>", '<br/>',
-                  'If you think there is a problem, please contact with us via', "<a href=\"/contact\">Contact Page!</a>"]
+                  'Please check our rules from', "<a href=\"/" + params[:locale] + "/help_and_rules\">Help & Rules Page.</a>", '<br/>',
+                  'If you think there is a problem, please contact with us via', "<a href=\"/" + params[:locale] + "/contact\">Contact Page!</a>" ]
         flash[:alert] = alert1.join.html_safe
       else
         flash[:alert] = "Email or password is invalid.  Please try again"
