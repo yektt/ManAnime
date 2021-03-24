@@ -536,7 +536,7 @@ Sakura = Character.create!(name:'Sakura',
 Tanjirou = Character.create!(name:'Tanjirou',
                   surname:'Kamado',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b126071-BTNEc1nRIv68.png',
-                  information: "Tanjirou is kind by nature and has been described by others as having very gentle eyes. He has a great deal of determination and will not give up once he has a goal to achieve, an example being finding a cure for Nezuko. Even though he is relatively strong on his own, he isn't opposed to asking others for help when he needs it. He is very protective of his friends and even more so of his younger sister. His biggest attribute is his ability to empathize with anyone, even demons.")
+                  information: "+Tanjirou is kind by nature and has been described by others as having very gentle eyes. He has a great deal of determination and will not give up once he has a goal to achieve, an example being finding a cure for Nezuko. Even though he is relatively strong on his own, he isn't opposed to asking others for help when he needs it. He is very protective of his friends and even more so of his younger sister. His biggest attribute is his ability to empathize with anyone, even demons.")
                   Tanjirou.appearances << Demon_Slayer_manga
                   Tanjirou.appearances << Demon_Slayer_anime
 
@@ -1165,3 +1165,78 @@ Enji = Character.create!( name:'Enji',
                           +Endeavor is a tall man with a muscular physique. He has short and spiky, red hair with bright blue eyes. His beard and mustache appear to be made of fire, but when he turns off his flames on his face voluntarily, his stubble shows.")
                           Enji.appearances << Hero_Academia_anime
                           Enji.appearances << Hero_Academia_manga
+### end of creating characters
+
+##### Creating users
+admin = User.create!( name: 'Admin Alex',
+                      email: 'mail@mail.com',
+                      password: 'pass',
+                      role: 'admin')
+
+registered1 = User.create!( name: 'Leon Registered1',
+                            email: 'registered1@mail.com',
+                            password: 'pass')
+
+registered2 = User.create!( name: 'Olga Registered2',
+                            email: 'registered2@mail.com',
+                            password: 'pass')
+
+registered3 = User.create!( name: 'Zen Registered3',
+                            email: 'registered3@mail.com',
+                            password: 'pass')
+
+blocked_user = User.create!(name: 'Obito Blocked',
+                            email: 'email@mail.com',
+                            password: 'pass',
+                            is_blocked: true)
+
+##### Creating comments
+comment1 = Comment.create!( comment_body: "This anime is the best anime ever!! I couldn't stop my tears!!",
+                            user: registered1, content: Shigatsu_wa_kimi_no_uso_anime)
+
+comment2 = Comment.create!( comment_body: "Aww Violetto !! I hope she can sattle down the things for herself.. I don't want to give spoiler so I am being quite...",
+                            user: registered3, content: Violet_anime)
+
+comment3 = Comment.create!( comment_body: "Narutoooo! Sasskeee!! Narutoooo!!! Sasskeeee!! NARUTOOOOGGG!! Lol!",
+                            user: registered1, content: Naruto_anime)
+
+comment4 = Comment.create!( comment_body: "I just finised the manga and I am going to watch the anime of it!! I was amazing! OMG!",
+                            user: blocked_user, content: Demon_Slayer_manga)
+
+comment5 = Comment.create!( comment_body: "Booriinng..!", 
+                            user: registered1, content:Fairy_Tail_manga)
+
+comment6 = Comment.create!( comment_body: "I dropped the manga, I hope its anime will be much better!",
+                            user: registered2, content: Fairy_Tail_manga)
+
+comment7 = Comment.create!( comment_body: "Nobody: '....', \nNaruto: 'SASKEEE', \nSasuke: 'NARUTOOO' \nhahahahahaha",
+                            user: admin, content: Naruto_anime)
+
+comment8 = Comment.create!( comment_body: "Wow! I didn't see that is coming! SENSEII!!! T.T",
+                            user:admin, content: Naruto_Shippuuden_anime)
+
+##### Creating replies
+reply1 = Reply.create!( reply_body: "I have watched the last movie.. It was amazing! I cannot tell what happened in the end but.. ahh!!",
+                        user: registered2, comment: comment2)
+
+reply2 = Reply.create!(reply_body: "Oh! You will like it for sure! They did a very good job!",
+                       user: registered1, comment:comment4)
+
+reply3 = Reply.create!(reply_body: "Neeh.. I liked the manga most, I didn't get the same vibe from anime.. but it was kind of ok...",
+                      user: registered2, comment: comment4)
+
+reply4 = Reply.create!(reply_body: "You will drop the anime as well.. I am betting, you can only survive at max three episodes!! Lol!",
+                      user: registered1, comment:comment6)
+
+reply5 = Reply.create!(reply_body: "How come!!", 
+                      user: admin, comment: comment6)
+
+##### Creating ratings & reviews
+
+##### Creating reports
+
+##### Adding some contents to users list
+
+##### Adding some reports 
+
+##### Adding some voting to the comments
