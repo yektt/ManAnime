@@ -8,4 +8,16 @@ class VotesController < ApplicationController
       redirect_to @vote.comment.content 
     end
   end
+
+  def update
+    @vote = Vote.find(params[:id])
+
+    if @vote.vote_type == 'up'
+      @vote.vote_type = 'down'
+    else
+      @vote.vote_type = 'up'
+    end
+    @vote.save!
+    redirect_to @vote.comment.content 
+  end
 end
