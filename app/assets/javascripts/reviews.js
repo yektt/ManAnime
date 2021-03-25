@@ -194,7 +194,7 @@ function clearTextareaAndCheckboxes() {
 }
 
 // function for destroying review asynchronously
-Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNumber) {
+Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNumber, current_user, review_owner) {
   review = document.getElementById("review-" + reviewId);
   if( length == 0) {
     let no_reviews_added = document.createElement('h4');
@@ -206,8 +206,10 @@ Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNu
   // if the deleted review has rating, updating the content rating
   if (rating) {
     let categories = document.getElementById('review_categories');
-    categories.parentElement.insertBefore(createRadioButtons(), categories);
-
+    
+    if (current_user === review_owner) {
+      categories.parentElement.insertBefore(createRadioButtons(), categories);
+    }
     // updating rating of content
     let div_content_rating = document.getElementById('content_rating');
     if(ratingNumber == 3) {
