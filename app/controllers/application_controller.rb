@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :logged_in?, :current_user, :is_admin?, :all_reports
+  helper_method :logged_in?, :current_user, :is_admin?, :all_reports, :did_user_voted_this_comment
 
   before_action :set_locale
 
@@ -37,5 +37,14 @@ class ApplicationController < ActionController::Base
     end
 
     return @reports
+  end
+
+  def did_user_voted_this_comment(comment)
+    current_user.votes.each do |vote| 
+      if (vote.comment == comment)
+        return vote
+      end
+    end
+    return false
   end
 end
