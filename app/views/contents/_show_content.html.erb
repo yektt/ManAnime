@@ -194,15 +194,37 @@
                         <%= button_tag id:'submit_report' + comment.id.to_s, class:'d-none'%>
                       <% end %>
                     <% end %>
-                    <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'down'),method: :post, class:'p-0 ml-2' do%>
-                      <svg id="downvote" class="icon" role="presentation">
-                        <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
-                      </svg>
-                    <% end %>
-                    <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'up'),method: :post, class:'p-0 ml-2' do%>
-                      <svg id="upvote" class="icon" role="presentation">
-                        <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
-                      </svg>
+                    <% if(did_user_voted_this_comment(comment) == false ) %>
+                      <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'down'),method: :post, class:'p-0' do%>
+                        <svg id="downvote" class="icon ml-2" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
+                        </svg>
+                      <% end %>
+                      <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'up'),method: :post, class:'p-0' do%>
+                        <svg id="upvote" class="icon ml-2" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
+                        </svg>
+                      <% end %>
+                    <% else %>
+                      <% if (did_user_voted_this_comment(comment).vote_type == 'down') %>
+                        <svg id="filled-downvote" class="icon ml-2 mt-1" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#filled-downvote" ) %>"></use>
+                        </svg>
+                        <%= link_to content_comment_vote_path(@content, comment, did_user_voted_this_comment(comment)),method: :patch, class:'p-0' do%>
+                          <svg id="upvote" class="icon ml-2" role="presentation">
+                            <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote" ) %>"></use>
+                          </svg>
+                        <% end %>
+                      <% else %>
+                        <%= link_to content_comment_vote_path(@content, comment, did_user_voted_this_comment(comment)),method: :patch, class:'p-0' do%>
+                          <svg id="downvote" class="icon ml-2" role="presentation">
+                            <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote" ) %>"></use>
+                          </svg>
+                        <% end %>
+                        <svg id="filled-upvote" class="icon ml-2 mt-1" role="presentation">
+                          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#filled-upvote" ) %>"></use>
+                        </svg>
+                      <% end %>
                     <% end %>
                   <% end %>
                   <% if(current_user == comment.user) %>
@@ -212,6 +234,9 @@
                   <% end %>
                 </div>
               <% end %>
+
+              
+
               
               <!-- displaying replies if the comment has any -->
               <% if ( !comment.replies.empty?) %>
