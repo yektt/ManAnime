@@ -104,7 +104,16 @@ Reviews.buildReview = function(review) {
           // creating review body
           let review_body = document.createElement('p');
           review_body.id = 'review' + review.reviewId;
-          review_body.appendChild(document.createTextNode(review.reviewBody));
+          review_body.className = 'pre-wrap';
+
+          let body_array = review.reviewBody.split(" /11223344\ ");
+          for (i = 0; i<body_array.length; i++) {
+            if (i == body_array.length-1)
+              review_body.appendChild(document.createTextNode(body_array[i]));
+            else 
+              review_body.appendChild(document.createTextNode(body_array[i]));
+              review_body.appendChild(document.createTextNode("\n"));
+          }
 
         // combining review section
         div_review.appendChild(review_body);
@@ -194,7 +203,7 @@ function clearTextareaAndCheckboxes() {
 }
 
 // function for destroying review asynchronously
-Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNumber, current_user, review_owner) {
+Reviews.destroyReview = function(reviewId, reviewRating, contentName, length, rating, ratingNumber, current_user, review_owner) {
   review = document.getElementById("review-" + reviewId);
   if( length == 0) {
     let no_reviews_added = document.createElement('h4');
@@ -204,10 +213,10 @@ Reviews.destroyReview = function(reviewId, contentName, length, rating, ratingNu
   }
 
   // if the deleted review has rating, updating the content rating
-  if (rating) {
+  if (reviewRating !== "") {
     let categories = document.getElementById('review_categories');
-    
-    if (current_user === review_owner) {
+
+    if (current_user === review_owner && !document.getElementById('rating_radio_buttons')) {
       categories.parentElement.insertBefore(createRadioButtons(), categories);
     }
     // updating rating of content

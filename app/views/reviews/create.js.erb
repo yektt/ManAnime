@@ -1,8 +1,13 @@
+if (<%= @review.review_body.include?("\n")%>)
+  var review_body = '<%= @review.review_body.gsub!(/\n/, ' /11223344\ ') %>';
+else 
+  var review_body = '<%= @review.review_body %>';
+
 var review = {
   'reviewLength' : '<%= @content.reviews.length %>',
   'reviewId' : '<%= @review.id %>',
   'reviewCreatedTime' : '<%= @review.created_at.strftime("%e %B %Y at %k:%M") %>',
-  'reviewBody' : '<%= @review.review_body %>',
+  'reviewBody' : review_body,
   'reviewRating' : '<%= @review.rating %>',
   'reviewCategories' : '<%= @review.categories  %>',
   'userProfilePath' : '<%= user_path(current_user) %>',

@@ -356,7 +356,7 @@
               <% else %>
                 <div class="mr-4 flex-fill pl-3 m-0">
               <% end %>
-                <p id="review<%= review.id %>"><%= review.review_body %></p>
+                <p id="review<%= review.id %>" class="pre-wrap"><%= review.review_body %></p>
               </div>
               <% unless ( review.rating.nil? ) %>
                 <div class="col-md-2 pl-3 align-self-center">
