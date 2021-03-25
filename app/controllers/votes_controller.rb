@@ -1,11 +1,11 @@
 class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_type: params[:vote_type])
-    @vote.comment_id = params[:comment_id]
+    @vote.comment = Comment.find(params[:comment_id])
+    @vote.user = current_user
     
     if(@vote.save)
-      @comment = Comment.find(params[:comment_id])
-      @comment.votes << @vote
+      redirect_to @vote.comment.content 
     end
   end
 end
