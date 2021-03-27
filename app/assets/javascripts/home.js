@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', function(){
   remove_active_class(footer);
   add_active_class(header);
   add_active_class(footer);
+
+  let navbar_footer = document.getElementById('navbar_footer');
+  let navbar_button_footer = document.getElementById('navbar_footer_button');
+  if(navbar_button_footer) {
+    navbar_button_footer.addEventListener("click", function(){
+      if (navbar_footer.style.display === "block") {
+        navbar_footer.parentElement.parentElement.parentElement.style.opacity = 0.85;
+        navbar_footer.style.display = "none";
+      } else {
+        navbar_footer.parentElement.parentElement.parentElement.style.opacity = 1;
+        let items = navbar_footer.querySelectorAll('li');
+        items.forEach(element => element.classList.remove('border-right'));
+        items.forEach(element => element.classList.add('mt-1'));
+        navbar_footer.style.display = "block";
+      }
+    });
+  }
 }, false);
 
 // removing active class from previous component
