@@ -1,7 +1,28 @@
 @media screen and (max-width: 576px) {
 
+  footer{
+    #locale ul {
+      flex-direction: row;
+
+      li {
+        margin-left: 1rem;
+      }
+    }
+    #copy_right{
+      flex-grow: 1;
+    }
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width:992px) {
   
+  footer{
+    .container {
+      flex-direction: column;
+      align-items: stretch !important;
+    }
+    .navbar-brand {
+      width: 20%;
+    }
+  }
 }
