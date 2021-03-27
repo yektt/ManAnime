@@ -4,9 +4,9 @@ class ContentsController < ApplicationController
 
     if(session[:user_id].present?)
       @disable_add_favorite = current_user.favorites.exists?(@content.id)
+      @upvotes = current_user.votes.upvotes
+      @downvotes = current_user.votes.downvotes
     end 
-    @upvotes = current_user.votes.upvotes
-    @downvotes = current_user.votes.downvotes
   end
 
   def new
