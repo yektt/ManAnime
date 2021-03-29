@@ -1,8 +1,11 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-sm navbar-light">
     <div class="container">
       <%= render partial: 'logo' %>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <button id="navbar_header_button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar_header">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item border-right"> <%= link_to translate('home') , root_path, class:'active' %> </li>
         <li class="nav-item border-right"> <%= link_to translate('search') , search_path %> </li>
@@ -12,18 +15,18 @@
       <% if (logged_in?) %>
         <% if(is_admin?) %>
           <ul class="navbar-nav justify-content-end">
-            <li class="nav_item border-right"> <%= link_to translate('add') , add_path, class:'admin-nav-link' %> </li>
-            <li class="nav_item border-right"> <%= link_to translate('reports') , reports_path, class:'admin-nav-link' %> </li>
+            <li class="nav-item border-right"> <%= link_to translate('add') , add_path, class:'admin-nav-link' %> </li>
+            <li class="nav-item border-right"> <%= link_to translate('reports') , reports_path, class:'admin-nav-link' %> </li>
           </ul>
         <%end%>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav_item border-right"> <%= link_to translate('profile') , user_path(current_user) %> </li>
-          <li class="nav_item"> <%= link_to translate('logout'), logout_path, method: :delete %> </li>
+          <li class="nav-item border-right"> <%= link_to translate('profile') , user_path(current_user) %> </li>
+          <li class="nav-item"> <%= link_to translate('logout'), logout_path, method: :delete %> </li>
         </ul>
       <% else %>
         <ul class="navbar-nav justify-content-end">
-          <li class="nav_item border-right"> <%= link_to translate('login') , login_path %> </li>
-          <li class="nav_item"> <%= link_to translate('signup') , signup_path %> </li>
+          <li class="nav-item border-right"> <%= link_to translate('login') , login_path %> </li>
+          <li class="nav-item"> <%= link_to translate('signup') , signup_path %> </li>
         </ul>
       <% end %>
       </div>
