@@ -3,17 +3,16 @@
     <div class="container">
       <%= render partial: 'logo' %>
       <div class="collapse navbar-collapse" id="navbar_footer">
-        <ul class="navbar-nav mr-auto flex-wrap">
+        <ul class="navbar-nav mr-auto flex-wrap align-items-center">
           <li class="nav_item border-right p-2"> <%= link_to translate('home') , root_path %> </li>
           <li class="nav_item border-right p-2"> <%= link_to translate('about') , about_path %> </li>
           <% if (is_admin?) %>
-            <li class="nav_item border-right"> <%= link_to (translate('help') + ' & '+ translate('rules') +' - ' + translate('admin')) , admin_help_and_rules_path, class:'admin-nav-link' %> </li>
+            <li class="nav_item p-2 border-right"> <%= link_to (translate('help') + ' & '+ translate('rules') +' - ' + translate('admin')) , admin_help_and_rules_path, class:'admin-nav-link' %> </li>
           <% else %>
             <li class="nav_item p-2 border-right"> <%= link_to (translate('help') + ' & '+ translate('rules')) , help_and_rules_path%> </li>
           <% end %>
           <li class="nav_item p-2"> <%= link_to translate('contact') , contact_path%> </li>
         </ul>
-
 
         <div id ='locale'>
           <ul class="navbar-nav mr-auto flex-wrap">  
@@ -26,14 +25,11 @@
 
       <div id='copy_right' class="text-muted d-flex align-items-center justify-content-end ml-2">
         <p class="mb-0">&copy; <%= Time.now.year %> - ManAnime</p>
-          
-        
         <button id="navbar_footer_button" class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon bg-secondary "></span>
         </button>
       </div>
       
-
     </div>
   </nav>
 </footer>
