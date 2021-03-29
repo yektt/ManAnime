@@ -50,10 +50,10 @@
       </div>
     <% end %>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-sm-3">
         <%= image_tag @user.avatar, class: 'card-img w-100', alt: "Avatar for #{@user.name}" %>
       </div>
-      <div class="col-md-9 d-flex">
+      <div class="col-sm-9 d-flex">
         <div class="card-body d-flex flex-column pt-0 pb-0 pr-0">
           <div class="d-flex justify-content-between align-items-center">
             <h3 class="d-flex card-title m-0"><%= @user.name %></h3>
@@ -121,10 +121,10 @@
       <% unless ( @anime.empty?)%>
         <% @anime.each do |anime| %>
           <div class="d-flex flex-row mt-3">
-            <div class="col-md-1 p-0 mr-3">
+            <div class="col-sm-1 p-0 mr-3">
               <%= link_to image_tag(anime.image, alt: "Image for #{anime.name}", class:'w-75'), content_path(anime) %>
             </div>
-            <div class="col-md-5 pl-3 border-right border-left align-self-center">
+            <div class="col-sm-5 pl-3 border-right border-left align-self-center">
               <p><%= link_to anime.name, content_path(anime), class:'p-0' %> </p>
               <p><%= anime.created_at.strftime("%e %B %Y at %k:%M")%> </p>
             </div>
@@ -149,10 +149,10 @@
       <% unless (@manga.empty?)%>
         <% @manga.each do |manga| %>
           <div class="d-flex flex-row mt-2">
-            <div class="col-md-1 p-0 mr-3">
+            <div class="col-sm-1 p-0 mr-3">
               <%= link_to image_tag(manga.image, alt: "Image for #{manga.name}", class:'w-75'), content_path(manga) %>
             </div>
-            <div class="col-md-5 pl-3 border-right border-left align-self-center">
+            <div class="col-sm-5 pl-3 border-right border-left align-self-center">
               <p><%= link_to manga.name, content_path(manga), class:'p-0' %> </p>
               <p><%= manga.created_at.strftime("%e %B %Y at %k:%M")%> </p>
             </div>
