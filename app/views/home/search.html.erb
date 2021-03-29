@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg container mt-2">
-  <div class="collapse navbar-collapse  flex-nowrap">
+<nav id="search" class="navbar navbar-expand-sm container mt-2">
+  <div id="search_bar" class="collapse navbar-collapse flex-nowrap">
     <div class="flex-grow-1">
       <%= form_tag search_path, method: :get do %>
         <%= label_tag(:q, 'Search term', class: 'sr-only') %>
@@ -61,9 +61,9 @@
 <div id='advanced_search' class="container d-none">
   <%= form_tag search_path, method: :get do %>
     <h4 class="mt-3">Genres:</h4>
-    <div class="col-md-12 row">
+    <div class="col-sm-12 row">
       <% for genre in Genre.all.order(name: :asc) %>
-          <div class="col-md-2 p-0 mt-2">
+          <div class="col-sm-2 p-0 mt-2">
             <%= check_box_tag "genres_id[]", genre.id, false%> 
             <%= genre.name %> 
           </div>
@@ -71,16 +71,16 @@
     </div>
 
     <h4 class="mt-3">Search starting from:</h4>
-    <div class="col-md-12 row">
+    <div class="col-sm-12 row">
       <% @years.each do |year| %>
-        <div class="col-md-2 p-0 mt-2">
+        <div class="col-sm-2 p-0 mt-2">
           <%= radio_button_tag "year", year%>  
           <%= year %>
         </div>
       <% end %>
     </div>
 
-      <%= submit_tag('Search', type:'submit', class:'col-md-12 btn btn-white mt-3') %>
+      <%= submit_tag('Search', type:'submit', class:'col-sm-12 btn btn-white mt-3') %>
     <% end %>
 </div>
 
@@ -206,7 +206,7 @@
               <%= genre.name%>,
             <% end %>
           <% end %>
-        <% end %> after <%= params[:years] %> in anime! </h3>
+        <% end %> after <%= params[:year] %> in anime! </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
       <%= render partial: 'display_5content', locals: { category: 'Genre&Year', content: @mangas, search_term: [params[:genres_id], params[:year]] } %>
@@ -224,7 +224,7 @@
               <%= genre.name%>,
             <% end %>
           <% end %>
-        <% end %> after <%= params[:years] %> in manga! </h3>
+        <% end %> after <%= params[:year] %> in manga! </h3>
     <% end %>
   <% else %>
     <h3 class="mt-4 container"> I couldn't find anything for <% for genre in Genre.find(params[:genres_id]) %>
@@ -239,6 +239,6 @@
               <%= genre.name%>,
             <% end %>
           <% end %>
-        <% end %> after <%= params[:years] %>! </h3>
+        <% end %> after <%= params[:year] %>! </h3>
   <% end %>
 <% end %>
