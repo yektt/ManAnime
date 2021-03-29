@@ -2,15 +2,15 @@
   <h5>All <%= content.first.category.upcase_first %>s</h5>
   <% content.each do |content| %>
     <div class="border-bottom"></div>
-    <div class="d-flex flex-row mt-2 mb-2">
-      <div class="col-6 border-right p-0">
+    <div id='all_content' class="d-flex flex-row mt-2 mb-2">
+      <div class="col-sm-6 border-right p-0">
         <div class="d-flex flex-row">
-          <div class="col-3 pl-0">
-            <%= link_to image_tag(content.image, alt: "Image for #{content.name}", class:'w-75'), content_path(content) %>
+          <div id="content_image" class="col-3 pl-0">
+            <%= link_to image_tag(content.image, alt: "Image for #{content.name}", class:'w-100'), content_path(content) %>
           </div>
           <div class="d-flex flex-column">
-            <%= link_to  content.name, content_path(content), class:'col text-dark mb-3' %>
-            <div class="mt-auto mb-3 pl-3 pr-3 text-muted">
+            <%= link_to  content.name, content_path(content), class:'col text-dark mb-3', id:"content_name" %>
+            <div id="content_genres" class="mt-auto mb-3 pl-3 pr-3 text-muted">
               <% content.categories.each do |genre|%>
                 <% if (content.categories.last == genre) %>
                   <%= genre.name %> 
@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="col-2 text-align-center m-auto">
+      <div class="col-sm-2 text-align-center m-auto">
         <% if(content.rating == 0 || content.rating_number < 3) %>
           Not enough rating
         <% else %>
@@ -30,11 +30,11 @@
         <% end %>
       </div>
       <div class="border-right"></div>
-      <div class="col-2 text-align-center m-auto">
+      <div class="col-sm-2 text-align-center m-auto">
         <%= content.episode_or_chapter_number %> <%= episode_or_chapter %>
       </div>
       <div class="border-right"></div>
-      <div class="col-2 text-align-center m-auto d-flex flex-column">
+      <div id="content_dates" class="col-sm-2 text-align-center m-auto d-flex flex-column">
         <% if (content.start_date < Time.now) %>
           <div><%= content.start_date.strftime("%e %b %Y") %></div>
           <% if(content.end_date) %>
