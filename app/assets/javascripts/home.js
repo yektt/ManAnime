@@ -10,6 +10,21 @@ document.addEventListener('DOMContentLoaded', function(){
   add_active_class(header);
   add_active_class(footer);
 
+  let navbar = document.getElementById('navbar_header');
+  let navbar_button = document.getElementById('navbar_header_button');
+  if(navbar_button) {
+    navbar_button.addEventListener("click", function(){
+      if (navbar.style.display === "block") {
+        navbar.style.display = "none";
+      } else {
+        let items = navbar.querySelectorAll('li');
+        items.forEach(element => element.classList.remove('border-right'));
+        items.forEach(element => element.classList.add('mt-1'));
+        navbar.style.display = "block";
+      }
+    });
+  }
+
   let navbar_footer = document.getElementById('navbar_footer');
   let navbar_button_footer = document.getElementById('navbar_footer_button');
   if(navbar_button_footer) {
