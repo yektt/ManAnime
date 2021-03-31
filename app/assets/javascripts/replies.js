@@ -31,6 +31,7 @@ Replies.createReply = function( reply ) {
 
   const div_reply_2_1 = document.createElement('div');
   div_reply_2_1.classList = 'd-flex row justify-content-between mb-2';
+  div_reply_2_1.id = 'user_name_and_date';
 
   let replier_name = document.createElement('p');
   replier_name.className = 'ml-3 mb-0 align-self-center';

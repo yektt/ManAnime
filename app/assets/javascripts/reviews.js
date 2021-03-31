@@ -38,6 +38,7 @@ Reviews.buildReview = function(review) {
 
       // creating first line's div (name, date, delete icon)
       let div_name_and_date = document.createElement('div');
+      div_name_and_date.id = 'user_name_and_date';
       div_name_and_date.className = 'd-flex row justify-content-between';
 
         // creating user name
