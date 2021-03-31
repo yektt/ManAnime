@@ -21,11 +21,13 @@
 
 <div>
   <% if (!@anime.empty?)%>
-    <%= render partial: 'display_5content', locals: {category: 'Anime', content: @anime} %>
+    <h5><%= pluralize_contents(@anime).upcase_first %> Appearences</h5>
+    <%= render partial: 'display_5content', locals: {content: @anime} %>
   <% end %>
 </div>
 <div class="mt-3">
   <% if (!@manga.empty?)%>
-    <%= render partial: 'display_5content', locals: {category: 'Manga', content: @manga} %>
+    <h5><%= pluralize_contents(@manga).upcase_first %> Appearences</h5>
+    <%= render partial: 'display_5content', locals: {content: @manga} %>
   <% end %>
 </div>

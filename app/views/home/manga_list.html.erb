@@ -1,5 +1,10 @@
-<%= render partial: 'display_5content', locals: {category: 'Most popular ' + @popular.length.to_s + ' ' + @popular.first.category, content: @popular} %>
-<%= render partial: 'display_5content', locals: {category: 'Most recent ' + @recent.length.to_s + ' ' + @recent.first.category, content: @recent} %>
-<%= render partial: 'display_5content', locals: {category: 'Most popular & not completed ' + @unfinished_popular.length.to_s + ' ' + @unfinished_popular.first.category, content: @unfinished_popular} %>
+<h4 class="margin-top-2"> Most popular <%= @popular.length.to_s + ' ' + pluralize_contents(@popular) %> </h4>
+<%= render partial: 'display_5content', locals: {content: @popular} %>
 
-<%= render partial: 'display_all', locals: { episode_or_chapter: 'Episodes', content: @all} %>
+<h4 class="margin-top-2"> Most recent <%= @recent.length.to_s + ' ' + pluralize_contents(@recent) %> </h4>
+<%= render partial: 'display_5content', locals: {content: @recent} %>
+
+<h4 class="margin-top-2"> Most popular & not completed <%= @unfinished_popular.length.to_s + ' ' + pluralize_contents(@unfinished_popular)%> </h4>
+<%= render partial: 'display_5content', locals: {content: @unfinished_popular} %>
+
+<%= render partial: 'display_all', locals: { episode_or_chapter: 'Chapter', content: @all} %>
