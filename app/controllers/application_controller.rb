@@ -39,12 +39,4 @@ class ApplicationController < ActionController::Base
     return @reports
   end
 
-  def did_user_voted_this_comment(comment)
-    current_user.votes.each do |vote| 
-      if (vote.comment == comment)
-        return vote
-      end
-    end
-    return false
-  end
 end
