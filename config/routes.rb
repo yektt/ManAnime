@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     get 'manga_list', to:'home#manga_list'
 
     resources :sessions, only: [:new, :create, :destroy]
-    get 'logout', to: 'sessions#destroy', as: 'logout'
     get 'login', to: 'sessions#new', as: 'login'
 
     resources :users do

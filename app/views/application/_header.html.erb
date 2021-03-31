@@ -21,7 +21,7 @@
         <%end%>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item border-right"> <%= link_to translate('profile') , user_path(current_user) %> </li>
-          <li class="nav-item"> <%= link_to translate('logout'), logout_path, method: :delete %> </li>
+          <li class="nav-item"> <%= link_to translate('logout'), session_path(1), method: :delete %> </li>
         </ul>
       <% else %>
         <ul class="navbar-nav justify-content-end">
