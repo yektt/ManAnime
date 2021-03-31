@@ -6,7 +6,7 @@
       <p class="mt-4 mb-2"><%= link_to user.name, user_path(user), class:'padding-0' %> has made <%= user.reports.length %> report in total: </p>
       <% user.reports.all.each do |report| %>
         <div class="flex d-flex-column">
-          <div class="flex d-flex-row content-between align-center border-all border-curve">
+          <div id="report-<%=report.id%>" class="flex d-flex-row content-between align-center border-all border-curve">
             <div class="margin-1">
               <p class="margin-0">
                 <%= link_to user.name, user_path(user), class:'padding-0' %> has reported a comment created by <%= link_to report.user.name, user_path(report.user), class:'padding-0' %> about <%= link_to report.content.name, content_path(report.content), class:'padding-0' %>.</p>
