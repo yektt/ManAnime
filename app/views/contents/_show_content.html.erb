@@ -1,6 +1,6 @@
 <div class="d-flex flex-column pl-2">
   <!-- first part of information about the content -->
-  <div class="mt-4 mb-4 row">
+  <div id="content_information_1" class="mt-4 mb-4 row">
     <div class="col-md-5 pr-0">
       <%= image_tag @content.image, class: 'card-img', alt: "Image for #{@content.name}" %>
     </div>
@@ -42,7 +42,7 @@
   </div>
 
   <!-- second part of information about the content -->
-  <div class="row">
+  <div id="content_information_2" class="row">
     <div class="col-md-4 p-0 mb-4">
       <div id="content_rating" class="d-flex flex-row">
         <% if (@content.rating_number > 3)%>
@@ -85,7 +85,7 @@
           <% end %>
       </div>
       <div class="d-flex flex-row mt-3">
-        <strong class="col-md-7">Tags</strong> <%= @content.tags %>
+        <strong class="col-md-7">Tags</strong> <div class="col-md-5 p-0"><%= @content.tags %></div>
       </div>
       <div class="d-flex flex-row mt-3">
         <strong class="col-md-7">Genres</strong> 
@@ -141,7 +141,7 @@
               <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user), class:'p-0' %>
             </div>
             <div class="flex-fill pl-3 border-left">
-              <div class="d-flex row justify-content-between mb-2">
+              <div id="user_name_and_date" class="d-flex row justify-content-between mb-2">
                 <p class="ml-3 mb-0 align-self-center text-monospace"><%= link_to comment.user.name, user_path(comment.user), class:'p-0 text-monospace' %></p>
                 <div>
                   <small class="mr-3 text-muted"><%= comment.created_at.strftime("%e %B %Y at %k:%M") %></small>
@@ -235,9 +235,6 @@
                 </div>
               <% end %>
 
-              
-
-              
               <!-- displaying replies if the comment has any -->
               <% if ( !comment.replies.empty?) %>
                 <div id="border-between-comment-reply" class="border-bottom mt-3"></div>
@@ -248,7 +245,7 @@
                         <%= link_to image_tag(reply.user.avatar, alt: "Avatar for #{reply.user.name}", class: 'card-img'), user_path(reply.user) %>
                       </div>
                       <div class="flex-fill pl-3 border-left">
-                        <div class="d-flex row justify-content-between mb-2">
+                        <div id="user_name_and_date" class="d-flex row justify-content-between mb-2">
                           <p class="ml-3 mb-0 align-self-center"><%= link_to reply.user.name, user_path(reply.user), class:'p-0 text-monospace' %></p>
                           <div>
                             <small class="mr-3 text-muted"><%= reply.created_at.strftime("%e %B %Y at %k:%M") %></small>
@@ -332,7 +329,7 @@
             <%= link_to image_tag(review.user.avatar, alt: "Avatar for #{review.user.name}", class: 'card-img'), user_path(review.user), class:'p-0' %>
           </div>
           <div class="flex-fill pl-3 border-left">
-            <div class="d-flex row justify-content-between mb-2">
+            <div id="user_name_and_date" class="d-flex row justify-content-between mb-2">
               <p class="ml-3 mb-0 align-self-center"><%= link_to review.user.name, user_path(review.user), class:'p-0 text-monospace' %></p>
 
               <div>
