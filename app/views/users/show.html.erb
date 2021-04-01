@@ -60,7 +60,7 @@
             <div class="d-flex flex-row-reverse">
               <% if (logged_in?) %>
                 <% if (current_user == @user) %>
-                  <%= link_to 'Edit', edit_path(@user), class: 'btn btn-outline-secondary mr-3 text-right' %>
+                  <%= link_to 'Edit', edit_account_path(@user), class: 'btn btn-outline-secondary mr-3 text-right' %>
                 <% end %>
                 <% if(is_admin? && current_user != @user && @user.role != 'admin') %>
                   <% if(@user.is_blocked == false) %>
