@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :logged_in?, :current_user, :is_admin?, :all_reports, :ensure_owner, :ensure_authenticated, :ensure_admin, :ensure_pageowner
+  helper_method :logged_in?, :current_user, :is_admin?, :all_reports, :ensure_owner, :ensure_authenticated, :ensure_admin, :ensure_pageowner, :find_user
 
   before_action :set_locale
 
@@ -40,6 +40,10 @@ class ApplicationController < ActionController::Base
       session.delete(:user_id) 
       redirect_to login_path
     end
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
   def default_url_options
