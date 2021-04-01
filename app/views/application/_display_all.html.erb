@@ -1,5 +1,5 @@
 <div class="container pl-0 mt-5">
-  <h5>All <%= content.first.category.upcase_first %>s</h5>
+  <h5> <%= translate('all_' + content.first.category + 's') %></h5>
   <% content.each do |content| %>
     <div class="border-bottom"></div>
     <div id='all_content' class="d-flex flex-row mt-2 mb-2">
@@ -13,9 +13,9 @@
             <div id="content_genres" class="mt-auto mb-3 pl-3 pr-3 text-muted">
               <% content.categories.each do |genre|%>
                 <% if (content.categories.last == genre) %>
-                  <%= genre.name %> 
+                  <%= translate(genre.name) %> 
                 <% else %>
-                  <%= genre.name + ',' %> 
+                  <%= translate(genre.name) + ',' %> 
                 <% end %>
               <% end %>
             </div>
@@ -24,26 +24,26 @@
       </div>
       <div class="col-sm-2 text-align-center m-auto">
         <% if(content.rating == 0 || content.rating_number < 3) %>
-          Not enough rating
+          <%= translate('not_enough_rating') %>
         <% else %>
           <%= content.rating %>
         <% end %>
       </div>
       <div class="border-right"></div>
       <div class="col-sm-2 text-align-center m-auto">
-        <%= content.episode_or_chapter_number %> <%= episode_or_chapter %>
+        <%= content.episode_or_chapter_number %> <%= translate(episode_or_chapter) %>
       </div>
       <div class="border-right"></div>
       <div id="content_dates" class="col-sm-2 text-align-center m-auto d-flex flex-column">
         <% if (content.start_date < Time.now) %>
-          <div><%= content.start_date.strftime("%e %b %Y") %></div>
+          <div><%= content.start_date.strftime("%e") + " " + translate(content.start_date.strftime("%b")) + " " + content.start_date.strftime("%Y") %></div>
           <% if(content.end_date) %>
-            <div><%= content.end_date.strftime("%e %b %Y") %></div>
+            <div><%= content.end_date.strftime("%e") + " " + translate(content.end_date.strftime("%b")) + " " + content.end_date.strftime("%Y") %></div>
           <% else %>
-            Airing
+            <%= translate('airing') %>
           <% end %>
         <% else %>
-          Coming soon
+          <%= translate('coming_soon') %>
         <% end %>
       </div>
     </div>
