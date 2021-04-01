@@ -3,7 +3,7 @@
     <div class="flex-grow-1">
       <%= form_tag search_path, method: :get do %>
         <%= label_tag(:q, 'Search term', class: 'sr-only') %>
-        <%= text_field_tag(:q, params[:q], class: 'form-control', placeholder:'Search with name, tag or genre', id:'search_bar') %>
+        <%= text_field_tag(:q, params[:q], class: 'form-control', placeholder:translate('search_placeholder'), id:'search_bar') %>
          <%= submit_tag('Search', class: 'btn btn-white ml-2 sr-only', id:'submit_search_button') %>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
           <% if(params[:season])%>
             <%= params[:season].upcase_first %>
           <% else %>
-            Seasons
+            <%= translate('season') %>
           <% end %>
           <svg class="icon-downArrow ml-2" role="presentation">
             <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#down_arrow" ) %>"></use>
@@ -26,41 +26,41 @@
           <%= form_tag search_path, method: :get do %>
             <%= label_tag(:season, 'Winter', class:'sr-only') %>
             <%= text_field_tag(:season, 'winter', class: 'form-control sr-only') %>
-            <%= submit_tag('Winter', type:'submit') %>
+            <%= submit_tag( translate('winter'), type:'submit') %>
           <% end %>
           </li>
           <li>
           <%= form_tag search_path, method: :get do %>
             <%= label_tag(:season, 'Spring', class:'sr-only') %>
             <%= text_field_tag(:season, 'spring', class: 'form-control sr-only') %>
-            <%= submit_tag('Spring', type:'submit') %>
+            <%= submit_tag(translate('spring'), type:'submit') %>
           <% end %>
           </li>
           <li>
           <%= form_tag search_path, method: :get do %>
             <%= label_tag(:season, 'Summer', class:'sr-only') %>
             <%= text_field_tag(:season, 'summer', class: 'form-control sr-only') %>
-            <%= submit_tag('Summer', type:'submit') %>
+            <%= submit_tag(translate('summer'), type:'submit') %>
           <% end %>
           </li>
           <li class="mb-1">
           <%= form_tag search_path, method: :get do %>
             <%= label_tag(:season, 'Autumn', class:'sr-only') %>
             <%= text_field_tag(:season, 'autumn', class: 'form-control sr-only') %>
-            <%= submit_tag('Autumn', type:'submit', class:'flex-grow-1') %>
+            <%= submit_tag(translate('autumn'), type:'submit', class:'flex-grow-1') %>
           <% end %>
           </li>
         </ul>
       </div>
       <div>
-        <button id="advanced_search_button" class="btn btn-white" type="submit">Advanced Search</button>
+        <button id="advanced_search_button" class="btn btn-white" type="submit"><%= translate('advanced') + ' ' + translate('search')%> </button>
       </div>
     </div>
 </nav>
 
 <div id='advanced_search' class="container d-none">
   <%= form_tag search_path, method: :get do %>
-    <h4 class="mt-3">Genres:</h4>
+    <h4 class="mt-3"><%= translate('genres') %>:</h4>
     <div class="col-sm-12 row">
       <% for genre in Genre.all.order(name: :asc) %>
           <div class="col-sm-2 p-0 mt-2">
@@ -70,7 +70,7 @@
       <% end %>
     </div>
 
-    <h4 class="mt-3">Search starting from:</h4>
+    <h4 class="mt-3"><%= translate('search_starting_from') %>:</h4>
     <div class="col-sm-12 row">
       <% @years.each do |year| %>
         <div class="col-sm-2 p-0 mt-2">
@@ -80,19 +80,25 @@
       <% end %>
     </div>
 
-      <%= submit_tag('Search', type:'submit', class:'col-sm-12 btn btn-white mt-3') %>
+      <%= submit_tag(translate('search_button'), type:'submit', class:'col-sm-12 btn btn-white mt-3') %>
     <% end %>
 </div>
 
 <% unless (params[:q].nil?) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Result', content: @animes, search_term: params[:q] } %>
+    <% unless(@animes.empty? || @animes.nil?) %> 
+        <h3 class="margin-top-2 margin-left-1"> Results for 
+        <% if (@search_term == '')%>
+          everything
+        <% else %>
+        '<%= @search_term %>' 
+        <% end %> in <%= @animes.first.category %>s</h3>
+      <%= render partial: 'display_5content', locals: {content: @animes, search_term: params[:q] } %>
     <% else %>
       <h3 class="mt-4 ml-3"> No result found for '<%= params[:q] %>' in Animes! </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Result', content: @mangas, search_term: params[:q] } %>
+      <%= render partial: 'display_5content', locals: {content: @mangas, search_term: params[:q] } %>
     <% else %>
       <h3 class="mt-4 ml-3"> No result found for '<%= params[:q] %>' in Mangas! </h3>
     <% end %>
@@ -104,12 +110,14 @@
 <% unless (params[:season].nil?) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
     <% unless(@animes.empty? || @animes.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Season', content: @animes, search_term: params[:season] } %>
+      <h3 class="margin-top-2 margin-left-1"> <%= params[:season].upcase_first %> season <%= pluralize_contents(@animes) %></h3>
+      <%= render partial: 'display_5content', locals: { content: @animes } %>
     <% else %>
       <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season anime! </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Season', content: @mangas, search_term: params[:season] } %>
+      <h3 class="margin-top-2 margin-left-1"> <%= params[:season].upcase_first %> season <%= pluralize_contents(@mangas) %></h3>
+      <%= render partial: 'display_5content', locals: { content: @mangas } %>
     <% else %>
       <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season manga! </h3>
     <% end %>
@@ -121,12 +129,14 @@
 <% if ( !params[:year].nil? && params[:genres_id].nil? ) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
     <% unless(@animes.empty? || @animes.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Year', content: @animes, search_term: params[:year] } %>
+      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@animes).upcase_first %> that started after <%= params[:year] %> </h3>
+      <%= render partial: 'display_5content', locals: { content: @animes } %>
     <% else %>
       <h3 class="mt-4 ml-3"> There is no anime that started after <%= params[:year] %>! </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Year', content: @mangas, search_term: params[:year] } %>
+      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@mangas).upcase_first %> that started after <%= params[:year] %> </h3>
+      <%= render partial: 'display_5content', locals: { content: @mangas } %>
     <% else %>
       <h3 class="mt-4 ml-3"> There is no manga that started after <%= params[:year] %>! </h3>
     <% end %>
@@ -134,6 +144,22 @@
 <% elsif ( !params[:genres_id].nil? && params[:year].nil?) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
     <% unless(@animes.empty? || @animes.nil?) %>
+      <h3 class="margin-top-2 margin-left-1"> Here <%= is_or_are(@animes) %> the result for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            <%= Genre.find(params[:genres_id]).first.name %>
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %>
+        in <%= pluralize_contents(@animes) %>!
+      </h3>
       <%= render partial: 'display_5content', locals: { category: 'Genre', content: @animes, search_term: params[:genres_id] } %>
     <% else %>
       <h3 class="mt-4 ml-3"> No result found for 
@@ -153,6 +179,22 @@
       </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
+      <h3 class="margin-top-2 margin-left-1"> Here <%= is_or_are(@mangas) %> the result for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            <%= Genre.find(params[:genres_id]).first.name %>
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %>
+        in <%= pluralize_contents(@mangas) %>!
+      </h3>
       <%= render partial: 'display_5content', locals: { category: 'Genre', content: @mangas, search_term: params[:genres_id] } %>
     <% else %>
       <h3 class="mt-4 ml-3"> No result found for 
@@ -191,7 +233,22 @@
 <% elsif ( !params[:genres_id].nil? && !params[:year].nil?) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
     <% unless(@animes.empty? || @animes.nil?) %>
-      <%= render partial: 'display_5content', locals: { category: 'Genre&Year', content: @animes, search_term: [params[:genres_id], params[:year]] } %>
+      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@animes).upcase_first %> from <%= params[:year] %> for 
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            <%= Genre.find(params[:genres_id]).first.name %>
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and <%= genre.name %>
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              <%= genre.name %>
+            <% else %>
+              <%= genre.name%>,
+            <% end %>
+          <% end %>
+        <% end %>
+      </h3>
+      <%= render partial: 'display_5content', locals: { content: @animes } %>
     <% else %>
       <h3 class="mt-4 ml-3"> I couldn't find anything for 
         <% for genre in Genre.find(params[:genres_id]) %>
@@ -209,6 +266,21 @@
         <% end %> after <%= params[:year] %> in anime! </h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
+      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@mangas).upcase_first %> from <%= params[:year] %> for 
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            <%= Genre.find(params[:genres_id]).first.name %>
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and <%= genre.name %>
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              <%= genre.name %>
+            <% else %>
+              <%= genre.name%>,
+            <% end %>
+          <% end %>
+        <% end %>
+      </h3>
       <%= render partial: 'display_5content', locals: { category: 'Genre&Year', content: @mangas, search_term: [params[:genres_id], params[:year]] } %>
     <% else %>
       <h3 class="mt-4 ml-3"> I couldn't find anything for 
