@@ -1,4 +1,4 @@
-if( window.location.href.includes('characters') && !window.location.href.includes('new')) {
+if( window.location.href.includes('characters') && !window.location.href.includes('new') && !window.location.href.includes('edit')) {
   document.addEventListener('DOMContentLoaded', function(){
     var special_info = document.getElementById('character_special');
     var text = special_info.textContent;
