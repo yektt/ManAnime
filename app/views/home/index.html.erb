@@ -1,5 +1,5 @@
-<h4 class="margin-top-2">Most popular five animes:</h4>
+<h4 class="margin-top-2"><%= translate('most_popular')%> <%= translate('five')%> <%= translate('animes')%>:</h4>
 <%= render partial: 'display_5content', locals: {category: 'Most popular five animes:', content: @anime} %>
 
-<h4 class="margin-top-2">Most popular five mangas:</h4>
+<h4 class="margin-top-2"><%= translate('most_popular')%> <%= translate('five')%> <%= translate('mangas')%>:</h4>
 <%= render partial: 'display_5content', locals: {category: 'Most popular five mangas:', content: @manga} %>
