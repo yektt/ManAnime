@@ -1,16 +1,12 @@
 class AccountController < ApplicationController
   before_action :ensure_pageowner , only: :edit
+  before_action :find_user
 
   def edit
     @user = User.find(params[:id])
-    logger.info('in account edit')
-    logger.info(@user.id)
   end
 
   def update
-    @user = User.find(params[:id])
-    logger.info(params[:user_id])
-
     if @user.update(edit_user_params)
       redirect_to @user
     else

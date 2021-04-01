@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user
   def new
     @user = User.new
   end
@@ -9,44 +10,31 @@ class UsersController < ApplicationController
     if(@user.save)
       UserMailer.with(user: @user).welcoming.deliver_now
       session[:user_id] = @user.id
-      redirect_to edit_path(@user.id)
+      redirect_to edit_account_path(@user.id)
     else
       render 'new'
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    if (User.exists?(id: params[:id]))
+      @anime = @user.favorites.anime_list.alphabetical_order
+      @manga = @user.favorites.manga_list.alphabetical_order
 
-    @anime = @user.favorites.anime_list.alphabetical_order
-    @manga = @user.favorites.manga_list.alphabetical_order
-
-    for comment in Comment.all.order(created_at: :desc)
-      if(comment.user.id == @user.id)
-        @comment = comment
-        break;
-      else
-        @comment = nil
+      for comment in Comment.all.order(created_at: :desc)
+        if(comment.user.id == @user.id)
+          @comment = comment
+          break;
+        else
+          @comment = nil
+        end
       end
-    end
-  end
-
-  def edit
-    @user = User.find(session[:user_id])
-  end
-
-  def update
-    @user = User.find(session[:user_id])
-
-    if @user.update(edit_user_params)
-      redirect_to @user
     else
-      render 'edit'
+      redirect_to root_path
     end
   end
-
+  
   def block
-    @user = User.find(params[:id])
     if(@user.is_blocked)
       # means user is being unblocked now
       # in the future, unblocking mail will be added to this part
@@ -66,7 +54,6 @@ class UsersController < ApplicationController
   end
 
   def admin
-    @user = User.find(params[:id])
     @user.role = "admin"
     @user.save!
   end
