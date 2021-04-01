@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  before_action :ensure_admin, only: [:new, :create]
+
   def new
     @genre = Genre.new
   end
