@@ -1,28 +1,93 @@
 tr:
   about: 'Hakkında'
+  Action: 'Aksiyon'
+  Adventure: 'Macera'
   add: 'Ekle'
   add_anime: 'Anime Ekle'
   add_character: 'Karakter Ekle'
   add_genre: 'Tür Ekle'
   add_manga: 'Manga Ekle'
   admin: 'Yönetici'
+  advanced: 'Gelişmiş'
+  airing: 'Yayında'
+  all_animes: 'Tüm Animeler'
+  all_mangas: 'Tüm Mangalar'
+  anime: 'anime'
+  animes: 'anime'
 
+  chapters: 'Bölüm'
   contact: 'İletişim'
+  Comedy: 'Komedi'
+  coming_soon: 'Çok yakında'
+
+  Drama: 'Dram'
+
+  Ecchi: 'Ecchi'
+  episodes: 'Bölüm'
+
+  Fantasy: 'Fantezi'
+  five: 'beş'
+
+  genres: 'Türler'
   
   hello: 'Merhaba'
   help: 'Yardım'
   home: 'Anasayfa'
+  Horror: 'Korku'
 
-  profile: 'Hesabım'
-
-  reports: 'Raporlar'
-  rules: 'Kurallar'
-
-  search: 'Arama'
-  signup: 'Kaydol'
-  
+  list: 'Listesi'
   login: 'Giriş yap'
   logout: 'Oturumu kapat'
+
+  Mahou_Shoujo: 'Büyülü Kız'
+  manga: 'manga'
+  mangas: 'manga'
+  Mecha: 'Mecha'
+  most_popular: 'En popüler'
+  most_recent: 'En yeni'
+  Music: 'Müzik'
+  Mystery: 'Gizem'
+  not_enough_rating: 'Yetersiz oylama'
+  not_completed: 'bitmemiş'
+
+  profile: 'Hesabım'
+  Psychological: 'Psikolojik'
+
+  reports: 'Raporlar'
+  Romance: 'Romatik'
+  rules: 'Kurallar'
+
+  Sci_fi: 'Bilim Kurgu'
+  search: 'Arama'
+  search_button: 'Arama yap'
+  search_placeholder: 'İsim, tag ya da türe göre arama yap'
+  search_starting_from: 'Şu tarihten itibaren ara'
+  season: 'Sezon'
+  Sports: 'Spor'
+  Slice of Life: 'Hayattan Kesitler'
+  signup: 'Kaydol'
+  start_date: 'Başlama tarihi'
+  Supernatural: 'Doğaüstü'
+
+  tags: 'Tagler'
+  Thriller: 'Gerilim'
   
   welcoming_add_page: 'Ne eklemek istersin?'
-  
+
+  winter: 'Kış'
+  spring: 'İlkbahar'
+  summer: 'Yaz'
+  autumn: 'Sonbahar'
+
+  Jan: 'Oca'
+  Feb: 'Şub'
+  Mar: 'Mar'
+  Apr: 'Nis'
+  May: 'May'
+  Jun: 'Haz'
+  Jul: 'Tem'
+  Aug: 'Ağu'
+  Sep: 'Eyl'
+  Oct: 'Eki'
+  Nov: 'Kas'
+  Dec: 'Ara'
