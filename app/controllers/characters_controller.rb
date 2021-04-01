@@ -1,5 +1,6 @@
 class CharactersController < ApplicationController
   before_action :ensure_admin, only: [:new, :create, :edit, :update]
+  before_action :find_character
   
   def new
     @character = Character.new
@@ -16,7 +17,6 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.find(params[:id])
     @anime = []
     @manga = []
     Content.find(@character.appearances.ids).each do |content|
@@ -29,11 +29,9 @@ class CharactersController < ApplicationController
   end
 
   def edit
-    @character = Character.find(params[:id])
   end
 
   def update
-    @character = Character.find(params[:id])
     if @character.update(character_params)
       redirect_to character_path(@character)
     else
@@ -45,5 +43,9 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :surname, :avatar_url, :information)
+  end
+
+  def find_character
+    @character = Character.find(params[:id])
   end
 end
