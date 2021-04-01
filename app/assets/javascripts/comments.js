@@ -323,7 +323,7 @@ Comments.updateComment = function (comment) {
       }
     }
 
-  let comment_icons = document.getElementById('icons' + comment.commentId);
+  let comment_icons = document.getElementById('icon' + comment.commentId);
   comment_icons.classList.remove('d-none');
   comment_icons.classList.add('d-flex');
 }
