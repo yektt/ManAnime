@@ -1,5 +1,6 @@
 class ContentsController < ApplicationController
-  before_action :ensure_admin,            only: [:new, :create, :edit, :update]
+  before_action :ensure_admin,  only: [:new, :create, :edit, :update]
+  before_action :find_content,  only: [:edit, :update]
 
   helper_method :did_user_voted_this_comment
   
@@ -36,12 +37,9 @@ class ContentsController < ApplicationController
   end
 
   def edit
-    @content = Content.find(params[:id])
   end
 
   def update
-    @content = Content.find(params[:id])
-
     if (@content.update(content_params) && params[:genres_id] && params[:character_id])
       params[:genres_id].each do |params_genre|
         if (!@content.categories.exists?(Genre.find(params_genre).id))
@@ -85,10 +83,6 @@ class ContentsController < ApplicationController
     end
   end
 
-  def editing_genres
-    @content = Content.find(params[:id])
-  end
-
   private
 
   def did_user_voted_this_comment(comment)
@@ -102,5 +96,9 @@ class ContentsController < ApplicationController
 
   def content_params
     params.require(:content).permit(:name, :category, :start_date, :end_date, :tags, :link_to_watch_or_read, :description, :image, :volume_or_season_number, :episode_or_chapter_number, genres_id:[], charachter_id:[])
-  end  
+  end
+
+  def find_content
+    @content = Content.find(params[:id])
+  end
 end
