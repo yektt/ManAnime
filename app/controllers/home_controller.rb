@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  before_action :ensure_admin, only: [:add, :admin_help_and_rules, :reports]
+
   def index
     @anime = Content.anime_list.most_popular
     @manga = Content.manga_list.most_popular
