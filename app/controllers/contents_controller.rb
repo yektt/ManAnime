@@ -1,4 +1,8 @@
 class ContentsController < ApplicationController
+  before_action :ensure_admin,            only: [:new, :create, :edit, :update]
+
+  helper_method :did_user_voted_this_comment
+  
   def show
     @content = Content.find(params[:id])
 
