@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :comment_find, only: [:destroy, :update]
+
   def create
     @content = Content.find(params[:content_id])
     @comment = Comment.new(comment_params)
@@ -16,7 +18,6 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @comment = Comment.find(params[:id])
     @comment.update(comment_params)
 
     respond_to do |format|
@@ -30,9 +31,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     @content = @comment.content
-
     @comment.destroy!
 
     respond_to do |format|
@@ -43,5 +42,9 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:comment_body)
+    end
+
+    def comment_find
+      @comment = Comment.find(params[:id])
     end
 end
