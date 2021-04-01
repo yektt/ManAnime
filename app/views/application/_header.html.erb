@@ -9,8 +9,8 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item border-right"> <%= link_to translate('home') , root_path, class:'active' %> </li>
         <li class="nav-item border-right"> <%= link_to translate('search') , search_path %> </li>
-        <li class="nav-item border-right"> <%= link_to 'Anime List', anime_list_path %> </li>
-        <li class="nav-item"> <%= link_to 'Manga List', manga_list_path %> </li>
+        <li class="nav-item border-right"> <%= link_to translate('anime').upcase_first + ' ' + translate('list'), anime_list_path %> </li>
+        <li class="nav-item"> <%= link_to translate('manga').upcase_first + ' ' + translate('list'), manga_list_path %> </li>
       </ul>
       <% if (logged_in?) %>
         <% if(is_admin?) %>
