@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :logged_in?, :current_user, :is_admin?, :all_reports, :ensure_owner, :ensure_authenticated, :ensure_admin
+  helper_method :logged_in?, :current_user, :is_admin?, :all_reports, :ensure_owner, :ensure_authenticated, :ensure_admin, :ensure_pageowner
 
   before_action :set_locale
 
@@ -32,6 +32,14 @@ class ApplicationController < ActionController::Base
   def ensure_owner 
     comment = Comment.find(params[:comment_id])  
     return true if (current_user == comment.user)
+  end
+
+  def ensure_pageowner
+    redirect_to login_path unless (logged_in?)
+    unless (current_user === User.find(params[:id]))
+      session.delete(:user_id) 
+      redirect_to login_path
+    end
   end
 
   def default_url_options
