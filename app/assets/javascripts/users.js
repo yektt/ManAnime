@@ -1,4 +1,4 @@
-if( window.location.href.includes('users')) {
+if( window.location.href.includes('users') && !window.location.href.includes('new')) {
   document.addEventListener('DOMContentLoaded', function(){ 
     document.getElementById('tab_anime').addEventListener("click", activateAnimeTab);
     document.getElementById('tab_manga').addEventListener("click", activateMangaTab);
