@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210324162323) do
+ActiveRecord::Schema.define(version: 20210325104257) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20210324162323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "comment_id"
+    t.integer "user_id"
   end
 
 end
