@@ -10,4 +10,12 @@ class CharacterTest < ActiveSupport::TestCase
 
     assert_equal character, Character.last
   end
+
+  test 'Character cannot be exist without name' do
+    character = Character.new surname:'Surname', 
+    information:'+Gender +Male +Eyes Color +Blue +When he went to the forest without letting know his parents.....', 
+    avatar_url: 'https://i.pinimg.com/474x/cb/1c/bd/cb1cbd7a68a2e2ffdad62073d0eb5bd2.jpg'
+
+    refute character.valid?
+  end
 end
