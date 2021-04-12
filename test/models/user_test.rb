@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'email is lowercase before validation' do
+    user = User.new email:'TeSt@MaIl.cOm', password:'password', name:'Test user'
+    user.save!
+    
+    assert_equal user.email, 'test@mail.com'
+  end
 end
