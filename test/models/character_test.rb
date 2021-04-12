@@ -18,4 +18,11 @@ class CharacterTest < ActiveSupport::TestCase
 
     refute character.valid?
   end
+
+  test 'Character cannot be exist without information' do
+    character = Character.new name: 'Name', surname:'Surname', 
+    avatar_url: 'https://i.pinimg.com/474x/cb/1c/bd/cb1cbd7a68a2e2ffdad62073d0eb5bd2.jpg'
+
+    refute character.valid?
+  end
 end
