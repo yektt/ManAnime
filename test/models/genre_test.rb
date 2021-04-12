@@ -15,4 +15,12 @@ class GenreTest < ActiveSupport::TestCase
     new_genre = Genre.new name:'genre'
     refute new_genre.valid?
   end
+
+  test 'adding existing genre with downcase validation' do
+    genre = Genre.new name:'genre'
+    genre.save!
+
+    new_genre = Genre.new name:'GeNRe'
+    refute new_genre.valid?
+  end
 end
