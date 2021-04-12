@@ -7,4 +7,10 @@ class UserTest < ActiveSupport::TestCase
     
     assert_equal user.email, 'test@mail.com'
   end
+
+  test 'User cannot be exist without password' do
+    user = User.new email:'test@mail.com', name:'Test user'
+    
+    refute user.valid?
+  end
 end
