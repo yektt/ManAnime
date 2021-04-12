@@ -13,4 +13,10 @@ class UserTest < ActiveSupport::TestCase
     
     refute user.valid?
   end
+  
+  test 'User cannot be exist without name' do
+    user = User.new email:'test@mail.com', password:'password'
+    
+    refute user.valid?
+  end
 end
