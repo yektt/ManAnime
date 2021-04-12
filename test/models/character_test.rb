@@ -25,4 +25,11 @@ class CharacterTest < ActiveSupport::TestCase
 
     refute character.valid?
   end
+
+  test 'Character cannot be exist without avatar' do
+    character = Character.new name: 'Name', surname:'Surname',
+    information:'+Gender +Male +Eyes Color +Blue +When he went to the forest without letting know his parents.....'
+
+    refute character.valid?
+  end
 end
