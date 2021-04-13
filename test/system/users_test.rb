@@ -37,4 +37,21 @@ class UsersTest < ApplicationSystemTestCase
     assert_equal root_path, current_path
   end
 
+  test 'anime list page' do
+    visit(anime_list_path(:en))
+
+    assert page.has_content?('Most popular')
+    assert page.has_content?('Most recent')
+    assert page.has_content?('Most popular & not completed')
+    assert page.has_content?('All Animes')
+  end
+
+  test 'manga list page' do
+    visit(manga_list_path(:en))
+
+    assert page.has_content?('Most popular')
+    assert page.has_content?('Most recent')
+    assert page.has_content?('Most popular & not completed')
+    assert page.has_content?('All Mangas')
+  end
 end
