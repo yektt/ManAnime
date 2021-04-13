@@ -30,4 +30,27 @@ class ContentsTest < ApplicationSystemTestCase
 
     assert_equal current_path, content_path(:en, Content.last)
   end
+
+  test 'adding manga - without necessary attirbutes' do
+    user = User.new email:'admin@mail.com', role: 'admin', password:'pass', name: 'name'
+    user.save!
+
+    visit(login_path(:en))
+    fill_in(:email, with: user.email)
+    fill_in(:password, with: user.password)
+    find(:button, 'Log in').click
+
+    visit(new_content_path(:en, title:'manga'))
+    find('[name=commit]').click
+
+    assert page.has_content?("Name can't be blank")
+    assert page.has_content?("Tags can't be blank")
+    assert page.has_content?("Description can't be blank")
+    assert page.has_content?("Image can't be blank")
+    assert page.has_content?("Start date can't be blank")
+    assert page.has_content?("Volume or season number can't be blank")
+    assert page.has_content?("Episode or chapter number can't be blank")
+    assert page.has_content?("Genres can't be blank!")
+    assert page.has_content?("Characters can't be blank!")
+  end
 end
