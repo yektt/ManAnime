@@ -24,4 +24,17 @@ class UsersTest < ApplicationSystemTestCase
     fill_in(:password, with: 'password')
     find(:button, 'Log in').click
   end
+
+  test 'contact' do
+    visit(contact_path(:en))
+
+    fill_in(:contact_email, with: 'manganimeteam@gmail.com')
+    fill_in(:contact_name, with: 'name')
+    fill_in(:contact_topic, with: 'topic')
+    fill_in(:contact_message, with: 'message here')
+
+    find('[name=commit]').click
+    assert_equal root_path, current_path
+  end
+
 end
