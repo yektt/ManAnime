@@ -1,6 +1,12 @@
 require "application_system_test_case"
 
 class UsersTest < ApplicationSystemTestCase
+  test 'home page' do
+    visit(root_path)
+    assert page.has_content?('Most popular five animes:')
+    assert page.has_content?('Most popular five mangas:')
+  end
+  
   test 'singing up' do
     visit(signup_path(:en))
     fill_in(:user_email, with: 'test@mail.com')
