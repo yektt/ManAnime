@@ -10,4 +10,18 @@ class UsersTest < ApplicationSystemTestCase
     user = User.last
     assert_equal current_path, edit_account_path(:en, user)
   end
+
+  test 'logging in' do
+    visit(signup_path(:en))
+    fill_in(:user_email, with: 'test@mail.com')
+    fill_in(:user_password, with: 'password')
+    find(:button, 'Sign up').click
+
+    click_on('Log out', match: :first)
+
+    visit(login_path(:en))
+    fill_in(:email, with: 'test@mail.com')
+    fill_in(:password, with: 'password')
+    find(:button, 'Log in').click
+  end
 end
