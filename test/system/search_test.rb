@@ -16,4 +16,14 @@ class SearchTest < ApplicationSystemTestCase
 
     refute page.has_content?("I couldn't find 'abc' in anywhere! ")
   end
+
+  test 'search with season-winter' do
+    visit(search_path(:en))
+    click_on(:dropdown)
+    click_on('Winter')
+    sleep(1.second)
+
+    assert page.has_content?('Violet Evergarden')
+  end
+
 end
