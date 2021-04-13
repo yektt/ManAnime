@@ -8,6 +8,14 @@ class UserTest < ActiveSupport::TestCase
     assert_equal user.email, 'test@mail.com'
   end
 
+  test 'create a user with already taken mail' do
+    user1 = User.new email:'test@mail.com', name:'Test user1', password:'password'
+    user1.save!
+
+    user2 = User.new email:'test@mail.com', name:'Test user2', password:'password'
+    refute user2.valid?
+  end
+
   test 'User cannot be exist without password' do
     user = User.new email:'test@mail.com', name:'Test user'
     
