@@ -12,6 +12,9 @@ en:
   airing: 'Airing'
   all_animes: 'All Animes'
   all_mangas: 'All Mangas'
+  all_result_anime: 'The results for everything in Animes!'
+  all_result_manga: 'The results for everything in Mangas!'
+  and: 'and'
   anime: 'anime'
   animes: 'animes'
 
@@ -23,7 +26,6 @@ en:
   Drama: 'Drama'
 
   Ecchi: 'Ecchi'
-  end_date: 'End date'
   episodes: 'Episodes'
 
   Fantasy: 'Fantasy'
@@ -36,8 +38,9 @@ en:
   home: 'Home'
   Horror: 'Horror'
 
-  link_to_read: 'Link to read'
-  link_to_watch: 'Link to watch'
+  in animes: 'in Animes'
+  in mangas: 'in Mangas'
+
   list: 'List'
   login: 'Log in'
   logout: 'Log out'
@@ -50,21 +53,33 @@ en:
   most_recent: 'Most recent'
   Music: 'Music'
   Mystery: 'Mystery'
-  name: 'name'
+  no result anime: 'No result found in Animes'
+  no result both: 'No result found in Animes and Mangas'
+  no result manga: 'No result found in Mangas'
   not_enough_rating: 'Not enough rating'
   not_completed: 'not completed'
 
   profile: 'Profile'
   Psychological: 'Psychological'
-  
+
   reports: 'Reports'
+  result_search_term_anime: "The results for '%{param}' in Animes"
+  result_search_term_manga: "The results for '%{param}' in Mangas"
+  result_year_anime: "The results after '%{param}' in Animes"
+  result_year_manga: "The results after '%{param}' in Mangas"
+  result_for: "The results for"
+  result_genre: ''
+  result_year: "after '%{param}'"
+  result_season_anime: "%{param} Season's Animes!"
+  result_season_manga: "%{param} Season's Mangas!"
+
   Romance: 'Romance'
   rules: 'Rules'
 
   Sci_fi: 'Sci_fi'
   search: 'Search'
   search_button: 'Search'
-  search_placeholder: 'Search with name, tag or genre'
+  search_placeholder: 'Search with name or tag'
   search_starting_from: 'Search starting from'
   season: 'Season'
   Sports: 'Sports'

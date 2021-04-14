@@ -12,6 +12,9 @@ tr:
   airing: 'Yayında'
   all_animes: 'Tüm Animeler'
   all_mangas: 'Tüm Mangalar'
+  all_result_anime: 'Tüm Animeler'
+  all_result_manga: 'Tüm Mangalar'
+  and: 've'
   anime: 'anime'
   animes: 'anime'
 
@@ -35,6 +38,9 @@ tr:
   home: 'Anasayfa'
   Horror: 'Korku'
 
+  in animes: 'Animeler'
+  in mangas: 'Mangalar'
+
   list: 'Listesi'
   login: 'Giriş yap'
   logout: 'Oturumu kapat'
@@ -47,6 +53,9 @@ tr:
   most_recent: 'En yeni'
   Music: 'Müzik'
   Mystery: 'Gizem'
+  no result anime: 'Animeler için bu aramada sonuç bulunamadı'
+  no result both: 'Anime ya da Manga bulunamadı'
+  no result manga: 'Mangalar için bu aramada sonuç bulunamadı'
   not_enough_rating: 'Yetersiz oylama'
   not_completed: 'bitmemiş'
 
@@ -54,13 +63,23 @@ tr:
   Psychological: 'Psikolojik'
 
   reports: 'Raporlar'
+  result_search_term_anime: "'%{param}' için bulunan Animeler"
+  result_search_term_manga: "'%{param}' için bulunan Mangalar"
+  result_year_anime: "'%{param}' yılından sonra yayınlanan Animeler"
+  result_year_manga: "'%{param}' yılından sonra yayınlanan Animeler"
+  result_for: ""
+  result_genre: 'türündeki'
+  result_year: "'%{param}' yılından sonra yayınlanan"
+  result_season_anime: "%{param} Sezonu Animeleri!"
+  result_season_manga: "%{param} Sezonu Mangaları!"
+
   Romance: 'Romatik'
   rules: 'Kurallar'
 
   Sci_fi: 'Bilim Kurgu'
   search: 'Arama'
   search_button: 'Arama yap'
-  search_placeholder: 'İsim, tag ya da türe göre arama yap'
+  search_placeholder: 'İsim ya da tage göre arama yap'
   search_starting_from: 'Şu tarihten itibaren ara'
   season: 'Sezon'
   Sports: 'Spor'
@@ -91,3 +110,4 @@ tr:
   Oct: 'Eki'
   Nov: 'Kas'
   Dec: 'Ara'
+  
