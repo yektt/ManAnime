@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
   before_action :ensure_admin, only: [:new, :create, :edit, :update]
-  before_action :find_character
+  before_action :find_character, only: [:show, :edit, :update]
   
   def new
     @character = Character.new
