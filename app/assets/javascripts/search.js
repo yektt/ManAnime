@@ -1,7 +1,7 @@
 if( window.location.href.includes('search')) {
   document.addEventListener('DOMContentLoaded', function(){
-    document.getElementById('search_bar').focus();
-    moveCursorToEnd(document.getElementById('search_bar'))
+    document.getElementById('search_bar_input').focus();
+    moveCursorToEnd(document.getElementById('search_bar_input'))
     document.getElementById('advanced_search_button').addEventListener("click", changeDisplay);
     document.getElementById('dropdown').addEventListener("mouseover", displayNone);
     document.getElementById('search_bar').addEventListener("keyup",debounce(function(){ 
