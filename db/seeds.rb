@@ -17,6 +17,7 @@ Ecchi = Genre.create!(name:'Ecchi')
 Life = Genre.create!(name:'Slice of Life')
 Sports = Genre.create!(name:'Sports')
 Mahou_Shoujo = Genre.create!(name:'Mahou Shoujo')
+### end of creating genres
 
 ##### Creating contents
 #For 'Shigatsu wa kimi no uso' series:
@@ -76,12 +77,9 @@ Naruto_anime = Content.create!(category: 'anime',
                                start_date: '03/10/2002',
                                end_date: '08/02/2007',
                                tags: 'ninja, shounen, super power, tragedy, body horror',
-                               description: "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. 
-                               Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. 
-                               In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, 
-                               sacrificed his life and sealed the monstrous beast inside the newborn Naruto. 
-                               Shunned because of the presence of the Kyuubi inside him, Naruto struggles to find his place in the village. 
-                               He strives to become the Hokage of Konohagakure, and he meets many friends and foes along the way.",
+                               description: "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.
+
+Shunned because of the presence of the Kyuubi inside him, Naruto struggles to find his place in the village. He strives to become the Hokage of Konohagakure, and he meets many friends and foes along the way.",
                                image: 'https://cdn.myanimelist.net/images/anime/13/17405.jpg',
                                volume_or_season_number: '5',
                                episode_or_chapter_number: '220',
@@ -95,10 +93,7 @@ Naruto_Shippuuden_anime = Content.create!(category: 'anime',
                                           start_date: '15/02/2007',
                                           end_date: '23/03/2017',
                                           tags: 'ninja, shounen, super power, revenge, body horror, war',
-                                          description: 'Naruto: Shippuuden is the continuation of the original animated TV series Naruto. 
-                                          The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. 
-                                          After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as he has amassed a few (more dangerous) enemies, 
-                                          in the likes of the shinobi organization; Akatsuki.',
+                                          description: 'Naruto: Shippuuden is the continuation of the original animated TV series Naruto. The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as he has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki.',
                                           image: 'https://tse2.mm.bing.net/th?id=OIP.zL5W8K-JBPzX5g7h-S2-sQHaLH&pid=Api&P=0&w=300&h=300',
                                           volume_or_season_number: '21',
                                           episode_or_chapter_number: '500',
@@ -127,16 +122,9 @@ Demon_Slayer_anime = Content.create!( category: 'anime',
                                       start_date: '06/04/2019',
                                       end_date: '',
                                       tags: 'demons, shounen, swordplay, tragedy, mythology, body horror',
-                                      description: "Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. $
-                                      Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, 
-                                      Tanjirou decides to go down to the local village to make a little money selling charcoal. 
-                                      On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, 
-                                      who warns him of the existence of flesh-eating demons that lurk in the woods at night.
+                                      description: "Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night.
 
-                                      When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. 
-                                      Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. 
-                                      Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. 
-                                      Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity.",
+When he finally arrives back home the next day, he is met with a horrifying sight—his whole family has been slaughtered. Worse still, the sole survivor is his sister Nezuko, who has been turned into a bloodthirsty demon. Consumed by rage and hatred, Tanjirou swears to avenge his family and stay by his only remaining sibling. Alongside the mysterious group calling themselves the Demon Slayer Corps, Tanjirou will do whatever it takes to slay the demons and protect the remnants of his beloved sister's humanity.",
                                       image: 'https://images-na.ssl-images-amazon.com/images/I/61d7l-OfEsL._AC_SX522_.jpg',
                                       volume_or_season_number: '2',
                                       episode_or_chapter_number: '26',
@@ -208,7 +196,7 @@ Full_Metal_manga = Content.create!( category: 'manga',
                                     tags: 'military, shounen, politics, philosophy, war, tragedy, guns, super power, chimera, historical',
                                     description: "In this world, alchemists are those who study and perform the art of alchemical transmutation—the science of manipulating and transforming matter. They are bounded by the Law of Equivalent Exchange: in order to gain something, one must sacrifice something of equal value.
 
-                                    Young Edward Elric, nicknamed the \"Fullmetal Alchemist\", is a State Alchemist working for the government of Amestris. As a child, Edward and his little brother Alphonse attempted the forbidden art of human transmutation to revive their late mother. In the accident that ensued, Edward lost his left leg and right arm, and Alphonse's soul was sealed in a large suit of armor. To reclaim their original bodies, the Elric brothers embark on a journey to find the Philosopher's Stone, a mythical object said to allow its user to perform alchemical miracles.",
+Young Edward Elric, nicknamed the \"Fullmetal Alchemist\", is a State Alchemist working for the government of Amestris. As a child, Edward and his little brother Alphonse attempted the forbidden art of human transmutation to revive their late mother. In the accident that ensued, Edward lost his left leg and right arm, and Alphonse's soul was sealed in a large suit of armor. To reclaim their original bodies, the Elric brothers embark on a journey to find the Philosopher's Stone, a mythical object said to allow its user to perform alchemical miracles.",
                                     image: 'https://vignette.wikia.nocookie.net/fma/images/c/c3/Manga-indonesian.jpg/revision/latest?cb=20171104145447',
                                     volume_or_season_number: '27',
                                     episode_or_chapter_number: '116',
@@ -226,7 +214,10 @@ Full_Metal_anime1 = Content.create!(category: 'anime',
                                     end_date: '04/07/2010',
                                     tags: 'military, shounen, politics, magic, philosophy, war, tragedy, guns, chimera',
                                     description: "\"In order for something to be obtained, something of equal value must be lost.\"
-                                    Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called \"automail\" and become a state alchemist, the Fullmetal Alchemist.",
+
+Alchemy is bound by this Law of Equivalent Exchange—something the young brothers Edward and Alphonse Elric only realize after attempting human transmutation: the one forbidden act of alchemy. They pay a terrible price for their transgression—Edward loses his left leg, Alphonse his physical body. It is only by the desperate sacrifice of Edward's right arm that he is able to affix Alphonse's soul to a suit of armor. Devastated and alone, it is the hope that they would both eventually return to their original bodies that gives Edward the inspiration to obtain metal limbs called \"automail\" and become a state alchemist, the Fullmetal Alchemist.
+                                    
+Three years of searching later, the brothers seek the Philosopher's Stone, a mythical relic that allows an alchemist to overcome the Law of Equivalent Exchange. Even with military allies Colonel Roy Mustang, Lieutenant Riza Hawkeye, and Lieutenant Colonel Maes Hughes on their side, the brothers find themselves caught up in a nationwide conspiracy that leads them not only to the true nature of the elusive Philosopher's Stone, but their country's murky history as well. In between finding a serial killer and racing against time, Edward and Alphonse must ask themselves if what they are doing will make them human again... or take away their humanity.",
                                     image: 'https://cdn.myanimelist.net/images/anime/1223/96541.jpg',
                                     volume_or_season_number: '1',
                                     episode_or_chapter_number: '64',
@@ -263,7 +254,7 @@ Hero_Academia_manga = Content.create!(category:'manga',
                                       tags: 'super power, superhero, shounen, school, war, crime',
                                       description: "One day, a four-year-old boy came to a sudden realization: the world is not fair. Eighty percent of the world's population wield special abilities, known as \"quirks,\" which have given many the power to make their childhood dreams of becoming a superhero a reality. Unfortunately, Izuku Midoriya was one of the few born without a quirk, suffering from discrimination because of it. Yet, he refuses to give up on his dream of becoming a hero; determined to do the impossible, Izuku sets his sights on the elite hero training academy, UA High.
 
-                                      However, everything changes after a chance meeting with the number one hero and Izuku's idol, All Might. Discovering that his dream is not a dead end, the powerless boy undergoes special training, working harder than ever before. Eventually, this leads to him inheriting All Might's power, and with his newfound abilities, gets into his school of choice, beginning his grueling journey to become the successor of the best hero on the planet.",
+However, everything changes after a chance meeting with the number one hero and Izuku's idol, All Might. Discovering that his dream is not a dead end, the powerless boy undergoes special training, working harder than ever before. Eventually, this leads to him inheriting All Might's power, and with his newfound abilities, gets into his school of choice, beginning his grueling journey to become the successor of the best hero on the planet.",
                                       image: 'https://cdn.myanimelist.net/images/manga/1/209370.jpg',
                                       volume_or_season_number: '29',
                                       episode_or_chapter_number: '285',
@@ -282,7 +273,7 @@ Hero_Academia_anime = Content.create!(category: 'anime',
                                       tags: 'super power, Superhero, shounen, school',
                                       description: "What would the world be like if 80 percent of the population manifested extraordinary superpowers called “Quirks” at age four? Heroes and villains would be battling it out everywhere! Becoming a hero would mean learning to use your power, but where would you go to study? U.A. High's Hero Program of course! But what would you do if you were one of the 20 percent who were born Quirkless?
 
-                                      Middle school student Izuku Midoriya wants to be a hero more than anything, but he hasn't got an ounce of power in him. With no chance of ever getting into the prestigious U.A. High School for budding heroes, his life is looking more and more like a dead end. Then an encounter with All Might, the greatest hero of them all gives him a chance to change his destiny…",
+Middle school student Izuku Midoriya wants to be a hero more than anything, but he hasn't got an ounce of power in him. With no chance of ever getting into the prestigious U.A. High School for budding heroes, his life is looking more and more like a dead end. Then an encounter with All Might, the greatest hero of them all gives him a chance to change his destiny…",
                                       image: 'https://cdn.myanimelist.net/images/anime/10/78745.jpg',
                                       volume_or_season_number: '4',
                                       episode_or_chapter_number: '88',
@@ -300,7 +291,7 @@ Darling_manga = Content.create!(category: 'manga',
                                 tags:'dystopian, monster girl, love triangle, super robot',
                                 description: "The story is set in the distant future. The land is ruined, and humanity establishes the mobile fort city Plantation. Pilots produced inside Plantation live in Mistilteinn, also know as the \"birdcage.\" Children live there knowing nothing of the outside world or the freedom of the sky. Their lives consist of battling to carry out missions. Their enemies are mysterious giant lifeforms known as Kyouryuu, and the children pilot robots called FranXX to face off against them. For the children, riding the FranXX proves their existence.
 
-                                A boy named Hiro is called Code:016, and he was once known as a prodigy. However, he has fallen behind, and his existence seems unnecessary. Not piloting a FranXX is the same as ceasing to exist. One day, a mysterious girl known as \"Zero Two\" appears before him. Two horns grow out of her head.",
+A boy named Hiro is called Code:016, and he was once known as a prodigy. However, he has fallen behind, and his existence seems unnecessary. Not piloting a FranXX is the same as ceasing to exist. One day, a mysterious girl known as \"Zero Two\" appears before him. Two horns grow out of her head.",
                                 image: 'https://cdn.myanimelist.net/images/manga/1/206289.jpg',
                                 volume_or_season_number: '8',
                                 episode_or_chapter_number: '60',
@@ -366,9 +357,12 @@ Hanyou_no_Yashahime_anime = Content.create!(category: 'anime',
                                             end_date:'',
                                             tags:'youkai, shounen, historical, demons, magic, memory manipulation, time manipulation',
                                             description: "The daughters of Sesshomaru and Inuyasha set out on a journey transcending time!
-                                            In Feudal Japan, Half-Demon twins Towa and Setsuna are separated from each other during a forest fire. While desperately searching for her younger sister, Towa wanders into a mysterious tunnel that sends her into present-day Japan, where she is found and raised by Kagome Higurashi’s brother, Sota, and his family.
-                                            Ten years later, the tunnel that connects the two eras has reopened, allowing Towa to be reunited with Setsuna, who is now a Demon Slayer working for Kohaku. But to Towa’s shock, Setsuna appears to have lost all memories of her older sister.
-                                            Joined by Moroha, the daughter of Inuyasha and Kagome, the three young women travel between the two eras on an adventure to regain their missing past.",
+
+In Feudal Japan, Half-Demon twins Towa and Setsuna are separated from each other during a forest fire. While desperately searching for her younger sister, Towa wanders into a mysterious tunnel that sends her into present-day Japan, where she is found and raised by Kagome Higurashi’s brother, Sota, and his family.
+                                            
+Ten years later, the tunnel that connects the two eras has reopened, allowing Towa to be reunited with Setsuna, who is now a Demon Slayer working for Kohaku. But to Towa’s shock, Setsuna appears to have lost all memories of her older sister.
+                                            
+Joined by Moroha, the daughter of Inuyasha and Kagome, the three young women travel between the two eras on an adventure to regain their missing past.",
                                             image: 'https://animelove.it/assets/img/HanyouNoYashahime.jpg',
                                             volume_or_season_number: '1',
                                             episode_or_chapter_number: '24',
@@ -384,7 +378,7 @@ Fairy_Tail_anime = Content.create!( category: 'anime',
                                     end_date:'30/03/2013',
                                     tags:'magic, shounen, dragons, time skip, fairy tale, work, family life, demons, animals',
                                     description: "Across the Fiore kingdom, wizards join guilds and make their pay by filling magical needs—but one guild has a reputation as the roughest, rowdiest, most dangerous of all: Fairy Tail!
-                                    When four young Fairy Tail members unite, their bond is forged by a power found in neither muscle nor magic and grows stronger with every mission. Whatever you do, don't mess with these friends or you'll get a taste of Natsu's flaming fist or Gray's ice hammer, suffer a painful blow from one of Lucy's celestial spirits or catch the edge of Erza's mighty blade! Whether they're stopping demons from devastating the world or wrestling in the mess hall, this mystical team manages to inflict as much damage to their rivals as they do to the surrounding area!",
+When four young Fairy Tail members unite, their bond is forged by a power found in neither muscle nor magic and grows stronger with every mission. Whatever you do, don't mess with these friends or you'll get a taste of Natsu's flaming fist or Gray's ice hammer, suffer a painful blow from one of Lucy's celestial spirits or catch the edge of Erza's mighty blade! Whether they're stopping demons from devastating the world or wrestling in the mess hall, this mystical team manages to inflict as much damage to their rivals as they do to the surrounding area!",
                                     image: 'https://cdn.anisearch.de/images/anime/cover/full/5/5476.jpg',
                                     volume_or_season_number: '9',
                                     episode_or_chapter_number: '175',
@@ -409,27 +403,14 @@ Fairy_Tail_manga.categories << Adventure
 Fairy_Tail_manga.categories << Comedy
 Fairy_Tail_manga.categories << Fantasy
 Fairy_Tail_manga.categories << Ecchi
+### end of creating contents
 
 ##### Creating characters
-
 #For 'Naruto' series:
 Naruto = Character.create!( name: 'Naruto',
                             surname: 'Uzumaki',
                             avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b17-IazKGogQwJ1p.png',
-                            information: "+Ninja Registration No +012607
-                            +Birthday +October 10
-                            +Age +12-13 (I), 15-17 (II)
-                            +Horoscope +Libra
-                            +Height +145.3cm - 147.5cm (I), 166cm (II)
-                            +Weight +40.1 kg - 40.6 kg (I), 50.9kg (II)
-                            +Blood Type +B
-                            +Family +Minato Namikaze(father), Kushina Uzumaki(mother) Jiraiya (godfather)
-                            +Affiliation +Konohagakure, Mt. Myoboku
-                            +Rank +Genin
-                            +Personality +Doesn't like to lose
-                            +Likes +Ichiraku Ramen, Hinata, Oshiruko (VERY sweet azuki soup)
-                            +Dislikes +Fresh Vegetables, Akatsuki, Orochimaru  
-                            +Born in Konohagakure, a ninja village hidden in the leaves, Naruto Uzumaki was destined for greatness. When born, a powerful nine-tailed demon fox attacked his village. With a wave of its tail, the demon fox could raise tsunamis and shatter mountains. In a valiant attempt to save the village from destruction, the Fourth Hokage and leader of the Hidden Leaf Village sealed the demon fox within Naruto's newborn body. This was his final act, for the battle with the fox cost him his life. Despite the Fourth Hokage's dying wish that Naruto is viewed as a hero for serving as the container for the demon (a Jinchuuriki), the adult villagers of Konoha harbored a fierce hatred for him, with many believing that Naruto and the demons were one and the same. Cast aside as an inhuman monster, Naruto was outcast and ostracised by the villagers for reasons he could not understand. The children his age could only ever follow their parents' example; and they too came to harbor a fierce hatred for Naruto. Naruto eventually came to accept that he would live and die alone, and his external response was to perform harmless pranks on the village. Coy, raffish, and full of life, Naruto soon came to display a somewhat unexpected determination to succeed and be accepted by others. Upon being assigned to \"Team Seven\" as a Genin-ranked ninja, his true potential soon became outwardly apparent. Vowing to become Hokage one day and using his will to never give in, Naruto saves the village from invading forces and earns his acceptance. Eventually, Naruto learns to harness the power of the Demon Fox sealed inside him to perform acts of strength far beyond what any other human is capable of. In all, Naruto is an admirable character whose sheer determination to succeed despite the odds, earns him respect and devotion from his fellow villagers.")
+                            information: "+Ninja Registration No +012607 +Birthday +October 10 +Age +12-13 (I), 15-17 (II) +Horoscope +Libra +Height +145.3cm - 147.5cm (I), 166cm (II) +Weight +40.1 kg - 40.6 kg (I), 50.9kg (II) +Blood Type +B +Family +Minato Namikaze(father), Kushina Uzumaki(mother) Jiraiya (godfather) +Affiliation +Konohagakure, Mt. Myoboku +Rank +Genin +Personality +Doesn't like to lose +Likes +Ichiraku Ramen, Hinata, Oshiruko (VERY sweet azuki soup) +Dislikes +Fresh Vegetables, Akatsuki, Orochimaru +Born in Konohagakure, a ninja village hidden in the leaves, Naruto Uzumaki was destined for greatness. When born, a powerful nine-tailed demon fox attacked his village. With a wave of its tail, the demon fox could raise tsunamis and shatter mountains. In a valiant attempt to save the village from destruction, the Fourth Hokage and leader of the Hidden Leaf Village sealed the demon fox within Naruto's newborn body. This was his final act, for the battle with the fox cost him his life. Despite the Fourth Hokage's dying wish that Naruto is viewed as a hero for serving as the container for the demon (a Jinchuuriki), the adult villagers of Konoha harbored a fierce hatred for him, with many believing that Naruto and the demons were one and the same. Cast aside as an inhuman monster, Naruto was outcast and ostracised by the villagers for reasons he could not understand. The children his age could only ever follow their parents' example; and they too came to harbor a fierce hatred for Naruto. Naruto eventually came to accept that he would live and die alone, and his external response was to perform harmless pranks on the village. Coy, raffish, and full of life, Naruto soon came to display a somewhat unexpected determination to succeed and be accepted by others. Upon being assigned to \"Team Seven\" as a Genin-ranked ninja, his true potential soon became outwardly apparent. Vowing to become Hokage one day and using his will to never give in, Naruto saves the village from invading forces and earns his acceptance. Eventually, Naruto learns to harness the power of the Demon Fox sealed inside him to perform acts of strength far beyond what any other human is capable of. In all, Naruto is an admirable character whose sheer determination to succeed despite the odds, earns him respect and devotion from his fellow villagers.")
                             Naruto.appearances << Naruto_anime
                             Naruto.appearances << Naruto_manga
                             Naruto.appearances << Naruto_Shippuuden_anime
@@ -437,28 +418,13 @@ Naruto = Character.create!( name: 'Naruto',
 Kakashi = Character.create!(name:'Kakashi',
                   surname:'Hatake',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b85-thWHf96gqMLi.png',
-                  information: "+Age +25-26 (Part I); 28-29 (Part II)
-                  +Birthday +September 15
-                  +Horoscope +Virgo
-                  +Blood Type O
-                  +Height 5'11\" (1.80 m)
-                  +Weight +67.5 kg
-                  +Hair +Silver
-                  +Eyes +Black, Sharingan
-                  +Rank +Jonin; Former ANBU; Hokage Candidate
-                  +Likes +Icha-Icha series, Broiled Saury with salt, Miso soup with eggplant
-                  +Dislikes +Anything sweet
-                  +Quote +(from Obito) \"A shinobi who violates the rules is scum, but a shinobi who abandons their friends is worse than scum\".
+                  information: "+Age +25-26 (Part I); 28-29 (Part II) +Birthday +September 15 +Horoscope +Virgo +Blood Type O +Height 5'11\" (1.80 m) +Weight +67.5 kg +Hair +Silver
+                  +Eyes +Black, Sharingan +Rank +Jonin; Former ANBU; Hokage Candidate +Likes +Icha-Icha series, Broiled Saury with salt, Miso soup with eggplant +Dislikes +Anything sweet +Quote +(from Obito) \"A shinobi who violates the rules is scum, but a shinobi who abandons their friends is worse than scum\".
                   +Kakashi has an ongoing, albeit slightly one-sided, rivalry with Might Guy, with Guy constantly proclaiming that Kakashi is his rival, and considering his and Kakashi's subordinates rivals. Kakashi, however, seems indifferent to their rivalry, which annoys Guy to no end. Guy randomly challenges Kakashi to contests of skill, and Kakashi has acquired a record of 49 wins and 50 losses in doing so. Given that the contests that make up this figure are so varied (ranging from Rock, Paper, Scissors to sumo-wrestling), this is not much of an achievement on Guy's part. Nevertheless, Guy is proud of his record.
-
                   Though he evasively says that he has \"many hobbies\" when asked about himself, he is commonly seen reading of \"Icha Icha Paradise\" (イチャイチャパラダイス, Icha Icha Paradaisu, literally \"Make Out Paradise\"), an adult and probably pornographic novel authored by Jiraiya that is a runaway bestseller in the Naruto world. Kakashi most prominently reads it while training and speaking with his team, and is later seen reading the second known volume in the series, \"Icha Icha Violence\" (イチャイチャバイオレンス, Icha Icha Baiorensu, literally \"Make Out Violence\"). In Part II Naruto gives him the new \"Icha Icha Tactics\" (イチャイチャタクティクス, Icha Icha Takutikusu, literally \"Make Out Tactics\").
-                  
                   Kakashi's Sharingan eye gives him a significant advantage in battle, as he can copy enemy techniques and use them as his own, as well as track and predict his opponent's movements flawlessly. Because it is a transplanted eye, his Sharingan eye is always active. While this would not be much of a problem for an Uchiha, his non-Uchiha blood causes it to use much more chakra than it should. Because of this, he covers it with his headband and only utilizes it in the most dangerous battles. Kakashi's use of the Sharingan is as good as that of Itachi Uchiha, though the aforementioned handicaps brought about by the nature of his eye make him somewhat weaker in comparison. In Part II Kakashi is able to develop his own Mangekyo Sharingan. With his variant he is able to manipulate space-time to conduct long range attacks, and in its two uses has been capable of severing another's arms and otherwise sending things to different dimensions. Much like the standard Sharingan, the Mangekyo Sharingan tires Kakashi considerably, and after using it only three times he was hospitalized for a week due to its chakra usage.
-                  
                   With his Sharingan Kakashi has been able to copy more than one thousand jutsu, giving him the nickname \"Copy Ninja Kakashi\". As a result, Kakashi's arsenal most prominently features ninjutsu abilities and has led to him becoming a specialist in the field. Many of the jutsu he has been seen copying in the series are water-based attacks, though most of these he only uses against the person he copies them from. He does, however, use Water Release: Water Encampment Wall on occasion as a way to block attacks. He less frequently uses other elemental attacks such as Fire Release: Great Fireball Technique to attack opponents or Earth Release: Inner Decapitation Technique (土遁・心中斬首の術, Doton: Shinjū Zanshu no Jutsu, Viz \"Groundhog Technique Decapitation\", English TV \"Headhunter Jutsu\") to pull opponents below ground and immobilize them. He can also create shadow clones, though because he lacks Naruto's chakra reserves, he exercises the ability with caution, rarely creating more than one at a time.
-                  
                   While Kakashi specializes in the use of ninjutsu due to his Sharingan he is fairly adept with other jutsu types, though his use of them is rarely seen. Demonic Illusion: Hell Viewing Technique (魔幻・奈烙見の術, Magen: Narakumi no Jutsu) causes his opponent to see what they would find a horrifying vision, keeping them preoccupied until they can overcome the illusion. A Thousand Years of Pain (death in english dub) (千年殺し, Sennen Goroshi) consists of Kakashi forcefully plunging his index and middle fingers into an opponent's rectum. While only capable of launching the opponent humorous distances in typical uses, the fingers can be replaced with kunai attached with exploding tags to actually do damage to the person one is attacking.
-                  
                   When he was younger Kakashi was taught how to use the Rasengan by the Fourth Hokage. Because the Rasengan is meant to have the user's chakra nature mixed with it, Kakashi attempted to add his lightning-based chakra to it, though was ultimately unsuccessful. In time he instead created the Chidori, his only original jutsu. After the jutsu's initial creation Kakashi was unable to use the Chidori to its full potential as the sheer speed of the attack left his normal eyes unable to see any form of an enemy counterattack. After acquiring the Sharingan, however, he was able to overcome this shortcoming. Through repeated use and increased proficiency with it, Kakashi's Chidori has been upgraded and renamed to the Lightning Blade due to him having cut through a bolt of lightning with it.")
                   Kakashi.appearances << Naruto_anime
                   Kakashi.appearances << Naruto_manga
@@ -467,15 +433,7 @@ Kakashi = Character.create!(name:'Kakashi',
 Jiraiya = Character.create!(name:'Jiraiya',
                   surname:'',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b2423-RO5MyoXSA9OL.png',
-                  information: "+Age +54
-                  +Birthday +11 November
-                  +Horoscope +Scorpio
-                  +Bloodtype +B
-                  +Height +191.2 cm
-                  +Weight +87.5 kg
-                  +Likes +Peeping, women, garlic pickles with Japanese basil, Karaage fried chicken
-                  +Dislikes +Kiwi fruits, Gratin
-                  
+                  information: "+Age +54 +Birthday +11 November +Horoscope +Scorpio +Bloodtype +B +Height +191.2 cm +Weight +87.5 kg +Likes +Peeping, women, garlic pickles with Japanese basil, Karaage fried chicken +Dislikes +Kiwi fruits, Gratin
                   +Jiraiya is one of the three powerful ninjas originated from Konoha (village hidden in the leaves) and trained by the Third Hokage, Hiruzen Sarutobi. His two team mates were Tsunade and Orochimaru. Later on, they became known as the Legendary Three Ninja, also known as \"Sannin\".
                   
                   Jiraiya is also a full-pledged pervert. He adores good looking women and gets distracted by their sight often. He often gives the reason that he is doing research for his writing. Amongst other traits, he is a toad-tamer, with the ability to summon powerful toads at will to aid him in battle. He holds a key part in teaching and training Naruto.")
@@ -486,24 +444,7 @@ Jiraiya = Character.create!(name:'Jiraiya',
 Sasuke = Character.create!(name:'Sasuke',
                   surname:'Uchiha',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b13-SISLEw1oAD7a.png',
-                  information: "+Age+ 12-13 (I) ; 16 -17(II)
-                  +Birthday+ 23 July
-                  +Ninja Registration No +012606
-                  +Horoscope +Leo
-                  +Bloodtype +AB
-                  +Height +153.2cm(I); 168cm (II)
-                  +Weight +43.5kg(I); 52.2kg (II)
-                  +Hair +Ebony Black with Blue tints
-                  +Eyes +Black ; Red (when using Sharingan)
-                  +Rank +Genin 
-                  
-                  +Kekkei Genkai +Sharingan, Mangekyo Sharingan, Eternal Mangekyo Sharingan, Rinnegan
-                  +Likes +Omusubi (Okaka) (omusubi is like Onigiri: Okaka is dried Bonito) Tomato
-                  +Dislikes +Everything that gets in the way of his revenge, natto (fermented soybeans) and sweet food
-                  +Hates +Itachi
-                  
-                  +Talents +Highly skilled ninja, specializes in fire and lightning jutsu.
-                  
+                  information: "+Age+ 12-13 (I) ; 16 -17(II) +Ninja Registration No +012606 +Horoscope +Leo +Bloodtype +AB +Height +153.2cm(I); 168cm (II) +Weight +43.5kg(I); 52.2kg (II) +Hair +Ebony Black with Blue tints +Eyes +Black ; Red (when using Sharingan) +Rank +Genin +Kekkei Genkai +Sharingan, Mangekyo Sharingan, Eternal Mangekyo Sharingan, Rinnegan +Likes +Omusubi (Okaka) (omusubi is like Onigiri: Okaka is dried Bonito) Tomato +Dislikes +Everything that gets in the way of his revenge, natto (fermented soybeans) and sweet food +Hates +Itachi +Talents +Highly skilled ninja, specializes in fire and lightning jutsu.
                   +When Sasuke was young his clan was murdered by his older brother, Itachi. With his parents and family now gone his brother spared him and left him to survive by himself. He told Sasuke to hate him. Sasuke tried to forget about the past by applying himself in the ninja academy and fitting in with the rest of the leaf village. After his fight with Naruto he believes he's been wasting his time 'playing ninja' with the people of the leaf village. His new goal is to get stronger so he can revenge his clan by killing Itachi and then to restore the Uchiha clan. As a wielder of the Sharingan (the kekkei genkai of the Uchiha clan), he learns to use Chidori and has a vast knowledge of the various Fire Jutsus. The curse seal which Orichimaru gives him during the Chuunin exam, at first, enhanced his power but at the risk of killing him. Now he can use it of his own free will. Claiming at first that he doesn't need any friends, he is forced to contradict himself when he sees that either Naruto or Sakura are in danger. Remembering this type of Sasuke is what brings motivation to Naruto. He openly admitted to Naruto that he was his closest friend. Sasuke has black hair with a blue tint that lengthens as the story goes with onyx eyes and has lighter skin than his brother Itachi. Like many other members of his clan, his hair hangs over both sides of his face to roughly his cheeks. In his curse seal form, he has grey skin with wings on his back that resemble giant webbed hands. He also has hair similar to Madara Uchiha except in a greyish-blue color.
                   
                   At the beginning of Part I, Sasuke's clothing made up a blue, short-sleeved shirt with a raised collar and the Uchiha crest on the back and white shorts. An interesting thing is that during Part I the Uchiha symbol on his back gets smaller each time he changes his outfit. In the last stage of the Chunin exams, he wore a black, one pieced version of this outfit but eventually went back to his original clothes.
@@ -516,17 +457,7 @@ Sasuke = Character.create!(name:'Sasuke',
 Sakura = Character.create!(name:'Sakura',
                   surname:'Haruno',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b145-jqbTRpHKNSoV.png',
-                  information: "+Age +12-13 (I); 16-17 (II)
-                  +Date of Birth +March 28
-                  +Zodiac +Aries
-                  +Blood Type +O
-                  +Height +149cm (I); 161cm (II)
-                  +Weight +35kg (I); 45kg (II)
-                  +Hair +Pink
-                  +Eyes +Green
-                  +Rank +Genin (I); Chuunin (II)
-                  +Likes +Syrup coated anko dumplings; Umeboshi; Anmitsu
-                  +Dislikes +Anything Spicy; Naruto (at first); Ino (at first) 
+                  information: "+Age +12-13 (I); 16-17 (II) +Date of Birth +March 28 +Zodiac +Aries +Blood Type +O +Height +149cm (I); 161cm (II) +Weight +35kg (I); 45kg (II) +Hair +Pink +Eyes +Green +Rank +Genin (I); Chuunin (II) +Likes +Syrup coated anko dumplings; Umeboshi; Anmitsu +Dislikes +Anything Spicy; Naruto (at first); Ino (at first) 
                   +Sakura is the only female ninja of Team 7. When she first meets Naruto she is physically weak and has an immense crush on Sasuke. She dislikes Naruto as well.The only thing she's good at is her brain as the smartest girl in ninja academy her excellent chakra control, out of that she could be categorized as a kunoichi with no exceptional talent. In the first part of the Chuunin exam she is easily able to answer the questions, but in the second part she is unable to defeat the Sound ninja attacking Sasuke and Naruto. She makes a pledge to become a better ninja and a better person. To prove her commitment she cuts her long hair with a kunai. In the third part of the Chuunin Exam she goes up against Ino Yamanaka, her former friend but current rival for Sasuke's affections. The two defeat each other simultaneously. This turns their relationship in a rivalry between friends. After the time skip she is now a chuunin having been trained by Tsunade for the past two years. She is now a medic Ninja of considerable skill, enough skill to possibly defeat Tsunade one day. It is shown when she is able to do a complicated surgery to extract poisons out of Kankuro body and make an antidote of the new type poison that Sasori used,which the Suna gakure medical-nin unable to do. During the time skip she's also matured in personality, she become calmer compare when she were Genin, but she still has her temper. Sakura has grown not only as a medical-nin, now she's also a capable fighter. She can manage to destroy the ground with her fist using her inhuman strength, a chakra control technique she learned from Tsunade, and she is also able to beat Sasori from Akatsuki together with elder Chiyo from Sunagakure. Additionally she is a genjutsu type, and though she has yet to use that potential she does show an almost complete immunity to being trapped in an illusion.")
                   Sakura.appearances << Naruto_anime
                   Sakura.appearances << Naruto_manga
@@ -543,9 +474,7 @@ Tanjirou = Character.create!(name:'Tanjirou',
 Nezuko = Character.create!(name:'Nezuko',
                   surname:'Kamado',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b127518-7b4XKjasQE29.png',
-                  information: "+Height +153 cm (5'0\")
-                  +Weight +45 kg (99 lb)
-                  +Birthday +December 28
+                  information: "+Height +153 cm (5'0\") +Weight +45 kg (99 lb) +Birthday +December 28
                   
                   +Transformed into a demon and left mute, Nezuko travels with her older brother Tanjirou in a box on his back. She can change her size at will, and is a capable fighter when she needs to be, but has never killed or eaten any humans. Instead of gaining nourishment from humans, it seems that she recovers her energy by sleeping for long periods of times.")
                   Nezuko.appearances << Demon_Slayer_manga
@@ -554,7 +483,7 @@ Nezuko = Character.create!(name:'Nezuko',
 Zenitsu = Character.create!(name:'Zenitsu',
                   surname:'Agatsuma',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b129131-sT6fXnLBu331.jpg',
-                  information: "Zenitsu has short, blonde hair, which was originally black and brown eyes with thick eyebrows. He wears the standard Demon Hunter uniform, along with a yellow Haori with a white triangle pattern on top.
+                  information: "+Zenitsu has short, blonde hair, which was originally black and brown eyes with thick eyebrows. He wears the standard Demon Hunter uniform, along with a yellow Haori with a white triangle pattern on top.
 
                   Zenitsu is a coward and is constantly claiming he doesn't have long to live due to the dangerous job of being a Demon Hunter. He is also a bit of a womanizer and likes to hit on girls who he thinks are cute and ask them to marry him -- much to their annoyance.
                   
@@ -565,7 +494,7 @@ Zenitsu = Character.create!(name:'Zenitsu',
 Inosuke = Character.create!(name:'Inosuke',
                   surname:'Hashibira',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/n129130-SJC0Kn1DU39E.jpg',
-                  information: "Inosuke is usually seen wearing a grey boar mask, with a shirtless version of the Demon hunter uniform. Without the mask he has messy shoulder length black hair and large green eyes with long eyelashes. He is described as having a girly looking face which greatly contrasts with his muscular body.
+                  information: "+Inosuke is usually seen wearing a grey boar mask, with a shirtless version of the Demon hunter uniform. Without the mask he has messy shoulder length black hair and large green eyes with long eyelashes. He is described as having a girly looking face which greatly contrasts with his muscular body.
 
                   Inosuke is extremely short-tempered and proud, and makes a big deal out of fighting opponents stronger than him claiming that's his only hobby. He is a sore loser and is always trying to compete with Tanjiro and provoke him into fighting him, and usually failing. Due to growing up in the mountains by himself Inosuke has trouble interacting with others and only cares about himself most of the time. Though he's often seen with 2 swords in hand, Inosuke is left-handed.")
                   Inosuke.appearances << Demon_Slayer_manga
@@ -582,11 +511,7 @@ Muzan = Character.create!(name:'Muzan',
 Norman = Character.create!(name:'Norman',
                   surname:'',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b121700-0QhyLdihQxrT.jpg',
-                  information: "+Age (2045) +11 yo
-                  +Birthday +March 21, 2034
-                  +Height +145 cm
-                  +Farm Identifier +22194
-                  
+                  information: "+Age (2045) +11 yo +Birthday +March 21, 2034 +Height +145 cm +Farm Identifier +22194
                   +Norman seems to be logical, well-meaning, and devoted, with a slightly naive side. He can easily plan his actions in advance and he anticipates on other's actions. He is one of the top 3 ranking orphans, along with Emma and Ray.
 
                   He loves Emma. He is helpful and loyal towards her and will try to do what it takes to make sure she and the other kids.")
@@ -596,10 +521,7 @@ Norman = Character.create!(name:'Norman',
 Emma = Character.create!(name:'Emma',
                   surname:'',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b121725-LQciVJOjnMVh.png',
-                  information: "+Age (2045)+ 11 yo
-                  +Birthday+ August 22, 2034
-                  +Height (2045-2049)+ 145 -161 cm
-                  +Farm Identifier+ 63194  
+                  information: "+Age (2045)+ 11 yo +Birthday+ August 22, 2034 +Height (2045-2049)+ 145 -161 cm +Farm Identifier+ 63194  
                   +Emma acts as an older sister to the other children and loves her family very intensely. She is sweet, heroic, caring, and has a big heart. She can also be naive and reckless, and doesn't hesitate to put herself at risk to ensure the safety of the group. The other kids describe her as having monster reflexes and an astounding ability to learn, which enables her to think fast in difficult situations and makes her a very good strategist. She could be considered a beacon of hope for the rest of the children.",)
                   Emma.appearances << Promise_Neverland_manga
                   Emma.appearances << Promise_Neverland_anime
@@ -607,10 +529,7 @@ Emma = Character.create!(name:'Emma',
 Ray = Character.create!(name:'Ray',
                   surname:'',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b121724-SJTdODjeO7e6.jpg',
-                  information: "+Age (2045)+ 11 yo
-                  +Birthday+ January 15, 2034
-                  +Height (2045-2049)+ 150 - 177 cm
-                  +Farm Identifier+ 81194
+                  information: "+Age (2045)+ 11 yo +Birthday+ January 15, 2034 +Height (2045-2049)+ 150 - 177 cm +Farm Identifier+ 81194
                   +As one of the three perfect students at the orphanage Ray is very logical, smart, cunning, extremely patient and is usually shown to read books by himself. Although he is extremely book smart he says that he never liked to study. According to data obtained by sister Krone, his weakness is that he gives up easily")
                   Ray.appearances << Promise_Neverland_manga
                   Ray.appearances << Promise_Neverland_anime
@@ -635,14 +554,8 @@ Mujika = Character.create!(name:'Mujika',
 Edward = Character.create!(name:'Edward',
                   surname:'Elric',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/n11-k3dR0ZXPTwLd.jpg',
-                  information: "+Birthplace +Resembool, Amestris
-                  +Date of Birth +1899
-                  +Age +15-16 (series), 18 (movie, End of the series)
-                  +Family +Alphonse Elric (brother)
-                  +Affiliations +State Military, Pinako Rockbell, Izumi Curtis (teacher), Roy Mustang (Commander)
-                  +Occupation +State Alchemist
-                  
-                  +Edward \"Fullmetal Alchemist\" Elric is a young alchemical prodigy. He is the youngest State Alchemist ever to be recognized by the Amestris State Military, having received the title at the age of 12. Ed's primary motivation throughout the series is to return his younger brother, Alphonse, to his original body, which was lost in a failed human transmutation. Edward, despite his occasional bouts of immaturity, is a selfless boy who gains a reputation as a \"hero of the people\" throughout his youth. Notably, he doesn't seem concerned about returning his own arm and leg, instead focusing entirely on Al's suffering.
+                  information: "+Birthplace +Resembool, Amestris +Date of Birth +1899 +Age +15-16 (series), 18 (movie, End of the series) +Family +Alphonse Elric (brother) +Affiliations +State Military, Pinako Rockbell, Izumi Curtis (teacher), Roy Mustang (Commander) +Occupation +State Alchemist
+                   +Edward \"Fullmetal Alchemist\" Elric is a young alchemical prodigy. He is the youngest State Alchemist ever to be recognized by the Amestris State Military, having received the title at the age of 12. Ed's primary motivation throughout the series is to return his younger brother, Alphonse, to his original body, which was lost in a failed human transmutation. Edward, despite his occasional bouts of immaturity, is a selfless boy who gains a reputation as a \"hero of the people\" throughout his youth. Notably, he doesn't seem concerned about returning his own arm and leg, instead focusing entirely on Al's suffering.
                   
                   Edward is small for his age, standing at only 149 cm (4'11\"), however his body is that of an experienced martial artist, with noticeable muscles and a wealth of agility. Although he lacks both his right arm and left leg, Ed's ability to fight is not impaired, and is in fact improved, as he will often use alchemy to cause his metal arm to partly transform into a blade or shield. His heavy automail limbs are considered by him to be the very best in Amestris. They were made by his childhood friend, Winry Rockbell, and she is constantly working on them. He is able to think quickly, even in desperate situations, though can still be frightened into paralysis. These qualities, combined with his alchemical powers and physical strength, make him a formidable fighter.")
                   Edward.appearances << Full_Metal_manga
@@ -652,12 +565,7 @@ Edward = Character.create!(name:'Edward',
 Alphonse = Character.create!(name:'Alphonse',
                   surname:'Elric',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/n12-IsVPL3Fh1XM8.jpg',
-                  information: "+Birthplace +Resembool
-                  +Date of Birth +1900
-                  +Age +14-15
-                  +Family +Edward Elric (brother), Trisha Elric (mother, deceased)
-                  +Occupation +Alchemist
-                  
+                  information: "+Birthplace +Resembool +Date of Birth +1900 +Age +14-15 +Family +Edward Elric (brother), Trisha Elric (mother, deceased) +Occupation +Alchemist
                   +Alphonse Elric is a fictional character in the manga and anime series Fullmetal Alchemist. He is a human child who lost his body during a forbidden alchemical transmutation to bring his deceased mother back to life, and had his soul transmuted into a suit of armor by his brother, Edward Elric.
                   
                   Al's blood seal lies just below the base of the neck at the back of the suit, on the inside. It is drawn with Ed's blood. According to Edward, he needs to be careful whenever he reconstructs Alphonse's body because he must keep the blood seal intact during the transmutation. If the blood seal is removed, Al's soul will be lost.")
@@ -668,13 +576,7 @@ Alphonse = Character.create!(name:'Alphonse',
 Winry = Character.create!(name:'Winry',
                   surname:'Rockbell',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/63-xloedtYxiJ2E.jpg',
-                  information: "+Birthplace +Resembool
-                  +Date of Birth +June 9, 1899
-                  +Age +15-16 (Around 18 at the end)
-                  +Occupation +Automail Mechanic
-                  +Family +Pinako Rockbell (grandmother), Urey Rockbell (father, deceased), Sara Rockbell (mother, deceased)
-                  +Affiliations +Rockbell Automail Atelier Garfiel
-                  
+                  information: "+Birthplace +Resembool +Date of Birth +June 9, 1899 +Age +15-16 (Around 18 at the end) +Occupation +Automail Mechanic +Family +Pinako Rockbell (grandmother), Urey Rockbell (father, deceased), Sara Rockbell (mother, deceased) +Affiliations +Rockbell Automail Atelier Garfiel
                   +A childhood friend of the central characters, the Elric brothers, she is often seen in their company throughout the series. She is evidently Edward's love interest. Specializing in mechanical repair, specifically with automail, Winry services Edward's arm and leg whenever it is in need of repair or replacement.")
                   Winry.appearances << Full_Metal_manga
                   Winry.appearances << Full_Metal_anime1
@@ -684,9 +586,7 @@ Winry = Character.create!(name:'Winry',
 Roy = Character.create!(name:'Roy',
                   surname:'Mustang',
                   avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b68-moBLY2WO2am3.png',
-                  information: "+Birthday +1885 (Age 30 from vol. 10)
-                  +Height +5'8\" (173 cm)
-                  
+                  information: "+Birthday +1885 (Age 30 from vol. 10) +Height +5'8\" (173 cm)
                   +Outwardly arrogant and playfully manipulative, Mustang is intelligent and almost always one step ahead of his opponents, and likes to feel in control of the situation. He is one of the superiors of Edward Elric. On the surface, he appears to be nothing more than a man of the military who pursues promotions and praise and is considered a ladies' man who constantly goes on dates with different women. Mustang's true goal is to become Führer in order to gain the power to reform the government in order to absolve his sins in the Ishval War as well as change the country for the better, along with the joking requirement for female officers to wear tiny miniskirts (which considerably increased Havoc's loyalty to him and caused Hawkeye to be angry with him). His goals are admirable enough that he earns the fierce loyalty of his good friends Lt Col. Maes Hughes, Major Alex Louis Armstrong, and his own subordinates, among whom are Riza Hawkeye, Jean Havoc, Heymans Breda, Vato Falman, and Kain Fuery. While Mustang has a close and amicable relationship with all of his subordinates, he appears to share a deeper bond of affection with his second-in-command Riza Hawkeye, who has devoted her life to supporting him. This bond culminates in the final episodes of the anime when Mustang chooses Hawkeye alone to accompany him on his greatest and most dangerous mission. Though a hero of the Ishval War, he remains haunted by the horrors of war and suffers great remorse for the lives he took. Roy Mustang is the \"Flame Alchemist\", having absolute control over heat and fire through alchemy. Using special gloves that create a spark when he snaps his fingers, Roy can create anything from a tiny ember to burn a letter, to a raging inferno that can destroy a humanoid body in seconds. His precise control over the alchemically enhanced flame is so accurate that he can boil the water in a persons' eyes and can also attack enemies amongst a riot without hurting any allies.")
                   Roy.appearances << Full_Metal_manga
                   Roy.appearances << Full_Metal_anime1
@@ -714,10 +614,7 @@ Inuyasha = Character.create!( name:'InuYasha',
 Kagome = Character.create!( name:'Kagome',
                               surname:'Higurashi',
                               avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b1354-PuUTCSX7UzKA.png',
-                              information: "+Age +15
-                              +Height +157.5 cm (5'1\")
-                              +Weight +49 kg
-                              
+                              information: "+Age +15 +Weight +49 kg +Height +157.5 cm (5'1\")
                               +The female protagonist and a third year middle school student. In the tradition of many Rumiko Takahashi heroines (Lum, Akane Tendo, Kyoko Otonashi), Kagome can be extremely sweet, but can also become very dangerous when provoked.
                               
                               InuYasha wears a special bead necklace (known as the Beads of Subjugation) which only responds to Kagome's command: when she yells \"Sit!\" (\"Osuwari!\") (Often \"Sit, boy!\" in the dub) InuYasha is thrown to the ground. The necklace was placed upon him due to his dangerous attitude when he was unsealed.
@@ -881,15 +778,7 @@ Takeshi = Character.create!(name:'Takeshi',
 Gray = Character.create!( name:'Gray',
                           surname:'Fullbuster',
                           avatar_url: 'https://i.pinimg.com/originals/cb/76/cc/cb76ccc15491e5904ea8be5a675cd2cc.jpg',
-                          information: "+Gender +Male
-                          +Age +18
-                          +Hair Colou + Black
-                          +Eye Colour +Dark blue
-                          +Occupation +Mage
-                          +Affiliation +Fairy Tail Guild
-                          +Team +Team Natsu
-                          +Magic +Ice-Make, Ice Magic
-                          
+                          information: "+Gender +Male +Age +18 +Hair Colou + Black +Eye Colour +Dark blue +Occupation +Mage +Affiliation +Fairy Tail Guild +Team +Team Natsu +Magic +Ice-Make, Ice Magic
                           +Gray Fullbuster is a member of the Fairy Tail guild. He is an 18 year-old ice mage, practicing ice alchemy, the art of molding ice. Due to his training history, he is most comfortable in little clothing and often forgets to wear clothes or quickly takes it off, thus often being accused of being an exhibitionist. He and Natsu have a friendly rivalry, and can often be seen fighting one another. Lucy believes the nature of his magic is the reason that he and Natsu constantly bicker. His member stamp is on the right side of his chest.
                           
                           In certain panels, Gray's necklaces looks quite similar to the Rave Stone which is a crucial part of another one of Mashima's stories, \"Rave Master.\" Mashima has stated he doesn't remember the name. He takes off his clothes because Ul made him do it as one of her teachings and now it's a force of habit.")
@@ -899,15 +788,7 @@ Gray = Character.create!( name:'Gray',
 Natsu = Character.create!(name:'Natsu',
                           surname:'Dragneel',
                           avatar_url: 'https://www.anime-planet.com/images/characters/natsu-dragneel-1415.jpg',
-                          information: "+Gender +Male
-                          +Occupation +Mage
-                          +Affiliation +Fairy Tail Guild
-                          +Team +Team Natsu
-                          +Known relatives +Igneel (Foster Father), Happy (Foster Son)
-                          
-                          
-                          +Magic +Fire Dragon Slayer Magic, Lightning Flame Dragon Slayer Magic
-                          
+                          information: "+Gender +Male +Occupation +Mage +Affiliation +Fairy Tail Guild +Team +Team Natsu +Known relatives +Igneel (Foster Father), Happy (Foster Son) +Magic +Fire Dragon Slayer Magic, Lightning Flame Dragon Slayer Magic
                           +Natsu Dragneel is the main male protagonist of the series and a member of the Fairy Tail Guild. He is frequently partnered with fellow Fairy Tail members Happy, Lucy Heartfilia, Gray Fullbuster, Erza Scarlet, and Wendy Marvell.
                           
                           He is commonly known to the public as a powerful mage called \"The Salamander\". But this title has started to fade as the series progresses. Natsu's most prominent features are his spiky rosy-colored hair and his signature scaly white scarf which may have been given to him by Igneel. Natsu has a scar on the right side of his neck which may be the reason he wears his scarf almost all the time. How he got the scar is yet to be revealed. He has no separate eye color, his eyes instead being solely the color of his black pupils. Natsu is of regular height, and his body is toned but not noticeably muscular. His member's stamp is located at the top of his right arm, just below his shoulder.
@@ -950,7 +831,8 @@ Happy = Character.create!(name:'Happy',
 Charlés = Character.create!(name:'Charlés',
                             surname:'',
                             avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/22723.jpg',
-                            information: "+Race +Exceed +Gender +Female +Age +6 +Affiliation +Fairy Tail Previous +Affiliation +Cait +Shelter Partner +Wendy Marvell +Magic +Aera, Precognition +Charlés is a talking cat with the same type of magic as Happy. Wendy found her as an egg and they have been together ever since. They are very close and Carla sees it as her duty to protect Wendy from danger.
+                            information: "+Race +Exceed +Gender +Female +Age +6 +Affiliation +Fairy Tail Previous +Affiliation +Cait +Shelter Partner +Wendy Marvell +Magic +Aera, Precognition 
+                            +Charlés is a talking cat with the same type of magic as Happy. Wendy found her as an egg and they have been together ever since. They are very close and Carla sees it as her duty to protect Wendy from danger.
 
                             Her personality is strict and straight. She disapproves of fooling around. Towards Happy she is very cold at the beginning but starts to soften over time. Their relationship has improved, especially over the Edolas arc.")
                             Charlés.appearances << Fairy_Tail_anime
@@ -995,16 +877,7 @@ Jellal = Character.create!( name:'Jellal',
 Hiro = Character.create!( name:'Hiro',
                           surname:'',
                           avatar_url: 'https://s4.anilist.co/file/anilistcdn/character/large/b124380-ct1wJHIl9BY1.jpg',
-                          information: "+Birthday +October 15 (Libra)
-                          +Height +168 cm (5'6\")
-                          +Weight +58 kg
-                          +Blood Type +AB Rh-
-                          +Classification +Parasite
-                          +Affiliation +Thirteenth Plantation
-                          +Occupation +Stamen
-                          +Partners +Zero Two, Naomi (formerly), Ichigo (temporarily)
-                          +FRANXX +Strelizia, Delphinium (temporarily)
-                          
+                          information: "+Birthday +October 15 (Libra) +Height +168 cm (5'6\") +Weight +58 kg +Blood Type +AB Rh- +Classification +Parasite +Affiliation +Thirteenth Plantation +Occupation +Stamen +Partners +Zero Two, Naomi (formerly), Ichigo (temporarily) +FRANXX +Strelizia, Delphinium (temporarily)
                           +Hiro is the main protagonist of DARLING in the FRANXX. He was known as a prodigy Parasite with the codename \"016\" of Thirteenth Plantation, where he\'s partnered in a boy-girl pair with Zero Two to pilot a FRANXX called Strelizia.")
                           Hiro.appearances << Darling_anime
                           Hiro.appearances << Darling_manga
@@ -1012,15 +885,7 @@ Hiro = Character.create!( name:'Hiro',
 ZeroTwo = Character.create!(name:'Zero Two',
                         surname:'',
                         avatar_url: 'https://cdn.anisearch.com/images/character/cover/full/68/68716.jpg',
-                        information: "+Status +Alive
-                        +Sex +Female
-                        +Blood Type +Klaxosaur
-                        +Handedness +Left-Handed
-                        +Classification +Parasite
-                        +Affiliation +APE's Special Forces Unit
-                        +Occupation +FRANXX Pilot (Pistil)
-                        +Partner +Hiro
-                        +FRANXX +Strelizia 
+                        information: "+Status +Alive +Sex +Female +Blood Type +Klaxosaur +Handedness +Left-Handed +Classification +Parasite +Affiliation +APE's Special Forces Unit +Occupation +FRANXX Pilot (Pistil) +Partner +Hiro +FRANXX +Strelizia 
                         +Zero Two is one of the main characters in DARLING in the FRANXX series. She is an elite FRANXX pilot who is a member of a race of humans with Klaxosaur blood, and the pistil of the FranXX Strelizia.")
                         ZeroTwo.appearances << Darling_anime
                         ZeroTwo.appearances << Darling_manga
@@ -1058,13 +923,7 @@ Zorome = Character.create!(name:'Zorome',
 Katsuki = Character.create!(name:'Katsuki',
                         surname:'Bakugo',
                         avatar_url: 'https://i.pinimg.com/736x/35/b4/06/35b4060ff926a3ffd917b5e03cad9944.jpg',
-                        information: "+Age +14-15, currently 16
-                        +Birthday +April 20
-                        +Zodiac Sign +Taurus
-                        +Height +172 cm (5'7\")
-                        +Affiliation +U.A High
-                        +Quirk +Explosion
-                        
+                        information: "+Age +14-15, currently 16 +Birthday +April 20 +Zodiac Sign +Taurus +Height +172 cm (5'7\") +Affiliation +U.A High +Quirk +Explosion
                         +Katsuki is a very aggressive person​ and is Midoriya Izuku's rival character. He has both a superiority complex and a inferiority complex, wanting be the best at everything and often very hard on himself when he comes up short. He doesn't like it when people look down on him as if they were superior to him, and he gets mad easily. He is extremely arrogant and cocky. He also thinks of people such as Midoriya Izuku as an obstacle on his path to becoming the greatest hero. Midoriya Izuku's passionate heart and strong resolve to save everyone who is in need greatly intimidates Bakugo, who's experienced firsthand how unwavering Midoriya's resolve is.å")
                         Katsuki.appearances << Hero_Academia_anime
                         Katsuki.appearances << Hero_Academia_manga
@@ -1072,13 +931,7 @@ Katsuki = Character.create!(name:'Katsuki',
 Midoriya = Character.create!( name:'Midoriya',
                               surname:'Izuku',
                               avatar_url: 'https://i.pinimg.com/474x/9e/5b/8d/9e5b8d8b513be4adbac1eb7a5cc9e119.jpg',
-                              information: "+Quirk +One For All
-                              +Birthday +July 15
-                              +Zodiac Sign +Cancer
-                              +Height +166 cm
-                              +Age +4 (first appearance), 16 (current)
-                              +Blood Type +O
-                              
+                              information: "+Quirk +One For All +Birthday +July 15 +Zodiac Sign +Cancer +Height +166 cm +Age +4 (first appearance), 16 (current) +Blood Type +O
                               +Though originally born without a Quirk, he manages to catch the attention of the legendary hero All Might and has since become his close pupil and a student at U.A. He is a very timid person who gets scared a lot, although in recent events, he has shown to raise his voice when the heat is on. He is very diligent, strong-willed and a bit of a dreamer, and because he loves Heroes, he tries to know everything about them and writes down in his notebooks all he knows about heroes, including other U.A. students.")
                               Midoriya.appearances << Hero_Academia_anime
                               Midoriya.appearances << Hero_Academia_manga
@@ -1086,14 +939,7 @@ Midoriya = Character.create!( name:'Midoriya',
 Uraraka = Character.create!(name:'Uraraka',
                         surname:'Ochako',
                         avatar_url: 'https://i.pinimg.com/originals/7f/c7/a8/7fc7a86e0b99274bf9102b0252217cbd.jpg',
-                        information: "+Age +15-16
-                        +Birthday +December 27
-                        +Zodiac Sign +Capricorn
-                        +Height +156cm (5'1\")
-                        +Affiliation +Yuuei
-                        +Quirk +Zero Gravity
-                        +Hero Name +Uravity
-                        
+                        information: "+Age +15-16 +Birthday +December 27 +Zodiac Sign +Capricorn +Height +156cm (5'1\") +Affiliation +Yuuei +Quirk +Zero Gravity +Hero Name +Uravity
                         +Ochaco is a short girl of petite build, her skin fair and prone to blushing; she’s always seen with a little pink mark on each of her cheeks no matter what her mood may be. Ochako is an outgoing, lively person who thinks everything positively. She gets excited over little things very easily. Ochaco has been described by other students as \"the most laidback girl\" among her class, being very bubbly and kind of an airhead at times. She is often incredibly blunt without being aware of it. Ochaco's Quirk gives her the power to manipulate gravity upon touching solid things with the pads on her fingertips. The targets lose their gravitational pull, effectively making them object weightless. She is able to activate or cancel her Quirk's effects by closing her fingers together, and is shown to be careful with her hands in order to avoid accidental quirk activation. ")
                         Uraraka.appearances << Hero_Academia_anime
                         Uraraka.appearances << Hero_Academia_manga
@@ -1101,12 +947,7 @@ Uraraka = Character.create!(name:'Uraraka',
 Shouto = Character.create!( name:'Shouto',
                             surname:'Todoroki',
                             avatar_url: 'https://i.pinimg.com/originals/93/71/e4/9371e47447606cf2e4d48cb3cad006a4.jpg',
-                            information: "+Age +15 (First appearance), 16 (Current)
-                            +Birthday +January 11 (Capricorn)
-                            +Height +176 cm (5'9\")
-                            +Affiliation +U.A. Student
-                            +Quirk +Half-Cold Half-Hot
-                            
+                            information: "+Age +15 (First appearance), 16 (Current) +Birthday +January 11 (Capricorn) +Height +176 cm (5'9\") +Affiliation +U.A. Student +Quirk +Half-Cold Half-Hot
                             +He is a student at U.A. training to become a Pro Hero. He got into U.A. through a scholarship because of his powerful Quirk.
                             
                             Shouto has bi-colored hair, the right side is white, the left one is red. He has a burn around his left eye. In his hero costume, Shouto wears a dark blue jacket, dark blue pants, a silver-colored combat vest, and white boots.")
@@ -1116,12 +957,7 @@ Shouto = Character.create!( name:'Shouto',
 Toshinori = Character.create!(name:'Toshinori',
                               surname:'Yagi',
                               avatar_url: 'https://i.pinimg.com/originals/49/c4/ce/49c4ce4fe8ad927ec0f7006a47838dd2.jpg',
-                              information: "+Birthday +June 10
-                              +Zodiac Sign +Gemini
-                              +Height +220 cm (7'2\")
-                              +Affiliation +U.A.
-                              +Quirk +One for All
-                              
+                              information: "+Birthday +June 10 +Zodiac Sign +Gemini +Height +220 cm (7'2\") +Affiliation +U.A. +Quirk +One for All
                               +All Might is the No. 1 Hero and the \"Symbol of Peace.\"
                               
                               In his hero form, All Might is a very tall and over-muscular man whose design resembles the american hero comics. His hair spikes on top of his head and his whole body has more shadows than a normal human being.
@@ -1133,13 +969,7 @@ Toshinori = Character.create!(name:'Toshinori',
 Aizawa = Character.create!( name:'Aizawa',
                             surname:'Shouta',
                             avatar_url: 'https://www.hobbydb.com/processed_uploads/subject_photo/subject_photo/image/39997/1527105819-18139-1831/Shota_Aizawa_large.png',
-                            information: "+Age +30, currently 31
-                            +Birthday +November 8
-                            +Height +183 cm (6')
-                            +Occupation +Hero, Teacher
-                            +Affiliation +U.A.
-                            +Quirk +Erasure
-                            
+                            information: "+Age +30, currently 31 +Birthday +November 8 +Height +183 cm (6') +Occupation +Hero, Teacher +Affiliation +U.A. +Quirk +Erasure
                             +Aizawa's hero name, Eraserhead, was coined by Present Mic when they were younger. Using the binding cloth, Aizawa has a unique fighting style that allows him to immobilize his enemies. He is known to expel students that don't meet his standards, however it should be noted that he did not expel anyone from Class 1-A. Aizawa is extremely vocal, able to voice his opinions very easily. Although seeming emotionless and reserved, he has a soft spot for his students and genuinely cares for them. ")
                             Aizawa.appearances << Hero_Academia_anime
                             Aizawa.appearances << Hero_Academia_manga
@@ -1148,7 +978,6 @@ Dabi = Character.create!( name:'Dabi',
                           surname:'',
                           avatar_url: 'http://pm1.narvii.com/6888/e751c8ee5966dfb0314f713075262b9ea1a4c04er1-385-382v2_uhq.jpg',
                           information: "+Quirk +Blue Flames
-
                           +Dabi is a major supporting character and villain affiliated with the League of Villains and a member of the organization's Vanguard Action Squad. He and the rest of his team serve as the main antagonists of the Forest Training Camp Arc. Left handed.")
                           Dabi.appearances << Hero_Academia_anime
                           Dabi.appearances << Hero_Academia_manga
@@ -1156,12 +985,7 @@ Dabi = Character.create!( name:'Dabi',
 Enji = Character.create!( name:'Enji',
                           surname:'Todoroki',
                           avatar_url: 'https://media.comicbook.com/2018/07/my-hero-academia-endeavor-1119853-1280x0.jpeg',
-                          information: " +Age +45 (first appearance), 46 (current)
-                          +Birthday +August 8
-                          +Height +195 cm (6' 4¾\")
-                          +Occupation +Pro Hero
-                          +Quirk +Hellflame
-                          
+                          information: " +Age +45 (first appearance), 46 (current) +Birthday +August 8 +Height +195 cm (6' 4¾\") +Occupation +Pro Hero +Quirk +Hellflame
                           +Endeavor is a tall man with a muscular physique. He has short and spiky, red hair with bright blue eyes. His beard and mustache appear to be made of fire, but when he turns off his flames on his face voluntarily, his stubble shows.")
                           Enji.appearances << Hero_Academia_anime
                           Enji.appearances << Hero_Academia_manga
@@ -1186,9 +1010,11 @@ registered3 = User.create!( name: 'Zen Registered3',
                             password: 'pass')
 
 blocked_user = User.create!(name: 'Obito Blocked',
-                            email: 'email@mail.com',
+                            email: 'blocked@mail.com',
                             password: 'pass',
                             is_blocked: true)
+
+### end of creating users
 
 ##### Creating comments
 comment1 = Comment.create!( comment_body: "This anime is the best anime ever!! I couldn't stop my tears!!",
@@ -1214,9 +1040,12 @@ comment7 = Comment.create!( comment_body: "Nobody: '....', \nNaruto: 'SASKEEE', 
 
 comment8 = Comment.create!( comment_body: "Wow! I didn't see that is coming! SENSEII!!! T.T",
                             user:admin, content: Naruto_Shippuuden_anime)
+comment9 = Comment.create!( comment_body: "I am a rude comment, please report me :)",
+                            user:registered1, content: Naruto_Shippuuden_anime)
+### end of creating comments
 
 ##### Creating replies
-reply1 = Reply.create!( reply_body: "I have watched the last movie.. It was amazing! I cannot tell what happened in the end but.. ahh!!",
+reply1 = Reply.create!(reply_body: "I have watched the last movie.. It was amazing! I cannot tell what happened in the end but.. ahh!!",
                         user: registered2, comment: comment2)
 
 reply2 = Reply.create!(reply_body: "Oh! You will like it for sure! They did a very good job!",
@@ -1230,13 +1059,39 @@ reply4 = Reply.create!(reply_body: "You will drop the anime as well.. I am betti
 
 reply5 = Reply.create!(reply_body: "How come!!", 
                       user: admin, comment: comment6)
+### end of creating replies
 
 ##### Creating ratings & reviews
+#--- Creating only ratings
+review1 = Review.create!(review_body: "In the begging, I really didn't enjoy but after the anime turned out super good! Highly recommended!!", categories:"General, Anime", user: admin, content: Violet_anime)
+review2 = Review.create!(review_body: "Super duper nice musics!! Specially the movies musics are the best! I memorized them already!!", categories:"Music", user: registered1, content: Demon_Slayer_manga)
+### end of creating reviews & ratings
+review_with_rating1 = Review.create!(review_body: "There is a list on the Spotify, someone has collected all songs of this anime and it's so nice to listen while working.. uwu", rating: 10,categories:"Music", user: registered2, content: Shigatsu_wa_kimi_no_uso_anime)
+review_with_rating2 = Review.create!(review_body: "Once I have seen an episode, in that episode, Kaori was getting an operation while Kosei was playing and Tsubaki has called Kaori to listen Kousei. After awhile, I couldn't find that episode. I guess this anime is much better with sad ending and thought a lot!!!",rating:10, categories:"News, Anime, General", user: registered3, content: Shigatsu_wa_kimi_no_uso_anime)
+review_with_rating3 = Review.create!(review_body: "Have you ever noticed that, Kaori's hair color is fading in every chapter little by little.. ahh ! Such a nice detail !", rating:10, categories:"Visual", user: blocked_user, content: Shigatsu_wa_kimi_no_uso_anime)
 
 ##### Creating reports
+registered2.reports << comment9
+registered3.reports << comment9
+### end of creating reports
 
 ##### Adding some contents to users list
+admin.favorites << Violet_anime
+admin.favorites << Shigatsu_wa_kimi_no_uso_anime
+admin.favorites << Shigatsu_wa_kimi_no_uso_manga
+admin.favorites << Demon_Slayer_manga
+admin.favorites << Demon_Slayer_anime
 
-##### Adding some reports 
+registered2.favorites << Fairy_Tail_anime
+registered2.favorites << Naruto_anime
+
+registered1.favorites << Hero_Academia_manga
+registered1.favorites << Darling_manga
+registered1.favorites << Darling_anime
 
 ##### Adding some voting to the comments
+vote1 = Vote.create!(vote_type: 'up', comment: comment1, user: admin)
+vote2 = Vote.create!(vote_type: 'up', comment: comment1, user: registered2)
+
+vote3 = Vote.create!(vote_type: 'down', comment: comment9, user: registered2)
+vote4 = Vote.create!(vote_type: 'down', comment: comment9, user: registered3)
