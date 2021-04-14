@@ -79,238 +79,107 @@
         </div>
       <% end %>
     </div>
-
-      <%= submit_tag(translate('search_button'), type:'submit', class:'col-sm-12 btn btn-white mt-3') %>
+    <%= submit_tag(translate('search_button'), type:'submit', class:'col-sm-12 btn btn-white mt-3') %>
     <% end %>
 </div>
 
-<% unless (params[:q].nil?) %>
+<% unless( @animes.nil? && @mangas.nil?) %>
   <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %> 
-        <h3 class="margin-top-2 margin-left-1"> Results for 
-        <% if (@search_term == '')%>
-          everything
+    <% unless(@animes.empty? || @animes.nil?) %>
+      <% if ( !params[:q].nil?) %>
+        <% if(params[:q] == '' ) %>
+          <h3 class="mt-4 ml-3"> The results for everything in Animes!</h3>
         <% else %>
-        '<%= @search_term %>' 
-        <% end %> in <%= @animes.first.category %>s</h3>
+          <h3 class="mt-4 ml-3"> The results for '<%= params[:q] %>' in Animes!</h3>
+        <% end %>
+      <% elsif ( !params[:year].nil? && params[:genres_id].nil?) %>
+        <h3 class="mt-4 ml-3"> The results after '<%= params[:year] %>' in Animes!</h3>
+      <% elsif ( !params[:genres_id].nil? && params[:year].nil?) %>
+        <h3 class="mt-4 ml-3"> The results for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            '<%= Genre.find(params[:genres_id]).first.name %>'
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %> in Animes!</h3>
+      <% elsif ( !params[:genres_id].nil? && !params[:year].nil?) %>
+        <h3 class="mt-4 ml-3"> The results for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            '<%= Genre.find(params[:genres_id]).first.name %>'
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %> after '<%= params[:year] %>' in Animes!</h3>
+      <% elsif ( !params[:season].nil?) %>
+        <h3 class="mt-4 ml-3"> <%= params[:season].upcase_first %> Season's Animes!</h3>
+      <% end %>
+
       <%= render partial: 'display_5content', locals: {content: @animes, search_term: params[:q] } %>
     <% else %>
-      <h3 class="mt-4 ml-3"> No result found for '<%= params[:q] %>' in Animes! </h3>
+      <h3 class="mt-4 ml-3">No result found in Animes!</h3>
     <% end %>
     <% unless(@mangas.empty? || @mangas.nil?) %>
+      <% if ( !params[:q].nil?) %>
+        <% if(params[:q] == '' ) %>
+          <h3 class="mt-4 ml-3"> The results for everything in Mangas!</h3>
+        <% else %>
+          <h3 class="mt-4 ml-3"> The results for '<%= params[:q] %>' in Mangas!</h3>
+        <% end %>
+      <% elsif ( !params[:year].nil? && params[:genres_id].nil?) %>
+        <h3 class="mt-4 ml-3"> The results after '<%= params[:year] %>' in Mangas!</h3>
+      <% elsif ( !params[:genres_id].nil? && params[:year].nil?) %>
+        <h3 class="mt-4 ml-3"> The results for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            '<%= Genre.find(params[:genres_id]).first.name %>'
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %> in Mangas!</h3>
+      <% elsif ( !params[:genres_id].nil? && !params[:year].nil?) %>
+        <h3 class="mt-4 ml-3"> The results for
+        <% for genre in Genre.find(params[:genres_id]) %>
+          <% if (params[:genres_id].length == 1) %>
+            '<%= Genre.find(params[:genres_id]).first.name %>'
+          <% else %>
+            <% if(genre == Genre.find(params[:genres_id]).last) %>
+              and '<%= genre.name %>'
+            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
+              '<%= genre.name %>'
+            <% else %>
+              '<%= genre.name%>',
+            <% end %>
+          <% end %>
+        <% end %> after '<%= params[:year] %>' in Animes!</h3>
+      <% elsif ( !params[:season].nil?) %>
+        <h3 class="mt-4 ml-3"> <%= params[:season].upcase_first %> Season's Mangas!</h3>
+      <% end %>
+
       <%= render partial: 'display_5content', locals: {content: @mangas, search_term: params[:q] } %>
     <% else %>
-      <h3 class="mt-4 ml-3"> No result found for '<%= params[:q] %>' in Mangas! </h3>
+    <h3 class="mt-4 ml-3">No result found in Mangas!</h3>
     <% end %>
   <% else %>
-    <h3 class="mt-4 container"> I couldn't find '<%= params[:q] %>' in anywhere! </h3>
-  <% end %>
-<% end %>
-
-<% unless (params[:season].nil?) %>
-  <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= params[:season].upcase_first %> season <%= pluralize_contents(@animes) %></h3>
-      <%= render partial: 'display_5content', locals: { content: @animes } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season anime! </h3>
-    <% end %>
-    <% unless(@mangas.empty? || @mangas.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= params[:season].upcase_first %> season <%= pluralize_contents(@mangas) %></h3>
-      <%= render partial: 'display_5content', locals: { content: @mangas } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> There is no <%= params[:season] %> season manga! </h3>
-    <% end %>
-  <% else %>
-    <h3 class="mt-4 container"> I couldn't find anything for <%= params[:season] %> season! </h3>
-  <% end %>
-<% end %>
-
-<% if ( !params[:year].nil? && params[:genres_id].nil? ) %>
-  <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@animes).upcase_first %> that started after <%= params[:year] %> </h3>
-      <%= render partial: 'display_5content', locals: { content: @animes } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> There is no anime that started after <%= params[:year] %>! </h3>
-    <% end %>
-    <% unless(@mangas.empty? || @mangas.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@mangas).upcase_first %> that started after <%= params[:year] %> </h3>
-      <%= render partial: 'display_5content', locals: { content: @mangas } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> There is no manga that started after <%= params[:year] %>! </h3>
-    <% end %>
-  <% end %>
-<% elsif ( !params[:genres_id].nil? && params[:year].nil?) %>
-  <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> Here <%= is_or_are(@animes) %> the result for
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and '<%= genre.name %>'
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              '<%= genre.name %>'
-            <% else %>
-              '<%= genre.name%>',
-            <% end %>
-          <% end %>
-        <% end %>
-        in <%= pluralize_contents(@animes) %>!
-      </h3>
-      <%= render partial: 'display_5content', locals: { category: 'Genre', content: @animes, search_term: params[:genres_id] } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> No result found for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name%>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %> in Animes!
-      </h3>
-    <% end %>
-    <% unless(@mangas.empty? || @mangas.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> Here <%= is_or_are(@mangas) %> the result for
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and '<%= genre.name %>'
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              '<%= genre.name %>'
-            <% else %>
-              '<%= genre.name%>',
-            <% end %>
-          <% end %>
-        <% end %>
-        in <%= pluralize_contents(@mangas) %>!
-      </h3>
-      <%= render partial: 'display_5content', locals: { category: 'Genre', content: @mangas, search_term: params[:genres_id] } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> No result found for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name%>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %> in Mangas! 
-      </h3>
-    <% end %>
-  <% else %>
-    <h3 class="mt-4 container"> I couldn't find anything for 
-      <% for genre in Genre.find(params[:genres_id]) %>
-        <% if (params[:genres_id].length == 1) %>
-          <%= Genre.find(params[:genres_id]).first.name %>!
-        <% else %>
-          <% if(genre == Genre.find(params[:genres_id]).last) %>
-            and <%= genre.name %>!
-          <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-            <%= genre.name%>
-          <% else %>
-            <%= genre.name%>,
-          <% end %>
-        <% end %>
-      <% end %>
-    </h3>
-  <% end %>
-<% elsif ( !params[:genres_id].nil? && !params[:year].nil?) %>
-  <% unless( @animes.empty? && @mangas.empty?) %>
-    <% unless(@animes.empty? || @animes.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@animes).upcase_first %> from <%= params[:year] %> for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name %>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %>
-      </h3>
-      <%= render partial: 'display_5content', locals: { content: @animes } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> I couldn't find anything for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name%>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %> after <%= params[:year] %> in anime! </h3>
-    <% end %>
-    <% unless(@mangas.empty? || @mangas.nil?) %>
-      <h3 class="margin-top-2 margin-left-1"> <%= pluralize_contents(@mangas).upcase_first %> from <%= params[:year] %> for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name %>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %>
-      </h3>
-      <%= render partial: 'display_5content', locals: { category: 'Genre&Year', content: @mangas, search_term: [params[:genres_id], params[:year]] } %>
-    <% else %>
-      <h3 class="mt-4 ml-3"> I couldn't find anything for 
-        <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name%>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %> after <%= params[:year] %> in manga! </h3>
-    <% end %>
-  <% else %>
-    <h3 class="mt-4 container"> I couldn't find anything for <% for genre in Genre.find(params[:genres_id]) %>
-          <% if (params[:genres_id].length == 1) %>
-            <%= Genre.find(params[:genres_id]).first.name %>
-          <% else %>
-            <% if(genre == Genre.find(params[:genres_id]).last) %>
-              and <%= genre.name %>
-            <% elsif( genre == Genre.find(params[:genres_id])[Genre.find(params[:genres_id]).length-2]) %>
-              <%= genre.name%>
-            <% else %>
-              <%= genre.name%>,
-            <% end %>
-          <% end %>
-        <% end %> after <%= params[:year] %>! </h3>
+    <h3 class="mt-4 ml-3">No result found in Animes and Mangas!</h3>
   <% end %>
 <% end %>
