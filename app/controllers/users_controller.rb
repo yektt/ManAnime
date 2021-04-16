@@ -57,6 +57,8 @@ class UsersController < ApplicationController
   def admin
     @user.role = "admin"
     @user.save!
+
+    redirect_to @user
   end
   
   private
