@@ -1063,7 +1063,7 @@ reply5 = Reply.create!(reply_body: "How come!!",
 
 ##### Creating ratings & reviews
 #--- Creating only ratings
-review1 = Review.create!(review_body: "In the begging, I really didn't enjoy but after the anime turned out super good! Highly recommended!!", categories:"General, Anime", user: admin, content: Violet_anime)
+review1 = Review.create!(review_body: "In the beginning, I really didn't enjoy but after the anime turned out super good! Highly recommended!!", categories:"General, Anime", user: admin, content: Violet_anime)
 review2 = Review.create!(review_body: "Super duper nice musics!! Specially the movies musics are the best! I memorized them already!!", categories:"Music", user: registered1, content: Demon_Slayer_manga)
 ### end of creating reviews & ratings
 review_with_rating1 = Review.create!(review_body: "There is a list on the Spotify, someone has collected all songs of this anime and it's so nice to listen while working.. uwu", rating: 10,categories:"Music", user: registered2, content: Shigatsu_wa_kimi_no_uso_anime)
