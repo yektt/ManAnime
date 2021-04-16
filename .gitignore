@@ -4,3 +4,4 @@ tmp/*
 db/development.sqlite3
 *.sqlite3
 public/uploads/*
+public/assets
