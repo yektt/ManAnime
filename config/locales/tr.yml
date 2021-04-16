@@ -1,7 +1,7 @@
 tr:
   about: 'Hakkında'
-  Action: 'Aksiyon'
-  Adventure: 'Macera'
+  action: 'Aksiyon'
+  adventure: 'Macera'
   add: 'Ekle'
   add_anime: 'Anime Ekle'
   add_character: 'Karakter Ekle'
@@ -20,15 +20,15 @@ tr:
 
   chapters: 'Bölüm'
   contact: 'İletişim'
-  Comedy: 'Komedi'
+  comedy: 'Komedi'
   coming_soon: 'Çok yakında'
 
-  Drama: 'Dram'
+  drama: 'Dram'
 
-  Ecchi: 'Ecchi'
+  ecchi: 'Ecchi'
   episodes: 'Bölüm'
 
-  Fantasy: 'Fantezi'
+  fantasy: 'Fantezi'
   five: 'beş'
 
   genres: 'Türler'
@@ -36,7 +36,7 @@ tr:
   hello: 'Merhaba'
   help: 'Yardım'
   home: 'Anasayfa'
-  Horror: 'Korku'
+  horror: 'Korku'
 
   in animes: 'Animeler'
   in mangas: 'Mangalar'
@@ -45,14 +45,14 @@ tr:
   login: 'Giriş yap'
   logout: 'Oturumu kapat'
 
-  Mahou_Shoujo: 'Büyülü Kız'
+  mahou shoujo: 'Büyülü Kız'
   manga: 'manga'
   mangas: 'manga'
-  Mecha: 'Mecha'
+  mecha: 'Robotlar'
   most_popular: 'En popüler'
   most_recent: 'En yeni'
-  Music: 'Müzik'
-  Mystery: 'Gizem'
+  music: 'Müzik'
+  mystery: 'Gizem'
   no result anime: 'Animeler için bu aramada sonuç bulunamadı'
   no result both: 'Anime ya da Manga bulunamadı'
   no result manga: 'Mangalar için bu aramada sonuç bulunamadı'
@@ -60,7 +60,7 @@ tr:
   not_completed: 'bitmemiş'
 
   profile: 'Hesabım'
-  Psychological: 'Psikolojik'
+  psychological: 'Psikolojik'
 
   reports: 'Raporlar'
   result_search_term_anime: "'%{param}' için bulunan Animeler"
@@ -73,23 +73,23 @@ tr:
   result_season_anime: "%{param} Sezonu Animeleri!"
   result_season_manga: "%{param} Sezonu Mangaları!"
 
-  Romance: 'Romatik'
+  romance: 'Romatik'
   rules: 'Kurallar'
 
-  Sci_fi: 'Bilim Kurgu'
+  sci_fi: 'Bilim Kurgu'
   search: 'Arama'
   search_button: 'Arama yap'
   search_placeholder: 'İsim ya da tage göre arama yap'
   search_starting_from: 'Şu tarihten itibaren ara'
   season: 'Sezon'
-  Sports: 'Spor'
-  Slice of Life: 'Hayattan Kesitler'
+  sports: 'Spor'
+  slice of life: 'Hayattan Kesitler'
   signup: 'Kaydol'
   start_date: 'Başlama tarihi'
-  Supernatural: 'Doğaüstü'
+  supernatural: 'Doğaüstü'
 
   tags: 'Tagler'
-  Thriller: 'Gerilim'
+  thriller: 'Gerilim'
   
   welcoming_add_page: 'Ne eklemek istersin?'
 

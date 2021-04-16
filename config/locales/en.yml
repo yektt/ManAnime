@@ -1,7 +1,7 @@
 en:
   about: 'About'
-  Action: 'Action'
-  Adventure: 'Adventure'
+  action: 'Action'
+  adventure: 'Adventure'
   add: 'Add'
   add_anime: 'Add Anime'
   add_character: 'Add Character'
@@ -20,15 +20,15 @@ en:
 
   chapter: 'Chapter'
   contact: 'Contact'
-  Comedy: 'Comedy'
+  comedy: 'Comedy'
   coming_soon: 'Coming soon'
 
-  Drama: 'Drama'
+  drama: 'Drama'
 
-  Ecchi: 'Ecchi'
+  ecchi: 'Ecchi'
   episodes: 'Episodes'
 
-  Fantasy: 'Fantasy'
+  fantasy: 'Fantasy'
   five: 'five'  
 
   genres: 'Genres'
@@ -36,7 +36,7 @@ en:
   hello: 'Hello'
   help: 'Help'
   home: 'Home'
-  Horror: 'Horror'
+  horror: 'Horror'
 
   in animes: 'in Animes'
   in mangas: 'in Mangas'
@@ -45,14 +45,14 @@ en:
   login: 'Log in'
   logout: 'Log out'
 
-  Mahou_Shoujo: 'Mahou Shoujo'
+  mahou_shoujo: 'Mahou Shoujo'
   manga: 'manga'
   mangas: 'mangas'
-  Mecha: 'Mecha'
+  mecha: 'Mecha'
   most_popular: 'Most popular'
   most_recent: 'Most recent'
-  Music: 'Music'
-  Mystery: 'Mystery'
+  music: 'Music'
+  mystery: 'Mystery'
   no result anime: 'No result found in Animes'
   no result both: 'No result found in Animes and Mangas'
   no result manga: 'No result found in Mangas'
@@ -60,7 +60,7 @@ en:
   not_completed: 'not completed'
 
   profile: 'Profile'
-  Psychological: 'Psychological'
+  psychological: 'Psychological'
 
   reports: 'Reports'
   result_search_term_anime: "The results for '%{param}' in Animes"
@@ -73,23 +73,23 @@ en:
   result_season_anime: "%{param} Season's Animes!"
   result_season_manga: "%{param} Season's Mangas!"
 
-  Romance: 'Romance'
+  romance: 'Romance'
   rules: 'Rules'
 
-  Sci_fi: 'Sci_fi'
+  sci_fi: 'Sci_fi'
   search: 'Search'
   search_button: 'Search'
   search_placeholder: 'Search with name or tag'
   search_starting_from: 'Search starting from'
   season: 'Season'
-  Sports: 'Sports'
-  Slice of Life: 'Slice of Life'
+  sports: 'Sports'
+  slice of Life: 'Slice of Life'
   signup: 'Sign up'
   start_date: 'Start date'
-  Supernatural: 'Supernatural'
+  supernatural: 'Supernatural'
 
   tags: 'Tags'
-  Thriller: 'Thriller'
+  thriller: 'Thriller'
   
   welcoming_add_page: 'What do you want to add?'
 
