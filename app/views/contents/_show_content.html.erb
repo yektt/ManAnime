@@ -138,7 +138,7 @@
         <div id="comment-<%= comment.id %>">
           <div class="d-flex flex-row mt-4">
             <div class="col-md-1 p-0 mr-3">
-              <%= link_to image_tag(comment&.user&.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user), class:'p-0' %>
+              <%= link_to image_tag(comment.user.avatar, alt: "Avatar for #{comment.user.name}", class: 'card-img'), user_path(comment.user), class:'p-0' %>
             </div>
             <div class="flex-fill pl-3 border-left">
               <div id="user_name_and_date" class="d-flex row justify-content-between mb-2">
@@ -304,7 +304,7 @@
 
             <fieldset class="row">
               <div class="col-md-1 p-0 mr-3 mt-1">
-                <%= image_tag comment&.user&.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
+                <%= image_tag comment.user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
                 <%= form.text_area(:comment_body, class: 'form-control pre-wrap', rows: 4, autocomplete: 'off') %>
