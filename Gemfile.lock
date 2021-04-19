@@ -82,6 +82,8 @@ GEM
     ffi (1.13.1-java)
     ffi (1.13.1-x64-mingw32)
     ffi (1.13.1-x86-mingw32)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     geckodriver-helper (0.24.0)
       archive-zip (~> 0.7)
     globalid (0.4.2)
@@ -241,6 +243,7 @@ DEPENDENCIES
   capybara (~> 3.18)
   carrierwave (~> 1.1.0)
   coffee-rails (~> 4.2)
+  figaro
   geckodriver-helper
   jbuilder (~> 2.5)
   kaminari
