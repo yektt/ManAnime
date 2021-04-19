@@ -73,3 +73,4 @@ gem 'mail_form'
 gem 'kaminari'
 #For AWS
 gem "figaro"
+gem "fog-aws"
