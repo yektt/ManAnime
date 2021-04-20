@@ -74,5 +74,3 @@ gem 'kaminari'
 #For AWS
 gem "figaro"
 gem "fog-aws"
-
-gem 'rack-cors'
