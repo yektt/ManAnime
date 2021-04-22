@@ -44,7 +44,7 @@ class SearchTest < ApplicationSystemTestCase
     within("#advanced_search") do
       click_on('Search', match: :first)
     end
-    assert page.has_content?('Adventure and Psychological')
+    assert page.has_content?('No result found')
   end
 
   test 'advanced search - two genres choosen - with result' do
@@ -55,7 +55,7 @@ class SearchTest < ApplicationSystemTestCase
     within("#advanced_search") do
       click_on('Search', match: :first)
     end
-    assert page.has_content?('Adventure and Mystery')
+    assert page.has_content?("The results for 'Adventure' and 'Mystery'")
   end
 
   test 'advanced search - only start date choosen' do
@@ -81,6 +81,6 @@ class SearchTest < ApplicationSystemTestCase
       click_on('Search', match: :first)
     end
 
-    assert page.has_content?('2010 for Adventure and Mystery')
+    assert page.has_content?("The results for 'Adventure' and 'Mystery' after '2010'")
   end
 end
