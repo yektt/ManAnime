@@ -71,8 +71,7 @@ gem 'carrierwave', '~> 1.1.0'
 gem 'mail_form'
 #For paging
 gem 'kaminari'
-#For AWS
-gem "figaro"
-gem "fog-aws"
-
+#For installing figaro
+gem 'figaro'
+gem 'fog-aws'
 gem 'aws-sdk'
