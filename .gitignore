@@ -11,8 +11,5 @@ public/assets
 !/log/.keep 
 !/tmp/.keep
 
-/log/production.log
-/log/development.log
-
 # Ignore application configuration
 /config/application.yml
