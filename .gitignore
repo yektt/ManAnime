@@ -11,8 +11,8 @@ public/assets
 !/log/.keep 
 !/tmp/.keep
 
-/log/production.rb
-/log/development.rb
+/log/production.log
+/log/development.log
 
 # Ignore application configuration
 /config/application.yml
