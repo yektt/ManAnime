@@ -304,7 +304,7 @@
 
             <fieldset class="row">
               <div class="col-md-1 p-0 mr-3 mt-1">
-                <%= image_tag comment.user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
+                <%= image_tag current_user.avatar, class: 'card-img p-0 w-100', alt: "Avatar for #{current_user.name}" %>
               </div>
               <div class="flex-fill border-left pl-3 mr-3">
                 <%= form.text_area(:comment_body, class: 'form-control pre-wrap', rows: 4, autocomplete: 'off') %>
