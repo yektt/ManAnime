@@ -94,4 +94,8 @@ Replies.createReply = function( reply ) {
 Replies.destroyReply = function( replyId, replies_length ) {
   reply = document.getElementById("reply-" + replyId);
   reply.remove();
+
+  if(replies_length == 1) {
+    document.getElementById('border-between-comment-reply').parentElement.remove(document.getElementById('border-between-comment-reply'));
+  }
 }
