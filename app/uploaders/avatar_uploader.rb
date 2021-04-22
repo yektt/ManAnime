@@ -19,11 +19,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     model.name ||= ''
 
     case 
-    when ( model.name.empty? )           then ActionController::Base.helpers.asset_path("violet")
-    when ( model.name[0].downcase < 'h') then ActionController::Base.helpers.asset_path("killua")
-    when ( model.name[0].downcase < 'n') then ActionController::Base.helpers.asset_path("kenshin")
-    when ( model.name[0].downcase < 'u') then ActionController::Base.helpers.asset_path("gaara")
-    else ActionController::Base.helpers.asset_path("violet")
+    when ( model.name.empty? )           then ActionController::Base.helpers.asset_path("violet.jpg")
+    when ( model.name[0].downcase < 'h') then ActionController::Base.helpers.asset_path("killua.jpg")
+    when ( model.name[0].downcase < 'n') then ActionController::Base.helpers.asset_path("kenshin.jpg")
+    when ( model.name[0].downcase < 'u') then ActionController::Base.helpers.asset_path("gaara.jpg")
+    else ActionController::Base.helpers.asset_path("violet.jpg")
     end
   end
   
