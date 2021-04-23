@@ -656,6 +656,10 @@
 
     .col-md-7 {
       display: unset !important;
+
+      #description_content {
+        min-height: 8rem; 
+      }
     }
     
     .card-body {
