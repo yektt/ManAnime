@@ -68,7 +68,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'localhost:3000',
+    domain:               'https://fast-mesa-32880.herokuapp.com/en/contact',
     user_name:            'mananimeteam@gmail.com',
     password:             'blldobjkqcqxetfy',
     authentication:       'plain',
