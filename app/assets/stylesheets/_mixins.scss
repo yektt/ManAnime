@@ -2,10 +2,841 @@
   .grid-container-for-5 {
     grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
   }
+
+  body {
+    font-size: 0.8rem;
+  }
+
+  #search_bar {
+    display: inline !important;
+
+    #dropdown, #advanced_search_button, div {
+      margin-left: 0 !important;
+      margin-top: 0.25rem;
+    }
+  }
+
+  #search {
+    padding: 0 !important;
+  }
+
+  #advanced_search .col-sm-2 {
+    width: 33%;
+  }
+
+  .dropdown {
+    margin: 0 0.25rem !important;
+  }
+
+    // anime and manga list pages new css declarations
+  #all_content {
+    font-size: 0.75rem;
+
+    a {
+      padding: 0 !important;
+    }
+
+    #content_name {
+      padding: 0.25rem !important;
+    }
+
+    #content_genres {
+      margin-bottom: 0 !important;
+      padding: 0 0.25rem !important;
+    }
+
+    #content_dates {
+      flex-basis: 19%;
+    }
+
+    .col-sm-2 {
+      min-height: unset;
+      width: unset;
+      flex-basis: 8%;
+
+      margin: auto 0;
+      padding: 0 0.25rem !important; 
+    }
+
+    .col-sm-6 {
+      min-height: unset;
+      width: unset;
+      flex-basis: 55%;
+    }
+
+    .col {
+      width: unset;
+    }
+
+    .col-3 {
+      width: unset;
+      flex: 0 0 35%;
+      max-width: 35%;
+      padding-right: 0.25rem;
+    }
+  }
+
+  // profile page new css declaration
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    margin-top: 0.5rem !important;
+  }
+
+  .card-body {
+    padding: 0.25rem !important;
+
+    :first-child {
+      flex-direction: column-reverse;
+      align-items: initial !important;
+
+      h3 {
+        margin-top: 0.5rem !important ;
+        margin-bottom: 0.5rem !important ;
+      }
+    }
+
+    p {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .card-title {
+      margin-top: 1rem !important;
+    }
+
+    .btn {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  .mr-3 {
+    margin-right: 0.25rem !important;
+  }
+  
+  .row {
+    flex-direction: row;
+    font-size: 0.8rem;
+  }
+
+  .col-sm-3 {
+    width: 27%;
+    padding: 0 0.25rem !important;
+    margin: auto 0 !important;
+  }
+
+  .col-sm-9 {
+    width: 73%;
+    padding: 0 0.25rem !important;
+  }
+
+  .tab-content {
+    font-size: 0.8rem;
+
+    .col-sm-1 {
+      width: 30%;
+    }
+  }
+
+  .modal {
+    overflow: scroll;
+  }
+
+  // adding content page
+  #new_content{
+    .grid-container-for-5 {
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    }
+    
+    fieldset:last-of-type {
+      align-items: center;
+
+      .col-md-3 {
+        width: 30%;
+        padding-right: 0 !important;
+      }
+      div {
+        padding-left: 0 !important;
+        width: 70%;
+      }
+    } 
+  }
+
+  .col-md-9 .col-sm-3 {
+    white-space: nowrap;
+  }
+
+  // for displaying content - show content page
+  #content_information_1 {
+    margin-bottom: 0 !important;
+    padding: 0.2rem 1rem;
+
+    content: ' ';
+    display: table !important;
+    width: auto;
+    
+    .col-md-5 {
+      float: left;
+      margin-right: 1rem;
+      width: 30%;
+      padding: 0;
+      margin: 2.5rem 1rem auto 0;
+    }
+
+    .col-md-7 {
+      display: unset !important;
+    }
+    
+    .card-body {
+      display: inline !important;
+
+      div:nth-of-type(2) {
+        display: inline !important;
+      }
+
+      .btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        border-radius: 0.2rem;
+      }
+    }
+  }
+
+  #content_information_2 {
+    .col-md-4 {
+      padding: 0.5rem !important;
+    }
+
+    .col-md-5{
+      width: 55%;
+    }
+
+    .col-md-7 {
+      width: 45%;
+    }
+
+    .grid-container-for-4 {
+      grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    }
+  }
+
+  .flex-fill{
+    width: 80%;
+  }
+
+  .icon {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  div[id^='reply-']{
+    .col-md-1 {
+      display: none;
+    }
+
+    .flex-fill{
+      width: 100%;
+    }
+  }
+  
+  div[id^='comment-'], div[id^='review-']{
+    .col-md-1 {
+      width: 20%;
+      padding-right: 0.5rem !important;
+    }
+  }
+
+  #new_comment{
+    .col-md-1 {
+      display: none;
+    }
+  }
+
+  #adding_comment .no-gutters {
+    .col-6 {
+      display:none;
+    }
+    p {
+      margin-right: 0 !important;
+    }
+  }
+
+  // giving a new styling to review
+  #review {
+    .col-md-10 {
+      width: 80%;
+      flex: unset;
+    }
+
+    .col-md-2 {
+      width: 20%;
+      padding: 0 !important;
+      p {
+        margin: auto 0 !important;
+      }
+    }
+  }
+  // new styling to review tab - adding new review
+  #adding_review {
+    .col-md-12 {
+      padding: 0 !important;
+    }
+
+    .col-md-1 {
+      display: none;
+    }
+
+    .no-gutters {
+      .col-md-6 {
+        display: none;
+      }
+
+      p {
+        margin-left: 0 !important;
+      }
+    }
+  }
+
+  #rating_radio_buttons .grid-container-for-5 {
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  }
+
+  #review_categories .grid-container-for-5 {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+
+  // changing all textarea's font-size and button size here
+  // these areas all same for updating a comment, new review, new reply, new comment part of the page
+  form[id^='edit_comment'], form[id^='new_review'], #new_reply, #new_comment {
+    fieldset:first-of-type {
+      width: 100% !important;
+      font-size: 0.8rem;
+
+      textarea {
+        font-size: 0.8rem;
+      }
+    }
+
+    .btn {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  form[id^='edit_content'] {
+    margin-bottom: 8rem !important;
+    textarea, input {
+      font-size: 0.8rem;
+    }
+    .btn {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+    .grid-container-for-5 {
+      grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    }
+
+    .col-md-3 {
+      width: 30%;
+      white-space: nowrap;
+    }
+
+    fieldset:last-child {
+      a {
+        width: 30%;
+      }
+      .col-md-9 {
+        width: 70%;
+      }
+    }
+  }
+
+  form[id^='edit_character'] {
+    margin-bottom: 8rem !important;
+    textarea, input {
+      font-size: 0.8rem;
+    }
+  }
+
+  form[id^='edit_user'] {
+    margin-bottom: 8rem !important;
+    textarea, input {
+      font-size: 0.8rem;
+    }
+  }
+
+  div[id^='report-'] {
+    margin-top: 0.8rem;
+    .button {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  // this id has been used for user name - date - delete icon's line.
+  // and used for replies, reviews, comments
+  #user_name_and_date {
+    p {
+      flex-grow: 1;
+      text-align: start;
+      margin-left: 0.25rem !important;
+      margin-right: 0.5rem !important;
+      padding-left: 0.5rem;
+    }
+    div {
+      flex-grow: 1;
+      text-align: right;
+    }
+  }
+
+  #character_info .button {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+  }
+
+  header {
+    font-size: 1rem;
+    line-height: 2.2;
+    .admin-nav-link {
+      display: inline;
+    }
+  }
+
+  footer{
+    font-size: 1rem;
+    .admin-nav-link {
+      display: inline;
+    }
+
+    .align-items-center {
+      align-items: flex-start !important;
+    }
+    
+    #locale ul {
+      flex-direction: row;
+
+      li {
+        margin-left: 1rem;
+      }
+    }
+    #copy_right{
+      flex-grow: 1;
+
+      p {
+        align-self: center;
+      }
+    }
+  }
 }
+
 
 @media screen and (min-width: 576px) and (max-width:992px) {
   .grid-container-for-5 {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+
+  header {
+    .navbar-brand {
+      width: 18%;
+    }
+    nav {
+      white-space: nowrap;
+
+      #navbar_header {
+        flex-wrap: wrap;
+
+        :first-child {
+          margin-right: 0 !important;
+        }
+
+        .admin-nav-link{
+          padding: 0 0.5rem;
+        }
+
+        ul:first-of-type {
+          flex-grow: 1;
+        }
+      }
+    }
+
+    ul {
+      margin-top: 0.7rem !important;
+    }
+
+
+    .container{
+      display: inline !important;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+  }
+
+  body {
+    font-size: 0.9rem;
+  }
+  
+  .margin-bottom-5 {
+    margin-bottom: 10rem;
+  }
+  
+  // for search page 
+  #search_bar {
+    display: inline !important;
+
+    #dropdown, #advanced_search_button, div {
+      margin-left: 0 !important;
+      margin-top: 0.25rem;
+    } 
+  }
+
+  #search {
+    padding: 0 !important;
+  }
+
+  #advanced_search .col-sm-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    white-space: nowrap;
+  }
+
+  // -- search page ends
+    
+  // for anime and manga list pages' new css declaration
+  #all_content {
+    font-size: 0.75rem;
+
+    a {
+      padding: 0 !important;
+    }
+
+    #content_name {
+      padding: 0.25rem !important;
+    }
+
+    #content_genres {
+      margin-bottom: 0 !important;
+      padding: 0 0.25rem !important;
+    }
+
+    #content_dates {
+      flex-basis: 19%;
+    }
+
+    .col-sm-2 {
+      min-height: unset;
+      width: unset;
+      flex-basis: 8%;
+
+      margin: auto 0;
+      padding: 0 0.25rem !important; 
+    }
+
+    .col-sm-6 {
+      min-height: unset;
+      width: unset;
+      flex-basis: 55%;
+    }
+
+    .col {
+      width: unset;
+    }
+
+    .col-3 {
+      width: unset;
+      flex: 0 0 35%;
+      max-width: 35%;
+      padding-right: 0.25rem;
+    }
+  }
+
+  // for profile page
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-body {
+    padding-left: 0.25rem !important;
+
+    :first-child {
+      flex-direction: column-reverse;
+      align-items: initial !important;
+    }
+    
+    .card-title {
+      margin-top: 0.75rem !important;
+    }
+  }
+
+  .mr-3 {
+    margin-right: 0.25rem !important;
+  }
+  
+  .row {
+    flex-direction: row;
+    font-size: 0.8rem;
+  }
+
+  // for styling the anime and manga tabs
+  .col-sm-3 {
+    flex: 0 0 30%;
+    max-width: 30%;
+    padding: 0 0.25rem !important;
+    margin-top: auto;
+  }
+
+  .col-sm-9 {
+    flex: 0 0 70%;
+    max-width: 70%;
+    padding: 0 0.25rem !important;
+  }
+
+  .tab-content {
+    font-size: 0.9rem;
+
+    .col-sm-1 {
+      flex: 0 0 10%;
+      max-width: 10%;
+      margin: 0 0.5rem 0 !important;
+
+      a {
+        padding: 0 !important;
+      }
+    }
+
+    .pl-3 {
+      padding-left: 0.75rem !important;
+    }
+  }
+
+  .modal {
+    overflow: scroll;
+  }
+
+  // adding content page
+  #new_content{
+    .grid-container-for-5 {
+      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    }
+  }
+
+  // for displaying content - show content page
+  #content_information_1 {
+    margin-bottom: 0 !important;
+    padding: 0.2rem 1rem;
+
+    content: ' ';
+    display: table !important;
+    width: auto;
+    
+    .col-md-5 {
+      float: left;
+      margin-right: 1rem;
+      width: 40%;
+      padding: 0;
+      margin: 2.5rem 1rem auto 0;
+    }
+
+    .col-md-7 {
+      display: unset !important;
+    }
+    
+    .card-body {
+      display: inline !important;
+
+      div:nth-of-type(2) {
+        display: inline !important;
+      }
+      .btn {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        border-radius: 0.2rem;
+      }
+    }
+  }
+
+  #content_information_2 {
+    .col-md-4 {
+      width: 40%;
+      padding: 0.5rem !important;
+    }
+
+    .col-md-8, .col-md-5{
+      width: 60%;
+    }
+
+    .col-md-7 {
+      width: 40%;
+    }
+
+    .grid-container-for-4 {
+      grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+    }
+  }
+
+  div[id^='comment-'], div[id^='review-']{
+    .col-md-1 {
+      width: 20%;
+      padding-right: 0.5rem !important;
+    }
+    .flex-fill {
+      flex: 1 1 80% !important;
+    }
+  }
+
+  div[id^='reply-']{
+    .col-md-1 {
+      margin-right: 0.5rem !important;
+    }
+  }
+
+  .no-gutters {
+    .col-6 {
+      flex: 0 0 10%;
+    }
+    p {
+      margin-right: 0 !important;
+    }
+  }
+
+  #new_comment {
+    .col-md-1 {
+      width: 12%;
+    }
+  }
+
+  // giving a new styling to review
+  #review {
+    .col-md-10 {
+      width: 80%;
+      flex: unset;
+    }
+
+    .col-md-2 {
+      width: 20%;
+      padding: 0 !important;
+      p {
+        margin: auto 0 !important;
+      }
+    }
+  }
+  // new styling to review tab - adding new review
+  #adding_review {
+    .col-md-12 {
+      padding: 0 !important;
+    }
+
+    .col-md-1 {
+      width: 12%;
+      margin-top: auto;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  #rating_radio_buttons .grid-container-for-5 {
+    margin-top: 1rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  }
+
+  #review_categories .grid-container-for-5 {
+    margin-top: 1rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
+
+  // changing all textarea's font-size and button size here
+  // these areas all same for updating a comment, new review, new reply, new comment part of the page
+  form[id^='edit_comment'], form[id^='new_review'], #new_reply, #new_comment {
+    fieldset:first-of-type {
+      width: 100% !important;
+      font-size: 0.9rem;
+
+      textarea {
+        font-size: 0.9rem;
+      }
+    }
+    .btn {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  div[id^='report-'] {
+    margin-top: 1rem;
+    .button {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  // edit content page
+  form[id^='edit_content'] {
+    margin-bottom: 6rem !important;
+    textarea, input {
+      font-size: 0.9rem;
+    }
+    
+    .grid-container-for-5 {
+      grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+    }
+
+    .col-md-3 {
+      width: 30%;
+      white-space: nowrap;
+    }
+
+    fieldset:last-child {
+      a {
+        width: 20%;
+      }
+      .col-md-9 {
+        width: 80%;
+      }
+    }
+
+    .btn {
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      line-height: 1.2;
+      border-radius: 0.2rem;
+    }
+  }
+
+  footer{
+    .container {
+      flex-direction: column;
+      align-items: stretch !important;
+      padding-right: 0.8rem;
+    }
+    .navbar-brand {
+      width: 18%;
+    }
+    .container .mt-1{
+      margin-top: 0 !important;
+    }
+    .admin-nav-link {
+      padding: 0;
+    }
   }
 }
