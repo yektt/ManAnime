@@ -1,5 +1,11 @@
 @media screen and (max-width: 576px) {
+  .grid-container-for-5 {
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+  }
 }
 
 @media screen and (min-width: 576px) and (max-width:992px) {
+  .grid-container-for-5 {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
 }
