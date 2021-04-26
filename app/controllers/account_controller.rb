@@ -3,6 +3,7 @@ class AccountController < ApplicationController
   before_action :find_user
 
   def edit
+    flash.discard
     @user = User.find(params[:id])
   end
 
