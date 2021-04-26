@@ -69,8 +69,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'mananime.herokuapp.com',
-    user_name:            ENV["MAIL_ACCOUNT_NAME"],
-    password:             ENV["MAIL_APP_PASS"],
+    user_name:            'mananimeteam@gmail.com',
+    password:             'blldobjkqcqxetfy',
     authentication:       'plain',
     enable_starttls_auto: true  
   }
