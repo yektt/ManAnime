@@ -1,1 +1,140 @@
-This page will be mixture of terms & condition and help page. It explains what is forbidden to do and what a user can do as a registered user in detail.
+<div class="container col-md-10">
+  <p class="mt-5">Welcome to ManAnime dear anime-manga lover! </p>
+
+  <p class="mt-2">We have some rules to prevent any issues between users. By signing up to the application, you are accepting these rules. You can find these rules in 'Rules' section.</p>
+  <p class="mt-2">For newly joined users, we have 'How To?' section below to explain how things work in the application.</p>
+
+  <h6 class="mt-3">Rules </h6>
+  <p class="mt-2 m-0">- You cannot use bad, curse, racist, sexist words or any words that make someone upset in your comments, replies or reviews. Otherwise you will be banned and your comment, reply or review that containing these words will be deleted!</p>
+  <p class="mt-2 m-0">- You cannot make fun of any religion.</p>
+  <p class="mt-2 m-0">- You cannot encourage someone to use any addictive material.</p>
+  <p class="mt-3 m-0">* We highly recommend to our all beloved users to not share your personal information such as phone number, living address, etc.</p>
+
+  <h6 class="mt-3">How To?</h6>
+  <p class="mt-2 m-0">- Sign up</p>
+  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" href="<%= new_user_path %>">Sign up</a> page to create a new account on the application. </p>
+  <p class="mt-2 ml-2 mb-0"> You need to write an email and choose a password to signup in the application. After that you will receive a welcoming e-mail to the written e-mail address.</p>
+
+  <p class="mt-4 m-0">- Log in</p>
+  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" href="<%= new_session_path %>">Log in</a> page to log in to the application. </p>
+  <p class="mt-2 ml-2 mb-0"> You need to write the email and password that you used for signing up to the application.</p>
+
+  <p class="mt-4 m-0">- Search</p>
+  <p class="mt-2 ml-2 mb-0"> You don't need to have an account to make search.</p>
+  <p class="mt-2 ml-2 mb-0"> You can write whatever you want to search to the search bar in the <a class="p-0" href="<%= search_path %>">Search</a> page. The written term will be searched through all animes and mangas names and their tags automatically.</p>
+  <p class="mt-2 ml-2 mb-0">You can use 'Advanced Search' button to make a detailed search. In advanced search, you have three options available; </p>
+    <ol class="mt-2 ml-2 mb-0">
+      <li>making a search with genres</li>
+      <li>making a search after a certain year for start date of the animes or mangas</li>
+      <li>making a search with genres with a certain year for start date of the animes or mangas</li>
+    </ol>
+
+  <p class="mt-4 m-0">- Anime List</p>
+  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" href="<%= anime_list_path %>">Anime List</a> page, you can find all animes. There will be four sections in this page.</p>
+    <ol class="mt-2 ml-2 mb-0">
+      <li>most popular animes list, there will be 5 at maximum</li>
+      <li>most recent animes list, there will be 5 at maximum</li>
+      <li>most popular & not completed animes list, there will be 5 at maximum</li>
+      <li>after these three lists, there will be 'All Animes' section that will display all animes with some details.</li>
+    </ol>
+
+  <p class="mt-4 m-0">- Manga List</p>
+  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" href="<%= manga_list_path %>">Manga List</a> page, you can find all mangas. There will be four sections in this page.</p>
+    <ol class="mt-2 ml-2 mb-0">
+      <li>most popular mangas list, there will be 5 at maximum</li>
+      <li>most recent mangas list, there will be 5 at maximum</li>
+      <li>most popular & not completed mangas list, there will be 5 at maximum</li>
+      <li>after these three lists, there will be 'All Mangas' section that will display all mangas with some details.</li>
+    </ol>
+
+  <p class="mt-4 m-0">- Adding a comment to a content & comments attributes</p>
+  <p class="mt-2 ml-2 mb-0"> After logged in successfully, you will be able to write comments under any anime-manga.</p>
+  <p class="mt-2 ml-2 mb-0"> For comments, there are some icons that you can use. These are; </p>
+    <ul class="list-unstyled pl-4"> 
+      <li>- delete icon (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete") %> "></use>
+        </svg> ) : Only owner of the comment can see this icon. If a comment is deleted, its all replies will be deleted as well. 
+      </li>
+
+      <li class="mt-2">- reply icon (
+        <svg class="icon" role="presentation">
+         <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
+        </svg> ) : when you click this icon, a field will appear and you can write down your reply here. <br> If you do not want to add the reply, you can click the icon again and field will disappear. <br> Included the owner of the comment, everybody can write a reply to any comment.
+      </li>
+
+      <li class="mt-2">- report icon (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report") %> "></use>
+        </svg>) : you can report a comment if the comment contains forbidden words that we explained in the Rules section at the top.
+        <br> ! If a user reports comments without valid reason more than five times, they will be banned from the application without any further warning!
+      </li>
+        ! You cannot see reporting icon if you're the owner of the comment.
+
+      <li class="mt-2">- downvote icon (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#downvote") %> "></use>
+        </svg>) : If you did not like a comment, you can downvote it by clicking this icon. When you click this icon, it will fill with red (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#filled-downvote") %> "></use>
+        </svg>).
+      </li>
+
+      <li class="mt-2">- upvote icon (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#upvote") %> "></use>
+        </svg>) : If you like a comment a lot, you can upvote it with clicking this icon. When you click this icon, it will fill with green (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#filled-upvote") %> "></use>
+        </svg>).
+      </li>
+      ! You can vote once a comment. <br>
+      ! You can change your vote from upvote to downvote and downvote to upvote. But you cannot delete your voting.
+      ! You cannot see voting icons if you're the owner of the comment.
+
+      <li class="mt-2">- edit icon (<svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit") %> "></use>
+        </svg>) : Only owner of the comment can see this icon. They can edit they comments as their wish. When you click this icon, a field will appear filled with your previous comment. You can make changes on them and submit it again via 'Update Comment' button.
+      </li>
+    </ul>
+
+  <p class="mt-4 m-0">- Adding a reply</p>
+  <p class="mt-2 ml-2 mb-0"> After logged in successfully, you will be able to write replies under any comments unless the owner of the comment has been banned from the application.</p>
+  <p class="mt-2 ml-2 mb-0"> For replies, there is one icon that you can use if you're the owner of the reply. </p>
+    <ul class="list-unstyled pl-4"> 
+      <li>- delete icon (
+        <svg class="icon" role="presentation">
+          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#delete") %> "></use>
+        </svg> ) : Only owner of the reply can see this icon. 
+      </li>
+    </ul>
+
+  <p class="mt-4 m-0">- Adding a review</p>
+  <p class="mt-2 ml-2 mb-0"> After logged in successfully, you will be able to write reviews for any anime or manga.</p>
+  <p class="mt-2 ml-2 mb-0"> There are two ways to make review on a content. You can make a review without rating or with rating.</p>
+    <ul class="list-unstyled pl-4"> 
+      <li>- making review without rating: You can write your review and you can submit it without adding a rating. But, you have to fill the review field and you need to choose the category of the review. </li> 
+
+      <li>- making review with rating: You can write your review and you can submit it with adding a rating. But, you have to fill the review field and you need to choose the category of the review. Also, you can rate a content one time! If you changed your mind and would like to rate it again, you have to delete your first review with rating. After that, you will be able to make a review with rating again. </li>
+    </ul>
+
+  <p class="mt-4 m-0">- Profile page</p>
+  <p class="mt-2 ml-2 mb-0"> In the profile page of yours, you can see an 'edit' button up right corner. Other than you, nobody (admins included) can see-use that button.</p>
+  <p class="mt-2 ml-2 mb-0"> First part of the profile page has
+    <ul class="list-unstyled pl-4">
+      <li>your information as your name and profile picture,</li>
+      <li>how much anime and manga have you added to your lists,</li>
+      <li>if you have, the anime or manga on which you last commented,</li>
+      <li>how many days have you been registered,</li>
+      <li>and which type of account do you have as registered, banned, admin.</li>
+    </ul>
+
+  <p class="mt-4 m-0">- Editing profile page</p>
+  <p class="mt-2 ml-2 mb-0"> Only owner of the profile can reach this page. Owner can change the name and the profile picture via this page.</p>
+  
+  <p class="mt-4 m-0">- Contact page</p>
+  <p class="mt-2 ml-2 mb-0">If you would like be part of our team, have any suggestions or problems, feel free to send us a message via <a class="p-0" href="<%= contact_path %>">Contact</a> Page. Make sure that you have entered a valid email.</p>
+
+  <p class="mt-4 m-0">- Logout</p>
+  <p class="mt-2 ml-2 mb-0">Please make sure that you have logged out when you're done with the application.</p>
+</div>
