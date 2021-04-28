@@ -175,25 +175,24 @@
               <!-- icons of the comment -->
               <% if (logged_in? && !comment.user.is_blocked) %>
                 <div id="icons<%= comment.id %>" class="d-flex justify-content-end align-items-center">
-                    <svg id="reply<%= comment.id %>" class="icon ml-2 mt-1" role="presentation">
-                      <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
-                    </svg>
-                  <% if( current_user != comment.user) %>
-                    <% unless(current_user.reports.ids.include?(comment.id) && !is_admin?) %>
-                      <%= form_tag(user_reports_path(comment.id)) do %>
-                        <%= hidden_field_tag('comment_id', comment.id)%>
-                          <% if all_reports.include?(comment) %>
-                            <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
-                              <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reportDanger" ) %>"></use>
-                            </svg>
-                          <% else %>
-                            <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
-                              <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
-                            </svg>
-                          <% end %>
-                        <%= button_tag id:'submit_report' + comment.id.to_s, class:'d-none'%>
-                      <% end %>
+                  <svg id="reply<%= comment.id %>" class="icon ml-2 mt-1" role="presentation">
+                    <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
+                  </svg>
+                  <% if (current_user != comment.user) %>
+                    <%= form_tag(user_reports_path(comment.id)) do %>
+                      <%= hidden_field_tag('comment_id', comment.id)%>
+                        <% if(is_admin? && all_reports.include?(comment)) %>
+                          <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
+                            <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reportDanger" ) %>"></use>
+                          </svg>
+                        <% elsif ( !is_admin? && !current_user.reports.ids.include?(comment.id)) %>
+                          <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
+                            <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
+                          </svg>
+                        <% end %>
+                      <%= button_tag id:'submit_report' + comment.id.to_s, class:'d-none'%>
                     <% end %>
+
                     <% if(did_user_voted_this_comment(comment) == false ) %>
                       <%= link_to content_comment_votes_path(@content, comment, :vote_type=>'down'),method: :post, class:'p-0' do%>
                         <svg id="downvote" class="icon ml-2" role="presentation">
