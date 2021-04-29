@@ -1026,7 +1026,7 @@ comment2 = Comment.create!( comment_body: "Aww Violetto !! I hope she can sattle
 comment3 = Comment.create!( comment_body: "Narutoooo! Sasskeee!! Narutoooo!!! Sasskeeee!! NARUTOOOOGGG!! Lol!",
                             user: registered1, content: Naruto_anime)
 
-comment4 = Comment.create!( comment_body: "I just finised the manga and I am going to watch the anime of it!! I was amazing! OMG!",
+comment4 = Comment.create!( comment_body: "I just finised the manga and I am going to watch the anime of it!! It was amazing! OMG!",
                             user: blocked_user, content: Demon_Slayer_manga)
 
 comment5 = Comment.create!( comment_body: "Booriinng..!", 
