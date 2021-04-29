@@ -185,7 +185,7 @@
                           <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
                             <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reportDanger" ) %>"></use>
                           </svg>
-                        <% elsif ( !is_admin? && !current_user.reports.ids.include?(comment.id)) %>
+                        <% elsif ( !current_user.reports.ids.include?(comment.id)) %>
                           <svg id="report<%= comment.id %>" class="icon ml-2" role="presentation">
                             <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#report" ) %>"></use>
                           </svg>
