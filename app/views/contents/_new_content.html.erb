@@ -18,8 +18,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label :name, class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label :name, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_field :name, class: 'form-control', placeholder: placeholder %>
@@ -27,8 +27,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label :start_date, class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label :start_date, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.date_field :start_date, class: 'form-control'%>
@@ -36,7 +36,7 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
+      <div class="col-md-3 row">
         <%= form.label :end_date, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
@@ -45,8 +45,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label :tags, class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label :tags, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_field :tags, class: 'form-control'%>
@@ -55,7 +55,7 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
+      <div class="col-md-3 row">
         <%= form.label 'Link to ' + watching_or_reading, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
@@ -64,8 +64,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label :description, class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label :description, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_area :description, class: 'form-control'%>
@@ -73,8 +73,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label :image, class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label :image, class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_field :image, class: 'form-control'%>
@@ -82,8 +82,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label season_or_volume + ' Number', class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label season_or_volume + ' Number', class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_field :volume_or_season_number, class: 'form-control'%>
@@ -91,8 +91,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label episode_or_chapter + ' Number', class:'col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label episode_or_chapter + ' Number', class:'col-form-label'%>
       </div>
       <div class="col-md-9">
         <%= form.text_field :episode_or_chapter_number, class: 'form-control'%>
@@ -100,8 +100,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label 'Genres', class:' col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label 'Genres', class:' col-form-label'%>
       </div>
       <div class="col-md-9 row m-0">
         <% for genre in Genre.all.order(name: :asc) %>
@@ -122,8 +122,8 @@
     </fieldset>
 
     <fieldset class="form-group row">
-      <div class="col-md-3">
-        <%= form.label 'Characters', class:' col-form-label'%>
+      <div class="col-md-3 row">
+        *<%= form.label 'Characters', class:' col-form-label'%>
       </div>
       <div class="col-md-9 row grid-container-for-5 m-0">
         <% for character in Character.all.order(name: :asc) %>
