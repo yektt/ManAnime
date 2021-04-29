@@ -12,16 +12,16 @@
 
   <h6 class="mt-3">How To?</h6>
   <p class="mt-2 m-0">- Sign up</p>
-  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" href="<%= new_user_path %>">Sign up</a> page to create a new account on the application. </p>
+  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" target="blank" href="<%= new_user_path %>">Sign up</a> page to create a new account on the application. </p>
   <p class="mt-2 ml-2 mb-0"> You need to write an email and choose a password to signup in the application. After that you will receive a welcoming e-mail to the written e-mail address.</p>
 
   <p class="mt-4 m-0">- Log in</p>
-  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" href="<%= new_session_path %>">Log in</a> page to log in to the application. </p>
+  <p class="mt-2 ml-2 mb-0"> Please go to <a class="p-0" target="blank" href="<%= new_session_path %>">Log in</a> page to log in to the application. </p>
   <p class="mt-2 ml-2 mb-0"> You need to write the email and password that you used for signing up to the application.</p>
 
   <p class="mt-4 m-0">- Search</p>
   <p class="mt-2 ml-2 mb-0"> You don't need to have an account to make search.</p>
-  <p class="mt-2 ml-2 mb-0"> You can write whatever you want to search to the search bar in the <a class="p-0" href="<%= search_path %>">Search</a> page. The written term will be searched through all animes and mangas names and their tags automatically.</p>
+  <p class="mt-2 ml-2 mb-0"> You can write whatever you want to search to the search bar in the <a class="p-0" target="blank" href="<%= search_path %>">Search</a> page. The written term will be searched through all animes and mangas names and their tags automatically and the results will be separated as animes and mangas.</p>
   <p class="mt-2 ml-2 mb-0">You can use 'Advanced Search' button to make a detailed search. In advanced search, you have three options available; </p>
     <ol class="mt-2 ml-2 mb-0">
       <li>making a search with genres</li>
@@ -30,24 +30,24 @@
     </ol>
 
   <p class="mt-4 m-0">- Anime List</p>
-  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" href="<%= anime_list_path %>">Anime List</a> page, you can find all animes. There will be four sections in this page.</p>
+  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" target="blank" href="<%= anime_list_path %>">Anime List</a> page, you can find all animes. There will be four sections in this page.</p>
     <ol class="mt-2 ml-2 mb-0">
-      <li>most popular animes list, there will be 5 at maximum</li>
-      <li>most recent animes list, there will be 5 at maximum</li>
-      <li>most popular & not completed animes list, there will be 5 at maximum</li>
-      <li>after these three lists, there will be 'All Animes' section that will display all animes with some details.</li>
+      <li>most popular animes list, there will be 5 animes at maximum</li>
+      <li>most recent animes list, there will be 5 animes at maximum</li>
+      <li>most popular & not completed animes list, there will be 5 animes at maximum</li>
+      <li>after these three lists, there will be 'All Animes' section that will display all animes with some details of them. You can go forward or backwards by using " « First ‹ Prev 1 2 3 Next › Last » " buttons if they are present.</li>
     </ol>
 
   <p class="mt-4 m-0">- Manga List</p>
-  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" href="<%= manga_list_path %>">Manga List</a> page, you can find all mangas. There will be four sections in this page.</p>
+  <p class="mt-2 ml-2 mb-0"> In <a class="p-0" target="blank" href="<%= manga_list_path %>">Manga List</a> page, you can find all mangas. There will be four sections in this page.</p>
     <ol class="mt-2 ml-2 mb-0">
       <li>most popular mangas list, there will be 5 at maximum</li>
       <li>most recent mangas list, there will be 5 at maximum</li>
       <li>most popular & not completed mangas list, there will be 5 at maximum</li>
-      <li>after these three lists, there will be 'All Mangas' section that will display all mangas with some details.</li>
+      <li>after these three lists, there will be 'All Mangas' section that will display all mangas with some details of them. You can go forward or backwards by using " « First ‹ Prev 1 2 3 Next › Last » " buttons if they are present.</li>
     </ol>
 
-  <p class="mt-4 m-0">- Adding a comment to a content & comments attributes</p>
+  <p class="mt-4 m-0">- Adding a comment to a content & comments' attributes</p>
   <p class="mt-2 ml-2 mb-0"> After logged in successfully, you will be able to write comments under any anime-manga.</p>
   <p class="mt-2 ml-2 mb-0"> For comments, there are some icons that you can use. These are; </p>
     <ul class="list-unstyled pl-4"> 
@@ -60,7 +60,7 @@
       <li class="mt-2">- reply icon (
         <svg class="icon" role="presentation">
          <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#reply") %> "></use>
-        </svg> ) : when you click this icon, a field will appear and you can write down your reply here. <br> If you do not want to add the reply, you can click the icon again and field will disappear. <br> Included the owner of the comment, everybody can write a reply to any comment.
+        </svg> ) : when you click this icon, a field will appear and you can write down your reply here. Do not forget to send your reply, otherwise it will not apprear on the page. <br> If you do not want to add the reply, you can click the icon again and field will disappear. <br> Included the owner of the comment, everybody can write a reply to any comment.
       </li>
 
       <li class="mt-2">- report icon (
@@ -89,12 +89,12 @@
         </svg>).
       </li>
       ! You can vote once a comment. <br>
-      ! You can change your vote from upvote to downvote and downvote to upvote. But you cannot delete your voting.
+      ! You can change your vote from upvote to downvote and downvote to upvote. But you cannot delete your voting. <br>
       ! You cannot see voting icons if you're the owner of the comment.
 
       <li class="mt-2">- edit icon (<svg class="icon" role="presentation">
           <use xlink:href="<%= asset_url("icons/icons-defs.svg" + "#edit") %> "></use>
-        </svg>) : Only owner of the comment can see this icon. They can edit they comments as their wish. When you click this icon, a field will appear filled with your previous comment. You can make changes on them and submit it again via 'Update Comment' button.
+        </svg>) : Only owner of the comment can see this icon. They can edit their comments as their wish. When you click this icon, a field will appear filled with your current comment. You can make changes on them and submit it again via 'Update Comment' button.
       </li>
     </ul>
 
@@ -111,11 +111,11 @@
 
   <p class="mt-4 m-0">- Adding a review</p>
   <p class="mt-2 ml-2 mb-0"> After logged in successfully, you will be able to write reviews for any anime or manga.</p>
-  <p class="mt-2 ml-2 mb-0"> There are two ways to make review on a content. You can make a review without rating or with rating.</p>
+  <p class="mt-2 ml-2 mb-0"> There are two ways to make review on a content. You can make a review with or without a rating.</p>
     <ul class="list-unstyled pl-4"> 
-      <li>- making review without rating: You can write your review and you can submit it without adding a rating. But, you have to fill the review field and you need to choose the category of the review. </li> 
+      <li>- making review without rating: You can write your review and you can submit it without adding a rating. But, you have to fill the review field and you need to choose the category for the review. </li> 
 
-      <li>- making review with rating: You can write your review and you can submit it with adding a rating. But, you have to fill the review field and you need to choose the category of the review. Also, you can rate a content one time! If you changed your mind and would like to rate it again, you have to delete your first review with rating. After that, you will be able to make a review with rating again. </li>
+      <li>- making review with rating: You can write your review and you can submit it with adding a rating. But, you have to fill the review field and you need to choose the category of the review. Also, you can rate a content one time! If you changed your mind and would like to rate it again, you have to delete your review which contains rating. After that, you will be able to make a review with a rating again. </li>
     </ul>
 
   <p class="mt-4 m-0">- Profile page</p>
@@ -126,7 +126,7 @@
       <li>how much anime and manga have you added to your lists,</li>
       <li>if you have, the anime or manga on which you last commented,</li>
       <li>how many days have you been registered,</li>
-      <li>and which type of account do you have as registered, banned, admin.</li>
+      <li>and which type of account do you have as registered, banned or admin.</li>
     </ul>
 
   <p class="mt-4 m-0">- Editing profile page</p>
@@ -135,6 +135,6 @@
   <p class="mt-4 m-0">- Contact page</p>
   <p class="mt-2 ml-2 mb-0">If you would like be part of our team, have any suggestions or problems, feel free to send us a message via <a class="p-0" href="<%= contact_path %>">Contact</a> Page. Make sure that you have entered a valid email.</p>
 
-  <p class="mt-4 m-0">- Logout</p>
+  <p class="mt-4 m-0">- Log out</p>
   <p class="mt-2 ml-2 mb-0">Please make sure that you have logged out when you're done with the application.</p>
 </div>
